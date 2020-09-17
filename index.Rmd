@@ -1,0 +1,269 @@
+--- 
+title: "Hacking for Social Scientists"
+subtitle: "A Guide to Programming With Data"
+author: "Matthias Bannert"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point researchers to programming approaches who had not considered programming to process data so far. Hacking for Social Sciences and Humanities"
+---
+
+> "There two things users hate,
+> *change*, and the way things are."
+> `r tufte::quote_footer('--- \\@TheWierdWorld (ShowerThoughts Twitter Account)')`
+
+# Preface
+
+The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point a kind researcher to programming approaches who had not considered programming to process data so far. Hacking for Social Sciences and Humanities aims to give a big picture overview and starting point to reach what the open source software community calls a 'software carpentry' level. Also, this book argues a solid software carpentry skill level is totally in reach for most researchers. And most importantly, investing is worth the effort: being able to code leverages field specific expertise and fosters interdisciplinary collaboration as source code continues to become an important communication channel. 
+
+# Introduction - The Choice that Doesn't Matter
+
+The very first (and intimidating) choice a novice hacker faces is which is programming language to learn. Unfortunately the medium popularily summed up as the internet offers a lot of really really good advice on the matter. The problem is, however, that this advice does not necessarily agree which language is the best for research. In the realm of data science -- get accustomed to that label if you are a scientist who works with data -- the debate basically comes down to two languages: The R Language for Statistical Computing and Python. 
+
+At least to me, there is only one valid advice: **It simply does NOT matter**. If you stick around in data science long enough you will eventually get in touch with both languages and in turn learn both. There is a huge overlap of what you can with both languages. R came out rather specific to the domain of statiscs 25+ years ago and made its way to a more general programming language. Python continues to be general purpose but got more specific thanks to packages such as {pandas}, {sciPy} or {numPy}. 
+
+## Why Would Social Scientists Want to Code?
+
+First of all, because everybody and their grandmothers seem to do it. Statistical computing continues to be on the rise in many branches of social sciences. The below graph shows monthly accumulated extension package downloads for the R Language of Statistical Computing grouped by fields of research^[proxied this and that].
+Econometrics, Psychometrics, National Language Processing, Official Statistics, Social Sciences
+
+```{r, eval=TRUE}
+# add CRAN TASK VIEW Download 
+# Statistics graph here
+rnorm(10)
+```
+
+Second, because it scales. 
+
+Third because it's reproducible.
+
+Fourth because code is an international, interdisciplinary communication channel.
+
+Last but not least because of data visualization. 
+
+
+
+
+
+
+
+
+
+## How to Read this Book? 
+
+*Hacking for Social Sciences and the Humanities* is written based on the experience of helping students and seasoned researchers of different fields with their data management, processing and communication of results. A Part of the book contains the information I wish I had when I started a PhD in economics. Part of the book is written with the hindsight of 10+ years in academia. Every page of the book is written with belief that the future is OPEN and it is up to our generation of researchers to shape it. 
+
+<!-- add ad from Germany "the future is OPEN" for open data and open source -->
+
+If you came to cherry pick, you're welcome. Chapter 3 covers a discussion, Chapter 4
+Chapter 5, Chapter 6 Programming Application Examples. 
+
+
+
+# Stack - A Developer's Toolkit
+
+Just like natural craftsmen, digital carpenters depend on their toolbox and their mastery of it. 
+*Stack* is what developers call the choice of tools used in a particular project. Even though different flavors come down to personal preferences, there is a lot of common ground in *programming with data* stacks. Often a choice needs to be made in order to illustrate things, but do understand these choices as examples and focus on the role of an item in the bigger picture. In that sense, notice that not every role has to be filled in every project. 
+
+
+My Example stack of choice would be: R, R Studio, Git, PostgreSQL, Docker, Netlify, Apache Airflow.
+
+
+## Interpreter
+
+In Programmatic Statistical Computing -- at least in Social Sciences -- the interface between the researcher and the computation node is almost always an interpreted progamming language as opposed to a compiled one. 
+
+R
+
+Python virtual env
+
+
+## IDE
+
+It's certainly possible to move a four person family into a new home by public transport, but it is not covenient. The same holds for (plain) text editors in programming. You can use them, but most people would prefer an Integrated Development Environment (IDE) just like they prefer to use a truck when they move. IDEs are tailored to the needs and idiosyncrasies of a language, some working with plugins and covering multiple languages. Others have a specific focus on a single language or a group of languages. There are several good choices for Programming With Data's favorite languages R and Python. 
+
+Programming should be convenient and make the researcher feel comfortable. 
+Even if you feel at home at a messy desk and wear sweatpants while you code, be advised that investing some time to set up your working evironment well is damn sure worth the investment.
+
+For R, R Studio Desktop is the right choice for most people.
+Also their server version is great: Install it on standard Virtual Machine or use a Docker Image to run R Studio Server. Users will be able to experience the R Studio Desktop look and feel in a browser without ever installing R or R Studio. 
+
+For Python I love Visual Studio Code and also PyCharm as IDEs.
+Honorable mention goes out the Sublime Text Editor which more lightweight and blazing fast. 
+
+
+## Version Control: Git
+
+
+
+### What is Git Version Control? 
+
+Git is *not* Dropbox nor Google Drive. It does *not* sync automagically even if some Git GUI Tools suggest so. As opposed to that, a version control system allows to summarize a contribution across files and folders based on what this contribution is about. Assume you got a cool pointer from an econometrics professor at a conference and you incorporated her advice in your work. That advice is likely to affect different parts of your work: your text and your code. As opposed to syncing each of these files based on the time you saved them, version control creates a version when you decide to bundle things together and to commit the change. 
+
+### Why Use Version Control in Research? 
+
+>A version control based workflow fosters a path to your goals that rather consists of semantically relevant steps instead of random chunks based on time. 
+
+Just in case the above paragraph about what version control is not enough of a justification to use git, let me be more blatant here: Naming your files like 
+`final_version_your_name.R` or `final_final_correction_collaboratorX_20200114.R` 
+is like given your WiFi a funny to communicate with your neighbors. Like `dont_park_the_car_in_the_frontyard` or `be_quiet_at_night`. This information is supposed to be sent in a message, not a file name. With version control it is immediately clear what the most current version is - no matter the file name. No room for interpretation. No need to start guessing about the delta between current or final and most recent. 
+
+Also, you can easily try out different scenarios on different branches and merge them back together if you need to. Version control is a well established industry standard in software development. And it is relatively easy to adopt. With datasets growing in size and complexity in social sciences as well it is only natural to improve management of the code that processes these data. 
+
+**Make Sure the Programmer's Workflow Section on Git in order to**
+
+## Database: PostgreSQL
+
+## Single Purpose Environments: Docker
+
+Side Effect free working environment.
+
+
+## Communication: Netlify
+
+## Workflow Automation
+
+
+# Programmers' Practices & Workflows
+
+Just like most experienced engineers, seasoned software developers follow some kind of school or paradigm. Good programmers can even switch among approaches according to their current project's needs or depending on the team they are on. 
+
+This section does not want to give a comprehensive overview over programming concepts nor compare approaches. And damn sure it does not mean to go to war over approach superiority. *Hacking for Social Scientists* rather cherry-picks suitable application-minded, low-barrier concepts that help social scientists professionalize their own programming. 
+
+
+## Version Control
+
+>No offense, if you are new to version control, it means you are new to programming.
+
+Academia is probably the only place would allow you to dive into hacking at somewhat complex problems for several years w/o ever taking notice of version control. As a social scientist who rather collaborates in small groups and writes moderate amount of code, have you ever thought about how to collaborate with 100+ persons big software project? Or you to manage ten thousands of lines of code and beyond? Version control is just one of the reasons these things work. And it's been around for decade. Today, the decentralized version control system *git* has become the de facto standard of the open source community to manage code. 
+
+### Git Basics
+
+Git is a decentralized version control system which means all versions are stored on the local machines of every collaborator, not just on a remote server. This allows for a great workflow when it comes to putting versions together. 
+
+But let's start at the very beginning. The git programm itself is a small console programm that is typically used through the console. You can install graphical user interfaces (GUI) on top of git but doing so does not really improve your understanding of the workflow. That's why the following examples straight up use the console -- even if you might choose a GUI tool like *Tortoise*, *SourceTree* or *Github Desktop* in the end. Also, many IDEs have git integration or offer plugins at least. 
+
+
+```{r, eval=TRUE}
+# INSERT PICTURE OF A BASH HERE
+rnorm(10)
+```
+
+On the other hand you can navigate projects pretty well with about two hands full of git commands. Let us walk through the most important basic commands. 
+
+
+- git clone: clone an entire repository from remote to your local disk. This keeps the address of the remote repository it's been cloned from. Use github.com's or gitlab.com's web site to create a repository. By cloning we do not only create a local copy but also set up the remote url. Nifty.
+
+- git init: If you don't think about remote repositories and github.com accounts immediately, 
+you can make any folder a git repository, i.e., put it under version control. *Beware*: Make sure not to initialize a repository in a repository!
+
+- git add: add files to the staging area. The staging areas determines which changes will be committed when the next commit is triggered
+
+- git commit -m 'some meaningful message': Create a new version, consisting of the changes made to the files in the staging area.
+
+- git push: move all new commits to the remote repository (server). 
+
+- git pull: get all new commits to the remote repository (server). 
+
+- git checkout: Switch to another version / branch.
+
+- git log: Show list of commit messages and commit identifiers. 
+
+- git branch: Show available branches / current branch.
+
+
+### Feature Branches - How to Use Git Efficiently in Teams
+
+A very common and intuitive way to colloborate using git is to use feature branches:  
+
+
+
+
+
+
+
+
+
+
+
+
+https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
+Eric Sink Version Control by Example
+https://happygitwithr.com/
+
+
+## Project Management 
+
+## How to Document
+
+## Development (Thinking Packages)
+
+## Testing
+
+Unit tests vs. regression tests.
+
+
+
+## Deployment - Continous Integration
+
+## Operations
+
+## Collaboration
+
+
+
+# Organize & Manage Data
+
+## file based vs db
+
+## SQL vs NoSQL
+
+
+
+# Programming
+
+## General Advice
+
+## Scraping an Online Resource - Case Study
+
+## Making the most of APIs - Case Study 
+
+## Setup a Non-Interactive Batch Process /w tryCatch - Case Study 
+
+## Cloud Computing - Case Study 
+
+googleCloudStorageR
+https://cloud.google.com/compute/docs/apis
+https://cloudyr.github.io/googleComputeEngineR/
+
+https://kubernetes.io/blog/2017/08/kubernetes-meets-high-performance/
+https://www.hpcwire.com/2019/09/19/kubernetes-containers-and-hpc/
+
+- containers on compute engine don't need kubernetes
+https://cloud.google.com/compute/docs/containers/
+
+- question for the google dude: Kubernetes for HPC
+- *jobs that run to completion* 
+- cost control? Slurm like ? you does it work in an organization, when everybody 
+fires up their GCEs? 
+- is there scheduler or do I have to fire up a scheduler VM
+- https://github.com/kube-HPC/hkube
+- https://en.paradigmadigital.com/dev/apache-airflow/
+https://cloud.google.com/python/
+
+## Online and Print - Case Study 
+
+## Reproducible Reporting with RMarkdown and Knitr - Case Study 
+
+## Using Docker as Sandbox - Case Study
+
+
+
+
+
+
+
