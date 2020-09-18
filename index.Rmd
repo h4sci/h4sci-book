@@ -5,6 +5,7 @@ author: "Matthias Bannert"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
+css: ["license.css"]
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
@@ -24,11 +25,21 @@ The vast majority of data has been created within the last decade. In turn many 
 
 The very first (and intimidating) choice a novice hacker faces is which is programming language to learn. Unfortunately the medium popularily summed up as the internet offers a lot of really really good advice on the matter. The problem is, however, that this advice does not necessarily agree which language is the best for research. In the realm of data science -- get accustomed to that label if you are a scientist who works with data -- the debate basically comes down to two languages: The R Language for Statistical Computing and Python. 
 
-At least to me, there is only one valid advice: **It simply does NOT matter**. If you stick around in data science long enough you will eventually get in touch with both languages and in turn learn both. There is a huge overlap of what you can with both languages. R came out rather specific to the domain of statiscs 25+ years ago and made its way to a more general programming language. Python continues to be general purpose but got more specific thanks to packages such as {pandas}, {sciPy} or {numPy}. 
+At least to me, there is only one valid advice: **It simply does NOT matter**. If you stick around in data science long enough you will eventually get in touch with both languages and in turn learn both. There is a huge overlap of what you can with both languages. R came out of the rather specific domain of statiscs 25+ years ago and made its way to a more general programming language thanks to 15K+ extension packages (and counting). Built by a mathmatician Python continues to be as general purpose as ever but got more scientific thanks to packages such as {pandas}, {sciPy} or {numPy}. As a result there is a huge overlap of what both languages can do and both will extend your horizon in unprecendented fashion if you did not use a full fledged programming language for your analysis before. 
+
+But why is there such a heartfelt debate online, if it doesn't matter? Let's pick up a random argument from this debate: R is to set up and Python is better for machine learning. If you worked with Java or another environment that's rather tricky to get going, you are hardened and might not need or cherish easy onboarding. If you got frustrated before you even really started trying to reproduce a nifty machine learning blog post because you installed the wrong version of Python or didn't manage to make sense of virtualenv you might feel otherwise. 
+
+The point is,  rest assured, if you just start doing analytics using a programming languages both languages are guaranteed to carry you a long way. There is no way to tell for sure which one will be the more dominant language in 10 years from now or whether both still be around holding their ground the way they do now. But once you reached a decent software carpentry level in either language it will help you a lot learning the other. If your peers work with R, start with R, if your close community
+works with Python, start with Python. If you are in for the longer run either language will help you understand the concepts and ideas of programming with data. Trust me, there will be a natural opportunity to get to know the other. 
+
 
 ## Why Would Social Scientists Want to Code?
 
-First of all, because everybody and their grandmothers seem to do it. Statistical computing continues to be on the rise in many branches of social sciences. The below graph shows monthly accumulated extension package downloads for the R Language of Statistical Computing grouped by fields of research^[proxied this and that].
+First of all, because everybody and their grandmothers seem to do it. Statistical computing continues to be on the rise in many branches of social sciences. 
+
+
+
+<!-- The below graph shows monthly accumulated extension package downloads for the R Language of Statistical Computing grouped by fields of research^[proxied this and that].
 Econometrics, Psychometrics, National Language Processing, Official Statistics, Social Sciences
 
 ```{r, eval=TRUE}
@@ -37,49 +48,74 @@ Econometrics, Psychometrics, National Language Processing, Official Statistics, 
 rnorm(10)
 ```
 
-Second, because it scales. 
+-->
 
-Third because it's reproducible.
+Second because it's reproducible. Code has become a tremendous communication channel. Your web scraper does not work? 
+Instead of reaching out in a clumsy but wordy cry for help, posting what you tried to far described by source code will often get you good answers within hours on platforms like [Stackoverflow](https://stackoverflow.com) or [Crossvalidated](https://crossvalidated.com). Or imagine feature requests, after a little code ping pong with the package author your wish eventually becomes clearer. Let alone chats with colleagues and co-authors. Sharing code just works. 
+Academic journals have found out, too in the meantime. Many outlets require you to make the data and source code behind your work available. [Social Science Data Editors](https://social-science-data-editors.github.io/guidance/template-README.html) is a bleeding edge project at the time of reading this, but is already referred to by top notch journals of the profession like American Economic Review (AER). 
 
-Fourth because code is an international, interdisciplinary communication channel.
+Third, because it scales and automates. Automation is not only convenient. Like when you want to download data, process and create the same visualization and put it on your website any given Sunday. Automation is inevitable. Like when you have to gather daily updates from different outlets or work through thousands of .pdfs. 
 
-Last but not least because of data visualization. 
-
-
-
-
-
+Last but not least because of things you couldn't do w/o being an absolute guru (if at all) if wasn't for programming. Take  visualization. Go, check [these D3 Examples](https://d3js.org/). Now, try to do that in Excel. If you do these things in Excel it'd make you an absolute spreadsheet visualization Jedi, probably missing out on other time consuming skills to master. Moral of the story is, with decent, carpentry level programming skills -- that'd be the upfront investment -- you can already do so many spectular things while not really specializing and staying very flexible. 
 
 
 
 
 ## How to Read this Book? 
 
-*Hacking for Social Sciences and the Humanities* is written based on the experience of helping students and seasoned researchers of different fields with their data management, processing and communication of results. A Part of the book contains the information I wish I had when I started a PhD in economics. Part of the book is written with the hindsight of 10+ years in academia. Every page of the book is written with belief that the future is OPEN and it is up to our generation of researchers to shape it. 
+*Hacking for Social Sciences* is written based on the experience of helping students and seasoned researchers of different fields with their data management, processing and communication of results. A part of the book contains the information I wish I had when I started a PhD in economics. Part of the book is written years after said PhD was completed and with the hindsight of 10+ years in academia. Every page of the book is written with the belief that the future is OPEN and it is up to our generation of researchers to shape it. 
 
-<!-- add ad from Germany "the future is OPEN" for open data and open source -->
+<!-- add ad from Germany "the future is OPEN" for open data and open source 
+https://www.bildung-forschung.digital/files/191004_OA-Infoflyer_barrierefrei.pdf
+-->
 
-If you came to cherry pick, you're welcome. Chapter 3 covers a discussion, Chapter 4
-Chapter 5, Chapter 6 Programming Application Examples. 
-
+>If you came to ```r emo::ji("cherry")``` pick, you're welcome, too (but a bit early to the party though). This book will grow along the 2020 course 'Hacking for Social Science' and hopefully be finished in its first version by the end of the semester / year. Next up are chapters on the *Big Picture of Open Source Software for hacking data* and *Git version control*. 
 
 
 # Stack - A Developer's Toolkit
 
 Just like natural craftsmen, digital carpenters depend on their toolbox and their mastery of it. 
-*Stack* is what developers call the choice of tools used in a particular project. Even though different flavors come down to personal preferences, there is a lot of common ground in *programming with data* stacks. Often a choice needs to be made in order to illustrate things, but do understand these choices as examples and focus on the role of an item in the bigger picture. In that sense, notice that not every role has to be filled in every project. 
+*Stack* is what developers call the choice of tools used in a particular project. Even though different flavors come down to personal preferences, there is a lot of common ground in *programming with data* stacks. Throughout this book, often a choice for one piece of software needs to be made in order to illustrate things. But please do understand these choices as examples and focus on the role of an item in the bigger picture. To help you with the big picture of which tool does what the following section will group common programming-with-data stack components. Also, note notice that not every role has to be filled in every project. 
+
+<img src="images/dr_egghead_panics.jpg" width="700px">
+<div class="caption">Aaaaaaah! Dr. Egghead is overwhelmed by the plethora of tools.</div>
+
+Don't panic, Dr. Egghead! All these components are here to help you and there is plenty of choices...
+Here are the components I use most often. Note, this is a personal choice which works for me. Obviously not ALL of these are components are used in every small project. *Git, R* and *R Studio* would be the very minimal version, I guess. 
+
+```{r, eval=TRUE,message=FALSE, echo=FALSE}
+library(kableExtra)
+d <- data.frame(Component = c("Interpreter / Language", "IDE / Editor",
+                              "Version Control","Project Management",
+                              "Database", "'Virtual' Environments", "Website Hosting",
+                              "Workflow Automation", "Continous Integration"),
+                Choice = c("<a href='https://r-project.org'>R</a>, <a href='https://www.python.org/'>Python</a>, <a href=''>Javascript</a>","<a href='https://rstudio.com'>R Studio</a>,<a href='https://code.visualstudio.com/'>VS Code</a>, <a href='https://www.sublimetext.com/'>Sublime</a>",
+                           "<a href='https://git-scm.com/'>Git</a>", "<a href='https://github.com/features/project-management/'>GitHub</a>, <a href='https://about.gitlab.com/solutions/project-management/'>GitLab</a>","<a href='https://www.postgresql.org/'>PostgreSQL</a>","<a href='https://www.docker.com/'>Docker</a>",
+                           "<a href='https://netlify.com/'>Netlify</a>, <a href='https://pages.github.com/'>GitHub Pages</a>","<a href='https://airflow.apache.org/'>Apache Airflow</a>", "<a href='https://docs.gitlab.com/ee/ci/'>GitLab CI</a>"),
+                stringsAsFactors = FALSE)
+kable(d,"html",escape= FALSE)
+
+```
 
 
-My Example stack of choice would be: R, R Studio, Git, PostgreSQL, Docker, Netlify, Apache Airflow.
 
 
-## Interpreter
 
-In Programmatic Statistical Computing -- at least in Social Sciences -- the interface between the researcher and the computation node is almost always an interpreted progamming language as opposed to a compiled one. 
+## Languages: Compiled vs. Interpreted
 
-R
+In Statistical Computing -- at least in Social Sciences -- the interface between the researcher and the computation node is almost always an interpreted progamming language as opposed to a compiled one. Compiled languages like C++ require the developer to write source code and compile, i.e. translation of the source code into what a machine can work with happens *before* runtime. The result of the compilation process is a binary which is specific to the operating system. Hence you will need a version for Windows, one for OSX and one for Linux if you intend to reach a truly broad audience with your program. 
 
-Python virtual env
+
+
+
+
+
+
+R and Python are the most popular OSS choices in hacking with data, <a href="httpsL">Julia</a> is an up and coming language with a much slimmer ecosystem which is focused on performance. 
+
+
+
+
 
 
 ## IDE
