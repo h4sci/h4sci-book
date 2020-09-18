@@ -5,7 +5,7 @@ author: "Matthias Bannert"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
-css: ["license.css"]
+css: ["h4sci.css"]
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
