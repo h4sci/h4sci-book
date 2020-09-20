@@ -144,17 +144,33 @@ which can be adapted according to the language that needs to be interpreted. Tha
 Other examples for popular IDEs are Eclipse (mostly Java but tons of plugins for other languages), IntelliJ (Java) and PyCharm (Python). 
 
 
-## Version Control: Git
+## Version Control
 
-To buy into the importance of managing one's code professionally may be the single most important take away from *Hacking for Social Sciences*. While version control has been the de facto standard in many industries for decades, it has just started to be everywhere in research in recent years. It's the one basic thing you learn during your time at university that graduates before you may not have learned.  
+To buy into the importance of managing one's code professionally may be the single most important take away from *Hacking for Social Sciences*. Being able to work with version control will help you fit into a lot of different teams that have contact points with data science and programming, let alone if you become part of a programming or data science team. 
 
-So which role does version control play for us? It keeps track of the evolution of our code 
+While version control has a long history dating back to CVS and SVN, the good news for the learner is, that there is a single dominant approach when it comes to version control in academia. Despite the fact that it's predecessors and alternative such as mercurial are stil around, git is the one you have to learn. To learn more about the history of version controls and approaches other than git, [Eric Sink's Version Control by Example](https://ericsink.com/vcbe/index.html) 
+is for you. 
+
+So what does git do for us as researchers? How is it different from dropbox?
 
 
+```
+git does not work like dropbox. git does not work like dropbox.
+git does not work like dropbox. git does not work like dropbox. 
+git does not work like dropbox. git does not work like dropbox.
+git does not work like dropbox. git does not work like dropbox. 
+git does not work like dropbox. git does not work like dropbox.
+git does not work like dropbox. git does not work like dropbox. 
 
+```
 
+The idea of thinking of a sync, is what hampers from understanding the benefit of right away (which why I hate that git [GUI]()s called it 'sync' anway). Git is a decentralized version control system that keeps track of a history of semantic commits that may consists of changes to multiple files.
+A commit message summarizes the gist of a contribution bundles a contribution. *Diffs* allow to changes between different versions. 
 
+<img src="images/diff.png" width="300px">
+<div class="caption-half">The *diff* output shows an edit during the writing of this book. The line preceeded by '-' was replaced with the line preceeded by '+'.</div>
 
+Git is well suited for any kind of text file / source code from Python or C++ to markdown or LaTeX. Binaries like .pdfs or Word documents are possible, too, but certainly not the type of files for which git is really useful. This book contains a detailed, applied introduction tailed to researchers as part of the *Programmers' Practices and Workflows* chapter, so let's dwell with the above contextualization for a bit.   
 
 
 ## Database: Relational vs. Non-Relational 
@@ -164,16 +180,27 @@ To evaluate which database to pick up just seems like the next daunting task of 
 Database Management Systems (DBMS) are basically grouped into [relational]() and [non-relational]() ones. Relational databases with their Structured Query Language (SQL) have been around forever. SQL became and ISO and ANSI standard and continue to be essence of many many backends around the world. Oracle continues to be the benchmark for SQL databases but opensource PostgreSQL and Microsoft's SQL Server operate at eye level for many applications.
 MySQL, Oracle's slim, little (but free) brother, can't quite cope with PostgreSQL, continues to be the most used SQL database on the planet. This is mainly due to its popularity for web applications like the blogging [CMS]() [wordpress](). Last but not least, *sqlite* needs to be mentioned when talking about relational database. The name nutshells its concept quite well: It's an easy to use, much simpler version of the aforementioned database management systems. It is extremely popular for light but powerful applications that want to organize data with a SQL approach in a single file (mobile applications like to use it for example).
 
-No-SQL databases are the anti establishment, anti standard approach. [MongoDB]() may be the best marketed among the rebels. Before you start to sympathize with latter approach because the wording of my last to sentences, let's stop here. Database experts like [Lukas Eder]() maybe biased but much better educated to educate you here. The idea of this chapter is just to help you group all the database stores you might face to soon as a researchers. 
+No-SQL databases are the anti establishment, anti standard approach. [MongoDB](https://www.mongodb.com) may be the best marketed among the rebels.Before you start to sympathize with latter approach because the wording of my last to sentences, let's stop here. Large infrastructure players make the case for non-relational stores like CouchDB or Amazon Redshift Database, but trust me, you those are unlikely the first things you get to run when your research grows out of Excel. If your are not happy with the 'beyond-the-scope-of-this-book' argument, blogging experts like [Lukas Eder](https://blog.jooq.org/tag/nosql/) maybe biased but much better educated to educate you here. The idea of this chapter is just to help you group all the database stores you might face to soon as a researchers. 
 
-The good news is, languages like R and Python are so well equipped to interface with a plethora of databases. So well that I often recommend these languages to researcher who work with other less equppied tools, solely as an intermediate layer. And if there is really no database extension around for your language, a general [ODBC]() interface helps -- at least for SQL databases.  
-
-
+The good news is, languages like R and Python are so well equipped to interface with a plethora of databases. So well that I often recommend these languages to researcher who work with other less equppied tools, solely as an intermediate layer. And if there is really no database extension around for your language, a general [ODBC](https://en.wikipedia.org/wiki/Open_Database_Connectivity) interface helps -- at least for SQL databases.  
 
 
-## Single Purpose Environments: Docker
 
-Side Effect free working environment.
+
+## Single Purpose Environments
+
+Though a bit out of fashion and somewhat different, virtual machines are good starting point to explain single purpose container environments such as [docker](https://www.docker.com/why-docker). A virtual machine (VM) is basically a computer in a computer, like a Linux environment running on your Windows notebook. Oracle's free [Virtual Box](https://www.virtualbox.org/) is the most popular piece of software to easily install another operating system inside your local computer's host. 
+
+While VMs are still common and one can potentially have lots of images for different purposes, images are too heavyweight and take to long to boot to be the go-to solution for many application developers. Hence so-called containers that run within a container host and fire up within seconds have become popular as single purpose environments.
+
+The most popular of them all is *docker* which allows users to configure an environment in a *Dockerfile* (essentially a text file) including the operating system and software packages installed in the container. The text file can either be used to create a *docker image* which is kind of a blueprint for a container. Containers run inside a docker host and can either be used interactively or in a batch which executes a single task in an environment specifically built for this task.  
+
+One of the reasons why docker is attractive to researchers is its open character: Dockerfiles are a good way to share a configuration in a simple, reproducible script, making it easy to reproduce. Less experienced researchers can benefit from [Dockerhub](https://hub.docker.com/) which shares images for a plethora of purposes from mixed data science setups to database configuration. Side Effect free working environments for all sorts of task can especially be appealing to developers with limited experience in system administration. 
+
+Beside simplification of system administration, *docker* is known for its ability to work in the cloud. All major cloud hosters offer docker hosts and the ability to deploy docker containers that were previously developed and tested locally in the cloud. You can also use docker to tackle throughput problems using container orchestration tools like [Docker Swarm](https://docs.docker.com/engine/swarm/swarm-tutorial/) or [K8 (say: Kubernetes)](https://kubernetes.io/) to run hundreds of containers (depending on your virtual resources).
+
+
+
 
 
 ## Communication
@@ -182,13 +209,57 @@ Communication is an essentially part of building an (academic) career. Part of i
 
 A popular approach to do so is to work with a *static website generator*. Generators like blogdown, pkgdown or bookdown are flavors of the same approach to create a website from markdown first and then upload rendered HTML + CSS + Javascript page to a host like GitHub Pages or Netlify that allow you to store it online without paying. 
 
-The idea of engines like [Hugo]() or [Jekyll]() which are behind the above packages is a counter approach to what content management systems do [CMS](): There is no database and templates that are brought together dynamically when a user visits the website. This rendering is done locally on the creator's local notebook. Whenever a change is made, the website is rendered entirely (ok, minus caching) and uploaded (pushed) again to the host. Therefore no database, etc is needed on the webserver which cuts down the hosting costs to zero. (FWIW: this book is made with such a generator) 
+The idea of engines like the [Go](https://golang.org/) based [Hugo](https://gohugo.io/) or the [Ruby](https://www.ruby-lang.org/en/) based [Jekyll](https://jekyllrb.com/) which are behind the above packages is a counter approach to what content management systems do [CMS](): There is no database and templates that are brought together dynamically when a user visits the website. This rendering is done locally on the creator's local notebook. Whenever a change is made, the website is rendered entirely (ok, minus caching) and uploaded (pushed) again to the host. Therefore no database, etc is needed on the webserver which cuts down the hosting costs to zero. (FWIW: this book is made with such a generator) 
 
 
+## Automation
+
+The first type of automation described here refers to automation of your development workflow. That it is, you standardize your path from draft to program to deployment of your program to production. Modern version control software accompanies this process with a toolchain that is often fuzzily called [CI/CD](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment). While CI stands for *continuous integration* and simply refers to a workflow in which the team tries to release new features to production as continuously as possible, CD stands for either *continuous delivery* or *continuous deployment*.
+
+However, in practice the entire toolchain referred to as *CI/CD* has become readily available in well documented fashion when git hosting powerhouses GitHub and GitLab introduced their flavors of it: [GitHub Actions])(https://docs.github.com/en/actions) and [GitLab CI](https://docs.gitlab.com/ee/ci/). In addition services like [Travis CI](https://travis-ci.org/) or [Circle CI](https://circleci.com/) offer this toolchain independently of hosting git repositories.
+
+Users of these platforms can upload a simple textfile that follows a name convention and structure to trigger a step based toolchain based on an event. An example of an event may be the push to a repository's main branch. A common example would be to run tests and/or build process of a package and then upon success deploy the newly created package to some server -- all triggered by simple push to master. One particularly cool thing is, that there multiple services who allow to run the testing on their servers using container technologies to offer a plethora of setups for testing. This software can easily be tested on different operating systems or other dependencies. 
 
 
-## Workflow Automation
+Here is a simple example of a *.gitlab-ci.yml* configuration that builds and tests a package and deploys it on push to master if the tests succeed:
 
+```
+stages:
+  - buildncheck
+  - deploy_pack
+
+test:
+  image:
+    name: some.docker.registry.com/some-image:0.2.0
+    entrypoint:
+      - ""
+  stage: buildncheck
+  artifacts:
+    untracked: true
+  script:
+    - rm .gitlab-ci.yml # we don't need it and it causes a hidden file NOTE
+    - install2.r --repos custom.mini.cran.ch .
+    - R CMD build . --no-build-vignettes --no-manual
+    - R CMD check --no-manual *.tar.gz
+    
+deploy_pack:
+  only: 
+    - master
+  stage: deploy_pack
+  image:
+    name: byrnedo/alpine-curl
+    entrypoint: [""]
+  dependencies:
+    - 'test'
+  script:
+    - do some more steps to login and deploy to server ...
+
+```
+
+For more in depth examples of the above, [Jim Hester's talk on GitHub Actions for R](https://www.jimhester.com/talk/2020-rsc-github-actions/) is a very good starting point.
+
+
+The other automation too I would like to mention is [Apache Airflow](https://airflow.apache.org/) because of its ability to help researchers keep an overview of regularly running processes. Examples of such processes could be daily or monthly data sourcing or timely publication of a regularly published indicator. For processes we can simply use [cronjobs](https://en.wikipedia.org/wiki/Cron) to time execution, but Airflow ships with a dashboard to keep track of many such process, plus a ton of other log and reporting features worth a lot when maintaining reocurring processe processes. 
 
 
 
