@@ -7,3 +7,10 @@
   padding-bottom: 10px;
   text-align:right;
 }
+
+.caption-half{
+  width:50%;
+  font-size:0.75em;
+  padding-bottom: 10px;
+  text-align:left;
+}
