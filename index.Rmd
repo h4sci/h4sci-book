@@ -265,77 +265,132 @@ The other automation too I would like to mention is [Apache Airflow](https://air
 
 
 
-# Programmers' Practices & Workflows
+# Developer Practices & Workflows
 
 Just like most experienced engineers, seasoned software developers follow some kind of school or paradigm. Good programmers can even switch among approaches according to their current project's needs or depending on the team they are on. 
 
 This section does not want to give a comprehensive overview over programming concepts nor compare approaches. And damn sure it does not mean to go to war over approach superiority. *Hacking for Social Scientists* rather cherry-picks suitable application-minded, low-barrier concepts that help social scientists professionalize their own programming. 
 
 
-## Version Control
+## Git Version Control 101
+
+Version control may be the single most important thing to take away from *Hacking for Social Sciences*. 
+In this chapter about the way developers work, I will stick to version control with *git*. The stack discussion of the previous chapter features a few more version control systems, but given git's dominant position, we will stick solely to git in this introduction to version control.  
 
 ### What is Git Version Control? 
 
-Git is *not* Dropbox nor Google Drive. It does *not* sync automagically even if some Git GUI Tools suggest so. As opposed to that, a version control system allows to summarize a contribution across files and folders based on what this contribution is about. Assume you got a cool pointer from an econometrics professor at a conference and you incorporated her advice in your work. That advice is likely to affect different parts of your work: your text and your code. As opposed to syncing each of these files based on the time you saved them, version control creates a version when you decide to bundle things together and to commit the change. 
+Git is a decentralized version control system. It manages different versions of your source code (and other text files) in a simple put efficient manner that has become the industry standard: The git programm itself is a small console programm that creates and manages a hidden folder inside the folder you put under version control (you know those folders with a leading dot in their foldername, like .myfolder). This folder keeps track of all difference between the current version and other versions before the current one. 
+
+<img src="images/commits.png" width="300px">
+<div class="caption-half">Meaningful commit messages help to make sense of a project's history.</div>
+
+
+The key to appreciate the value of git is to appreciate the value of semantic versions. Git is *not* Dropbox nor Google Drive. It does *not* sync automagically (even if some Git GUI Tools suggest so). Because these GUIs tools^[[GitHub Desktop](https://desktop.github.com/), Atlassian's [Source Tree](https://www.sourcetreeapp.com/) and [Tortoise](https://tortoisegit.org/) are some of the most popular choices if you are not a console person.] may be convenient but do not really help to improve your understanding of the workflow, we will use the git console throughout this book. As opposed to the sync approaches mentioned above, a version control system allows to summarize a contribution across files and folders based on what this contribution is about. Assume you got a cool pointer from an econometrics professor at a conference and you incorporated her advice in your work. That advice is likely to affect different parts of your work: your text and your code. As opposed to syncing each of these files based on the time you saved them, version control creates a version when you decide to bundle things together and to commit the change. That version could be identified easily by its commit message 'incorporated advice from Anna (discussion at XYZ Conf 2020)'. 
+
 
 ### Why Use Version Control in Research? 
 
->A version control based workflow fosters a path to your goals that rather consists of semantically relevant steps instead of random chunks based on time. 
+>A version control based workflow is a path to your goals that rather consists of semantically relevant steps instead of semantically meaningless chunks based on the time you saved them. 
 
-Just in case the above paragraph about what version control is not enough of a justification to use git, let me be more blatant here: Naming your files like 
+In other more blatant, applied words: naming files like 
 `final_version_your_name.R` or `final_final_correction_collaboratorX_20200114.R` 
-is like given your WiFi a funny to communicate with your neighbors. Like `dont_park_the_car_in_the_frontyard` or `be_quiet_at_night`. This information is supposed to be sent in a message, not a file name. With version control it is immediately clear what the most current version is - no matter the file name. No room for interpretation. No need to start guessing about the delta between current or final and most recent. 
+is like naming your WiFi `dont_park_the_car_in_the_frontyard` or `be_quiet_at_night` to communicate with your neighbors.  Information is supposed to be sent in a message, not a file name. With version control it is immediately clear what the most current version is - no matter the file name. No room for interpretation. No need to start guessing about the delta between the current version and another version.
 
-Also, you can easily try out different scenarios on different branches and merge them back together if you need to. Version control is a well established industry standard in software development. And it is relatively easy to adopt. With datasets growing in size and complexity in social sciences as well it is only natural to improve management of the code that processes these data. 
+Also, you can easily try out different scenarios on different branches and merge them back together if you need to. Version control is a well established industry standard in software development. And it is relatively easy to adopt. With datasets growing in size and complexity it is only natural to improve management of the code that processes these data. 
 
-
-
->No offense, if you are new to version control, it means you are new to programming.
-
-Academia is probably the only place would allow you to dive into hacking at somewhat complex problems for several years w/o ever taking notice of version control. As a social scientist who rather collaborates in small groups and writes moderate amount of code, have you ever thought about how to collaborate with 100+ persons big software project? Or you to manage ten thousands of lines of code and beyond? Version control is just one of the reasons these things work. And it's been around for decade. Today, the decentralized version control system *git* has become the de facto standard of the open source community to manage code. 
-
-### Git Basics
-
-Git is a decentralized version control system which means all versions are stored on the local machines of every collaborator, not just on a remote server. This allows for a great workflow when it comes to putting versions together. 
-
-But let's start at the very beginning. The git programm itself is a small console programm that is typically used through the console. You can install graphical user interfaces (GUI) on top of git but doing so does not really improve your understanding of the workflow. That's why the following examples straight up use the console -- even if you might choose a GUI tool like *Tortoise*, *SourceTree* or *Github Desktop* in the end. Also, many IDEs have git integration or offer plugins at least. 
+Academia is probably the only place would allow you to dive into hacking at somewhat complex problems for several years w/o ever taking notice of version control. As a social scientist who rather collaborates in small groups and writes moderate amount of code, have you ever thought about how to collaborate with 100+ persons big software project? Or you to manage ten thousands of lines of code and beyond? Version control is an important reason why these things work. And it's been around for decades. But enough about the rant... 
 
 
-```{r, eval=TRUE}
-# INSERT PICTURE OF A BASH HERE
-rnorm(10)
+### How Does Git Work ? 
+
+The first important implication of decentralized version control is that all versions are stored on the local machines of every collaborator, not just on a remote server. So let's consider a single local machine first.
+
+<img src="images/decentralized.png" width="700px">
+<div class="caption-half"></div>
+
+Locally, a git repository consists of a *checkout* which is also called current *working copy* soon. This is the status of the file that your file explorer or your editor will see when you use them to open a file. To checkout a different version, one needs to find call a commit by its unique commit hash and checkout that particular version. 
+
+If you want to add new files to version control or bundle changes to some existing files into a new commit, add these files to the staging area, so they get committed next time a commit process is triggered. Finally committing all these staged changes under another commit id a new version is created. 
+
+
+### Moving Around
+
+So let's actually do it. Here's a three stage walk through of git commands that should have you covered in most use cases a researcher will face. Note that git has some pretty good error message that guess what could have gone wrong, make sure to read them carefully. Even you can't make sense of them, your online search will be a lot more efficient when you include these messages. 
+
+Stage 1: Working Locally
+
+```{r, eval=TRUE,message=FALSE, echo=FALSE}
+library(kableExtra)
+d <- data.frame("Command" = c("git init",
+                              "git status",
+                              "git add file_name.py",
+                              "git commit -m 'meaningful msg'",
+                              "git log",
+                              "git checkout some-commit-id",
+                              "git checkout main-branch-name"),
+                "Effect" = c("put current directory and all its subdirs under version control.",
+                             "shows status",
+                             "adds file to tracked files",
+                             "creates a new version/commit out of all staged files",
+                             "show log of all commit messages on a branch",
+                             "go to commit, but in detached HEAD state",
+                             "leave temporary state, go back to last commit"),
+                
+                stringsAsFactors = FALSE)
+kable(d,"html",escape= FALSE)
+
 ```
 
-On the other hand you can navigate projects pretty well with about two hands full of git commands. Let us walk through the most important basic commands. 
-
-
-- git clone: clone an entire repository from remote to your local disk. This keeps the address of the remote repository it's been cloned from. Use github.com's or gitlab.com's web site to create a repository. By cloning we do not only create a local copy but also set up the remote url. Nifty.
-
-- git init: If you don't think about remote repositories and github.com accounts immediately, 
-you can make any folder a git repository, i.e., put it under version control. *Beware*: Make sure not to initialize a repository in a repository!
-
-- git add: add files to the staging area. The staging areas determines which changes will be committed when the next commit is triggered
-
-- git commit -m 'some meaningful message': Create a new version, consisting of the changes made to the files in the staging area.
-
-- git push: move all new commits to the remote repository (server). 
-
-- git pull: get all new commits to the remote repository (server). 
-
-- git checkout: Switch to another version / branch.
-
-- git log: Show list of commit messages and commit identifiers. 
-
-- git branch: Show available branches / current branch.
-
-
-### Feature Branches - How to Use Git Efficiently in Teams
-
-A very common and intuitive way to colloborate using git is to use feature branches:  
 
 
 
 
+Stage 2: Working with a Remote Repository
+
+Though git can be tremendously useful even without collaborators, the real fun starts
+when working together. The first step en route to get others involved is to add a remote repository. 
+
+
+```{r, eval=TRUE,message=FALSE, echo=FALSE}
+library(kableExtra)
+d <- data.frame("Command" = c("git clone",
+                              "git pull",
+                              "git push",
+                              "git fetch",
+                              "git remote -v",
+                              "git remote set-url origin https://some-url.com"),
+                "Effect" = c("creates a new repo based on a remote one",
+                             "get all changes from a linked remote repo",
+                             "deploy all commit changes to the remote repo",
+                             "fetch branches that were created on remote",
+                             "show remote repo URL",
+                             "set URL to remote repo"),
+                stringsAsFactors = FALSE)
+kable(d,"html",escape= FALSE)
+
+```
+
+
+**Fixing Merge Conflicts** 
+
+In most cases git is quite clever and can figure out which is the desired state of 
+a file when putting two versions of it together. When git's *recursive strategy* is at work, 
+it will just merge versions automatically. When the same lines were affected in different versions, git cannot tell 
+which line should be kept or even whether both lines should be kept. 
+
+
+
+
+
+
+
+## Collaboration: Feature Branches & PRs 
+
+
+## Project Management Basics
+
+
+<!-- ## Testing --> 
 
 
 
@@ -344,75 +399,10 @@ A very common and intuitive way to colloborate using git is to use feature branc
 
 
 
-https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
-Eric Sink Version Control by Example
-https://happygitwithr.com/
-
-
-## Project Management 
-
-## How to Document
-
-## Development (Thinking Packages)
-
-## Testing
-
-Unit tests vs. regression tests.
 
 
 
-## Deployment - Continous Integration
 
-## Operations
-
-## Collaboration
-
-
-
-# Organize & Manage Data
-
-## file based vs db
-
-## SQL vs NoSQL
-
-
-
-# Programming
-
-## General Advice
-
-## Scraping an Online Resource - Case Study
-
-## Making the most of APIs - Case Study 
-
-## Setup a Non-Interactive Batch Process /w tryCatch - Case Study 
-
-## Cloud Computing - Case Study 
-
-googleCloudStorageR
-https://cloud.google.com/compute/docs/apis
-https://cloudyr.github.io/googleComputeEngineR/
-
-https://kubernetes.io/blog/2017/08/kubernetes-meets-high-performance/
-https://www.hpcwire.com/2019/09/19/kubernetes-containers-and-hpc/
-
-- containers on compute engine don't need kubernetes
-https://cloud.google.com/compute/docs/containers/
-
-- question for the google dude: Kubernetes for HPC
-- *jobs that run to completion* 
-- cost control? Slurm like ? you does it work in an organization, when everybody 
-fires up their GCEs? 
-- is there scheduler or do I have to fire up a scheduler VM
-- https://github.com/kube-HPC/hkube
-- https://en.paradigmadigital.com/dev/apache-airflow/
-https://cloud.google.com/python/
-
-## Online and Print - Case Study 
-
-## Reproducible Reporting with RMarkdown and Knitr - Case Study 
-
-## Using Docker as Sandbox - Case Study
 
 
 
