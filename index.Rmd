@@ -225,34 +225,34 @@ Here is a simple example of a *.gitlab-ci.yml* configuration that builds and tes
 
 ```
 stages:
-  - buildncheck
-  - deploy_pack
+- buildncheck
+- deploy_pack
 
 test:
-  image:
-    name: some.docker.registry.com/some-image:0.2.0
-    entrypoint:
-      - ""
-  stage: buildncheck
-  artifacts:
-    untracked: true
-  script:
-    - rm .gitlab-ci.yml # we don't need it and it causes a hidden file NOTE
-    - install2.r --repos custom.mini.cran.ch .
-    - R CMD build . --no-build-vignettes --no-manual
-    - R CMD check --no-manual *.tar.gz
-    
+image:
+name: some.docker.registry.com/some-image:0.2.0
+entrypoint:
+- ""
+stage: buildncheck
+artifacts:
+untracked: true
+script:
+- rm .gitlab-ci.yml # we don't need it and it causes a hidden file NOTE
+- install2.r --repos custom.mini.cran.ch .
+- R CMD build . --no-build-vignettes --no-manual
+- R CMD check --no-manual *.tar.gz
+
 deploy_pack:
-  only: 
-    - master
-  stage: deploy_pack
-  image:
-    name: byrnedo/alpine-curl
-    entrypoint: [""]
-  dependencies:
-    - 'test'
-  script:
-    - do some more steps to login and deploy to server ...
+only: 
+- master
+stage: deploy_pack
+image:
+name: byrnedo/alpine-curl
+entrypoint: [""]
+dependencies:
+- 'test'
+script:
+- do some more steps to login and deploy to server ...
 
 ```
 
@@ -383,7 +383,7 @@ d <- data.frame("Command" = c("git checkout -b branchname",
                              "show locally available branches",
                              "switch to branch named branchname",
                              "merge branch named branchname into current branch"
-                             ),
+                ),
                 stringsAsFactors = FALSE)
 kable(d,"html",escape= FALSE)
 
@@ -439,6 +439,40 @@ Imagine you collaborate less synchronously, maybe with someone in another time z
 
 
 ## Project Management Basics
+
+# Appendix {-}
+
+## Glossary {-}
+
+```{r, eval=TRUE,message=FALSE, echo=FALSE}
+library(kableExtra)
+d <- data.frame("Term" = c(
+  "API",
+  "Deployment",
+  "IDE",
+  "OSS",
+  "Regular Expression",
+  "Reproducible Example",
+  "Stack",
+  "SQL",
+  "Swimlanes"
+  ),
+  "Description" = c(
+    "**A**pplication **P**rogramming **I**nterface",
+    "The art of delivering a piece software to production",
+    "**I**ntegrated **D**evelopment **E**nvironment",
+    "Open Source Software",
+    "Pattern to extract specific patterns from a text",
+    "A self-contained code example",
+    "selection of tools used in a project",
+    "**S**tructured **Q**uery **L**anguage",
+    "(Online) Board of columns (lanes). Lanes progress from from left to right and carry issues."
+    
+  ),
+  stringsAsFactors = FALSE)
+kable(d,"html",escape= FALSE)
+
+```
 
 
 <!-- ## Testing --> 
