@@ -317,7 +317,7 @@ If you want to add new files to version control or bundle changes to some existi
 
 So let's actually do it. Here's a three stage walk through of git commands that should have you covered in most use cases a researcher will face. Note that git has some pretty good error message that guess what could have gone wrong, make sure to read them carefully. Even you can't make sense of them, your online search will be a lot more efficient when you include these messages. 
 
-Stage 1: Working Locally
+**Stage 1: Working Locally**
 
 ```{r, eval=TRUE,message=FALSE, echo=FALSE}
 library(kableExtra)
@@ -345,7 +345,7 @@ kable(d,"html",escape= FALSE)
 
 
 
-Stage 2: Working with a Remote Repository
+**Stage 2: Working with a Remote Repository**
 
 Though git can be tremendously useful even without collaborators, the real fun starts
 when working together. The first step en route to get others involved is to add a remote repository. 
@@ -370,21 +370,72 @@ kable(d,"html",escape= FALSE)
 
 ```
 
+**Stage 3: Branches**
+
+
+```{r, eval=TRUE,message=FALSE, echo=FALSE}
+library(kableExtra)
+d <- data.frame("Command" = c("git checkout -b branchname",
+                              "git branch",
+                              "git checkout branchname",
+                              "git merge branchname"),
+                "Effect" = c("create new branch named branchname",
+                             "show locally available branches",
+                             "switch to branch named branchname",
+                             "merge branch named branchname into current branch"
+                             ),
+                stringsAsFactors = FALSE)
+kable(d,"html",escape= FALSE)
+
+```
+
+
+
+
 
 **Fixing Merge Conflicts** 
 
 In most cases git is quite clever and can figure out which is the desired state of 
 a file when putting two versions of it together. When git's *recursive strategy* is at work, 
 it will just merge versions automatically. When the same lines were affected in different versions, git cannot tell 
-which line should be kept or even whether both lines should be kept. 
+which line should be kept. Sometimes you would even want to keep both changes. 
+
+But even in such scenario fixing the conflict is easy. Git will tell you that your last command
+caused a merge conflict and which files are conflicted. Open these files and see all parts of the file that
+are in question. 
+
+<img src="images/merge_conflict.png">
+<div class="caption-left">Ouch! We created a conflict by editing the same line in the same file on different branches and trying to but these branches back together.</div>
+
+Luckily git marks the exact spot where the conflict happens. Good text editors / IDEs 
+ship with cool colors to highlight all our options. 
+
+<img src="images/sublime_conflict.png">
+<div class="caption-left">go for the current status or take what's coming in from the a2 branch?</div>
+
+Some of the fancier editors even have git conflict resolve plugins that let you walk through all conflict points. 
+
+<img src="images/vscode_conflict.png">
+<div class="caption-left">In VS Code you can even click the option.</div>
+
+At the and of the day, all do the same, i.e., remove the unwanted part including all the marker gibberish. 
+After you have done so, save, commit and push (if you are working with a remote repo) . Don't forget to make sure you kinked out ALL conflicts.  
 
 
 
+## Feature Branches, PRs and Forks
 
+This section discusses real world collaboration workflows of modern open source software developers. 
+Hence the prerequisites are a bit different in order to benefit most from this section. Make sure you are past
+being able to describe and explain git basics, be able to create and handle your own repositories. 
 
+If you have only a handful of close collaborators, you may be fine with staying on the main branch and trying
+not to step on each others feet. This may be reasonable as it is not useful anyway to work asynchronously 
+on exact the same lines of code. Nevertheless, there is a reason why *feature-branch-based* workflows became 
+very popular among developers. 
 
+Imagine you collaborate less synchronously, maybe with someone in another time zone, or with a colleague who even works on your project in a totally different month. 
 
-## Collaboration: Feature Branches & PRs 
 
 
 ## Project Management Basics
