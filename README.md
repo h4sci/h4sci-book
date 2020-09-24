@@ -2,7 +2,7 @@
 
 This repository contains the source code of an online book made with [bookdown](https://bookdown.org). 
 The book is written along with the course *Hacking for Social Sciences* taught at ETH Zurich and should hopefully grow 
-with this course. I hope, however, the book will also work as a standalone input (i.e. w/o any lecture material.) to social sciences looking for insights into _Programming with Data_, 
+with this course. I hope, however, the book will also work as a standalone input (i.e. w/o any lecture material.) to (social) scientists looking for insights to _Programming with Data_, 
 
 Please leave your suggestions and feedback in the issue tracker of this repository!
 
