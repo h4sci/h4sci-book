@@ -426,19 +426,99 @@ After you have done so, save, commit and push (if you are working with a remote 
 ## Feature Branches, PRs and Forks
 
 This section discusses real world collaboration workflows of modern open source software developers. 
-Hence the prerequisites are a bit different in order to benefit most from this section. Make sure you are past
+Hence the prerequisites are a bit different in order to benefit the most from this section. Make sure you are past
 being able to describe and explain git basics, be able to create and handle your own repositories. 
 
-If you have only a handful of close collaborators, you may be fine with staying on the main branch and trying
-not to step on each others feet. This may be reasonable as it is not useful anyway to work asynchronously 
-on exact the same lines of code. Nevertheless, there is a reason why *feature-branch-based* workflows became 
-very popular among developers. 
+If you had only a handful of close collaborators so far, you may be fine with staying on the main branch and trying
+not to step on each others feet. This is reasonable because it is not useful to work asynchronously 
+on exact the same lines of code anyway. Nevertheless, there is a reason why *feature-branch-based* workflows became 
+very popular among developers: Imagine you collaborate less synchronously, maybe with someone in another timezone. Or with a colleague who works on your project, but in a totally different month during the year. Or, most obviously, we someone you have never met. Forks and *feature-branch-based* workflows is the way a lot of modern open source projects are organized. 
 
-Imagine you collaborate less synchronously, maybe with someone in another time zone, or with a colleague who even works on your project in a totally different month. 
+Forks are just a way to contribute via feature branches even in case you do not have write access to a repository. But let's just have look at the basic case in which you are part of the team first. Assume there is already some work done, some version of the project is already up on GitHub. You join as a collaborator and are allowed to push changes now. It's certainly not a good idea to simply add things without review to a project's production. Like if you got access to modify the institute's website and you made your first changes and all of a sudden the website looks like this:
 
+<div class="yellow">&nbsp;</div>
+<div id="pink">
+It used to be subtle and light gray. I swear!
+</div>
+
+Bet everybody on the team took notice of the new team member by then. In a feature branch workflow you would start from the latest production version. Remember, git is decentralized and you have all versions of your team's project. Right at your fingertips on your local machine. Create a new branch named indicative of the feature you are looking to work on. 
+
+```
+git checkout -b colorways
+```
+
+You are automatically being switched to the freshly created branch. Do your thing now. It could be just a single commit, or several commits by different persons. Once you are done, i.e., commited all changes, add your branch to the remote repository by pushing.  
+
+```
+git push -u origin colorways
+```
+
+This will add a your branch called *colorways* to the remote repository. If you are on any major git platform with your project, it will come with a decent web GUI. Such a GUI is the most straight forward way to do the next step: get your Pull Request (PR) going.
+
+<img src="images/pr.png" width="700px">
+<div class="caption-left">Github pull request dialog: Select the *pull request*, choose which branch you merge into which target branch.</div>
+
+As you can see, git will check whether it is possible to merge automatically w/o interaction. Even if that is not possible, you can still issue the pull request. When you create the request you can also assign reviewers, but you could also do so at a later stage. 
+
+```{block, type='note'}
+
+**Note**, even after a PR was issued you can continue to add commits to the branch about to be merged. 
+As long as you do not merge the branch through the Pull Request, commits are added to the branch. In other 
+words your existing PR gets updated. This is a very natural way to account for reviewer comments. 
+
+```
+
+
+```{block2, type='note'}
+**Pro-Tipp**: 
+Use commit messages like 'added join to SQL query, closes #3'. The key word 'closes' or 'fixes', will automatically close issues referred to when merged into the main branch.
+
+```
+
+Once the merge is done, all your changes are in the main branch and you and everyone else can pull the main branch that now contains your new feature. Yay!
 
 
 ## Project Management Basics
+
+The art of stress free productivity as I once called it in '10 blog post, has put a number of gurus on the map and whole strand of literature to our bookshelves. So rather than adding to that, I would like to extract a healthy, best-of-breed type of dose here. The following few paragraphs do not intend to be comprehensive -- not even for the scope of software projects, but inspirational. 
+
+In tje software development startup community, the *waterfall* approach became synonym to conservative, traditional and ancient: Overspecification in advance of the project, premature optimization and a lawsuit over expectations that weren't met. Though waterfall project may be better than their reputation and specifications should not be too detailed and rigid.
+
+Many software projects are rather organized in *agile* fashion with SCRUM and KANBAN being the most popular derivatives. 
+Because empirical academic projects have a lot in common with software projects inasmuch that there is a certain expectation and quality control, but the outcome is not known in advance. Essentially in agile project management you roughly define an outcome along the lines of a minimum viable product (MVP), so you do not end up with nothing after a year of back and forth. 
+Then you'd meet regularly, let's say every 10 days, to talk about what you worked on within the last 10 days and what your plans are for the next 10 days. Decisions on what to work on are made, issues are raised and solution to problems will be sketched out and discussed bilaterally or in small groups. That way the team stays flexible. In professional setups, often different roles, e.g., stakeholder or moderator (in regiligous, certified level SCRUM: the SCRUM master) are assigned. 
+
+Major git platforms ship with a decent, carpentry level project management project management GUI. The issue tracker is at the core of this. If you use it the minimal way, it's simply a colorful to-do list. 
+
+<img src="images/issue.png">
+<div class="caption-left">The Github issue tracker (example from one of the course's repositories) can be a lot more than a todo list.</div>
+
+Swimlanes (reminiscant of a bird's eye view of an Olympic pool) can be thought of columns that you have to walk through
+from left to right: To Do, Doing, Under Review, Done. (you can also customize the number and label of lanes and event associate actions with them, but let's stick to those basic lanes in this section.) The idea is to use to keep track of the process and making the process transparent. 
+
+
+<img src="images/swim.png">
+<div class="caption-left"></div>
+
+
+
+
+## Testing
+
+When talking about development practices, testing can't be missing. So, just you know that I thought of this, tbc ...
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Appendix {-}
 
@@ -449,24 +529,36 @@ library(kableExtra)
 d <- data.frame("Term" = c(
   "API",
   "Deployment",
+  "Fork",
+  "GUI",
   "IDE",
+  "Merge Request",
+  "OS",
   "OSS",
+  "Pull Request (PR)",
   "Regular Expression",
   "Reproducible Example",
   "Stack",
   "SQL",
-  "Swimlanes"
+  "Swimlanes",
+  "Virtual Machine (VM)"
   ),
   "Description" = c(
     "**A**pplication **P**rogramming **I**nterface",
     "The art of delivering a piece software to production",
+    "a clone of a repository that you (usually) do not own.",
+    "**G**raphical **U**ser **I**nterface",
     "**I**ntegrated **D**evelopment **E**nvironment",
-    "Open Source Software",
-    "Pattern to extract specific patterns from a text",
-    "A self-contained code example",
-    "selection of tools used in a project",
+    "See Pull Request.",
+    "**O**perating **S**ysten",
+    "**O**pen **S**ource **S**oftware",
+    "Request to join a feature branch into another branch, e.g., main branch. Sometimes it's also called merge request.",
+    "Pattern to extract specific parts from a text, find stuff in a text.",
+    "A self-contained code example, including the data it needs to run.",
+    "selection of software used in a project",
     "**S**tructured **Q**uery **L**anguage",
-    "(Online) Board of columns (lanes). Lanes progress from from left to right and carry issues."
+    "(Online) Board of columns (lanes). Lanes progress from from left to right and carry issues.",
+    "A virtual computer hosted on your computer. Often used to run another OS inside your main OS for testing purposes."
     
   ),
   stringsAsFactors = FALSE)
