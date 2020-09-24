@@ -500,7 +500,7 @@ from left to right: To Do, Doing, Under Review, Done. (you can also customize th
 <img src="images/swim.png">
 <div class="caption-left"></div>
 
-
+No lane except 'Done' should contain more than 5-6 issues.
 
 
 ## Testing
