@@ -8,8 +8,8 @@ Please leave your suggestions and feedback in the issue tracker of this reposito
 
 ## Resources
 
-- Read the book online! (free)
-- PhD Course
+- [Read the book online (free)](https://h4sci.github.io/h4sci-book/)
+- [PhD Course at ETH Zurich, Switzerland](https://github.com/h4sci/h4sci-course)
 
 
 ## License
