@@ -512,7 +512,7 @@ from left to right: To Do, Doing, Under Review, Done. (you can also customize th
 <img src="images/swim.png">
 <div class="caption-left">GitHub's web platform offers swimlanes to keep a better overview of issues being worked on.</div>
 
-```{block3, type='note'}
+```{, type='note'}
 **Tipp**: 
 No lane except 'Done' should contain more than 5-6 issues. 
 Doing so prevents clogging the lanes at particular stage which 
