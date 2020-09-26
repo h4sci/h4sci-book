@@ -227,23 +227,23 @@ Beside simplification of system administration, *docker* is known for its abilit
 
 ## Communication
 
-Communication is an essentially part of building an (academic) career. Part of it is a neat online profile. Do not relax on the excuse that are department's website does not offer the flexibility. The legal and technical situation in many places should allow you to spin up your own website or even run a blog if you find the time. For free. Including the web hosting. 
+Communication is an essentially part of building an (academic) career. Part of it is a neat online profile. Do not relax on the excuse that your department's website does not offer the flexibility. The legal and technical situation in many places should allow you to spin up your own website or even run a blog if you find the time. For free. Including the web hosting. 
 
-A popular approach to do so is to work with a *static website generator*. Generators like blogdown, pkgdown or bookdown are flavors of the same approach to create a website: Write markdown first, render it and then upload rendered HTML + CSS + Javascript page to a host like GitHub Pages or Netlify that allow you to store it online for free. The *static website generator* approach has become so popular that the aforementioned hosters offer to run the render process for you. 
+A popular approach to do so is to work with a *static website generator*. Generators like blogdown, pkgdown or bookdown are flavors of the same approach to create a website: Write markdown first, render it and then upload rendered HTML + CSS + Javascript to a host like GitHub Pages or Netlify that allow you host your site for free. The *static website generator* approach has become so popular that the aforementioned hosters even offer to run the render process for you. 
 
-The idea of engines like the [Go](https://golang.org/) based [Hugo](https://gohugo.io/) or the [Ruby](https://www.ruby-lang.org/en/) based [Jekyll](https://jekyllrb.com/) which are behind the above packages is a counter approach to what content management systems do [CMS](#glossary): There is no database or templates that are brought together dynamically when a user visits the website. The rendering is done locally on the creator's local computer. Whenever a change is made, the website is rendered entirely (ok, minus caching) and uploaded (pushed) again to the host. Therefore no database, etc is needed which cuts down the hosting costs to zero. (FWIW: this book is made with such a generator) 
+The idea of engines like the [Go](https://golang.org/) based [Hugo](https://gohugo.io/) or the [Ruby](https://www.ruby-lang.org/en/) based [Jekyll](https://jekyllrb.com/) which are behind the above packages is a counter approach to what content management systems do: There is no database or template that is brought together dynamically when a user visits the website. The rendering is done locally on the creator's local computer (or netlify's environment). Whenever a change is made, the website is rendered entirely (ok, minus caching) and uploaded (pushed) again to the host. Therefore no database is needed which cuts down the costs of hosting to zero. (FWIW: this book is made with such a generator.) 
 
 
 ## Automation
 
-The first type of automation described here refers to automation of your development workflow. That it is, you standardize your path from draft to program to deployment of your program to production. Modern version control software accompanies this process with a toolchain that is often fuzzily called [CI/CD](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment). While CI stands for *continuous integration* and simply refers to a workflow in which the team tries to release new features to production as continuously as possible, CD stands for either *continuous delivery* or *continuous deployment*.
+The first type of automation described here refers to automation of your development workflow. That it is, you standardize your path from draft to program to deployment to production. Modern version control software accompanies this process with a toolchain that is often fuzzily called [CI/CD](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment). While CI stands for *continuous integration* and simply refers to a workflow in which the team tries to release new features to production as continuously as possible, CD stands for either *continuous delivery* or *continuous deployment*.
 
-However, in practice the entire toolchain referred to as *CI/CD* has become readily available in well documented fashion when git hosting powerhouses GitHub and GitLab introduced their flavors of it: [GitHub Actions])(https://docs.github.com/en/actions) and [GitLab CI](https://docs.gitlab.com/ee/ci/). In addition services like [Travis CI](https://travis-ci.org/) or [Circle CI](https://circleci.com/) offer this toolchain independently of hosting git repositories.
+However, in practice the entire toolchain referred to as *CI/CD* has become broadly available in well documented fashion when git hosting powerhouses GitHub and GitLab introduced their flavors of it: [GitHub Actions])(https://docs.github.com/en/actions) and [GitLab CI](https://docs.gitlab.com/ee/ci/). In addition services like [Travis CI](https://travis-ci.org/) or [Circle CI](https://circleci.com/) offer this toolchain independently of hosting git repositories.
 
-Users of these platforms can upload a simple textfile that follows a name convention and structure to trigger a step based toolchain based on an event. An example of an event may be the push to a repository's main branch. A common example would be to run tests and/or build process of a package and then upon success deploy the newly created package to some server -- all triggered by simple push to master. One particularly cool thing is, that there multiple services who allow to run the testing on their servers using container technologies to offer a plethora of setups for testing. This software can easily be tested on different operating systems or other dependencies. 
+Users of these platforms can upload a simple textfile that follows a name convention and structure to trigger a step based toolchain based on an event. An example of an event may be the push to a repository's main branch. A common example would be to run tests and/or build a package and upon success deploy the newly created package to some server -- all triggered by simple push to master. One particularly cool thing is, that there multiple services who allow to run the testing on their servers using container technologies. This leads to great variety of setups for testing. That way software can easily be tested on different operating systems / environments. Also the mentioned website rendering approach mentioning in the previous section as a potential CI/CD application. 
 
 
-Here is a simple example of a *.gitlab-ci.yml* configuration that builds and tests a package and deploys it on push to master if the tests succeed:
+Here is a simple example of a *.gitlab-ci.yml* configuration that builds and tests a package and deploys it. It's triggered on push to master:
 
 ```
 stages:
@@ -281,7 +281,7 @@ script:
 For more in depth examples of the above, [Jim Hester's talk on GitHub Actions for R](https://www.jimhester.com/talk/2020-rsc-github-actions/) is a very good starting point.
 
 
-The other automation too I would like to mention is [Apache Airflow](https://airflow.apache.org/) because of its ability to help researchers keep an overview of regularly running processes. Examples of such processes could be daily or monthly data sourcing or timely publication of a regularly published indicator. For processes we can simply use [cronjobs](https://en.wikipedia.org/wiki/Cron) to time execution, but Airflow ships with a dashboard to keep track of many such process, plus a ton of other log and reporting features worth a lot when maintaining reocurring processe processes. 
+The other automation tool I would like to mention is [Apache Airflow](https://airflow.apache.org/) because of its ability to help researchers keep an overview of regularly running processes. Examples of such processes could be daily or monthly data sourcing or timely publication of a regularly published indicator. I often referred to it as [cronjobs](https://en.wikipedia.org/wiki/Cron) on steroids. Airflow ships with a dashboard to keep track of many timed processes, plus a ton of other log and reporting features worth a lot when maintaining reocurring processes. 
 
 
 # Developer Practices & Workflows
@@ -293,12 +293,12 @@ This section does not want to give a comprehensive overview over programming con
 
 ## Git Version Control 101
 
-Version control may be the single most important thing to take away from *Hacking for Social Sciences*. 
+As stated before, version control may be the single most important thing to take away from *Hacking for Social Sciences*. 
 In this chapter about the way developers work, I will stick to version control with *git*. The stack discussion of the previous chapter features a few more version control systems, but given git's dominant position, we will stick solely to git in this introduction to version control.  
 
 ### What is Git Version Control? 
 
-Git is a decentralized version control system. It manages different versions of your source code (and other text files) in a simple put efficient manner that has become the industry standard: The git programm itself is a small console programm that creates and manages a hidden folder inside the folder you put under version control (you know those folders with a leading dot in their foldername, like .myfolder). This folder keeps track of all difference between the current version and other versions before the current one. 
+Git is a decentralized version control system. It manages different versions of your source code (and other text files) in a simple but efficient manner that has become the industry standard: The git programm itself is a small console programm that creates and manages a hidden folder inside the folder you put under version control (you know those folders with a leading dot in their foldername, like .myfolder). This folder keeps track of all differences between the current version and other versions before the current one. 
 
 <img src="images/commits.png" width="300px">
 <div class="caption-half">Meaningful commit messages help to make sense of a project's history.</div>
@@ -315,26 +315,33 @@ In other more blatant, applied words: naming files like
 `final_version_your_name.R` or `final_final_correction_collaboratorX_20200114.R` 
 is like naming your WiFi `dont_park_the_car_in_the_frontyard` or `be_quiet_at_night` to communicate with your neighbors.  Information is supposed to be sent in a message, not a file name. With version control it is immediately clear what the most current version is - no matter the file name. No room for interpretation. No need to start guessing about the delta between the current version and another version.
 
-Also, you can easily try out different scenarios on different branches and merge them back together if you need to. Version control is a well established industry standard in software development. And it is relatively easy to adopt. With datasets growing in size and complexity it is only natural to improve management of the code that processes these data. 
+Also, you can easily try out different scenarios on different branches and merge them back together if you need to. Version control is a well established industry standard in software development. And it is relatively easy to adopt. With datasets growing in size and complexity, it is only natural to improve management of the code that processes these data. 
 
-Academia is probably the only place would allow you to dive into hacking at somewhat complex problems for several years w/o ever taking notice of version control. As a social scientist who rather collaborates in small groups and writes moderate amount of code, have you ever thought about how to collaborate with 100+ persons big software project? Or you to manage ten thousands of lines of code and beyond? Version control is an important reason why these things work. And it's been around for decades. But enough about the rant... 
+Academia has probably been the only place that would allow you to dive into hacking at somewhat complex problems for several years w/o ever taking notice of version control. As a social scientist who rather collaborates in small groups and writes moderate amount of code, have you ever thought about how to collaborate with 100+ persons in a big software project? Or to manage ten thousands of lines of code and beyond? Version control is an important reason why these things work. And it's been around for decades. But enough about the rant... 
 
 
 ### How Does Git Work ? 
 
-The first important implication of decentralized version control is that all versions are stored on the local machines of every collaborator, not just on a remote server. So let's consider a single local machine first.
+```{,type = 'note'}
+This introduction tries narrow things done to the commands that you'll need if want to use git in similar fashion to what you learn from this book. If you are looking for more comprehensive, general guides, three major git platforms, namely Atlassian's Bitbucket, GitHub and Gitlab offer comprehensive introductions as well as advanced articles or videos to learn git online.
+
+
+```
+
+
+The first important implication of decentralized version control is that all versions are stored on the local machines of every collaborator, not just on a remote server (this is also a nice, natural backup of your work). So let's consider a single local machine first.
 
 <img src="images/decentralized.png" width="700px">
 <div class="caption-half"></div>
 
-Locally, a git repository consists of a *checkout* which is also called current *working copy* soon. This is the status of the file that your file explorer or your editor will see when you use them to open a file. To checkout a different version, one needs to find call a commit by its unique commit hash and checkout that particular version. 
+Locally, a git repository consists of a *checkout* which is also called current *working copy* soon. This is the status of the file that your file explorer or your editor will see when you use them to open a file. To checkout a different version, one needs to call a commit by its unique commit hash and checkout that particular version. 
 
 If you want to add new files to version control or bundle changes to some existing files into a new commit, add these files to the staging area, so they get committed next time a commit process is triggered. Finally committing all these staged changes under another commit id a new version is created. 
 
 
 ### Moving Around
 
-So let's actually do it. Here's a three stage walk through of git commands that should have you covered in most use cases a researcher will face. Note that git has some pretty good error message that guess what could have gone wrong, make sure to read them carefully. Even you can't make sense of them, your online search will be a lot more efficient when you include these messages. 
+So let's actually do it. Here's a three stage walk through of git commands that should have you covered in most use cases a researcher will face. Note that git has some pretty good error message that guess what could have gone wrong. Make sure to read them carefully. Even if you can't make sense of them, your online search will be a lot more efficient when you include these messages. 
 
 **Stage 1: Working Locally**
 
@@ -359,9 +366,6 @@ d <- data.frame("Command" = c("git init",
 kable(d,"html",escape= FALSE)
 
 ```
-
-
-
 
 
 **Stage 2: Working with a Remote Repository**
@@ -390,6 +394,8 @@ kable(d,"html",escape= FALSE)
 ```
 
 **Stage 3: Branches**
+
+
 
 
 ```{r, eval=TRUE,message=FALSE, echo=FALSE}
