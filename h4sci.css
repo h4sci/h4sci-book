@@ -8,9 +8,42 @@
   text-align:right;
 }
 
+.caption-left{
+  font-size:0.75em;
+  padding-bottom: 10px;
+  text-align:left;
+}
+
+
 .caption-half{
   width:50%;
   font-size:0.75em;
   padding-bottom: 10px;
   text-align:left;
+}
+
+#pink{
+  background-color:#D14F7B;
+  color:#ffffff;
+
+}
+
+
+#pink p{
+  padding:10px;
+  background-color:#D14F7B;
+}
+
+
+.yellow{
+  background-color:yellow;
+
+
+}
+
+
+.note{
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #f5f5f5 5px center/3em no-repeat;
 }

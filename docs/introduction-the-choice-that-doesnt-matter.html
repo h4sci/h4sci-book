@@ -24,7 +24,7 @@
 <meta name="author" content="Matthias Bannert" />
 
 
-<meta name="date" content="2020-09-25" />
+<meta name="date" content="2020-09-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -120,13 +120,13 @@
 <div id="introduction---the-choice-that-doesnt-matter" class="section level1">
 <h1><span class="header-section-number">2</span> Introduction - The Choice that Doesn’t Matter</h1>
 <p>The very first (and intimidating) choice a novice hacker faces is which is programming language to learn. Unfortunately the medium popularily summed up as the internet offers a lot of really really good advice on the matter. The problem is, however, that this advice does not necessarily agree which language is the best for research. In the realm of data science – get accustomed to that label if you are a scientist who works with data – the debate basically comes down to two languages: The R Language for Statistical Computing and Python.</p>
-<p>At least to me, there is only one valid advice: <strong>It simply does NOT matter</strong>. If you stick around in data science long enough you will eventually get in touch with both languages and in turn learn both. There is a huge overlap of what you can with both languages. R came out of the rather specific domain of statiscs 25+ years ago and made its way to a more general programming language thanks to 15K+ extension packages (and counting). Built by a mathmatician Python continues to be as general purpose as ever but got more scientific thanks to packages such as {pandas}, {sciPy} or {numPy}. As a result there is a huge overlap of what both languages can do and both will extend your horizon in unprecendented fashion if you did not use a full fledged programming language for your analysis before.</p>
+<p>At least to me, there is only one valid advice: <strong>It simply does NOT matter</strong>. If you stick around in data science long enough you will eventually get in touch with both languages and in turn learn both. There is a huge overlap of what you can do either of those languages. R came out of the rather specific domain of statiscs 25+ years ago and made its way to a more general programming language thanks to 15K+ extension packages (and counting). Built by a mathmatician, Python continues to be as general purpose as it’s ever been. But it got more scientific, thanks to extension packages of its own such as <a href="https://pandas.pydata.org/">pandas</a>, <a href="https://www.scipy.org/">SciPy</a> or <a href="https://numpy.org/">numPy</a>. As a result there is a huge overlap of what both languages can do and both will extend your horizon in unprecendented fashion if you did not use a full fledged programming language for your analysis before.</p>
 <img src="images/languagewar.jpg" width="650px">
 <div class="caption-left">
 R: “Dplyr smokes pandas.” Python: “But Keras is better for ML!” Language wars can be entertaining, sometimes spectacular, but most times they are just useless…
 </div>
-<p>But why is there such a heartfelt debate online, if it doesn’t matter? Let’s pick up a random argument from this debate: R is to set up and Python is better for machine learning. If you worked with Java or another environment that’s rather tricky to get going, you are hardened and might not need or cherish easy onboarding. If you got frustrated before you even really started trying to reproduce a nifty machine learning blog post because you installed the wrong version of Python or didn’t manage to make sense of virtualenv you might feel otherwise.</p>
-<p>The point is, rest assured, if you just start doing analytics using a programming languages both languages are guaranteed to carry you a long way. There is no way to tell for sure which one will be the more dominant language in 10 years from now or whether both still be around holding their ground the way they do now. But once you reached a decent software carpentry level in either language it will help you a lot learning the other. If your peers work with R, start with R, if your close community
+<p>But why is there such a heartfelt debate online, if it doesn’t matter? Let’s pick up a random argument from this debate: R is easier to set up and Python is better for machine learning. If you worked with Java or another environment that’s rather tricky to get going, you are hardened and might not cherish easy onboarding. If you got frustrated before you really started, you might feel otherwise. You may just have been unlucky making guesses about a not so well documented paragraph, trying to reproduce a nifty machine learning blog post. Just because you installed the wrong version of Python or didn’t manage to make sense of virtualenv right from the beginning.</p>
+<p>The point is, rest assured, if you just start doing analytics using a programming languages both languages are guaranteed to carry you a long way. There is no way to tell for sure which one will be the more dominant language in 10 years from now or whether both still be around holding their ground the way they do now. But once you reached a decent software carpentry level in either language, it will help you a lot learning the other. If your peers work with R, start with R, if your close community
 works with Python, start with Python. If you are in for the longer run either language will help you understand the concepts and ideas of programming with data. Trust me, there will be a natural opportunity to get to know the other.</p>
 <div id="why-would-social-scientists-want-to-code" class="section level2">
 <h2><span class="header-section-number">2.1</span> Why Would Social Scientists Want to Code?</h2>
@@ -142,24 +142,30 @@ rnorm(10)
 ```
 
 ```
-##  [1]  0.60612159 -1.00298819 -0.45366866  0.78229871  0.11521863  0.04978594  0.41261234  1.62786309  0.80406893 -0.14200478
+##  [1]  0.4106749  0.2304904  0.6251730 -0.1059911 -1.8032412  1.3315167  1.8983758 -1.1823304 -0.8187975 -0.2354910
 ```
 
 -->
 <p>Second because it’s reproducible. Code has become a tremendous communication channel. Your web scraper does not work?
-Instead of reaching out in a clumsy but wordy cry for help, posting what you tried to far described by source code will often get you good answers within hours on platforms like <a href="https://stackoverflow.com">Stackoverflow</a> or <a href="https://crossvalidated.com">Crossvalidated</a>. Or imagine feature requests, after a little code ping pong with the package author your wish eventually becomes clearer. Let alone chats with colleagues and co-authors. Sharing code just works.
-Academic journals have found out, too in the meantime. Many outlets require you to make the data and source code behind your work available. <a href="https://social-science-data-editors.github.io/guidance/template-README.html">Social Science Data Editors</a> is a bleeding edge project at the time of reading this, but is already referred to by top notch journals of the profession like American Economic Review (AER).</p>
+Instead of reaching out in a clumsy but wordy cry for help, posting what you tried so far described by source code will often get you good answers within hours on platforms like <a href="https://stackoverflow.com">Stackoverflow</a> or <a href="https://crossvalidated.com">Crossvalidated</a>. Or imagine feature requests, after a little code ping pong with the package author your wish eventually becomes clearer. Let alone chats with colleagues and co-authors. Sharing code just works.
+Academic journals have found that out, too in the meantime. Many outlets require you to make the data and source code behind your work available. <a href="https://social-science-data-editors.github.io/guidance/template-README.html">Social Science Data Editors</a> is a bleeding edge project at the time of writing this, but is already referred to by top notch journals of the profession like American Economic Review (AER).</p>
 <p>Third, because it scales and automates. Automation is not only convenient. Like when you want to download data, process and create the same visualization and put it on your website any given Sunday. Automation is inevitable. Like when you have to gather daily updates from different outlets or work through thousands of .pdfs.</p>
 <p>Last but not least because of things you couldn’t do w/o being an absolute guru (if at all) if wasn’t for programming. Take visualization. Go, check <a href="https://d3js.org/">these D3 Examples</a>. Now, try to do that in Excel. If you do these things in Excel it’d make you an absolute spreadsheet visualization Jedi, probably missing out on other time consuming skills to master. Moral of the story is, with decent, carpentry level programming skills – that’d be the upfront investment – you can already do so many spectular things while not really specializing and staying very flexible.</p>
 </div>
 <div id="how-to-read-this-book" class="section level2">
 <h2><span class="header-section-number">2.2</span> How to Read this Book?</h2>
 <p><em>Hacking for Social Sciences</em> is written based on the experience of helping students and seasoned researchers of different fields with their data management, processing and communication of results. A part of the book contains the information I wish I had when I started a PhD in economics. Part of the book is written years after said PhD was completed and with the hindsight of 10+ years in academia. Every page of the book is written with the belief that the future is OPEN and it is up to our generation of researchers to shape it.</p>
+<div align="center">
+<img src="images/open.png">
+<div class="caption-half">
+“The ministry warns: The future is open,” taken from a 2020 <a href="https://www.bildung-forschung.digital/files/191004_OA-Infoflyer_barrierefrei.pdf">ad campaign on Open Access by the German ministry for education and research (pdf)</a>.
+</div>
+</div>
 <!-- add ad from Germany "the future is OPEN" for open data and open source 
 https://www.bildung-forschung.digital/files/191004_OA-Infoflyer_barrierefrei.pdf
 -->
 <blockquote>
-<p>If you came to <code>🌸</code> pick, you’re welcome, too (but a bit early to the party though). This book will grow along the 2020 course ‘Hacking for Social Science’ and hopefully be finished in its first version by the end of the semester / year. Next up are chapters on the <em>Big Picture of Open Source Software for hacking data</em> and <em>Git version control</em>.</p>
+<p>If you came to <code>🍒</code> pick, you’re welcome, too (but a bit early to the party though). This book will grow along the 2020 course ‘Hacking for Social Science’ and hopefully be finished in its first version by the end of the semester / year. Next up are chapters on the <em>Big Picture of Open Source Software for hacking data</em> and <em>Git version control</em>.</p>
 </blockquote>
 </div>
 </div>
