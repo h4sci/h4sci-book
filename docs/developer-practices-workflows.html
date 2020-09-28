@@ -24,7 +24,7 @@
 <meta name="author" content="Matthias Bannert" />
 
 
-<meta name="date" content="2020-09-26" />
+<meta name="date" content="2020-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -123,11 +123,11 @@
 <p>This section does not want to give a comprehensive overview over programming concepts nor compare approaches. And damn sure it does not mean to go to war over approach superiority. <em>Hacking for Social Scientists</em> rather cherry-picks suitable application-minded, low-barrier concepts that help social scientists professionalize their own programming.</p>
 <div id="git-version-control-101" class="section level2">
 <h2><span class="header-section-number">4.1</span> Git Version Control 101</h2>
-<p>Version control may be the single most important thing to take away from <em>Hacking for Social Sciences</em>.
+<p>As stated before, version control may be the single most important thing to take away from <em>Hacking for Social Sciences</em>.
 In this chapter about the way developers work, I will stick to version control with <em>git</em>. The stack discussion of the previous chapter features a few more version control systems, but given git’s dominant position, we will stick solely to git in this introduction to version control.</p>
 <div id="what-is-git-version-control" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> What is Git Version Control?</h3>
-<p>Git is a decentralized version control system. It manages different versions of your source code (and other text files) in a simple put efficient manner that has become the industry standard: The git programm itself is a small console programm that creates and manages a hidden folder inside the folder you put under version control (you know those folders with a leading dot in their foldername, like .myfolder). This folder keeps track of all difference between the current version and other versions before the current one.</p>
+<p>Git is a decentralized version control system. It manages different versions of your source code (and other text files) in a simple but efficient manner that has become the industry standard: The git programm itself is a small console programm that creates and manages a hidden folder inside the folder you put under version control (you know those folders with a leading dot in their foldername, like .myfolder). This folder keeps track of all differences between the current version and other versions before the current one.</p>
 <img src="images/commits.png" width="300px">
 <div class="caption-half">
 Meaningful commit messages help to make sense of a project’s history.
@@ -142,22 +142,25 @@ Meaningful commit messages help to make sense of a project’s history.
 <p>In other more blatant, applied words: naming files like
 <code>final_version_your_name.R</code> or <code>final_final_correction_collaboratorX_20200114.R</code>
 is like naming your WiFi <code>dont_park_the_car_in_the_frontyard</code> or <code>be_quiet_at_night</code> to communicate with your neighbors. Information is supposed to be sent in a message, not a file name. With version control it is immediately clear what the most current version is - no matter the file name. No room for interpretation. No need to start guessing about the delta between the current version and another version.</p>
-<p>Also, you can easily try out different scenarios on different branches and merge them back together if you need to. Version control is a well established industry standard in software development. And it is relatively easy to adopt. With datasets growing in size and complexity it is only natural to improve management of the code that processes these data.</p>
-<p>Academia is probably the only place would allow you to dive into hacking at somewhat complex problems for several years w/o ever taking notice of version control. As a social scientist who rather collaborates in small groups and writes moderate amount of code, have you ever thought about how to collaborate with 100+ persons big software project? Or you to manage ten thousands of lines of code and beyond? Version control is an important reason why these things work. And it’s been around for decades. But enough about the rant…</p>
+<p>Also, you can easily try out different scenarios on different branches and merge them back together if you need to. Version control is a well established industry standard in software development. And it is relatively easy to adopt. With datasets growing in size and complexity, it is only natural to improve management of the code that processes these data.</p>
+<p>Academia has probably been the only place that would allow you to dive into hacking at somewhat complex problems for several years w/o ever taking notice of version control. As a social scientist who rather collaborates in small groups and writes moderate amount of code, have you ever thought about how to collaborate with 100+ persons in a big software project? Or to manage ten thousands of lines of code and beyond? Version control is an important reason why these things work. And it’s been around for decades. But enough about the rant…</p>
 </div>
 <div id="how-does-git-work" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> How Does Git Work ?</h3>
-<p>The first important implication of decentralized version control is that all versions are stored on the local machines of every collaborator, not just on a remote server. So let’s consider a single local machine first.</p>
+<blockquote>
+<p>This introduction tries narrow things down to the commands that you’ll need if want to use git in similar fashion to what you learn from this book. If you are looking for more comprehensive, general guides, three major git platforms, namely Atlassian’s Bitbucket, GitHub and Gitlab offer comprehensive introductions as well as advanced articles or videos to learn git online.</p>
+</blockquote>
+<p>The first important implication of decentralized version control is that all versions are stored on the local machines of every collaborator, not just on a remote server (this is also a nice, natural backup of your work). So let’s consider a single local machine first.</p>
 <img src="images/decentralized.png" width="700px">
 <div class="caption-half">
 
 </div>
-<p>Locally, a git repository consists of a <em>checkout</em> which is also called current <em>working copy</em> soon. This is the status of the file that your file explorer or your editor will see when you use them to open a file. To checkout a different version, one needs to find call a commit by its unique commit hash and checkout that particular version.</p>
+<p>Locally, a git repository consists of a <em>checkout</em> which is also called current <em>working copy</em> soon. This is the status of the file that your file explorer or your editor will see when you use them to open a file. To checkout a different version, one needs to call a commit by its unique commit hash and checkout that particular version.</p>
 <p>If you want to add new files to version control or bundle changes to some existing files into a new commit, add these files to the staging area, so they get committed next time a commit process is triggered. Finally committing all these staged changes under another commit id a new version is created.</p>
 </div>
 <div id="moving-around" class="section level3">
 <h3><span class="header-section-number">4.1.4</span> Moving Around</h3>
-<p>So let’s actually do it. Here’s a three stage walk through of git commands that should have you covered in most use cases a researcher will face. Note that git has some pretty good error message that guess what could have gone wrong, make sure to read them carefully. Even you can’t make sense of them, your online search will be a lot more efficient when you include these messages.</p>
+<p>So let’s actually do it. Here’s a three stage walk through of git commands that should have you covered in most use cases a researcher will face. Note that git has some pretty good error message that guess what could have gone wrong. Make sure to read them carefully. Even if you can’t make sense of them, your online search will be a lot more efficient when you include these messages.</p>
 <p><strong>Stage 1: Working Locally</strong></p>
 <table>
 <thead>
@@ -295,6 +298,8 @@ set URL to remote repo
 </tbody>
 </table>
 <p><strong>Stage 3: Branches</strong></p>
+<p>Branches are derivatives from the main branch that allow to work on different feature at the same time
+without stepping on someone elses feet. Through branch repositories can actively maintain different states.</p>
 <table>
 <thead>
 <tr>
@@ -342,9 +347,9 @@ merge branch named branchname into current branch
 </tbody>
 </table>
 <p><strong>Fixing Merge Conflicts</strong></p>
-<p>In most cases git is quite clever and can figure out which is the desired state of
-a file when putting two versions of it together. When git’s <em>recursive strategy</em> is at work,
-it will just merge versions automatically. When the same lines were affected in different versions, git cannot tell
+<p>In most cases <em>git</em> is quite clever and can figure out which is the desired state of
+a file when putting two versions of it together. When git’s <em>recursive strategy</em> is possible, git
+it wil merge versions automatically. When the same lines were affected in different versions, git cannot tell
 which line should be kept. Sometimes you would even want to keep both changes.</p>
 <p>But even in such scenario fixing the conflict is easy. Git will tell you that your last command
 caused a merge conflict and which files are conflicted. Open these files and see all parts of the file that

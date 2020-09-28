@@ -66,8 +66,14 @@ rnorm(10)
 
 -->
 
+
+<img src="images/communication.png">
+<div class="caption-left">Source code can be a tremendously sharp, unambigous and international communication channel.</div>
+
+
+
 Second because it's reproducible. Code has become a tremendous communication channel. Your web scraper does not work? 
-Instead of reaching out in a clumsy but wordy cry for help, posting what you tried so far described by source code will often get you good answers within hours on platforms like [Stackoverflow](https://stackoverflow.com) or [Crossvalidated](https://crossvalidated.com). Or imagine feature requests, after a little code ping pong with the package author your wish eventually becomes clearer. Let alone chats with colleagues and co-authors. Sharing code just works. 
+Instead of reaching out in a clumsy but wordy cry for help, posting what you tried so far described by source code will often get you good answers within hours on platforms like [Stackoverflow](https://stackoverflow.com) or [Crossvalidated](https://crossvalidated.com). Or think of feature requests: After a little code ping pong with the package author your wish eventually becomes clearer. Let alone chats with colleagues and co-authors. Sharing code just works. 
 Academic journals have found that out, too in the meantime. Many outlets require you to make the data and source code behind your work available. [Social Science Data Editors](https://social-science-data-editors.github.io/guidance/template-README.html) is a bleeding edge project at the time of writing this, but is already referred to by top notch journals of the profession like American Economic Review (AER). 
 
 Third, because it scales and automates. Automation is not only convenient. Like when you want to download data, process and create the same visualization and put it on your website any given Sunday. Automation is inevitable. Like when you have to gather daily updates from different outlets or work through thousands of .pdfs. 
@@ -322,11 +328,8 @@ Academia has probably been the only place that would allow you to dive into hack
 
 ### How Does Git Work ? 
 
-```{,type = 'note'}
-This introduction tries narrow things done to the commands that you'll need if want to use git in similar fashion to what you learn from this book. If you are looking for more comprehensive, general guides, three major git platforms, namely Atlassian's Bitbucket, GitHub and Gitlab offer comprehensive introductions as well as advanced articles or videos to learn git online.
 
-
-```
+>This introduction tries narrow things down to the commands that you'll need if want to use git in similar fashion to what you learn from this book. If you are looking for more comprehensive, general guides, three major git platforms, namely Atlassian's Bitbucket, GitHub and Gitlab offer comprehensive introductions as well as advanced articles or videos to learn git online.
 
 
 The first important implication of decentralized version control is that all versions are stored on the local machines of every collaborator, not just on a remote server (this is also a nice, natural backup of your work). So let's consider a single local machine first.
@@ -395,7 +398,8 @@ kable(d,"html",escape= FALSE)
 
 **Stage 3: Branches**
 
-
+Branches are derivatives from the main branch that allow to work on different feature at the same time
+without stepping on someone elses feet. Through branch repositories can actively maintain different states. 
 
 
 ```{r, eval=TRUE,message=FALSE, echo=FALSE}
@@ -417,12 +421,11 @@ kable(d,"html",escape= FALSE)
 
 
 
-
 **Fixing Merge Conflicts** 
 
-In most cases git is quite clever and can figure out which is the desired state of 
-a file when putting two versions of it together. When git's *recursive strategy* is at work, 
-it will just merge versions automatically. When the same lines were affected in different versions, git cannot tell 
+In most cases *git* is quite clever and can figure out which is the desired state of 
+a file when putting two versions of it together. When git's *recursive strategy* is possible, git
+it wil merge versions automatically. When the same lines were affected in different versions, git cannot tell 
 which line should be kept. Sometimes you would even want to keep both changes. 
 
 But even in such scenario fixing the conflict is easy. Git will tell you that your last command
