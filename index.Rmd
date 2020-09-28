@@ -1,5 +1,5 @@
 --- 
-title: "Hacking for Social Scientists"
+title: "Hacking for Social Sciences"
 subtitle: "A Guide to Programming With Data"
 author: "Matthias Bannert"
 date: "`r Sys.Date()`"
