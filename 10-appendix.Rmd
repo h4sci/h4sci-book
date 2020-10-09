@@ -1,0 +1,74 @@
+# Appendix {-}
+
+## Glossary {-}
+
+```{r, eval=TRUE,message=FALSE, echo=FALSE}
+library(kableExtra)
+d <- data.frame("Term" = c(
+  "API",
+  "CMS",
+  "Deployment",
+  "Fork",
+  "GUI",
+  "IDE",
+  "Merge Request",
+  "OS",
+  "OSS",
+  "Pull Request (PR)",
+  "Regular Expression",
+  "REPL",
+  "Reproducible Example",
+  "Stack",
+  "SQL",
+  "Swimlanes",
+  "Throughput Problem",
+  "Virtual Machine (VM)"
+  ),
+  "Description" = c(
+    "**A**pplication **P**rogramming **I**nterface",
+    "**C**ontent **M**anagement **S**ystem",
+    "The art of delivering a piece software to production",
+    "a clone of a repository that you (usually) do not own.",
+    "**G**raphical **U**ser **I**nterface",
+    "**I**ntegrated **D**evelopment **E**nvironment",
+    "See Pull Request.",
+    "**O**perating **S**ysten",
+    "**O**pen **S**ource **S**oftware",
+    "Request to join a feature branch into another branch, e.g., main branch. Sometimes it's also called merge request.",
+    "Pattern to extract specific parts from a text, find stuff in a text.",
+    "[read-eval-print-loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)",
+    "A self-contained code example, including the data it needs to run.",
+    "selection of software used in a project",
+    "**S**tructured **Q**uery **L**anguage",
+    "(Online) Board of columns (lanes). Lanes progress from from left to right and carry issues.",
+    "A bottleneck which can be mitigated by parallelization, e.g., multiple containers running in parallel.",
+    "A virtual computer hosted on your computer. Often used to run another OS inside your main OS for testing purposes."
+    
+  ),
+  stringsAsFactors = FALSE)
+kable(d,"html",escape= FALSE)
+
+```
+
+
+<!-- ## Testing --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -28,7 +28,7 @@ The vast majority of data has been created within the last decade. In turn many 
 
 <div align="center">
 <img src="images/meet_egghead.jpg">
-<div class="caption-half">Meet Dr. Egghead who started his quest to figure out how his assistant got a week's work done in two hours. "<a href="https://www.google.com/search?q=hacker&tbm=isch">Hacker's wear hoodies, you know"</a>, " he mumbles as he starts to think^[FWIW, Dr. Egghead was born after Colin Gillespie's hilarious talk  on [Security in Academia](https://www.youtube.com/watch?v=5odJxZj9LE4)...] at useR! 2019.</div>
+<div class="caption-half">Meet Dr. Egghead who started his quest to figure out how his assistant got a week's work done in two hours. "<a href="https://www.google.com/search?q=hacker&tbm=isch">Hacker's wear hoodies, you know"</a>, " he mumbles as he starts to think^[FWIW, Dr. Egghead was born after Colin Gillespie's hilarious talk on [Security in Academia](https://www.youtube.com/watch?v=5odJxZj9LE4) at useR! 2019]. </div>
 
 </div>
 
@@ -565,80 +565,6 @@ could potentially lead to negligent behavior, e.g., careless reviews.
 ## Testing
 
 When talking about development practices, testing can't be missing. So, just you know that I thought of this, tbc ...
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Appendix {-}
-
-## Glossary {-}
-
-```{r, eval=TRUE,message=FALSE, echo=FALSE}
-library(kableExtra)
-d <- data.frame("Term" = c(
-  "API",
-  "CMS",
-  "Deployment",
-  "Fork",
-  "GUI",
-  "IDE",
-  "Merge Request",
-  "OS",
-  "OSS",
-  "Pull Request (PR)",
-  "Regular Expression",
-  "REPL",
-  "Reproducible Example",
-  "Stack",
-  "SQL",
-  "Swimlanes",
-  "Throughput Problem",
-  "Virtual Machine (VM)"
-  ),
-  "Description" = c(
-    "**A**pplication **P**rogramming **I**nterface",
-    "**C**ontent **M**anagement **S**ystem",
-    "The art of delivering a piece software to production",
-    "a clone of a repository that you (usually) do not own.",
-    "**G**raphical **U**ser **I**nterface",
-    "**I**ntegrated **D**evelopment **E**nvironment",
-    "See Pull Request.",
-    "**O**perating **S**ysten",
-    "**O**pen **S**ource **S**oftware",
-    "Request to join a feature branch into another branch, e.g., main branch. Sometimes it's also called merge request.",
-    "Pattern to extract specific parts from a text, find stuff in a text.",
-    "[read-eval-print-loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)",
-    "A self-contained code example, including the data it needs to run.",
-    "selection of software used in a project",
-    "**S**tructured **Q**uery **L**anguage",
-    "(Online) Board of columns (lanes). Lanes progress from from left to right and carry issues.",
-    "A bottleneck which can be mitigated by parallelization, e.g., multiple containers running in parallel.",
-    "A virtual computer hosted on your computer. Often used to run another OS inside your main OS for testing purposes."
-    
-  ),
-  stringsAsFactors = FALSE)
-kable(d,"html",escape= FALSE)
-
-```
-
-
-<!-- ## Testing --> 
-
-
-
-
-
-
 
 
 
