@@ -1,0 +1,57 @@
+# Planning Your Code
+
+If you associate programming more often than not with hours of fiddling, tweaking
+and fighting to galvanize approaches found on online this chapter is for you. 
+
+*Planning Your Code* shares a blueprint to accompany the evolution of your project
+and code: start out with explorative experiments, define your interaface,
+narrow down to a proof of concept and scale up. Hopefully these tipps and tricks
+will help you to experience the rewarding feeling of a software project coming
+together like a plan originated by Hannibal Smith. 
+
+
+- maybe overview sketch here... decision tree. 
+
+
+## Documentation
+
+First things first. Write the first bit of documentation before your first line of 
+code. Documentation written with hindsight solely will always be written with the
+mindset of someone who thinks the approach is easy because the issue was just solved. 
+Also, the motivation the think about the problem is much lower once it's fixed. 
+Hence I encourage you, to write up a bit of pseudo code to start get started. 
+
+- may look like this. 
+
+
+## Explore! Write Scripts.
+
+Get your hands dirty. Run experiments. How should the new graph look like? 
+Try out things interactively. Can we read in the data correctly? Are the axes labels
+large in enough? Is the color scheme suitable? 
+
+The most important feature for their popularity in social sciences is the 
+interactivity of R and Python. Both languages are interpreted, allowing to send 
+commands to the interpreter line-by-line and to get a result back immediately. 
+This is tremendously helpful when trying things out, but also when reading code 
+written by more experienced developers. The ability to send code to the console
+line by line can be very handy when trying to follow more complex statements. 
+
+- read inside out
+
+- 
+
+## Design Your Interface
+
+Once you know a bit more about your direction of travel, it's time to think about
+how users interact with your program: Will your code just act as a storage pit of tools, 
+a loose collection of commands for adhoc use? Are others using the program, too?
+?  Will there be machine-to-machine interaction?
+
+
+- pseudo code is
+
+
+## 
+
+
