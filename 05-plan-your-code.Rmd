@@ -1,9 +1,11 @@
-# Organise Your Code
+# Planning Your Code
+
+<!-- DO NOT FORGET TO SAY SOMETHIN ABOUT LICENSES !! -->
 
 If you associate programming more often than not with hours of fiddling, tweaking
 and fighting to galvanize approaches found on online this chapter is for you. 
 
-*Organise Your Code* shares a blueprint to plan your code and to accompany the evolution of your project:
+*Planning Your Code* shares a blueprint to organise your code and to accompany the evolution of your project:
 start out with explorative experiments, define your interface, narrow down to a proof of
 concept and scale up. Hopefully the tips, tricks and the guidance in this chapter will help you to
 experience the rewarding feeling of a software project coming together like a plan originated by Hannibal Smith. 
@@ -39,6 +41,16 @@ platform collaboroations (Windows vs. Unix OS).
 characters. Also make sure to not switch styles within a project. There a plenty of style guides around, go with whatever your lab or community goes. 
 
 
+- R
+- data
+- docs
+- vignettes
+- src 
+- inst
+- man
+
+
+
 **R**
 
 A folder to store function definitions as opposed to function calls. Typically 
@@ -54,32 +66,65 @@ my_func_def <- function(param1, param2){
 }
 ```
 
+**man** 
+
+This folder contains the context manual of your package. This is basically a function (and dataset) specific documentation. It's what you see when you run `?function_name`. The content of the man folder is usually created automatically from the roxygen style documentation (note the #' styled comments) during a ```devtools::document()`` run. Back in the days when people wore pijamas and
+lived life slow, the the man folder was filled up manually with some LaTeX reminiscant .rd files, but ever since R Studio took over in 2012, most developer used Roxygen and render the function reference part of the documentation from 
+markdown. 
+
+
+```{r, eval=FALSE}
+#' Sum of Parameters Multiplied by First Input
+#'
+#' This functions only exists as a show case. 
+#' It's useless but nevertheless exported to the NAMESPACE of this
+#' package so users can see it and call the function by it's name.
+#'
+#' @param param1 numeric input 
+#' @param param2 numeric input 
+#' @export
+my_func_def <- function(param1, param2){
+  # here goes the function body, i.e., what the function does
+  a <- (param1 + param2) * param1
+  # Note that in R, return statements are not necessary and even
+  # relatively uncommon, R will return the last unassigned statement
+  return(a)
+}
+```
+
+
+
+
+
 **docs**
 
 This folder is typically not filled with content manually. When pushed to github
 a docs folder can easily be published as website using [Github Pages](https://pages.github.com/). With Github pages you can host a decently styled modern website for free. Software projects often use GitHub Pages to market a product or project or simply for documentation purposes. All you need to do is check a couple of options inside the Github Web GUI and make sure the docs folder contains .md or .html files as well as stylesheets (.css). The latter make sound a bit like Latin to people without a basic development background, but there is plenty of help. The R ecosystem offers different flavors of the same idea: use a bit of markdown + R to generate website code. There is blogdown for your personal website or blog. There is pkgdown for your packages documentation. And there is even bookdown to write an online book like this. Write the markdown file, render it as HTML into the docs folder, push the docs folder to GitHub. Done. Your website will be online at username.github.io/reponame.
 
+Here's a an example of a package down website: https://mbannert.github.io/timeseriesdb/
+
+**data**
+
+If you have file based data like .csv, .RData, .json or even .xlsx put them in here. Keeping data in a separate folder inside the project directory helps to keep reference to the data relative. There is nothing more greenhorn like then 
+```r read.csv("C:\mbannert\My Documents\some_data.csv") ```. Even if you like this book, I doubt you have a folder named 'mbannert' on your computer. Ah, an in case you wondered, extensive use of ```setwd()``` is even worse. Keep you reference to data (and functions alike) relative. If you are sourcing data from a remote NAS drive as it is common at many university you can simply mount this drive to you folder (LTMGTFY: Windows / OSX).
+
+**vignettes**
+
+Admittedly not the most intuitive names for a folder that is supposed to contain articles. Vignettes are part of the documentation of a good package. It's kind of a description as if you were to write a paper about your package, including some examples of how to use it. For modern packages, vignettes are often part of their package down based online documentation. Feel free, to name this folder differently, though sticking to the convention will make it easier to turn your 
+project into a project at a later stage. This folder typically contains Markdown or RMarkdown files. 
 
 
-- data
-- vignettes
-- inst
-- man
+**src**
+
+The source folder is just here for the sake of completeness and is not needed in projects that only involve R source code. It's reserved for those parts of a package that need compilation, e.g., C++ or FORTRAN source code. 
 
 
+**inst**
 
+When you install an R package using `install.packages()` it will be installed in some deep dungeon on your computer where R lives within your OS. The inst folder allows you to ship non R files with your installation. The files of the inst folder will just be copied into the package root folder inside your installation of that package. 
 
-LICENSE
-DESCRIPTION
+*inst* is also a great place to store experimental function calls or playground files once the package ambitions become more concrete and those type of files do not live conveniently in the project roo anymore. Also I sometimes put shiny apps for local use into the inst folder if I want to make them part of a package. 
 
-
-
-
-but here is an idea that I favor for R projects: create a structure as if you were to create an R package. 
-
-
-
-- R 
 
 
 
