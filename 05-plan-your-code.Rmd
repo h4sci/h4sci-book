@@ -1,16 +1,87 @@
-# Planning Your Code
+# Organise Your Code
 
 If you associate programming more often than not with hours of fiddling, tweaking
 and fighting to galvanize approaches found on online this chapter is for you. 
 
-*Planning Your Code* shares a blueprint to accompany the evolution of your project
-and code: start out with explorative experiments, define your interaface,
-narrow down to a proof of concept and scale up. Hopefully these tipps and tricks
-will help you to experience the rewarding feeling of a software project coming
-together like a plan originated by Hannibal Smith. 
+*Organise Your Code* shares a blueprint to plan your code and to accompany the evolution of your project:
+start out with explorative experiments, define your interface, narrow down to a proof of
+concept and scale up. Hopefully the tips, tricks and the guidance in this chapter will help you to
+experience the rewarding feeling of a software project coming together like a plan originated by Hannibal Smith. 
 
 
 - maybe overview sketch here... decision tree. 
+
+## Folder Structure
+
+<!-- packaging not for guru's illustration
+Yoda: Over the days are when creating a package for gurus was only. 
+--> 
+
+Obviously every project is different and not every aspect (folder) is needed for every project, 
+but there are definitely well established blueprints, guides and conventions that help almost any project. 
+First, unlike projects based on an Office document which focuses on one single file, 
+understand a research project will live in a folder with many subfolder and files, not in a single file. 
+Second, as with most conventions and guidelines there are more approaches and gurus than 
+heavyweight champions. 
+
+Here is an approach that I find practical for applied, empirical research projects involving code. It's the basic structure of an R package, but it's proven helpful beyond creating packages. Some of its core idea transfer also well to other languages. That being said, don't take it religiously, take away what works for you. 
+
+In R and Python (and many other languages), package or library sources are nothing else but code organized in a folder that follows certain conventions. For R, simply create a folder named like the your package / project and create the following folders (when needed) inside of it.
+
+Before we start, let me drop a quick note on naming conventions. Naming for folders, functions and file names. 
+
+- Do NOT use spaces in folder or file names! Never. If you need lengthy descriptions, use underscores '_', dashes '-' or camelCase. 
+
+- avoid umlauts and special characters. Encoding and internationalization is worth a book of its own. It's not like modern programming environments can't handle it, but it will introduce further complications you do not want to run into without a deep understanding of encoding. This is especially true for cross
+platform collaboroations (Windows vs. Unix OS).
+
+- either go for camelCase, snake_case or kebap-case. Otherwise prefer lower case
+characters. Also make sure to not switch styles within a project. There a plenty of style guides around, go with whatever your lab or community goes. 
+
+
+**R**
+
+A folder to store function definitions as opposed to function calls. Typically 
+every function goes into a separate files. Sometimes it makes sense to group multiple functions into a single file when the they are closely related. Another reason for putting more than one functions into a single file is when you have a collection of relatively simple, short helper functions. This folder MUST NOT contain calls.
+
+```{r}
+my_func_def <- function(param1, param2){
+  # here goes the function body, i.e., what the function does
+  a <- (param1 + param2) * param3
+  # Note that in R, return statements are not necessary and even
+  # relatively uncommon, R will return the last unassigned statement
+  return(a)
+}
+```
+
+**docs**
+
+This folder is typically not filled with content manually. When pushed to github
+a docs folder can easily be published as website using [Github Pages](https://pages.github.com/). With Github pages you can host a decently styled modern website for free. Software projects often use GitHub Pages to market a product or project or simply for documentation purposes. All you need to do is check a couple of options inside the Github Web GUI and make sure the docs folder contains .md or .html files as well as stylesheets (.css). The latter make sound a bit like Latin to people without a basic development background, but there is plenty of help. The R ecosystem offers different flavors of the same idea: use a bit of markdown + R to generate website code. There is blogdown for your personal website or blog. There is pkgdown for your packages documentation. And there is even bookdown to write an online book like this. Write the markdown file, render it as HTML into the docs folder, push the docs folder to GitHub. Done. Your website will be online at username.github.io/reponame.
+
+
+
+- data
+- vignettes
+- inst
+- man
+
+
+
+
+LICENSE
+DESCRIPTION
+
+
+
+
+but here is an idea that I favor for R projects: create a structure as if you were to create an R package. 
+
+
+
+- R 
+
+
 
 
 ## Documentation
