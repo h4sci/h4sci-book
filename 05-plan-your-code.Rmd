@@ -1,36 +1,100 @@
-# Planning Your Code
+# Structure Your Code
 
 <!-- DO NOT FORGET TO SAY SOMETHIN ABOUT LICENSES !! -->
 
 If you associate programming more often than not with hours of fiddling, tweaking
-and fighting to galvanize approaches found on online this chapter is for you. 
+and fighting to galvanize approaches found online, this chapter is for you. 
 
-*Planning Your Code* shares a blueprint to organise your code and to accompany the evolution of your project:
-start out with explorative experiments, define your interface, narrow down to a proof of
-concept and scale up. Hopefully the tips, tricks and the guidance in this chapter will help you to
-experience the rewarding feeling of a software project coming together like a plan originated by Hannibal Smith. 
+*Structure Your Code* shares a blueprint to go from explorative script to production ready package.  Organise your code and accompany the evolution of your project: start out with experiments, define your interface, narrow down to a proof of concept and scale up. Hopefully the tips, tricks and the guidance in this chapter will help you to experience the rewarding feeling of a software project coming together like a plan originated by Hannibal Smith. 
 
 
-- maybe overview sketch here... decision tree. 
+<!-- - maybe overview sketch here... decision tree.  -->
 
-## Folder Structure
 
-<!-- packaging not for guru's illustration
-Yoda: Over the days are when creating a package for gurus was only. 
---> 
+## Think: Package / Library
 
-Obviously every project is different and not every aspect (folder) is needed for every project, 
-but there are definitely well established blueprints, guides and conventions that help almost any project. 
-First, unlike projects based on an Office document which focuses on one single file, 
-understand a research project will live in a folder with many subfolder and files, not in a single file. 
-Second, as with most conventions and guidelines there are more approaches and gurus than 
-heavyweight champions. 
+<div align="center">
+<img src="images/packages.jpg" height="300px">
+<div class="caption-half">"Over the days are when creating packages for gurus was only."</div>
+</div>
 
-Here is an approach that I find practical for applied, empirical research projects involving code. It's the basic structure of an R package, but it's proven helpful beyond creating packages. Some of its core idea transfer also well to other languages. That being said, don't take it religiously, take away what works for you. 
+The approach that I find practical for applied, empirical research projects involving code is: think library. Think package. Don't think you can't do it. Let me de-mystify packages for you: **Packages are nothing else than source code organized in folders following some convention**. Thanks to modern IDEs, it has never been easier to stay inline with conventions. Editors like R Studio ship with built-in support to create package skeletons with a few clicks. Thousands of open source extension packages allow you to learn from their structure. Tutorials like [Packing Python Projects](https://packaging.python.org/tutorials/packaging-projects/) or Hadley Wickham's free online book [R Packages](https://r-pkgs.org/) explain how to create packages good enough to make the official PyPi or CRAN package repository. 
 
-In R and Python (and many other languages), package or library sources are nothing else but code organized in a folder that follows certain conventions. For R, simply create a folder named like the your package / project and create the following folders (when needed) inside of it.
+In other words, it is unlikely that someone with moderate experience comes up the best folder structure ever invented. Sure, every project is different and not every aspect (folder) is needed in every project. Nevertheless there are well established blueprints, guides and conventions that suit almost any project. Unlike Office type of projects which center around on one single file, understand a research project will live in a folder with many subfolders and files. Not in one single file. 
 
-Before we start, let me drop a quick note on naming conventions. Naming for folders, functions and file names. 
+Trust me on this one: The package approach will pay off early. Long before you ever thought about publishing your package. Write your own function definition, rather than just calling functions line by line. Write code as if you need to make sure it runs on another computer. Write code as if you need to maintain it. 
+
+Go from a scripts like this
+
+```{r}
+# This is just data from the sake of 
+# reproducible example
+set.seed(123)
+d1 <- rnorm(1000)
+d2 <- rnorm(1000)
+
+d1_mean <- mean(d1)
+d1_sd <- sd(d1)
+d1_q <- quantile(d1)
+desc_stats_d1 <- list(d1_mean = d1_mean,
+                      d1_sd = d1_sd,
+                      d1_q = d1_q)
+
+d2_mean <- mean(d2)
+d2_sd <- sd(d2)
+d2_q <- quantile(d2)
+desc_stats_d2 <- list(d2_mean = d2_mean,
+                      d2_sd = d2_sd,
+                      d2_q = d2_q)
+
+```
+
+To function defintions and calls like this
+
+```{r}
+
+create_basic_desc <- function(distr){
+  out <- list(
+    mean = mean(distr),
+    sd = sd(distr),
+    quantiles = quantile(distr)
+  )
+  out
+}
+
+create_basic_desc(d1)
+create_basic_desc(d2)
+
+
+```
+
+Start to document functions and their parameters using [Roxygen](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) this and you're already very close to creating your first package. 
+
+```{r}
+
+#' Create Basic Descriptive Statistics
+#'
+#' Creates means, standard deviations and default quantiles from an numeric input vector. 
+#' 
+#' @param distr numeric vector drawn from an arbitraty distribution. 
+#' @export 
+create_basic_desc <- function(distr){
+  out <- list(
+    mean = mean(distr),
+    sd = sd(distr),
+    quantiles = quantile(distr)
+  )
+  out
+}
+
+```
+
+Writing reusable code will improve your ability to remember syntax and apply concepts to other problems. The more you do it, the easier and more natural becomes. Just like a toddler figuring out how to speak in a natural language. At first progress seems small, but once the understand the bits and pieces of a language they learn at a remarkable speed and never forget again. 
+
+
+## Naming Conventions: Snake, Camel or Kebap
+
+Before we start with files and folders, let me drop a quick, general note on naming. As how to name files, folders and functions.  
 
 - Do NOT use spaces in folder or file names! Never. If you need lengthy descriptions, use underscores '_', dashes '-' or camelCase. 
 
@@ -41,6 +105,15 @@ platform collaboroations (Windows vs. Unix OS).
 characters. Also make sure to not switch styles within a project. There a plenty of style guides around, go with whatever your lab or community goes. 
 
 
+
+
+## Folder Structure
+
+In R packages may have the following folders. Note that this does not mean a package has to
+contain all of these folders. FWIW, an R package needs to have a NAMESPACE and DESCRIPTION files, but that is not the point here. This chapter rather describes the role of 
+different folders in a package and what these folders are good for. Hopefully, that way 
+all aspects of your project will be covered: 
+
 - R
 - data
 - docs
@@ -49,12 +122,12 @@ characters. Also make sure to not switch styles within a project. There a plenty
 - inst
 - man
 
-
+The below description explains the role of all of these folders. 
 
 **R**
 
 A folder to store function definitions as opposed to function calls. Typically 
-every function goes into a separate files. Sometimes it makes sense to group multiple functions into a single file when the they are closely related. Another reason for putting more than one functions into a single file is when you have a collection of relatively simple, short helper functions. This folder MUST NOT contain calls.
+every function goes into a separate file. Sometimes it makes sense to group multiple functions into a single file when functions are closely related. Another reason for putting more than one functions into a single file is when you have a collection of relatively simple, short helper functions. The R folder MUST NOT contain calls^[Essentially, examples are calls, too, but good practice. Hadley Wickham's [guide to document functions within packages](https://r-pkgs.org/man.html#man-functions) describes how add function call examples to your documentation.].
 
 ```{r}
 my_func_def <- function(param1, param2){
@@ -68,7 +141,7 @@ my_func_def <- function(param1, param2){
 
 **man** 
 
-This folder contains the context manual of your package. This is basically a function (and dataset) specific documentation. It's what you see when you run `?function_name`. The content of the man folder is usually created automatically from the roxygen style documentation (note the #' styled comments) during a ```devtools::document()`` run. Back in the days when people wore pijamas and
+This folder contains the context manual of your package. The documentation consists of is basically a function (and dataset) specific documentation. It's what you see when you run `?function_name`. The content of the man folder is usually created automatically from the roxygen style documentation (note the #' styled comments) during a ```devtools::document()`` run. Back in the days when people wore pijamas and
 lived life slow, the the man folder was filled up manually with some LaTeX reminiscant .rd files, but ever since R Studio took over in 2012, most developer used Roxygen and render the function reference part of the documentation from 
 markdown. 
 
