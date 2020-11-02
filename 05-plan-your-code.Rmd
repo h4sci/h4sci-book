@@ -1,17 +1,17 @@
-# Structure Your Code
+# Programming 101
 
 <!-- DO NOT FORGET TO SAY SOMETHIN ABOUT LICENSES !! -->
 
 If you associate programming more often than not with hours of fiddling, tweaking
 and fighting to galvanize approaches found online, this chapter is for you. 
 
-*Structure Your Code* shares a blueprint to go from explorative script to production ready package.  Organise your code and accompany the evolution of your project: start out with experiments, define your interface, narrow down to a proof of concept and scale up. Hopefully the tips, tricks and the guidance in this chapter will help you to experience the rewarding feeling of a software project coming together like a plan originated by Hannibal Smith. 
+The following sections share a blueprint to go from explorative script to production ready package.  Organise your code and accompany the evolution of your project: start out with experiments, define your interface, narrow down to a proof of concept and scale up. Hopefully the tips, tricks and the guidance in this chapter will help you to experience the rewarding feeling of a software project coming together like a plan originated by Hannibal Smith. 
 
 
 <!-- - maybe overview sketch here... decision tree.  -->
 
 
-## Think: Package / Library
+## Think library!
 
 <div align="center">
 <img src="images/packages.jpg" height="300px">
@@ -20,7 +20,7 @@ and fighting to galvanize approaches found online, this chapter is for you.
 
 The approach that I find practical for applied, empirical research projects involving code is: think library. Think package. Don't think you can't do it. Let me de-mystify packages for you: **Packages are nothing else than source code organized in folders following some convention**. Thanks to modern IDEs, it has never been easier to stay inline with conventions. Editors like R Studio ship with built-in support to create package skeletons with a few clicks. Thousands of open source extension packages allow you to learn from their structure. Tutorials like [Packing Python Projects](https://packaging.python.org/tutorials/packaging-projects/) or Hadley Wickham's free online book [R Packages](https://r-pkgs.org/) explain how to create packages good enough to make the official PyPi or CRAN package repository. 
 
-In other words, it is unlikely that someone with moderate experience comes up the best folder structure ever invented. Sure, every project is different and not every aspect (folder) is needed in every project. Nevertheless there are well established blueprints, guides and conventions that suit almost any project. Unlike Office type of projects which center around on one single file, understand a research project will live in a folder with many subfolders and files. Not in one single file. 
+In other words, it is unlikely that someone with moderate experience comes up the best folder structure ever invented. Sure, every project is different and not every aspect (folder) is needed in every project. Nevertheless, there are well established blueprints, guides and conventions that suit almost any project. Unlike Office type of projects which center around on one single file, understand a research project will live in a folder with many subfolders and files. Not in one single file. 
 
 Trust me on this one: The package approach will pay off early. Long before you ever thought about publishing your package. Write your own function definition, rather than just calling functions line by line. Write code as if you need to make sure it runs on another computer. Write code as if you need to maintain it. 
 
@@ -49,7 +49,7 @@ desc_stats_d2 <- list(d2_mean = d2_mean,
 
 ```
 
-To function defintions and calls like this
+To function defintions and calls like that
 
 ```{r}
 
@@ -68,7 +68,7 @@ create_basic_desc(d2)
 
 ```
 
-Start to document functions and their parameters using [Roxygen](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) this and you're already very close to creating your first package. 
+Start to document functions and their parameters using [Roxygen](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) syntax and you're already very close to creating your first package. 
 
 ```{r}
 
@@ -89,17 +89,16 @@ create_basic_desc <- function(distr){
 
 ```
 
-Writing reusable code will improve your ability to remember syntax and apply concepts to other problems. The more you do it, the easier and more natural becomes. Just like a toddler figuring out how to speak in a natural language. At first progress seems small, but once the understand the bits and pieces of a language they learn at a remarkable speed and never forget again. 
+Writing *reusable code* will improve your ability to remember syntax and apply concepts to other problems. The more you do it, the easier and more natural becomes. Just like a toddler figuring out how to speak in a natural language. At first progress seems small, but once kids understand the bits and pieces of a language they learn at a remarkable speed and never forget again. 
 
 
 ## Naming Conventions: Snake, Camel or Kebap
 
-Before we start with files and folders, let me drop a quick, general note on naming. As how to name files, folders and functions.  
+Before we start with files and folders, let me drop a quick, general note on naming. As in how to name files, folders and functions. It may look like a mere detail, but concise formatting and styling of your code will be appreciated by your peers and by those you asked for help. Plus, it following an established convention will not make you look like a complete greenhorn. 
 
 - Do NOT use spaces in folder or file names! Never. If you need lengthy descriptions, use underscores '_', dashes '-' or camelCase. 
 
-- avoid umlauts and special characters. Encoding and internationalization is worth a book of its own. It's not like modern programming environments can't handle it, but it will introduce further complications you do not want to run into without a deep understanding of encoding. This is especially true for cross
-platform collaboroations (Windows vs. Unix OS).
+- avoid umlauts and special characters. Encoding and internationalization is worth a book of its own. It's not like modern programming environments can't handle it, but encoding will introduce further complications. These are exactly the type of complications that may lead to an unplanned, frustrating waste of hours. You may be lucky enough to find a quick fix, but you may as well not find an easy fix. Avoid encoding issues if do plan to build a deeper understanding of encoding. This is especially true for cross platform collaboroations (Windows vs. Unix OS).
 
 - either go for camelCase, snake_case or kebap-case. Otherwise prefer lower case
 characters. Also make sure to not switch styles within a project. There a plenty of style guides around, go with whatever your lab or community goes. 
@@ -200,9 +199,11 @@ When you install an R package using `install.packages()` it will be installed in
 
 
 
+## Plan Your Program
 
+### Documentation
 
-## Documentation
+Not what but why. 
 
 First things first. Write the first bit of documentation before your first line of 
 code. Documentation written with hindsight solely will always be written with the
@@ -213,7 +214,7 @@ Hence I encourage you, to write up a bit of pseudo code to start get started.
 - may look like this. 
 
 
-## Explore! Write Scripts.
+### Explore! Write Scripts.
 
 Get your hands dirty. Run experiments. How should the new graph look like? 
 Try out things interactively. Can we read in the data correctly? Are the axes labels
@@ -230,7 +231,7 @@ line by line can be very handy when trying to follow more complex statements.
 
 - 
 
-## Design Your Interface
+### Design Your Interface
 
 Once you know a bit more about your direction of travel, it's time to think about
 how users interact with your program: Will your code just act as a storage pit of tools, 
@@ -241,6 +242,6 @@ a loose collection of commands for adhoc use? Are others using the program, too?
 - pseudo code is
 
 
-## 
+
 
 

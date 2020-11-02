@@ -14,6 +14,7 @@ d <- data.frame("Term" = c(
   "GUI",
   "IDE",
   "Kebap Case",
+  "Lexical Scoping",
   "Merge Request",
   "OS",
   "OSS",
@@ -26,6 +27,7 @@ d <- data.frame("Term" = c(
   "SQL",
   "Swimlanes",
   "Throughput Problem",
+  "Transactional Database",
   "Virtual Machine (VM)"
   ),
   "Description" = c(
@@ -37,7 +39,8 @@ d <- data.frame("Term" = c(
     "a clone of a repository that you (usually) do not own.",
     "**G**raphical **U**ser **I**nterface",
     "**I**ntegrated **D**evelopment **E**nvironment",
-    "Spelling convention less known than snake case and camel case, kebap case looks like this: do-something().",
+    "Spelling convention less known than snake case and camel case, kebap case looks like this: my-super-folder.",
+    "Look up of variables in parent environments when they can't be found in the current environment. Be aware that this is the default behavior of R.",
     "See Pull Request.",
     "**O**perating **S**ysten",
     "**O**pen **S**ource **S**oftware",
@@ -50,6 +53,7 @@ d <- data.frame("Term" = c(
     "**S**tructured **Q**uery **L**anguage",
     "(Online) Board of columns (lanes). Lanes progress from from left to right and carry issues.",
     "A bottleneck which can be mitigated by parallelization, e.g., multiple containers running in parallel.",
+    "Database optimised for production systems. Such a database is good at reading and writing individual rows w/o affecting the other and while taking care of data integrity.",
     "A virtual computer hosted on your computer. Often used to run another OS inside your main OS for testing purposes."
     
   ),
