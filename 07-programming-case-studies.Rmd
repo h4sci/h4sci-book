@@ -1,3 +1,10 @@
 # Case Studies
 
-Programming Examples
+## Basic Parallel Programming
+
+## The Shiny Web Application Framework
+
+## Spatial Visualization with Leaflet and Open Streetmap
+
+## Creating an API Wrapper
+

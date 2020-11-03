@@ -89,7 +89,102 @@ create_basic_desc <- function(distr){
 
 ```
 
-Writing *reusable code* will improve your ability to remember syntax and apply concepts to other problems. The more you do it, the easier and more natural becomes. Just like a toddler figuring out how to speak in a natural language. At first progress seems small, but once kids understand the bits and pieces of a language they learn at a remarkable speed and never forget again. 
+Writing *reusable code* will improve your ability to remember syntax and apply concepts to other problems. The more you do it, the easier and more natural becomes. Just like a toddler figuring out how to speak in a natural language. At first progress seems small, but once kids understand the bits and pieces of a language they start building at a remarkable speed, learn and never forget again. 
+
+
+## Plan Your Program
+
+How much planning ahead is optimal for your project ultimately depends on your experience, 
+number of collaborators and size of your project. But still, a little bit of a standard
+checklist helps any project. 
+
+### Documentation
+
+First things first. Write the first bit of documentation before your first line of 
+code. Documentation written with hindsight will always be written with an all-knowing,
+smartest-person-in-the-room mindset and the motivation of someone who gave their best
+programming and needs some rest now. Understand, I am not talking about the finetuning 
+here, but about a rough written outline of what parts of the code are going to do. Also, 
+examples can't hurt to illustrate what you meant. Researcher projects often take breaks
+and getting back into them should be as easy as possible. 
+
+_Pseudo Code_ is good way of writing up such a rough documentation. Take a simple API 
+Wrapper for example. Assume there is an API that returns numeric ids of hit entries 
+when queried for keywords. These ids can be passed on to yet another [endpoint](), to obtain
+a profile. A rough game plan for an API Wrapper could like this: 
+
+```r
+
+# function: keyword_search(keyword, url = "https://some.default.url.com")
+# returns numeric ids according to some api documentation
+
+
+# function: query_profile(vec_in_ids)
+# a json object that should be immediately turned into list by the function, 
+# returns list of properties
+
+```
+
+Documentation can and should use your ecosystem's favorite documentation framework.
+Yet, code comments are the raw, initial form of documentation. Comments help to
+understand key parts of a program as well as caveats. Comments help tremendously
+during development time, when debugging or coming back to project, let alone when
+joining a project started by others. 
+
+While pseudo code where comments mimmick code itself is the exception to the rule, 
+good comments should always follow the *not-what-but-why* principle. Usually, 
+most high level programming languages are fairly easy to read and remind of rudimentary
+English. Therefore a _what_ comment like this would be rather useless: 
+
+
+```{r, eval=FALSE}
+# compute the cumulative sum of a vector
+cumsum(c(T,F,F,F,F,T,F,F,T,F,F,F,T))
+```
+Whereas this _why_ comment may actually be helpful:
+
+```{r, eval=FALSE}
+# use the fact that TRUE is actually stored as 1 
+# to create a sequence until the next true
+# this is useful for splitting the data later on.
+cumsum(c(T,F,F,F,F,T,F,F,T,F,F,F,T))
+```
+
+Comment on why you do things, especially with which plan for future use in mind. 
+By being open about your plan on what you intend to do with result, you are also
+more likely to get tips on how to reach the same goal much more pain free or
+learn about other approaches. 
+
+
+
+### Explore! Write Scripts.
+
+Get your hands dirty. Run experiments. How should the new graph look like? 
+Try out things interactively. Can we read in the data correctly? Are the axes labels
+large in enough? Is the color scheme suitable? 
+
+The most important feature for their popularity in social sciences is the 
+interactivity of R and Python. Both languages are interpreted, allowing to send 
+commands to the interpreter line-by-line and to get a result back immediately. 
+This is tremendously helpful when trying things out, but also when reading code 
+written by more experienced developers. The ability to send code to the console
+line by line can be very handy when trying to follow more complex statements. 
+
+- read inside out
+
+- 
+
+### Design Your Interface
+
+Once you know a bit more about your direction of travel, it's time to think about
+how users interact with your program: Will your code just act as a storage pit of tools, 
+a loose collection of commands for adhoc use? Are others using the program, too?
+?  Will there be machine-to-machine interaction?
+
+
+- pseudo code is
+
+
 
 
 ## Naming Conventions: Snake, Camel or Kebap
@@ -199,47 +294,6 @@ When you install an R package using `install.packages()` it will be installed in
 
 
 
-## Plan Your Program
-
-### Documentation
-
-Not what but why. 
-
-First things first. Write the first bit of documentation before your first line of 
-code. Documentation written with hindsight solely will always be written with the
-mindset of someone who thinks the approach is easy because the issue was just solved. 
-Also, the motivation the think about the problem is much lower once it's fixed. 
-Hence I encourage you, to write up a bit of pseudo code to start get started. 
-
-- may look like this. 
-
-
-### Explore! Write Scripts.
-
-Get your hands dirty. Run experiments. How should the new graph look like? 
-Try out things interactively. Can we read in the data correctly? Are the axes labels
-large in enough? Is the color scheme suitable? 
-
-The most important feature for their popularity in social sciences is the 
-interactivity of R and Python. Both languages are interpreted, allowing to send 
-commands to the interpreter line-by-line and to get a result back immediately. 
-This is tremendously helpful when trying things out, but also when reading code 
-written by more experienced developers. The ability to send code to the console
-line by line can be very handy when trying to follow more complex statements. 
-
-- read inside out
-
-- 
-
-### Design Your Interface
-
-Once you know a bit more about your direction of travel, it's time to think about
-how users interact with your program: Will your code just act as a storage pit of tools, 
-a loose collection of commands for adhoc use? Are others using the program, too?
-?  Will there be machine-to-machine interaction?
-
-
-- pseudo code is
 
 
 
