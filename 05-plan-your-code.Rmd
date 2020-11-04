@@ -156,6 +156,9 @@ more likely to get tips on how to reach the same goal much more pain free or
 learn about other approaches. 
 
 
+### Dependencies!!
+
+
 
 ### Explore! Write Scripts.
 
