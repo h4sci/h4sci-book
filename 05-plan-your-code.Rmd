@@ -2,8 +2,7 @@
 
 <!-- DO NOT FORGET TO SAY SOMETHIN ABOUT LICENSES !! -->
 
-If you associate programming more often than not with hours of fiddling, tweaking
-and fighting to galvanize approaches found online, this chapter is for you. 
+If you associate programming more often than not with hours of fiddling, tweaking and fighting to galvanize approaches found online, this chapter is for you. Don't expect lots of syntax. If you came for examples of useful little programs from data visualization to parallel computing, check out the [case studies]().
 
 The following sections share a blueprint to go from explorative script to production ready package.  Organise your code and accompany the evolution of your project: start out with experiments, define your interface, narrow down to a proof of concept and scale up. Hopefully the tips, tricks and the guidance in this chapter will help you to experience the rewarding feeling of a software project coming together like a plan originated by Hannibal Smith. 
 
@@ -18,13 +17,13 @@ The following sections share a blueprint to go from explorative script to produc
 <div class="caption-half">"Over the days are when creating packages for gurus was only."</div>
 </div>
 
-The approach that I find practical for applied, empirical research projects involving code is: think library. Think package. Don't think you can't do it. Let me de-mystify packages for you: **Packages are nothing else than source code organized in folders following some convention**. Thanks to modern IDEs, it has never been easier to stay inline with conventions. Editors like R Studio ship with built-in support to create package skeletons with a few clicks. Thousands of open source extension packages allow you to learn from their structure. Tutorials like [Packing Python Projects](https://packaging.python.org/tutorials/packaging-projects/) or Hadley Wickham's free online book [R Packages](https://r-pkgs.org/) explain how to create packages good enough to make the official PyPi or CRAN package repository. 
+The approach that I find practical for applied, empirical research projects involving code is: think library. Think package. Think _reusable_ code. Don't think you can't do it. Let me de-mystify packages for you: **Packages are nothing else than source code organized in folders following some convention**. Thanks to modern IDEs, it has never been easier to stay inline with conventions. Editors like R Studio ship with built-in support to create package skeletons with a few clicks. Thousands of open source extension packages allow you to learn from their structure. Tutorials like [Packing Python Projects](https://packaging.python.org/tutorials/packaging-projects/) or Hadley Wickham's free online book [R Packages](https://r-pkgs.org/) explain how to create packages good enough to make the official PyPi or CRAN package repository. 
 
 In other words, it is unlikely that someone with moderate experience comes up the best folder structure ever invented. Sure, every project is different and not every aspect (folder) is needed in every project. Nevertheless, there are well established blueprints, guides and conventions that suit almost any project. Unlike Office type of projects which center around on one single file, understand a research project will live in a folder with many subfolders and files. Not in one single file. 
 
 Trust me on this one: The package approach will pay off early. Long before you ever thought about publishing your package. Write your own function definition, rather than just calling functions line by line. Write code as if you need to make sure it runs on another computer. Write code as if you need to maintain it. 
 
-Go from a scripts like this
+Go from scripts like this
 
 ```{r}
 # This is just data from the sake of 
@@ -94,24 +93,13 @@ Writing *reusable code* will improve your ability to remember syntax and apply c
 
 ## Plan Your Program
 
-How much planning ahead is optimal for your project ultimately depends on your experience, 
-number of collaborators and size of your project. But still, a little bit of a standard
-checklist helps any project. 
+How much planning ahead is optimal for your project ultimately depends on your experience, number of collaborators and size of your project. But still, a rough standard checklist helps any project. 
 
 ### Documentation
 
-First things first. Write the first bit of documentation before your first line of 
-code. Documentation written with hindsight will always be written with an all-knowing,
-smartest-person-in-the-room mindset and the motivation of someone who gave their best
-programming and needs some rest now. Understand, I am not talking about the finetuning 
-here, but about a rough written outline of what parts of the code are going to do. Also, 
-examples can't hurt to illustrate what you meant. Researcher projects often take breaks
-and getting back into them should be as easy as possible. 
+First things first. Write the first bit of documentation before your first line of code. Documentation written with hindsight will always be written with an all-knowing, smartest-person-in-the-room mindset and the motivation of someone who already gave her best programming. Understand, I am not talking about the finetuning here, but about a written outline. Describe how parts of the code are going to do stuff. Also, examples can't hurt to illustrate what you meant. Research projects often take breaks and getting back to work after months should be as easy as possible. 
 
-_Pseudo Code_ is good way of writing up such a rough documentation. Take a simple API 
-Wrapper for example. Assume there is an API that returns numeric ids of hit entries 
-when queried for keywords. These ids can be passed on to yet another [endpoint](), to obtain
-a profile. A rough game plan for an API Wrapper could like this: 
+_Pseudo Code_ is good way of writing up such an outline documentation. Take a simple API wrapper for example. Assume there is an API that returns numeric ids of hit entries when queried for keywords. These ids can be passed on to yet another [endpoint](), to obtain a profile. A rough game plan for an API Wrapper could like this: 
 
 ```r
 
@@ -125,16 +113,9 @@ a profile. A rough game plan for an API Wrapper could like this:
 
 ```
 
-Documentation can and should use your ecosystem's favorite documentation framework.
-Yet, code comments are the raw, initial form of documentation. Comments help to
-understand key parts of a program as well as caveats. Comments help tremendously
-during development time, when debugging or coming back to project, let alone when
-joining a project started by others. 
+Documentation should use your ecosystem's favorite documentation framework. Yet, your comments within the code are the raw, initial form of documentation. Comments help to understand key parts of a program as well as caveats. Comments help tremendously during development time, when debugging or coming back to a project. Let alone when joining a project started by others. 
 
-While pseudo code where comments mimmick code itself is the exception to the rule, 
-good comments should always follow the *not-what-but-why* principle. Usually, 
-most high level programming languages are fairly easy to read and remind of rudimentary
-English. Therefore a _what_ comment like this would be rather useless: 
+While pseudo code where comments mimmick code itself is the exception to that rule, good comments should always follow the **not-what-but-why** principle. Usually, most high level programming languages are fairly easy to read and remind of rudimentary English. Therefore a _what_ comment like this is considered rather useless: 
 
 
 ```{r, eval=FALSE}
@@ -150,42 +131,57 @@ Whereas this _why_ comment may actually be helpful:
 cumsum(c(T,F,F,F,F,T,F,F,T,F,F,F,T))
 ```
 
-Comment on why you do things, especially with which plan for future use in mind. 
-By being open about your plan on what you intend to do with result, you are also
-more likely to get tips on how to reach the same goal much more pain free or
-learn about other approaches. 
+Comment on why you do things, especially with which plan for future use in mind. Doing will certainly foster exchange with others who enter ore re-visit the code at a later stage (including yourself). 
 
 
-### Dependencies!!
-
-
-
-### Explore! Write Scripts.
-
-Get your hands dirty. Run experiments. How should the new graph look like? 
-Try out things interactively. Can we read in the data correctly? Are the axes labels
-large in enough? Is the color scheme suitable? 
-
-The most important feature for their popularity in social sciences is the 
-interactivity of R and Python. Both languages are interpreted, allowing to send 
-commands to the interpreter line-by-line and to get a result back immediately. 
-This is tremendously helpful when trying things out, but also when reading code 
-written by more experienced developers. The ability to send code to the console
-line by line can be very handy when trying to follow more complex statements. 
-
-- read inside out
-
-- 
 
 ### Design Your Interface
 
-Once you know a bit more about your direction of travel, it's time to think about
-how users interact with your program: Will your code just act as a storage pit of tools, 
+In other languages it is fairly common to define the data type of both: the input and the output^[See statically typed language vs. dynamically typed language.]. Though doing so is not necessary in R, it is good practice to define the types of all parameters and results. 
+
+
+
+Once you know a bit more about your direction of travel, it's time to think about how to modularize your program. How do different parts of the program play together. users interact with your program: Will your code just act as a storage pit of tools, 
 a loose collection of commands for adhoc use? Are others using the program, too?
 ?  Will there be machine-to-machine interaction?
 
 
 - pseudo code is
+
+
+
+
+
+### Dependencies
+
+One important word of advice for novice package developers is to think about your dependencies. Do not take depedencies lightly. Of course it is intriguiging to stand on the shoulders of giants. Isn't R great because of its 15K+ extension packages? Isn't exactly this was made R such as popular language? 
+
+Yes, extension packages are cool. Yes, the ease with with CRAN packages are distributed is cool. But, just because packages are easy to install and free of license costs it does not mean leaning on a lot of packages comes at no costs: One needs to stay informed about updates, issues, breaking changes or undesired interdependencies between packages. 
+
+The problem is mitigated a bit when a) a package is required in an interactive script and b) one is working with a very popular package. Well managed packages with a lot of [reverse dependencies]() tend to deprecate old functionality more smoothly as authors are aware of the issues breaking changes cause to a package's ecosystem. 
+
+In R, the tidyverse bundle of packages seems ubiquitous and easy to use. But it leads to quite a few dependencies. The data.table ecosystem might be less popular but provides its functionality with a single R package dependency (the {methods} package).
+
+Often it does not take much to get rid of dependency: 
+
+
+```{r}
+library(stringr)
+cow <- "A cow sounds off: mooooo"
+str_extract(cow,"moo+")
+
+```
+
+
+Sure, the above code is more intuitive, but shrewd use of good ol' _gsub_ and back referencing allows you to do the very same thing in base R. 
+
+```{r}
+gsub("(.+)(mooo+)","\\2",cow)
+```
+
+Again, {stringr} is certainly a well crafted package and it is definitely not the worst of all packages. But when you just loaded a package because it adds convenience to one single line or worse just because you found your solution online, think again before adding more dependencies to a production environment.  
+
+
 
 
 
