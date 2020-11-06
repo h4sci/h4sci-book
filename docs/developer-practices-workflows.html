@@ -24,7 +24,7 @@
 <meta name="author" content="Matthias Bannert" />
 
 
-<meta name="date" content="2020-09-29" />
+<meta name="date" content="2020-11-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="stack-a-developers-toolkit.html"/>
-<link rel="next" href="appendix.html"/>
+<link rel="next" href="programming-101.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,6 +52,68 @@
 
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="h4sci.css" type="text/css" />
 </head>
@@ -84,16 +146,41 @@
 <li class="chapter" data-level="3.7" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#automation"><i class="fa fa-check"></i><b>3.7</b> Automation</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html"><i class="fa fa-check"></i><b>4</b> Developer Practices &amp; Workflows</a><ul>
-<li class="chapter" data-level="4.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#rsa-key-pair-authentication"><i class="fa fa-check"></i><b>4.1</b> RSA Key Pair Authentication</a></li>
-<li class="chapter" data-level="4.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#git-version-control-101"><i class="fa fa-check"></i><b>4.2</b> Git Version Control 101</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#what-is-git-version-control"><i class="fa fa-check"></i><b>4.2.1</b> What is Git Version Control?</a></li>
-<li class="chapter" data-level="4.2.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#why-use-version-control-in-research"><i class="fa fa-check"></i><b>4.2.2</b> Why Use Version Control in Research?</a></li>
-<li class="chapter" data-level="4.2.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#how-does-git-work"><i class="fa fa-check"></i><b>4.2.3</b> How Does Git Work ?</a></li>
-<li class="chapter" data-level="4.2.4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#moving-around"><i class="fa fa-check"></i><b>4.2.4</b> Moving Around</a></li>
+<li class="chapter" data-level="4.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#peer-programming"><i class="fa fa-check"></i><b>4.1</b> Peer Programming</a></li>
+<li class="chapter" data-level="4.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#rsa-key-pair-authentication"><i class="fa fa-check"></i><b>4.2</b> RSA Key Pair Authentication</a></li>
+<li class="chapter" data-level="4.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#git-version-control-101"><i class="fa fa-check"></i><b>4.3</b> Git Version Control 101</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#what-is-git-version-control"><i class="fa fa-check"></i><b>4.3.1</b> What is Git Version Control?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#why-use-version-control-in-research"><i class="fa fa-check"></i><b>4.3.2</b> Why Use Version Control in Research?</a></li>
+<li class="chapter" data-level="4.3.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#how-does-git-work"><i class="fa fa-check"></i><b>4.3.3</b> How Does Git Work ?</a></li>
+<li class="chapter" data-level="4.3.4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#moving-around"><i class="fa fa-check"></i><b>4.3.4</b> Moving Around</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#feature-branches-prs-and-forks"><i class="fa fa-check"></i><b>4.3</b> Feature Branches, PRs and Forks</a></li>
-<li class="chapter" data-level="4.4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#project-management-basics"><i class="fa fa-check"></i><b>4.4</b> Project Management Basics</a></li>
-<li class="chapter" data-level="4.5" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#testing"><i class="fa fa-check"></i><b>4.5</b> Testing</a></li>
+<li class="chapter" data-level="4.4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#feature-branches-prs-and-forks"><i class="fa fa-check"></i><b>4.4</b> Feature Branches, PRs and Forks</a></li>
+<li class="chapter" data-level="4.5" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#project-management-basics"><i class="fa fa-check"></i><b>4.5</b> Project Management Basics</a></li>
+<li class="chapter" data-level="4.6" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#testing"><i class="fa fa-check"></i><b>4.6</b> Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="programming-101.html"><a href="programming-101.html"><i class="fa fa-check"></i><b>5</b> Programming 101</a><ul>
+<li class="chapter" data-level="5.1" data-path="programming-101.html"><a href="programming-101.html#think-library"><i class="fa fa-check"></i><b>5.1</b> Think library!</a></li>
+<li class="chapter" data-level="5.2" data-path="programming-101.html"><a href="programming-101.html#plan-your-program"><i class="fa fa-check"></i><b>5.2</b> Plan Your Program</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="programming-101.html"><a href="programming-101.html#documentation"><i class="fa fa-check"></i><b>5.2.1</b> Documentation</a></li>
+<li class="chapter" data-level="5.2.2" data-path="programming-101.html"><a href="programming-101.html#design-your-interface"><i class="fa fa-check"></i><b>5.2.2</b> Design Your Interface</a></li>
+<li class="chapter" data-level="5.2.3" data-path="programming-101.html"><a href="programming-101.html#dependencies"><i class="fa fa-check"></i><b>5.2.3</b> Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="programming-101.html"><a href="programming-101.html#naming-conventions-snake-camel-or-kebap"><i class="fa fa-check"></i><b>5.3</b> Naming Conventions: Snake, Camel or Kebap</a></li>
+<li class="chapter" data-level="5.4" data-path="programming-101.html"><a href="programming-101.html#folder-structure"><i class="fa fa-check"></i><b>5.4</b> Folder Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="infrastructure.html"><a href="infrastructure.html"><i class="fa fa-check"></i><b>6</b> Infrastructure</a><ul>
+<li class="chapter" data-level="6.1" data-path="infrastructure.html"><a href="infrastructure.html#benchmarking"><i class="fa fa-check"></i><b>6.1</b> Benchmarking</a></li>
+<li class="chapter" data-level="6.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost"><i class="fa fa-check"></i><b>6.2</b> Your Local Machine / localhost</a></li>
+<li class="chapter" data-level="6.3" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>6.3</b> Virtual Machines</a></li>
+<li class="chapter" data-level="6.4" data-path="infrastructure.html"><a href="infrastructure.html#docker"><i class="fa fa-check"></i><b>6.4</b> Docker</a></li>
+<li class="chapter" data-level="6.5" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>6.5</b> Cloud Computing</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>7</b> Case Studies</a><ul>
+<li class="chapter" data-level="7.1" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>7.1</b> Basic Parallel Programming</a></li>
+<li class="chapter" data-level="7.2" data-path="case-studies.html"><a href="case-studies.html#the-shiny-web-application-framework"><i class="fa fa-check"></i><b>7.2</b> The Shiny Web Application Framework</a></li>
+<li class="chapter" data-level="7.3" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>7.3</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
+<li class="chapter" data-level="7.4" data-path="case-studies.html"><a href="case-studies.html#creating-an-api-wrapper"><i class="fa fa-check"></i><b>7.4</b> Creating an API Wrapper</a></li>
+<li class="chapter" data-level="7.5" data-path="case-studies.html"><a href="case-studies.html#plumber-rest-api-with-r"><i class="fa fa-check"></i><b>7.5</b> Plumber REST API with R</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a><ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#glossary"><i class="fa fa-check"></i>Glossary</a></li>
@@ -122,9 +209,16 @@
 <h1><span class="header-section-number">4</span> Developer Practices &amp; Workflows</h1>
 <p>Just like most experienced engineers, seasoned software developers follow some kind of school or paradigm. Good programmers can even switch among approaches according to their current project’s needs or depending on the team they are on.</p>
 <p>This section does not want to give a comprehensive overview over programming concepts nor compare approaches. And damn sure it does not mean to go to war over approach superiority. <em>Hacking for Social Scientists</em> rather cherry-picks suitable application-minded, low-barrier concepts that help social scientists professionalize their own programming.</p>
+<div id="peer-programming" class="section level2">
+<h2><span class="header-section-number">4.1</span> Peer Programming</h2>
+<p>Peer programming, also called pair programming just means two developers sit in front of the same screen to collaborate on a piece of code. So why is there such a buzz about it? Why is there even a term for it? And why is there a section in an applied book on it?</p>
+<p>That is because novice programmers (and their scientific supervisors) often doubt the efficiency of two paid persons working at the same work station. But programming is not about digging a hole with two shovels. Particularly not when it comes to building the software basis or frame of a project.</p>
+<p>Working together using one single keyboard and screen or the virtual equivalent thereof can be highly efficient. The virtual equivalent, i.e., in fact using two computers but sharing the screen while in call, helps tremendously with a) your concept, b) your documentation. Plus, it is a code review at the same time. But most importantly both developers learn from each other. Having to explain and being challenged, deepens the understanding of experienced developers and ruthlessly identifies holes in one’s knowledge. One important advice when peer programming is to switch the driver’s seat from time to time. Make sure the lesser programmer holds the keys from time to time and maneuvers through articles, repositories, code and data. Doing so prevents the co-pilot from taking a back seat and letting the veteran do the entertainment. <a href="https://visualstudio.microsoft.com/services/live-share/">Visual Studio Code Live Share</a> is a great feature for next level virtual peer programming as it allows for two drivers using two cursors.</p>
+<p>Of course there are downsides of the pair programming approach, too. Also, timing within the lifecycle of a project is an important factor and not every project is the same fit for this agile method. But given there are so many approaches, I will leave the back and forth to others. The goal of this section is to point the reader to a practical approach that tends to work well in programming with data setups in social sciences. Googlers Jeff Dean and Sanjay Ghemawat had its fair of success, too, according to the New Yorker’s <a href="The%20Friendship%20That%20Made%20Google%20Huge">https://www.newyorker.com/magazine/2018/12/10/the-friendship-that-made-google-huge</a>.</p>
+</div>
 <div id="rsa-key-pair-authentication" class="section level2">
-<h2><span class="header-section-number">4.1</span> RSA Key Pair Authentication</h2>
-<p>This section could be headed ‘log in like a developer’. RSA Key Pairs are a convenient, relatively secure way to log into an account. SSH based connection, including secure copy (SCP), often make use of RSA Key Pairs instead of using a combination of username and password. Also, most git platforms use this form of authentication. The basic idea of key pairs is to have a public key and a private key. While the private key is never shared with anyone, the public key is shared with any server you want to log in to.
+<h2><span class="header-section-number">4.2</span> RSA Key Pair Authentication</h2>
+<p>This section could be headed ‘log in like a developer’. RSA Key Pairs are a convenient, relatively secure way to log into an account. SSH based connections, including secure copy (SCP), often make use of RSA Key Pairs instead of using a combination of username and password. Also, most git platforms use this form of authentication. The basic idea of key pairs is to have a public key and a private key. While the private key is never shared with anyone, the public key is shared with any server you want to log in to.
 It’s like getting a custom door for any house that you are allowed to enter: share your public key with the server admin / or web portal and you’ll be allowed in when you show your private key. In case you loose your private key or suspect it has been stolen, simply inform the admin, so she can remove the door (the public key). This is were a little detail comes into play:
 you can password protect the authentication process. Doing so buys you time to remove the key from the server before your password gets bruteforced. The downside of this additional password is its need for interaction. So when you are setting up a batch that talks to a remote server that is when you do <em>not</em> want a key /w password.</p>
 <p>Step one en route to log in like a grown up, is the create an RSA key pair. Github has a <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">1-2-3 type of manual</a> to get it done. Nevertheless, I would like the R Studio (Server) specific way here.</p>
@@ -145,11 +239,11 @@ The R Studio GUI is an easy way to create an RSA Key Pair.
 <p>Congrats you may log in now!</p>
 </div>
 <div id="git-version-control-101" class="section level2">
-<h2><span class="header-section-number">4.2</span> Git Version Control 101</h2>
+<h2><span class="header-section-number">4.3</span> Git Version Control 101</h2>
 <p>As stated before, version control may be the single most important thing to take away from <em>Hacking for Social Sciences</em>.
 In this chapter about the way developers work, I will stick to version control with <em>git</em>. The stack discussion of the previous chapter features a few more version control systems, but given git’s dominant position, we will stick solely to git in this introduction to version control.</p>
 <div id="what-is-git-version-control" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> What is Git Version Control?</h3>
+<h3><span class="header-section-number">4.3.1</span> What is Git Version Control?</h3>
 <p>Git is a decentralized version control system. It manages different versions of your source code (and other text files) in a simple but efficient manner that has become the industry standard: The git programm itself is a small console programm that creates and manages a hidden folder inside the folder you put under version control (you know those folders with a leading dot in their foldername, like .myfolder). This folder keeps track of all differences between the current version and other versions before the current one.</p>
 <img src="images/commits.png" width="300px">
 <div class="caption-half">
@@ -158,7 +252,7 @@ Meaningful commit messages help to make sense of a project’s history.
 <p>The key to appreciate the value of git is to appreciate the value of semantic versions. Git is <em>not</em> Dropbox nor Google Drive. It does <em>not</em> sync automagically (even if some Git GUI Tools suggest so). Because these GUIs tools<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> may be convenient but do not really help to improve your understanding of the workflow, we will use the git console throughout this book. As opposed to the sync approaches mentioned above, a version control system allows to summarize a contribution across files and folders based on what this contribution is about. Assume you got a cool pointer from an econometrics professor at a conference and you incorporated her advice in your work. That advice is likely to affect different parts of your work: your text and your code. As opposed to syncing each of these files based on the time you saved them, version control creates a version when you decide to bundle things together and to commit the change. That version could be identified easily by its commit message ‘incorporated advice from Anna (discussion at XYZ Conf 2020)’.</p>
 </div>
 <div id="why-use-version-control-in-research" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Why Use Version Control in Research?</h3>
+<h3><span class="header-section-number">4.3.2</span> Why Use Version Control in Research?</h3>
 <blockquote>
 <p>A version control based workflow is a path to your goals that rather consists of semantically relevant steps instead of semantically meaningless chunks based on the time you saved them.</p>
 </blockquote>
@@ -169,7 +263,7 @@ is like naming your WiFi <code>dont_park_the_car_in_the_frontyard</code> or <cod
 <p>Academia has probably been the only place that would allow you to dive into hacking at somewhat complex problems for several years w/o ever taking notice of version control. As a social scientist who rather collaborates in small groups and writes moderate amount of code, have you ever thought about how to collaborate with 100+ persons in a big software project? Or to manage ten thousands of lines of code and beyond? Version control is an important reason why these things work. And it’s been around for decades. But enough about the rant…</p>
 </div>
 <div id="how-does-git-work" class="section level3">
-<h3><span class="header-section-number">4.2.3</span> How Does Git Work ?</h3>
+<h3><span class="header-section-number">4.3.3</span> How Does Git Work ?</h3>
 <blockquote>
 <p>This introduction tries narrow things down to the commands that you’ll need if want to use git in similar fashion to what you learn from this book. If you are looking for more comprehensive, general guides, three major git platforms, namely Atlassian’s Bitbucket, GitHub and Gitlab offer comprehensive introductions as well as advanced articles or videos to learn git online.</p>
 </blockquote>
@@ -182,7 +276,7 @@ is like naming your WiFi <code>dont_park_the_car_in_the_frontyard</code> or <cod
 <p>If you want to add new files to version control or bundle changes to some existing files into a new commit, add these files to the staging area, so they get committed next time a commit process is triggered. Finally committing all these staged changes under another commit id a new version is created.</p>
 </div>
 <div id="moving-around" class="section level3">
-<h3><span class="header-section-number">4.2.4</span> Moving Around</h3>
+<h3><span class="header-section-number">4.3.4</span> Moving Around</h3>
 <p>So let’s actually do it. Here’s a three stage walk through of git commands that should have you covered in most use cases a researcher will face. Note that git has some pretty good error message that guess what could have gone wrong. Make sure to read them carefully. Even if you can’t make sense of them, your online search will be a lot more efficient when you include these messages.</p>
 <p><strong>Stage 1: Working Locally</strong></p>
 <table>
@@ -397,7 +491,7 @@ After you have done so, save, commit and push (if you are working with a remote 
 </div>
 </div>
 <div id="feature-branches-prs-and-forks" class="section level2">
-<h2><span class="header-section-number">4.3</span> Feature Branches, PRs and Forks</h2>
+<h2><span class="header-section-number">4.4</span> Feature Branches, PRs and Forks</h2>
 <p>This section discusses real world collaboration workflows of modern open source software developers.
 Hence the prerequisites are a bit different in order to benefit the most from this section. Make sure you are past
 being able to describe and explain git basics, be able to create and handle your own repositories.</p>
@@ -436,7 +530,7 @@ Use commit messages like ‘added join to SQL query, closes #3’. The key word 
 <p>Once the merge is done, all your changes are in the main branch and you and everyone else can pull the main branch that now contains your new feature. Yay!</p>
 </div>
 <div id="project-management-basics" class="section level2">
-<h2><span class="header-section-number">4.4</span> Project Management Basics</h2>
+<h2><span class="header-section-number">4.5</span> Project Management Basics</h2>
 <p>The art of stress free productivity as I once called it in ’10 blog post, has put a number of gurus on the map and whole strand of literature to our bookshelves. So rather than adding to that, I would like to extract a healthy, best-of-breed type of dose here. The following few paragraphs do not intend to be comprehensive – not even for the scope of software projects, but inspirational.</p>
 <p>In tje software development startup community, the <em>waterfall</em> approach became synonym to conservative, traditional and ancient: Overspecification in advance of the project, premature optimization and a lawsuit over expectations that weren’t met. Though waterfall project may be better than their reputation and specifications should not be too detailed and rigid.</p>
 <p>Many software projects are rather organized in <em>agile</em> fashion with SCRUM and KANBAN being the most popular derivatives.
@@ -461,8 +555,9 @@ could potentially lead to negligent behavior, e.g., careless reviews.</p>
 <p>```</p>
 </div>
 <div id="testing" class="section level2">
-<h2><span class="header-section-number">4.5</span> Testing</h2>
+<h2><span class="header-section-number">4.6</span> Testing</h2>
 <p>When talking about development practices, testing can’t be missing. So, just you know that I thought of this, tbc …</p>
+
 </div>
 </div>
 <div class="footnotes">
@@ -477,7 +572,7 @@ could potentially lead to negligent behavior, e.g., careless reviews.</p>
         </div>
       </div>
 <a href="stack-a-developers-toolkit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="programming-101.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

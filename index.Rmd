@@ -28,7 +28,7 @@ The vast majority of data has been created within the last decade. In turn many 
 
 <div align="center">
 <img src="images/meet_egghead.jpg">
-<div class="caption-half">Meet Dr. Egghead who started his quest to figure out how his assistant got a week's work done in two hours. "<a href="https://www.google.com/search?q=hacker&tbm=isch">Hacker's wear hoodies, you know"</a>, " he mumbles as he starts to think^[FWIW, Dr. Egghead was born after Colin Gillespie's hilarious talk  on [Security in Academia](https://www.youtube.com/watch?v=5odJxZj9LE4)...] at useR! 2019.</div>
+<div class="caption-half">Meet Dr. Egghead who started his quest to figure out how his assistant got a week's work done in two hours. "<a href="https://www.google.com/search?q=hacker&tbm=isch">Hacker's wear hoodies, you know"</a>, " he mumbles as he starts to think^[FWIW, Dr. Egghead was born after Colin Gillespie's hilarious talk on [Security in Academia](https://www.youtube.com/watch?v=5odJxZj9LE4) at useR! 2019]. </div>
 
 </div>
 
@@ -297,9 +297,22 @@ Just like most experienced engineers, seasoned software developers follow some k
 This section does not want to give a comprehensive overview over programming concepts nor compare approaches. And damn sure it does not mean to go to war over approach superiority. *Hacking for Social Scientists* rather cherry-picks suitable application-minded, low-barrier concepts that help social scientists professionalize their own programming. 
 
 
+## Peer Programming
+
+Peer programming, also called pair programming just means two developers sit in front of the same screen to collaborate on a piece of code. So why is there such a buzz about it? Why is there even a term for it? And why is there a section in an applied book on it? 
+
+That is because novice programmers (and their scientific supervisors) often doubt the efficiency of two paid persons working at the same work station. But programming is not about digging a hole with two shovels. Particularly not when it comes to building the software basis or frame of a project. 
+
+Working together using one single keyboard and screen or the virtual equivalent thereof can be highly efficient. The virtual equivalent, i.e., in fact using two computers but sharing the screen while in call, helps tremendously with a) your concept, b) your documentation. Plus, it is a code review at the same time. But most importantly both developers learn from each other. Having to explain and being challenged, deepens the understanding of experienced developers and ruthlessly identifies holes in one's knowledge. One important advice when peer programming is to switch the driver's seat from time to time. Make sure the lesser programmer holds the keys from time to time and maneuvers through articles, repositories, code and data. Doing so prevents the co-pilot from taking a back seat and letting the veteran do the entertainment. [Visual Studio Code Live Share](https://visualstudio.microsoft.com/services/live-share/) is a great feature for next level virtual peer programming as it allows for two drivers using two cursors.
+
+
+Of course there are downsides of the pair programming approach, too. Also, timing within the lifecycle of a project is an important factor and not every project is the same fit for this agile method. But given there are so many approaches, I will leave the back and forth to others. The goal of this section is to point the reader to a practical approach that tends to work well in programming with data setups in social sciences. Googlers Jeff Dean and Sanjay Ghemawat had its fair of success, too, according to the New Yorker's [https://www.newyorker.com/magazine/2018/12/10/the-friendship-that-made-google-huge](The Friendship That Made Google Huge).  
+
+
+
 ## RSA Key Pair Authentication
 
-This section could be headed 'log in like a developer'. RSA Key Pairs are a convenient, relatively secure way to log into an account. SSH based connection, including secure copy (SCP), often make use of RSA Key Pairs instead of using a combination of username and password. Also, most git platforms use this form of authentication. The basic idea of key pairs is to have a public key and a private key. While the private key is never shared with anyone, the public key is shared with any server you want to log in to.
+This section could be headed 'log in like a developer'. RSA Key Pairs are a convenient, relatively secure way to log into an account. SSH based connections, including secure copy (SCP), often make use of RSA Key Pairs instead of using a combination of username and password. Also, most git platforms use this form of authentication. The basic idea of key pairs is to have a public key and a private key. While the private key is never shared with anyone, the public key is shared with any server you want to log in to.
 It's like getting a custom door for any house that you are allowed to enter: share your public key with the server admin / or web portal and you'll be allowed in when you show your private key. In case you loose your private key or suspect it has been stolen, simply inform the admin, so she can remove the door (the public key). This is were a little detail comes into play: 
 you can password protect the authentication process. Doing so buys you time to remove the key from the server before your password gets bruteforced. The downside of this additional password is its need for interaction. So when you are setting up a batch that talks to a remote server that is when you do *not* want a key /w password. 
 
@@ -565,80 +578,6 @@ could potentially lead to negligent behavior, e.g., careless reviews.
 ## Testing
 
 When talking about development practices, testing can't be missing. So, just you know that I thought of this, tbc ...
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Appendix {-}
-
-## Glossary {-}
-
-```{r, eval=TRUE,message=FALSE, echo=FALSE}
-library(kableExtra)
-d <- data.frame("Term" = c(
-  "API",
-  "CMS",
-  "Deployment",
-  "Fork",
-  "GUI",
-  "IDE",
-  "Merge Request",
-  "OS",
-  "OSS",
-  "Pull Request (PR)",
-  "Regular Expression",
-  "REPL",
-  "Reproducible Example",
-  "Stack",
-  "SQL",
-  "Swimlanes",
-  "Throughput Problem",
-  "Virtual Machine (VM)"
-  ),
-  "Description" = c(
-    "**A**pplication **P**rogramming **I**nterface",
-    "**C**ontent **M**anagement **S**ystem",
-    "The art of delivering a piece software to production",
-    "a clone of a repository that you (usually) do not own.",
-    "**G**raphical **U**ser **I**nterface",
-    "**I**ntegrated **D**evelopment **E**nvironment",
-    "See Pull Request.",
-    "**O**perating **S**ysten",
-    "**O**pen **S**ource **S**oftware",
-    "Request to join a feature branch into another branch, e.g., main branch. Sometimes it's also called merge request.",
-    "Pattern to extract specific parts from a text, find stuff in a text.",
-    "[read-eval-print-loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)",
-    "A self-contained code example, including the data it needs to run.",
-    "selection of software used in a project",
-    "**S**tructured **Q**uery **L**anguage",
-    "(Online) Board of columns (lanes). Lanes progress from from left to right and carry issues.",
-    "A bottleneck which can be mitigated by parallelization, e.g., multiple containers running in parallel.",
-    "A virtual computer hosted on your computer. Often used to run another OS inside your main OS for testing purposes."
-    
-  ),
-  stringsAsFactors = FALSE)
-kable(d,"html",escape= FALSE)
-
-```
-
-
-<!-- ## Testing --> 
-
-
-
-
-
-
 
 
 

@@ -1,0 +1,13 @@
+# Case Studies
+
+Stay tuned for some code examples... 
+
+## Basic Parallel Programming
+
+## The Shiny Web Application Framework
+
+## Spatial Visualization with Leaflet and Open Streetmap
+
+## Creating an API Wrapper
+
+## Plumber REST API with R

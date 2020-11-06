@@ -24,7 +24,7 @@
 <meta name="author" content="Matthias Bannert" />
 
 
-<meta name="date" content="2020-09-29" />
+<meta name="date" content="2020-11-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,68 @@
 
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="h4sci.css" type="text/css" />
 </head>
@@ -84,16 +146,41 @@
 <li class="chapter" data-level="3.7" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#automation"><i class="fa fa-check"></i><b>3.7</b> Automation</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html"><i class="fa fa-check"></i><b>4</b> Developer Practices &amp; Workflows</a><ul>
-<li class="chapter" data-level="4.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#rsa-key-pair-authentication"><i class="fa fa-check"></i><b>4.1</b> RSA Key Pair Authentication</a></li>
-<li class="chapter" data-level="4.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#git-version-control-101"><i class="fa fa-check"></i><b>4.2</b> Git Version Control 101</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#what-is-git-version-control"><i class="fa fa-check"></i><b>4.2.1</b> What is Git Version Control?</a></li>
-<li class="chapter" data-level="4.2.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#why-use-version-control-in-research"><i class="fa fa-check"></i><b>4.2.2</b> Why Use Version Control in Research?</a></li>
-<li class="chapter" data-level="4.2.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#how-does-git-work"><i class="fa fa-check"></i><b>4.2.3</b> How Does Git Work ?</a></li>
-<li class="chapter" data-level="4.2.4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#moving-around"><i class="fa fa-check"></i><b>4.2.4</b> Moving Around</a></li>
+<li class="chapter" data-level="4.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#peer-programming"><i class="fa fa-check"></i><b>4.1</b> Peer Programming</a></li>
+<li class="chapter" data-level="4.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#rsa-key-pair-authentication"><i class="fa fa-check"></i><b>4.2</b> RSA Key Pair Authentication</a></li>
+<li class="chapter" data-level="4.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#git-version-control-101"><i class="fa fa-check"></i><b>4.3</b> Git Version Control 101</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#what-is-git-version-control"><i class="fa fa-check"></i><b>4.3.1</b> What is Git Version Control?</a></li>
+<li class="chapter" data-level="4.3.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#why-use-version-control-in-research"><i class="fa fa-check"></i><b>4.3.2</b> Why Use Version Control in Research?</a></li>
+<li class="chapter" data-level="4.3.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#how-does-git-work"><i class="fa fa-check"></i><b>4.3.3</b> How Does Git Work ?</a></li>
+<li class="chapter" data-level="4.3.4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#moving-around"><i class="fa fa-check"></i><b>4.3.4</b> Moving Around</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#feature-branches-prs-and-forks"><i class="fa fa-check"></i><b>4.3</b> Feature Branches, PRs and Forks</a></li>
-<li class="chapter" data-level="4.4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#project-management-basics"><i class="fa fa-check"></i><b>4.4</b> Project Management Basics</a></li>
-<li class="chapter" data-level="4.5" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#testing"><i class="fa fa-check"></i><b>4.5</b> Testing</a></li>
+<li class="chapter" data-level="4.4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#feature-branches-prs-and-forks"><i class="fa fa-check"></i><b>4.4</b> Feature Branches, PRs and Forks</a></li>
+<li class="chapter" data-level="4.5" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#project-management-basics"><i class="fa fa-check"></i><b>4.5</b> Project Management Basics</a></li>
+<li class="chapter" data-level="4.6" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#testing"><i class="fa fa-check"></i><b>4.6</b> Testing</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="programming-101.html"><a href="programming-101.html"><i class="fa fa-check"></i><b>5</b> Programming 101</a><ul>
+<li class="chapter" data-level="5.1" data-path="programming-101.html"><a href="programming-101.html#think-library"><i class="fa fa-check"></i><b>5.1</b> Think library!</a></li>
+<li class="chapter" data-level="5.2" data-path="programming-101.html"><a href="programming-101.html#plan-your-program"><i class="fa fa-check"></i><b>5.2</b> Plan Your Program</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="programming-101.html"><a href="programming-101.html#documentation"><i class="fa fa-check"></i><b>5.2.1</b> Documentation</a></li>
+<li class="chapter" data-level="5.2.2" data-path="programming-101.html"><a href="programming-101.html#design-your-interface"><i class="fa fa-check"></i><b>5.2.2</b> Design Your Interface</a></li>
+<li class="chapter" data-level="5.2.3" data-path="programming-101.html"><a href="programming-101.html#dependencies"><i class="fa fa-check"></i><b>5.2.3</b> Dependencies</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="programming-101.html"><a href="programming-101.html#naming-conventions-snake-camel-or-kebap"><i class="fa fa-check"></i><b>5.3</b> Naming Conventions: Snake, Camel or Kebap</a></li>
+<li class="chapter" data-level="5.4" data-path="programming-101.html"><a href="programming-101.html#folder-structure"><i class="fa fa-check"></i><b>5.4</b> Folder Structure</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="infrastructure.html"><a href="infrastructure.html"><i class="fa fa-check"></i><b>6</b> Infrastructure</a><ul>
+<li class="chapter" data-level="6.1" data-path="infrastructure.html"><a href="infrastructure.html#benchmarking"><i class="fa fa-check"></i><b>6.1</b> Benchmarking</a></li>
+<li class="chapter" data-level="6.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost"><i class="fa fa-check"></i><b>6.2</b> Your Local Machine / localhost</a></li>
+<li class="chapter" data-level="6.3" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>6.3</b> Virtual Machines</a></li>
+<li class="chapter" data-level="6.4" data-path="infrastructure.html"><a href="infrastructure.html#docker"><i class="fa fa-check"></i><b>6.4</b> Docker</a></li>
+<li class="chapter" data-level="6.5" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>6.5</b> Cloud Computing</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>7</b> Case Studies</a><ul>
+<li class="chapter" data-level="7.1" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>7.1</b> Basic Parallel Programming</a></li>
+<li class="chapter" data-level="7.2" data-path="case-studies.html"><a href="case-studies.html#the-shiny-web-application-framework"><i class="fa fa-check"></i><b>7.2</b> The Shiny Web Application Framework</a></li>
+<li class="chapter" data-level="7.3" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>7.3</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
+<li class="chapter" data-level="7.4" data-path="case-studies.html"><a href="case-studies.html#creating-an-api-wrapper"><i class="fa fa-check"></i><b>7.4</b> Creating an API Wrapper</a></li>
+<li class="chapter" data-level="7.5" data-path="case-studies.html"><a href="case-studies.html#plumber-rest-api-with-r"><i class="fa fa-check"></i><b>7.5</b> Plumber REST API with R</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a><ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#glossary"><i class="fa fa-check"></i>Glossary</a></li>
@@ -122,7 +209,7 @@
 <h1 class="title">Hacking for Social Sciences</h1>
 <h2 class="subtitle"><em>A Guide to Programming With Data</em></h2>
 <p class="author"><em>Matthias Bannert</em></p>
-<p class="date"><em>2020-09-29</em></p>
+<p class="date"><em>2020-11-06</em></p>
 </div>
 <div id="preface" class="section level1">
 <h1><span class="header-section-number">1</span> Preface</h1>
@@ -130,14 +217,14 @@
 <div align="center">
 <img src="images/meet_egghead.jpg">
 <div class="caption-half">
-Meet Dr. Egghead who started his quest to figure out how his assistant got a week’s work done in two hours. “<a href="https://www.google.com/search?q=hacker&tbm=isch">Hacker’s wear hoodies, you know”</a>, &quot; he mumbles as he starts to think<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> at useR! 2019.
+Meet Dr. Egghead who started his quest to figure out how his assistant got a week’s work done in two hours. “<a href="https://www.google.com/search?q=hacker&tbm=isch">Hacker’s wear hoodies, you know”</a>, &quot; he mumbles as he starts to think<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.
 </div>
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>FWIW, Dr. Egghead was born after Colin Gillespie’s hilarious talk on <a href="https://www.youtube.com/watch?v=5odJxZj9LE4">Security in Academia</a>…<a href="index.html#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>FWIW, Dr. Egghead was born after Colin Gillespie’s hilarious talk on <a href="https://www.youtube.com/watch?v=5odJxZj9LE4">Security in Academia</a> at useR! 2019<a href="index.html#fnref1" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>

@@ -1,0 +1,37 @@
+# Infrastructure
+
+Yes, there is a third area besides your research and carpentry level programming
+that I suppose you should get an idea of. Again, you don't have to master hosting
+servers or even clusters, but a decent overview and an idea of when to use what will
+help you plan ahead tremendously. 
+
+Admittedly, unless your favorite superhero is Inspector Gadget or you 
+just always had a knack for Arduinos, Raspberry Pis or the latest beta version 
+of the software you use, infrastructure may the one area perceived as overhead by researchers.
+
+Once I was trouble shooting a case in which a colleague was unhappy with the speed gain of using the university's heralded cluster. It turned out he had passed his behemoth of a computation 
+problem on to the login node of the ETH cluster. Unsuprisingly, the bouncer was not 
+particularly good at math. 
+
+Before you laugh: Do you know how many cores, how much disk space or RAM your local notebook has?
+I've seen many bright researchers who were not able to tell. Note, I am not writing this to make you feel bad or to put you in front of another fat rock. There is a reason why we have sysadmins, database admins and other specialists. I am not asking researchers to become one of those. A lot of developers are lacking a decent understanding of infrastructure, too. 
+
+While specialization has been the story of the last decades in high skilled education, careers and on the labor market, there is a strong case for hybrid profiles. In software development *DevOps* is such a profile that has become sought after: A software *developer* with knowledge of *operations* or a server *operator* who is able to *develop* a program. 
+
+
+Stay tuned for the infrastructure 101 that should help you set something up on your own
+or talk your needs with your organizations HPC group. 
+
+
+## Benchmarking
+
+## Your Local Machine / localhost
+
+## Virtual Machines
+
+## Docker 
+
+## Cloud Computing
+
+
+
