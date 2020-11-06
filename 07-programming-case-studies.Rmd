@@ -1,5 +1,7 @@
 # Case Studies
 
+Stay tuned for some code examples... 
+
 ## Basic Parallel Programming
 
 ## The Shiny Web Application Framework

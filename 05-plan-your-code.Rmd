@@ -19,7 +19,7 @@ The following sections share a blueprint to go from explorative script to produc
 
 The approach that I find practical for applied, empirical research projects involving code is: think library. Think package. Think _reusable_ code. Don't think you can't do it. Let me de-mystify packages for you: **Packages are nothing else than source code organized in folders following some convention**. Thanks to modern IDEs, it has never been easier to stay inline with conventions. Editors like R Studio ship with built-in support to create package skeletons with a few clicks. Thousands of open source extension packages allow you to learn from their structure. Tutorials like [Packing Python Projects](https://packaging.python.org/tutorials/packaging-projects/) or Hadley Wickham's free online book [R Packages](https://r-pkgs.org/) explain how to create packages good enough to make the official PyPi or CRAN package repository. 
 
-In other words, it is unlikely that someone with moderate experience comes up the best folder structure ever invented. Sure, every project is different and not every aspect (folder) is needed in every project. Nevertheless, there are well established blueprints, guides and conventions that suit almost any project. Unlike Office type of projects which center around on one single file, understand a research project will live in a folder with many subfolders and files. Not in one single file. 
+In other words, it is unlikely that someone with moderate experience comes up the best folder structure ever invented. Sure, every project is different and not every aspect (folder) is needed in every project. Nevertheless, there are well established blueprints, guides and conventions that suit almost any project. Unlike Office type of projects which center around one single file, understand a research project will live in a folder with many subfolders and files. Not in one single file. 
 
 Trust me on this one: The package approach will pay off early. Long before you ever thought about publishing your package. Write your own function definition, rather than just calling functions line by line. Write code as if you need to make sure it runs on another computer. Write code as if you need to maintain it. 
 
@@ -32,6 +32,9 @@ set.seed(123)
 d1 <- rnorm(1000)
 d2 <- rnorm(1000)
 
+# Here's where my starts
+# let's create some custom descriptive
+# stats summary for the data generated above
 d1_mean <- mean(d1)
 d1_sd <- sd(d1)
 d1_q <- quantile(d1)
@@ -52,6 +55,12 @@ To function defintions and calls like that
 
 ```{r}
 
+# Imagine you had thousand of datasets.
+# Imagine you wanted to add some other stats
+# Imagine all the error prone c&p with 
+# the above solution. 
+# Think of how much easier this is to document. 
+# This is automation. Not cooking. 
 create_basic_desc <- function(distr){
   out <- list(
     mean = mean(distr),
@@ -67,7 +76,7 @@ create_basic_desc(d2)
 
 ```
 
-Start to document functions and their parameters using [Roxygen](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) syntax and you're already very close to creating your first package. 
+Start to document functions and their parameters using [Roxygen](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) syntax and you're already very close to creating your first package. **Pro-tipp**: Hit Cmd+Alt+Shift+R^[On Windows / Linux use Ctrl instead of Cmd.] while inside a function definition with you cursor. When working with R Studio, it will create a nifty roxygen skeleton with all your function's parameters. 
 
 ```{r}
 
@@ -97,9 +106,9 @@ How much planning ahead is optimal for your project ultimately depends on your e
 
 ### Documentation
 
-First things first. Write the first bit of documentation before your first line of code. Documentation written with hindsight will always be written with an all-knowing, smartest-person-in-the-room mindset and the motivation of someone who already gave her best programming. Understand, I am not talking about the finetuning here, but about a written outline. Describe how parts of the code are going to do stuff. Also, examples can't hurt to illustrate what you meant. Research projects often take breaks and getting back to work after months should be as easy as possible. 
+First things first. Write the first bit of documentation before your first line of code. Documentation **written** with hindsight will always be written with an all-knowing, smartest-person-in-the-room mindset and the motivation of someone who already gave her best programming. Understand, I am not talking about the finetuning here, but about a written outline. Describe **how** parts of the code are going to do stuff. Also, examples can't hurt to illustrate what you meant. Research projects often take breaks and getting back to work after months should be as easy as possible. 
 
-_Pseudo Code_ is good way of writing up such an outline documentation. Take a simple API wrapper for example. Assume there is an API that returns numeric ids of hit entries when queried for keywords. These ids can be passed on to yet another [endpoint](), to obtain a profile. A rough game plan for an API Wrapper could like this: 
+_Pseudo Code_ is a good way of writing up such an outline documentation. Take a simple API wrapper for example. Assume there is an API that returns numeric ids of hit entries when queried for keywords. These ids can be passed on to yet another [endpoint](), to obtain a profile. A rough game plan for an API Wrapper could like this: 
 
 ```r
 
@@ -131,25 +140,18 @@ Whereas this _why_ comment may actually be helpful:
 cumsum(c(T,F,F,F,F,T,F,F,T,F,F,F,T))
 ```
 
-Comment on why you do things, especially with which plan for future use in mind. Doing will certainly foster exchange with others who enter ore re-visit the code at a later stage (including yourself). 
-
+Comment on why you do things, especially with which plan for future use in mind. Doing so will certainly foster exchange with others who enter or re-visit the code at a later stage (including yourself). 
 
 
 ### Design Your Interface
 
-In other languages it is fairly common to define the data type of both: the input and the output^[See statically typed language vs. dynamically typed language.]. Though doing so is not necessary in R, it is good practice to define the types of all parameters and results. 
+In other languages it is fairly common to define the data type of both: the input and the output^[See statically typed language vs. dynamically typed language.]. Though doing so is not necessary in R, it is good practice to define the types of all parameters and results in your comments / documentation.  
 
+Once you know a bit more about your direction of travel, it's time to think about how to modularize your program. How do different parts of the program play together. users interact with your program: Will your code just act as a storage pit of tools, a loose collection of commands for adhoc use? Are others using the program, too? Will there be machine-to-machine interaction? Do you need graphical user interface (GUI) like shiny? 
 
-
-Once you know a bit more about your direction of travel, it's time to think about how to modularize your program. How do different parts of the program play together. users interact with your program: Will your code just act as a storage pit of tools, 
-a loose collection of commands for adhoc use? Are others using the program, too?
-?  Will there be machine-to-machine interaction?
-
-
-- pseudo code is
-
-
-
+These questions will determine whether you use a [strictly functional approach](http://adv-r.had.co.nz/Functional-programming.html), a [rudimentary 
+form of object orientation like S3](http://adv-r.had.co.nz/OO-essentials.html), a stricter implementation like [R6](https://github.com/r-lib/R6/) or something completely exotic. There a plenty of great resources out there, so I will not elaborate on this for the time being. 
+The main message of this section is: Think about the main use case. Is it interactive? Is it a program that runs in batch typically? Do your users code? Would they prefer a GUI? 
 
 
 ### Dependencies
@@ -188,11 +190,11 @@ Again, {stringr} is certainly a well crafted package and it is definitely not th
 
 ## Naming Conventions: Snake, Camel or Kebap
 
-Before we start with files and folders, let me drop a quick, general note on naming. As in how to name files, folders and functions. It may look like a mere detail, but concise formatting and styling of your code will be appreciated by your peers and by those you asked for help. Plus, it following an established convention will not make you look like a complete greenhorn. 
+Before we start with files and folders, let me drop a quick, general note on naming. As in how to name files, folders and functions. It may look like a mere detail, but concise formatting and styling of your code will be appreciated by your peers and by those you ask for help. Plus, following an established convention will not make you look like a complete greenhorn. 
 
 - Do NOT use spaces in folder or file names! Never. If you need lengthy descriptions, use underscores '_', dashes '-' or camelCase. 
 
-- avoid umlauts and special characters. Encoding and internationalization is worth a book of its own. It's not like modern programming environments can't handle it, but encoding will introduce further complications. These are exactly the type of complications that may lead to an unplanned, frustrating waste of hours. You may be lucky enough to find a quick fix, but you may as well not find an easy fix. Avoid encoding issues if do plan to build a deeper understanding of encoding. This is especially true for cross platform collaboroations (Windows vs. Unix OS).
+- avoid umlauts and special characters. Encoding and internationalization is worth a book of its own. It's not like modern programming environments can't handle it, but encoding will introduce further complications. These are exactly the type of complications that may lead to an unplanned, frustrating waste of hours. You may be lucky enough to find a quick fix, but you may as well not. Avoid encoding issues if do not plan to build a deeper understanding of encoding on the fly. This is especially true for cross platform collaboroations (Windows vs. Unix / OSX).
 
 - either go for camelCase, snake_case or kebap-case. Otherwise prefer lower case
 characters. Also make sure to not switch styles within a project. There a plenty of style guides around, go with whatever your lab or community goes. 
@@ -202,10 +204,11 @@ characters. Also make sure to not switch styles within a project. There a plenty
 
 ## Folder Structure
 
-In R packages may have the following folders. Note that this does not mean a package has to
-contain all of these folders. FWIW, an R package needs to have a NAMESPACE and DESCRIPTION files, but that is not the point here. This chapter rather describes the role of 
-different folders in a package and what these folders are good for. Hopefully, that way 
-all aspects of your project will be covered: 
+In R, packages may have the following folders. Note that this does not mean a package has to
+contain all of these folders. FWIW, an R package needs to have NAMESPACE and DESCRIPTION files, but that is not the point here. Also there are more comprehensive, better books on the matter than this little section. The point of this section though is to discuss the role of folders 
+and how they help you structure your work, even if you don't want to create an R package in first place. 
+
+This chapter describes the role of different folders in a package and what these folders are good for. More likely than not, this will cover a lot of the aspects of your project, too.
 
 - R
 - data
@@ -220,7 +223,7 @@ The below description explains the role of all of these folders.
 **R**
 
 A folder to store function definitions as opposed to function calls. Typically 
-every function goes into a separate file. Sometimes it makes sense to group multiple functions into a single file when functions are closely related. Another reason for putting more than one functions into a single file is when you have a collection of relatively simple, short helper functions. The R folder MUST NOT contain calls^[Essentially, examples are calls, too, but good practice. Hadley Wickham's [guide to document functions within packages](https://r-pkgs.org/man.html#man-functions) describes how add function call examples to your documentation.].
+every function goes into a separate file. Sometimes it makes sense to group multiple functions into a single file when functions are closely related. Another reason for putting more than one function into a single file is when you have a collection of relatively simple, short helper functions. The R folder MUST NOT contain calls^[Essentially, examples are calls, too. Note, I do recommend to add examples. Hadley Wickham's [guide to document functions within packages](https://r-pkgs.org/man.html#man-functions) shows how to add examples correctly.].
 
 ```{r}
 my_func_def <- function(param1, param2){
@@ -234,9 +237,8 @@ my_func_def <- function(param1, param2){
 
 **man** 
 
-This folder contains the context manual of your package. The documentation consists of is basically a function (and dataset) specific documentation. It's what you see when you run `?function_name`. The content of the man folder is usually created automatically from the roxygen style documentation (note the #' styled comments) during a ```devtools::document()`` run. Back in the days when people wore pijamas and
-lived life slow, the the man folder was filled up manually with some LaTeX reminiscant .rd files, but ever since R Studio took over in 2012, most developer used Roxygen and render the function reference part of the documentation from 
-markdown. 
+This folder contains the context manual of your package. What you'll find here is the so called _function reference_, basically a function and dataset specific documentation. It's what you see when you run `?function_name`. The content of the `man/` folder is usually created automatically from the roxygen style documentation (note the #' styled comments) during a ```devtools::document()`` run. Back in the days when people wore pijamas and
+lived life slow, the man folder was filled up manually with some LaTeX reminiscant .rd files, but ever since R Studio took over in 2012, most developers use Roxygen and render the function reference part of the documentation from their comments. 
 
 
 ```{r, eval=FALSE}
@@ -265,19 +267,18 @@ my_func_def <- function(param1, param2){
 **docs**
 
 This folder is typically not filled with content manually. When pushed to github
-a docs folder can easily be published as website using [Github Pages](https://pages.github.com/). With Github pages you can host a decently styled modern website for free. Software projects often use GitHub Pages to market a product or project or simply for documentation purposes. All you need to do is check a couple of options inside the Github Web GUI and make sure the docs folder contains .md or .html files as well as stylesheets (.css). The latter make sound a bit like Latin to people without a basic development background, but there is plenty of help. The R ecosystem offers different flavors of the same idea: use a bit of markdown + R to generate website code. There is blogdown for your personal website or blog. There is pkgdown for your packages documentation. And there is even bookdown to write an online book like this. Write the markdown file, render it as HTML into the docs folder, push the docs folder to GitHub. Done. Your website will be online at username.github.io/reponame.
+a docs folder can easily be published as website using [Github Pages](https://pages.github.com/). With Github pages you can host a decently styled modern website for free. Software projects often use GitHub Pages to market a product or project or simply for documentation purposes. All you need to do is check a couple of options inside the Github Web GUI and make sure the docs/ folder contains .md or .html files as well as stylesheets (.css). The latter may sound a bit like Latin to people without a basic web development background, but there is plenty of help. The R ecosystem offers different flavors of the same idea: use a bit of markdown + R to generate website code. There is blogdown for your personal website or blog. There is pkgdown for your packages documentation. And there is even bookdown to write an online book like this. Write the markdown file, render it as HTML into the docs folder, push the docs folder to GitHub. Done. Your website will be online at username.github.io/reponame.
 
 Here's a an example of a package down website: https://mbannert.github.io/timeseriesdb/
 
 **data**
 
-If you have file based data like .csv, .RData, .json or even .xlsx put them in here. Keeping data in a separate folder inside the project directory helps to keep reference to the data relative. There is nothing more greenhorn like then 
-```r read.csv("C:\mbannert\My Documents\some_data.csv") ```. Even if you like this book, I doubt you have a folder named 'mbannert' on your computer. Ah, an in case you wondered, extensive use of ```setwd()``` is even worse. Keep you reference to data (and functions alike) relative. If you are sourcing data from a remote NAS drive as it is common at many university you can simply mount this drive to you folder (LTMGTFY: Windows / OSX).
+If you have file based data like .csv, .RData, .json or even .xlsx put them in here. Keeping data in a separate folder inside the project directory helps to keep reference to the data relative. There is nothing more greenhorn than 
+```r read.csv("C:\mbannert\My Documents\some_data.csv") ```. Even if you like this book, I doubt you have a folder named 'mbannert' on your computer. Ah, an in case you wondered, extensive use of ```setwd()``` is even worse. Keep your reference to data (and functions alike) relative. If you are sourcing data from a remote NAS drive as it is common at many universities, you can simply mount this drive to you folder (LTMGTFY: How to mount a network drive Windows / OSX).
 
 **vignettes**
 
-Admittedly not the most intuitive names for a folder that is supposed to contain articles. Vignettes are part of the documentation of a good package. It's kind of a description as if you were to write a paper about your package, including some examples of how to use it. For modern packages, vignettes are often part of their package down based online documentation. Feel free, to name this folder differently, though sticking to the convention will make it easier to turn your 
-project into a project at a later stage. This folder typically contains Markdown or RMarkdown files. 
+Admittedly not the most intuitive names for a folder that is supposed to contain articles. Vignettes are part of the documentation of a good package. It's kind of a description as if you were to write a paper about your package, including some examples of how to use it. For modern packages, vignettes are often part of their package down based online documentation. Feel free, to name this folder differently, though sticking to the convention will make it easier to turn your project into a project at a later stage. This folder typically contains Markdown or RMarkdown files. 
 
 
 **src**
@@ -287,9 +288,9 @@ The source folder is just here for the sake of completeness and is not needed in
 
 **inst**
 
-When you install an R package using `install.packages()` it will be installed in some deep dungeon on your computer where R lives within your OS. The inst folder allows you to ship non R files with your installation. The files of the inst folder will just be copied into the package root folder inside your installation of that package. 
+When you install an R package using `install.packages()` it will be installed in some deep dungeon on your computer where R lives within your OS. The inst/ folder allows you to ship non R files with your installation. The files of the inst folder will just be copied into the package root folder inside your installation of that package. 
 
-*inst* is also a great place to store experimental function calls or playground files once the package ambitions become more concrete and those type of files do not live conveniently in the project roo anymore. Also I sometimes put shiny apps for local use into the inst folder if I want to make them part of a package. 
+*inst* is also a great place to store experimental function calls or playground files once the package ambitions become more concrete and those type of files do not live conveniently in the project root anymore. Also. I sometimes put shiny apps for local use into the inst/ folder if I want to make them part of a package. 
 
 
 
