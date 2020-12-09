@@ -1,6 +1,114 @@
 # Case Studies
 
-Stay tuned for some code examples... 
+## Application Programming Interfaces (API)
+
+An API is nothing else but an interface to facilitate machine to machine 
+communication. An interface can be anything, any protocol or pre-defined process.
+But of course there are good and bad ways to communicate. Plus some matter-of-taste 
+type of decisions. But security and standard compliance are none of the latter. 
+There are standards such as the popular, URL based REST that make developers'
+lives a lot easier -- regardless of the language they prefer. 
+
+So what do we with an REST API in R or Python? Build a wrapper.
+A wrapper is program that wraps an API call in a function using a function's
+input parameters to compose the URL that the REST call is. Because, thanks to 
+the API's documentation, we know what the output of the API looks like. Hence 
+we can process the result and return an R or Python object. 
+
+Here's an example of a very simple API wrapper that makes use of the 
+Metropolitan Museum of Modern Art's API to obtain identifiers of pictures based on 
+a simple search. 
+
+```{r, eval=FALSE, warning=FALSE,message=FALSE}
+# Visit this example query
+# https://collectionapi.metmuseum.org/public/collection/v1/search?q=umbrella
+# returns a json containing quite a few ids of pictures that were tagged 'umbrella'
+
+#' Search MET
+#'
+#' This function searches the MET's archive for keywords and
+#' returns object ids of search hits. It is a simple wrapper
+#' around the MET's Application Programming interface (API).
+#' The function is designed to work with other API wrappers
+#' and use object ids as an input.
+#' @param character search term
+#' @return list containing the totoal number of objects found
+#' and a vector of object ids.
+#'
+# Note these declaration are not relevant when code is not
+# part of a package, hence you need to call library(jsonlite)
+# in order to make this function work if you are not building
+# a package.
+#' @examples
+#' search_met("umbrella")
+#' @importFrom jsonlite formJSON
+#' @export
+search_met <- function(keyword){
+  # note how URLencode improves this function
+  # because spaces are common in searches
+  # but are not allowed in URLs
+  url <- sprintf("https://collectionapi.metmuseum.org/public/collection/v1/search?q=%s", URLencode(keyword))
+  fromJSON(url)
+}
+
+```
+
+You can use these ids with another [endpoint]() in order to receive the pictures
+themselves.
+
+```{r, eval=FALSE,warning=FALSE,message=FALSE}
+download_met_images_by_id <- function(ids,
+                                      download = "primaryImage") {
+  # Obtain meta description objects from MET API
+  obj_list <- lapply(ids, function(x) {
+    req <- download.file(sprintf("https://collectionapi.metmuseum.org/public/collection/v1/objects/%d",
+                   x),destfile = "temp.json")
+    fromJSON("temp.json")
+  })
+
+  # Extract the list elements that contains
+  # img URLs in order to pass it to the download function
+  img_urls <- lapply(obj_list, "[[", download)
+  # Note the implicit return, no return statement needed
+  # last un-assigned statement is returned from the function
+  lapply(seq_along(img_urls), function(x) {
+    download.file(img_urls[[x]],
+                  destfile = sprintf("data/image_%d.jpg", x)
+    )
+  })
+}
+
+
+# Step 4: Use the Wrapper
+umbrella_ids <- search_met("umbrella")
+umbrella_ids
+download_met_images_by_id(umbrella_ids$objectIDs[2:4])
+```
+
+
+Many services such as Google Cloud, AWS, your university library,
+your favorite social media account or your local metro operator provide an API. 
+Often, in the case of data providers there are even API wrapper packages around for
+the most popular programming with data languages. For example the KOF Swiss Economic Institute
+provides an API Wrapper package called {kofdata}. The even has an API wrapper to access large parts of their
+entire economic database. The R package is called {OECD}. A good way to learn more about creating API wrappers
+is to look in to the source code of these packages. 
+
+```{r, warning=FALSE, message=FALSE}
+library(kofdata)
+# just for viz
+library(tstools)
+tsl <- get_time_series("ch.kof.barometer")
+tsplot(tsl)
+
+```
+
+
+## Create Your Own API
+
+
+
+
 
 ## Basic Parallel Programming
 
@@ -8,6 +116,6 @@ Stay tuned for some code examples...
 
 ## Spatial Visualization with Leaflet and Open Streetmap
 
-## Creating an API Wrapper
 
-## Plumber REST API with R
+
+
