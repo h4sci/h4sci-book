@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6 Case Studies | Hacking for Social Sciences</title>
+  <title>Hacking for Social Sciences</title>
   <meta name="description" content="The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point researchers to programming approaches who had not considered programming to process data so far. Hacking for Social Sciences and Humanities" />
   <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6 Case Studies | Hacking for Social Sciences" />
+  <meta property="og:title" content="Hacking for Social Sciences" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6 Case Studies | Hacking for Social Sciences" />
+  <meta name="twitter:title" content="Hacking for Social Sciences" />
   
   <meta name="twitter:description" content="The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point researchers to programming approaches who had not considered programming to process data so far. Hacking for Social Sciences and Humanities" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="infrastructure.html"/>
-<link rel="next" href="appendix.html"/>
+
+<link rel="next" href="introduction-the-choice-that-doesnt-matter.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -213,117 +213,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="case-studies" class="section level1" number="6">
-<h1 number="6"><span class="header-section-number">6</span> Case Studies</h1>
-<div id="application-programming-interfaces-api" class="section level2" number="6.1">
-<h2 number="6.1"><span class="header-section-number">6.1</span> Application Programming Interfaces (API)</h2>
-<p>An API is nothing else but an interface to facilitate machine to machine
-communication. An interface can be anything, any protocol or pre-defined process.
-But of course there are good and bad ways to communicate. Plus some matter-of-taste
-type of decisions. But security and standard compliance are none of the latter.
-There are standards such as the popular, URL based REST that make developers’
-lives a lot easier – regardless of the language they prefer.</p>
-<p>So what do we with an REST API in R or Python? Build a wrapper.
-A wrapper is program that wraps an API call in a function using a function’s
-input parameters to compose the URL that the REST call is. Because, thanks to
-the API’s documentation, we know what the output of the API looks like. Hence
-we can process the result and return an R or Python object.</p>
-<p>Here’s an example of a very simple API wrapper that makes use of the
-Metropolitan Museum of Modern Art’s API to obtain identifiers of pictures based on
-a simple search.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="case-studies.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visit this example query</span></span>
-<span id="cb20-2"><a href="case-studies.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># https://collectionapi.metmuseum.org/public/collection/v1/search?q=umbrella</span></span>
-<span id="cb20-3"><a href="case-studies.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns a json containing quite a few ids of pictures that were tagged &#39;umbrella&#39;</span></span>
-<span id="cb20-4"><a href="case-studies.html#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="case-studies.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Search MET</span></span>
-<span id="cb20-6"><a href="case-studies.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb20-7"><a href="case-studies.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; This function searches the MET&#39;s archive for keywords and</span></span>
-<span id="cb20-8"><a href="case-studies.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; returns object ids of search hits. It is a simple wrapper</span></span>
-<span id="cb20-9"><a href="case-studies.html#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; around the MET&#39;s Application Programming interface (API).</span></span>
-<span id="cb20-10"><a href="case-studies.html#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; The function is designed to work with other API wrappers</span></span>
-<span id="cb20-11"><a href="case-studies.html#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; and use object ids as an input.</span></span>
-<span id="cb20-12"><a href="case-studies.html#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param character search term</span></span>
-<span id="cb20-13"><a href="case-studies.html#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @return list containing the totoal number of objects found</span></span>
-<span id="cb20-14"><a href="case-studies.html#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; and a vector of object ids.</span></span>
-<span id="cb20-15"><a href="case-studies.html#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb20-16"><a href="case-studies.html#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Note these declaration are not relevant when code is not</span></span>
-<span id="cb20-17"><a href="case-studies.html#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co"># part of a package, hence you need to call library(jsonlite)</span></span>
-<span id="cb20-18"><a href="case-studies.html#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co"># in order to make this function work if you are not building</span></span>
-<span id="cb20-19"><a href="case-studies.html#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co"># a package.</span></span>
-<span id="cb20-20"><a href="case-studies.html#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
-<span id="cb20-21"><a href="case-studies.html#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; search_met(&quot;umbrella&quot;)</span></span>
-<span id="cb20-22"><a href="case-studies.html#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @importFrom jsonlite formJSON</span></span>
-<span id="cb20-23"><a href="case-studies.html#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb20-24"><a href="case-studies.html#cb20-24" aria-hidden="true" tabindex="-1"></a>search_met <span class="ot">&lt;-</span> <span class="cf">function</span>(keyword){</span>
-<span id="cb20-25"><a href="case-studies.html#cb20-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># note how URLencode improves this function</span></span>
-<span id="cb20-26"><a href="case-studies.html#cb20-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># because spaces are common in searches</span></span>
-<span id="cb20-27"><a href="case-studies.html#cb20-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># but are not allowed in URLs</span></span>
-<span id="cb20-28"><a href="case-studies.html#cb20-28" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">&quot;https://collectionapi.metmuseum.org/public/collection/v1/search?q=%s&quot;</span>, <span class="fu">URLencode</span>(keyword))</span>
-<span id="cb20-29"><a href="case-studies.html#cb20-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fromJSON</span>(url)</span>
-<span id="cb20-30"><a href="case-studies.html#cb20-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>You can use these ids with another <a href="">endpoint</a> in order to receive the pictures
-themselves.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="case-studies.html#cb21-1" aria-hidden="true" tabindex="-1"></a>download_met_images_by_id <span class="ot">&lt;-</span> <span class="cf">function</span>(ids,</span>
-<span id="cb21-2"><a href="case-studies.html#cb21-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">download =</span> <span class="st">&quot;primaryImage&quot;</span>) {</span>
-<span id="cb21-3"><a href="case-studies.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Obtain meta description objects from MET API</span></span>
-<span id="cb21-4"><a href="case-studies.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  obj_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(ids, <span class="cf">function</span>(x) {</span>
-<span id="cb21-5"><a href="case-studies.html#cb21-5" aria-hidden="true" tabindex="-1"></a>    req <span class="ot">&lt;-</span> <span class="fu">download.file</span>(<span class="fu">sprintf</span>(<span class="st">&quot;https://collectionapi.metmuseum.org/public/collection/v1/objects/%d&quot;</span>,</span>
-<span id="cb21-6"><a href="case-studies.html#cb21-6" aria-hidden="true" tabindex="-1"></a>                   x),<span class="at">destfile =</span> <span class="st">&quot;temp.json&quot;</span>)</span>
-<span id="cb21-7"><a href="case-studies.html#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fromJSON</span>(<span class="st">&quot;temp.json&quot;</span>)</span>
-<span id="cb21-8"><a href="case-studies.html#cb21-8" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb21-9"><a href="case-studies.html#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="case-studies.html#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract the list elements that contains</span></span>
-<span id="cb21-11"><a href="case-studies.html#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># img URLs in order to pass it to the download function</span></span>
-<span id="cb21-12"><a href="case-studies.html#cb21-12" aria-hidden="true" tabindex="-1"></a>  img_urls <span class="ot">&lt;-</span> <span class="fu">lapply</span>(obj_list, <span class="st">&quot;[[&quot;</span>, download)</span>
-<span id="cb21-13"><a href="case-studies.html#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Note the implicit return, no return statement needed</span></span>
-<span id="cb21-14"><a href="case-studies.html#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># last un-assigned statement is returned from the function</span></span>
-<span id="cb21-15"><a href="case-studies.html#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(<span class="fu">seq_along</span>(img_urls), <span class="cf">function</span>(x) {</span>
-<span id="cb21-16"><a href="case-studies.html#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">download.file</span>(img_urls[[x]],</span>
-<span id="cb21-17"><a href="case-studies.html#cb21-17" aria-hidden="true" tabindex="-1"></a>                  <span class="at">destfile =</span> <span class="fu">sprintf</span>(<span class="st">&quot;data/image_%d.jpg&quot;</span>, x)</span>
-<span id="cb21-18"><a href="case-studies.html#cb21-18" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb21-19"><a href="case-studies.html#cb21-19" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb21-20"><a href="case-studies.html#cb21-20" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-21"><a href="case-studies.html#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-22"><a href="case-studies.html#cb21-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-23"><a href="case-studies.html#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Use the Wrapper</span></span>
-<span id="cb21-24"><a href="case-studies.html#cb21-24" aria-hidden="true" tabindex="-1"></a>umbrella_ids <span class="ot">&lt;-</span> <span class="fu">search_met</span>(<span class="st">&quot;umbrella&quot;</span>)</span>
-<span id="cb21-25"><a href="case-studies.html#cb21-25" aria-hidden="true" tabindex="-1"></a>umbrella_ids</span>
-<span id="cb21-26"><a href="case-studies.html#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="fu">download_met_images_by_id</span>(umbrella_ids<span class="sc">$</span>objectIDs[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
-<p>Many services such as Google Cloud, AWS, your university library,
-your favorite social media account or your local metro operator provide an API.
-Often, in the case of data providers there are even API wrapper packages around for
-the most popular programming with data languages. For example the KOF Swiss Economic Institute
-provides an API Wrapper package called {kofdata}. The even has an API wrapper to access large parts of their
-entire economic database. The R package is called {OECD}. A good way to learn more about creating API wrappers
-is to look in to the source code of these packages.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="case-studies.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kofdata)</span>
-<span id="cb22-2"><a href="case-studies.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># just for viz</span></span>
-<span id="cb22-3"><a href="case-studies.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tstools)</span>
-<span id="cb22-4"><a href="case-studies.html#cb22-4" aria-hidden="true" tabindex="-1"></a>tsl <span class="ot">&lt;-</span> <span class="fu">get_time_series</span>(<span class="st">&quot;ch.kof.barometer&quot;</span>)</span>
-<span id="cb22-5"><a href="case-studies.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tsplot</span>(tsl)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div id="header">
+<h1 class="title">Hacking for Social Sciences</h1>
+<h2 class="subtitle"><em>A Guide to Programming With Data</em></h2>
+<p class="author"><em>Matthias Bannert</em></p>
+<p class="date"><em>2020-12-09</em></p>
 </div>
-<div id="create-your-own-api" class="section level2" number="6.2">
-<h2 number="6.2"><span class="header-section-number">6.2</span> Create Your Own API</h2>
+<div id="preface" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Preface</h1>
+<p>The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point a kind researcher to programming approaches who had not considered programming to process data so far. <em>Hacking for Social Sciences</em> aims to give a big picture overview and starting point to reach what the open source software community calls a ‘software carpentry’ level. Also, this book argues a solid software carpentry skill level is totally in reach for most researchers. And most importantly, investing is worth the effort: being able to code leverages field specific expertise and fosters interdisciplinary collaboration as source code continues to become an important communication channel.</p>
+<div align="center">
+<img src="images/meet_egghead.jpg">
+<div class="caption-half">
+Meet Dr. Egghead who started his quest to figure out how his assistant got a week’s work done in two hours. “<a href="https://www.google.com/search?q=hacker&tbm=isch">Hacker’s wear hoodies, you know”</a>, " he mumbles as he starts to think<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.
 </div>
-<div id="basic-parallel-programming" class="section level2" number="6.3">
-<h2 number="6.3"><span class="header-section-number">6.3</span> Basic Parallel Programming</h2>
 </div>
-<div id="the-shiny-web-application-framework" class="section level2" number="6.4">
-<h2 number="6.4"><span class="header-section-number">6.4</span> The Shiny Web Application Framework</h2>
 </div>
-<div id="spatial-visualization-with-leaflet-and-open-streetmap" class="section level2" number="6.5">
-<h2 number="6.5"><span class="header-section-number">6.5</span> Spatial Visualization with Leaflet and Open Streetmap</h2>
-
-</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>FWIW, Dr. Egghead was born after Colin Gillespie’s hilarious talk on <a href="https://www.youtube.com/watch?v=5odJxZj9LE4">Security in Academia</a> at useR! 2019<a href="preface.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="infrastructure.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="introduction-the-choice-that-doesnt-matter.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

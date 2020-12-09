@@ -24,7 +24,7 @@
 <meta name="author" content="Matthias Bannert" />
 
 
-<meta name="date" content="2020-11-06" />
+<meta name="date" content="2020-12-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,8 @@
   
   
 <link rel="prev" href="stack-a-developers-toolkit.html"/>
-<link rel="next" href="programming-101.html"/>
+<link rel="next" href="infrastructure.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,28 +51,31 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -131,24 +135,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Hacking for Social Sciences</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
-<li class="chapter" data-level="2" data-path="introduction-the-choice-that-doesnt-matter.html"><a href="introduction-the-choice-that-doesnt-matter.html"><i class="fa fa-check"></i><b>2</b> Introduction - The Choice that Doesn’t Matter</a><ul>
+<li class="chapter" data-level="1" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="introduction-the-choice-that-doesnt-matter.html"><a href="introduction-the-choice-that-doesnt-matter.html"><i class="fa fa-check"></i><b>2</b> Introduction - The Choice that Doesn’t Matter</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="introduction-the-choice-that-doesnt-matter.html"><a href="introduction-the-choice-that-doesnt-matter.html#why-would-social-scientists-want-to-code"><i class="fa fa-check"></i><b>2.1</b> Why Would Social Scientists Want to Code?</a></li>
 <li class="chapter" data-level="2.2" data-path="introduction-the-choice-that-doesnt-matter.html"><a href="introduction-the-choice-that-doesnt-matter.html#how-to-read-this-book"><i class="fa fa-check"></i><b>2.2</b> How to Read this Book?</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html"><i class="fa fa-check"></i><b>3</b> Stack - A Developer’s Toolkit</a><ul>
-<li class="chapter" data-level="3.1" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#languages-compiled-vs.interpreted"><i class="fa fa-check"></i><b>3.1</b> Languages: Compiled vs. Interpreted</a></li>
+<li class="chapter" data-level="3" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html"><i class="fa fa-check"></i><b>3</b> Stack - A Developer’s Toolkit</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#languages-compiled-vs.-interpreted"><i class="fa fa-check"></i><b>3.1</b> Languages: Compiled vs. Interpreted</a></li>
 <li class="chapter" data-level="3.2" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#ide"><i class="fa fa-check"></i><b>3.2</b> IDE</a></li>
 <li class="chapter" data-level="3.3" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#version-control"><i class="fa fa-check"></i><b>3.3</b> Version Control</a></li>
-<li class="chapter" data-level="3.4" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#database-relational-vs.non-relational"><i class="fa fa-check"></i><b>3.4</b> Database: Relational vs. Non-Relational</a></li>
+<li class="chapter" data-level="3.4" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#database-relational-vs.-non-relational"><i class="fa fa-check"></i><b>3.4</b> Database: Relational vs. Non-Relational</a></li>
 <li class="chapter" data-level="3.5" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#single-purpose-environments"><i class="fa fa-check"></i><b>3.5</b> Single Purpose Environments</a></li>
 <li class="chapter" data-level="3.6" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#communication"><i class="fa fa-check"></i><b>3.6</b> Communication</a></li>
 <li class="chapter" data-level="3.7" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#automation"><i class="fa fa-check"></i><b>3.7</b> Automation</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html"><i class="fa fa-check"></i><b>4</b> Developer Practices &amp; Workflows</a><ul>
+<li class="chapter" data-level="4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html"><i class="fa fa-check"></i><b>4</b> Developer Practices &amp; Workflows</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#peer-programming"><i class="fa fa-check"></i><b>4.1</b> Peer Programming</a></li>
 <li class="chapter" data-level="4.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#rsa-key-pair-authentication"><i class="fa fa-check"></i><b>4.2</b> RSA Key Pair Authentication</a></li>
-<li class="chapter" data-level="4.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#git-version-control-101"><i class="fa fa-check"></i><b>4.3</b> Git Version Control 101</a><ul>
+<li class="chapter" data-level="4.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#git-version-control-101"><i class="fa fa-check"></i><b>4.3</b> Git Version Control 101</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#what-is-git-version-control"><i class="fa fa-check"></i><b>4.3.1</b> What is Git Version Control?</a></li>
 <li class="chapter" data-level="4.3.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#why-use-version-control-in-research"><i class="fa fa-check"></i><b>4.3.2</b> Why Use Version Control in Research?</a></li>
 <li class="chapter" data-level="4.3.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#how-does-git-work"><i class="fa fa-check"></i><b>4.3.3</b> How Does Git Work ?</a></li>
@@ -156,33 +164,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#feature-branches-prs-and-forks"><i class="fa fa-check"></i><b>4.4</b> Feature Branches, PRs and Forks</a></li>
 <li class="chapter" data-level="4.5" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#project-management-basics"><i class="fa fa-check"></i><b>4.5</b> Project Management Basics</a></li>
-<li class="chapter" data-level="4.6" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#testing"><i class="fa fa-check"></i><b>4.6</b> Testing</a></li>
+<li class="chapter" data-level="4.6" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#plan-your-program"><i class="fa fa-check"></i><b>4.6</b> Plan Your Program</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#documentation"><i class="fa fa-check"></i><b>4.6.1</b> Documentation</a></li>
+<li class="chapter" data-level="4.6.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#design-your-interface"><i class="fa fa-check"></i><b>4.6.2</b> Design Your Interface</a></li>
+<li class="chapter" data-level="4.6.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#dependencies"><i class="fa fa-check"></i><b>4.6.3</b> Dependencies</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="programming-101.html"><a href="programming-101.html"><i class="fa fa-check"></i><b>5</b> Programming 101</a><ul>
-<li class="chapter" data-level="5.1" data-path="programming-101.html"><a href="programming-101.html#think-library"><i class="fa fa-check"></i><b>5.1</b> Think library!</a></li>
-<li class="chapter" data-level="5.2" data-path="programming-101.html"><a href="programming-101.html#plan-your-program"><i class="fa fa-check"></i><b>5.2</b> Plan Your Program</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="programming-101.html"><a href="programming-101.html#documentation"><i class="fa fa-check"></i><b>5.2.1</b> Documentation</a></li>
-<li class="chapter" data-level="5.2.2" data-path="programming-101.html"><a href="programming-101.html#design-your-interface"><i class="fa fa-check"></i><b>5.2.2</b> Design Your Interface</a></li>
-<li class="chapter" data-level="5.2.3" data-path="programming-101.html"><a href="programming-101.html#dependencies"><i class="fa fa-check"></i><b>5.2.3</b> Dependencies</a></li>
+<li class="chapter" data-level="4.7" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#naming-conventions-snake-camel-or-kebap"><i class="fa fa-check"></i><b>4.7</b> Naming Conventions: Snake, Camel or Kebap</a></li>
+<li class="chapter" data-level="4.8" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#folder-structure"><i class="fa fa-check"></i><b>4.8</b> Folder Structure</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="programming-101.html"><a href="programming-101.html#naming-conventions-snake-camel-or-kebap"><i class="fa fa-check"></i><b>5.3</b> Naming Conventions: Snake, Camel or Kebap</a></li>
-<li class="chapter" data-level="5.4" data-path="programming-101.html"><a href="programming-101.html#folder-structure"><i class="fa fa-check"></i><b>5.4</b> Folder Structure</a></li>
+<li class="chapter" data-level="5" data-path="infrastructure.html"><a href="infrastructure.html"><i class="fa fa-check"></i><b>5</b> Infrastructure</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="infrastructure.html"><a href="infrastructure.html#benchmarking"><i class="fa fa-check"></i><b>5.1</b> Benchmarking</a></li>
+<li class="chapter" data-level="5.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost"><i class="fa fa-check"></i><b>5.2</b> Your Local Machine / localhost</a></li>
+<li class="chapter" data-level="5.3" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>5.3</b> Virtual Machines</a></li>
+<li class="chapter" data-level="5.4" data-path="infrastructure.html"><a href="infrastructure.html#docker"><i class="fa fa-check"></i><b>5.4</b> Docker</a></li>
+<li class="chapter" data-level="5.5" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>5.5</b> Cloud Computing</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="infrastructure.html"><a href="infrastructure.html"><i class="fa fa-check"></i><b>6</b> Infrastructure</a><ul>
-<li class="chapter" data-level="6.1" data-path="infrastructure.html"><a href="infrastructure.html#benchmarking"><i class="fa fa-check"></i><b>6.1</b> Benchmarking</a></li>
-<li class="chapter" data-level="6.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost"><i class="fa fa-check"></i><b>6.2</b> Your Local Machine / localhost</a></li>
-<li class="chapter" data-level="6.3" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>6.3</b> Virtual Machines</a></li>
-<li class="chapter" data-level="6.4" data-path="infrastructure.html"><a href="infrastructure.html#docker"><i class="fa fa-check"></i><b>6.4</b> Docker</a></li>
-<li class="chapter" data-level="6.5" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>6.5</b> Cloud Computing</a></li>
+<li class="chapter" data-level="6" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>6</b> Case Studies</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="case-studies.html"><a href="case-studies.html#application-programming-interfaces-api"><i class="fa fa-check"></i><b>6.1</b> Application Programming Interfaces (API)</a></li>
+<li class="chapter" data-level="6.2" data-path="case-studies.html"><a href="case-studies.html#create-your-own-api"><i class="fa fa-check"></i><b>6.2</b> Create Your Own API</a></li>
+<li class="chapter" data-level="6.3" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>6.3</b> Basic Parallel Programming</a></li>
+<li class="chapter" data-level="6.4" data-path="case-studies.html"><a href="case-studies.html#the-shiny-web-application-framework"><i class="fa fa-check"></i><b>6.4</b> The Shiny Web Application Framework</a></li>
+<li class="chapter" data-level="6.5" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>6.5</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>7</b> Case Studies</a><ul>
-<li class="chapter" data-level="7.1" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>7.1</b> Basic Parallel Programming</a></li>
-<li class="chapter" data-level="7.2" data-path="case-studies.html"><a href="case-studies.html#the-shiny-web-application-framework"><i class="fa fa-check"></i><b>7.2</b> The Shiny Web Application Framework</a></li>
-<li class="chapter" data-level="7.3" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>7.3</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
-<li class="chapter" data-level="7.4" data-path="case-studies.html"><a href="case-studies.html#creating-an-api-wrapper"><i class="fa fa-check"></i><b>7.4</b> Creating an API Wrapper</a></li>
-<li class="chapter" data-level="7.5" data-path="case-studies.html"><a href="case-studies.html#plumber-rest-api-with-r"><i class="fa fa-check"></i><b>7.5</b> Plumber REST API with R</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a><ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#glossary"><i class="fa fa-check"></i>Glossary</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -205,20 +213,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="developer-practices-workflows" class="section level1">
-<h1><span class="header-section-number">4</span> Developer Practices &amp; Workflows</h1>
+<div id="developer-practices-workflows" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Developer Practices &amp; Workflows</h1>
 <p>Just like most experienced engineers, seasoned software developers follow some kind of school or paradigm. Good programmers can even switch among approaches according to their current project’s needs or depending on the team they are on.</p>
 <p>This section does not want to give a comprehensive overview over programming concepts nor compare approaches. And damn sure it does not mean to go to war over approach superiority. <em>Hacking for Social Scientists</em> rather cherry-picks suitable application-minded, low-barrier concepts that help social scientists professionalize their own programming.</p>
-<div id="peer-programming" class="section level2">
-<h2><span class="header-section-number">4.1</span> Peer Programming</h2>
+<div id="peer-programming" class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> Peer Programming</h2>
 <p>Peer programming, also called pair programming just means two developers sit in front of the same screen to collaborate on a piece of code. So why is there such a buzz about it? Why is there even a term for it? And why is there a section in an applied book on it?</p>
 <p>That is because novice programmers (and their scientific supervisors) often doubt the efficiency of two paid persons working at the same work station. But programming is not about digging a hole with two shovels. Particularly not when it comes to building the software basis or frame of a project.</p>
 <p>Working together using one single keyboard and screen or the virtual equivalent thereof can be highly efficient. The virtual equivalent, i.e., in fact using two computers but sharing the screen while in call, helps tremendously with a) your concept, b) your documentation. Plus, it is a code review at the same time. But most importantly both developers learn from each other. Having to explain and being challenged, deepens the understanding of experienced developers and ruthlessly identifies holes in one’s knowledge. One important advice when peer programming is to switch the driver’s seat from time to time. Make sure the lesser programmer holds the keys from time to time and maneuvers through articles, repositories, code and data. Doing so prevents the co-pilot from taking a back seat and letting the veteran do the entertainment. <a href="https://visualstudio.microsoft.com/services/live-share/">Visual Studio Code Live Share</a> is a great feature for next level virtual peer programming as it allows for two drivers using two cursors.</p>
 <p>Of course there are downsides of the pair programming approach, too. Also, timing within the lifecycle of a project is an important factor and not every project is the same fit for this agile method. But given there are so many approaches, I will leave the back and forth to others. The goal of this section is to point the reader to a practical approach that tends to work well in programming with data setups in social sciences. Googlers Jeff Dean and Sanjay Ghemawat had its fair of success, too, according to the New Yorker’s <a href="The%20Friendship%20That%20Made%20Google%20Huge">https://www.newyorker.com/magazine/2018/12/10/the-friendship-that-made-google-huge</a>.</p>
 </div>
-<div id="rsa-key-pair-authentication" class="section level2">
-<h2><span class="header-section-number">4.2</span> RSA Key Pair Authentication</h2>
-<p>This section could be headed ‘log in like a developer’. RSA Key Pairs are a convenient, relatively secure way to log into an account. SSH based connections, including secure copy (SCP), often make use of RSA Key Pairs instead of using a combination of username and password. Also, most git platforms use this form of authentication. The basic idea of key pairs is to have a public key and a private key. While the private key is never shared with anyone, the public key is shared with any server you want to log in to.
+<div id="rsa-key-pair-authentication" class="section level2" number="4.2">
+<h2 number="4.2"><span class="header-section-number">4.2</span> RSA Key Pair Authentication</h2>
+<p>This section could be headed ‘log in like a developer.’ RSA Key Pairs are a convenient, relatively secure way to log into an account. SSH based connections, including secure copy (SCP), often make use of RSA Key Pairs instead of using a combination of username and password. Also, most git platforms use this form of authentication. The basic idea of key pairs is to have a public key and a private key. While the private key is never shared with anyone, the public key is shared with any server you want to log in to.
 It’s like getting a custom door for any house that you are allowed to enter: share your public key with the server admin / or web portal and you’ll be allowed in when you show your private key. In case you loose your private key or suspect it has been stolen, simply inform the admin, so she can remove the door (the public key). This is were a little detail comes into play:
 you can password protect the authentication process. Doing so buys you time to remove the key from the server before your password gets bruteforced. The downside of this additional password is its need for interaction. So when you are setting up a batch that talks to a remote server that is when you do <em>not</em> want a key /w password.</p>
 <p>Step one en route to log in like a grown up, is the create an RSA key pair. Github has a <a href="https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">1-2-3 type of manual</a> to get it done. Nevertheless, I would like the R Studio (Server) specific way here.</p>
@@ -238,21 +246,21 @@ The R Studio GUI is an easy way to create an RSA Key Pair.
 </ol>
 <p>Congrats you may log in now!</p>
 </div>
-<div id="git-version-control-101" class="section level2">
-<h2><span class="header-section-number">4.3</span> Git Version Control 101</h2>
+<div id="git-version-control-101" class="section level2" number="4.3">
+<h2 number="4.3"><span class="header-section-number">4.3</span> Git Version Control 101</h2>
 <p>As stated before, version control may be the single most important thing to take away from <em>Hacking for Social Sciences</em>.
 In this chapter about the way developers work, I will stick to version control with <em>git</em>. The stack discussion of the previous chapter features a few more version control systems, but given git’s dominant position, we will stick solely to git in this introduction to version control.</p>
-<div id="what-is-git-version-control" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> What is Git Version Control?</h3>
+<div id="what-is-git-version-control" class="section level3" number="4.3.1">
+<h3 number="4.3.1"><span class="header-section-number">4.3.1</span> What is Git Version Control?</h3>
 <p>Git is a decentralized version control system. It manages different versions of your source code (and other text files) in a simple but efficient manner that has become the industry standard: The git programm itself is a small console programm that creates and manages a hidden folder inside the folder you put under version control (you know those folders with a leading dot in their foldername, like .myfolder). This folder keeps track of all differences between the current version and other versions before the current one.</p>
 <img src="images/commits.png" width="300px">
 <div class="caption-half">
 Meaningful commit messages help to make sense of a project’s history.
 </div>
-<p>The key to appreciate the value of git is to appreciate the value of semantic versions. Git is <em>not</em> Dropbox nor Google Drive. It does <em>not</em> sync automagically (even if some Git GUI Tools suggest so). Because these GUIs tools<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> may be convenient but do not really help to improve your understanding of the workflow, we will use the git console throughout this book. As opposed to the sync approaches mentioned above, a version control system allows to summarize a contribution across files and folders based on what this contribution is about. Assume you got a cool pointer from an econometrics professor at a conference and you incorporated her advice in your work. That advice is likely to affect different parts of your work: your text and your code. As opposed to syncing each of these files based on the time you saved them, version control creates a version when you decide to bundle things together and to commit the change. That version could be identified easily by its commit message ‘incorporated advice from Anna (discussion at XYZ Conf 2020)’.</p>
+<p>The key to appreciate the value of git is to appreciate the value of semantic versions. Git is <em>not</em> Dropbox nor Google Drive. It does <em>not</em> sync automagically (even if some Git GUI Tools suggest so). Because these GUIs tools<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> may be convenient but do not really help to improve your understanding of the workflow, we will use the git console throughout this book. As opposed to the sync approaches mentioned above, a version control system allows to summarize a contribution across files and folders based on what this contribution is about. Assume you got a cool pointer from an econometrics professor at a conference and you incorporated her advice in your work. That advice is likely to affect different parts of your work: your text and your code. As opposed to syncing each of these files based on the time you saved them, version control creates a version when you decide to bundle things together and to commit the change. That version could be identified easily by its commit message ‘incorporated advice from Anna (discussion at XYZ Conf 2020).’</p>
 </div>
-<div id="why-use-version-control-in-research" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> Why Use Version Control in Research?</h3>
+<div id="why-use-version-control-in-research" class="section level3" number="4.3.2">
+<h3 number="4.3.2"><span class="header-section-number">4.3.2</span> Why Use Version Control in Research?</h3>
 <blockquote>
 <p>A version control based workflow is a path to your goals that rather consists of semantically relevant steps instead of semantically meaningless chunks based on the time you saved them.</p>
 </blockquote>
@@ -262,8 +270,8 @@ is like naming your WiFi <code>dont_park_the_car_in_the_frontyard</code> or <cod
 <p>Also, you can easily try out different scenarios on different branches and merge them back together if you need to. Version control is a well established industry standard in software development. And it is relatively easy to adopt. With datasets growing in size and complexity, it is only natural to improve management of the code that processes these data.</p>
 <p>Academia has probably been the only place that would allow you to dive into hacking at somewhat complex problems for several years w/o ever taking notice of version control. As a social scientist who rather collaborates in small groups and writes moderate amount of code, have you ever thought about how to collaborate with 100+ persons in a big software project? Or to manage ten thousands of lines of code and beyond? Version control is an important reason why these things work. And it’s been around for decades. But enough about the rant…</p>
 </div>
-<div id="how-does-git-work" class="section level3">
-<h3><span class="header-section-number">4.3.3</span> How Does Git Work ?</h3>
+<div id="how-does-git-work" class="section level3" number="4.3.3">
+<h3 number="4.3.3"><span class="header-section-number">4.3.3</span> How Does Git Work ?</h3>
 <blockquote>
 <p>This introduction tries narrow things down to the commands that you’ll need if want to use git in similar fashion to what you learn from this book. If you are looking for more comprehensive, general guides, three major git platforms, namely Atlassian’s Bitbucket, GitHub and Gitlab offer comprehensive introductions as well as advanced articles or videos to learn git online.</p>
 </blockquote>
@@ -275,8 +283,8 @@ is like naming your WiFi <code>dont_park_the_car_in_the_frontyard</code> or <cod
 <p>Locally, a git repository consists of a <em>checkout</em> which is also called current <em>working copy</em> soon. This is the status of the file that your file explorer or your editor will see when you use them to open a file. To checkout a different version, one needs to call a commit by its unique commit hash and checkout that particular version.</p>
 <p>If you want to add new files to version control or bundle changes to some existing files into a new commit, add these files to the staging area, so they get committed next time a commit process is triggered. Finally committing all these staged changes under another commit id a new version is created.</p>
 </div>
-<div id="moving-around" class="section level3">
-<h3><span class="header-section-number">4.3.4</span> Moving Around</h3>
+<div id="moving-around" class="section level3" number="4.3.4">
+<h3 number="4.3.4"><span class="header-section-number">4.3.4</span> Moving Around</h3>
 <p>So let’s actually do it. Here’s a three stage walk through of git commands that should have you covered in most use cases a researcher will face. Note that git has some pretty good error message that guess what could have gone wrong. Make sure to read them carefully. Even if you can’t make sense of them, your online search will be a lot more efficient when you include these messages.</p>
 <p><strong>Stage 1: Working Locally</strong></p>
 <table>
@@ -490,8 +498,8 @@ In VS Code you can even click the option.
 After you have done so, save, commit and push (if you are working with a remote repo) . Don’t forget to make sure you kinked out ALL conflicts.</p>
 </div>
 </div>
-<div id="feature-branches-prs-and-forks" class="section level2">
-<h2><span class="header-section-number">4.4</span> Feature Branches, PRs and Forks</h2>
+<div id="feature-branches-prs-and-forks" class="section level2" number="4.4">
+<h2 number="4.4"><span class="header-section-number">4.4</span> Feature Branches, PRs and Forks</h2>
 <p>This section discusses real world collaboration workflows of modern open source software developers.
 Hence the prerequisites are a bit different in order to benefit the most from this section. Make sure you are past
 being able to describe and explain git basics, be able to create and handle your own repositories.</p>
@@ -524,13 +532,12 @@ Github pull request dialog: Select the <em>pull request</em>, choose which branc
 
 <div class="note">
 <p><strong>Pro-Tipp</strong>:
-Use commit messages like ‘added join to SQL query, closes #3’. The key word ‘closes’ or ‘fixes’, will automatically close issues referred to when merged into the main branch.</p>
+Use commit messages like ‘added join to SQL query, closes #3.’ The key word ‘closes’ or ‘fixes,’ will automatically close issues referred to when merged into the main branch.</p>
 </div>
-
 <p>Once the merge is done, all your changes are in the main branch and you and everyone else can pull the main branch that now contains your new feature. Yay!</p>
 </div>
-<div id="project-management-basics" class="section level2">
-<h2><span class="header-section-number">4.5</span> Project Management Basics</h2>
+<div id="project-management-basics" class="section level2" number="4.5">
+<h2 number="4.5"><span class="header-section-number">4.5</span> Project Management Basics</h2>
 <p>The art of stress free productivity as I once called it in ’10 blog post, has put a number of gurus on the map and whole strand of literature to our bookshelves. So rather than adding to that, I would like to extract a healthy, best-of-breed type of dose here. The following few paragraphs do not intend to be comprehensive – not even for the scope of software projects, but inspirational.</p>
 <p>In tje software development startup community, the <em>waterfall</em> approach became synonym to conservative, traditional and ancient: Overspecification in advance of the project, premature optimization and a lawsuit over expectations that weren’t met. Though waterfall project may be better than their reputation and specifications should not be too detailed and rigid.</p>
 <p>Many software projects are rather organized in <em>agile</em> fashion with SCRUM and KANBAN being the most popular derivatives.
@@ -552,18 +559,265 @@ GitHub’s web platform offers swimlanes to keep a better overview of issues bei
 No lane except ‘Done’ should contain more than 5-6 issues.
 Doing so prevents clogging the lanes at particular stage which
 could potentially lead to negligent behavior, e.g., careless reviews.</p>
-<p>```</p>
+<pre><code>
+
+
+
+
+## Testing
+
+When talking about development practices, testing can&#39;t be missing. So, just you know that I thought of this, tbc ...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;!--chapter:end:index.Rmd--&gt;
+
+# Programming 101
+
+&lt;!-- DO NOT FORGET TO SAY SOMETHIN ABOUT LICENSES !! --&gt;
+
+If you associate programming more often than not with hours of fiddling, tweaking and fighting to galvanize approaches found online, this chapter is for you. Don&#39;t expect lots of syntax. If you came for examples of useful little programs from data visualization to parallel computing, check out the [case studies]().
+
+The following sections share a blueprint to go from explorative script to production ready package.  Organise your code and accompany the evolution of your project: start out with experiments, define your interface, narrow down to a proof of concept and scale up. Hopefully the tips, tricks and the guidance in this chapter will help you to experience the rewarding feeling of a software project coming together like a plan originated by Hannibal Smith. 
+
+
+&lt;!-- - maybe overview sketch here... decision tree.  --&gt;
+
+
+## Think library!
+
+&lt;div align=&quot;center&quot;&gt;
+&lt;img src=&quot;images/packages.jpg&quot; height=&quot;300px&quot;&gt;
+&lt;div class=&quot;caption-half&quot;&gt;&quot;Over the days are when creating packages for gurus was only.&quot;&lt;/div&gt;
+&lt;/div&gt;
+
+The approach that I find practical for applied, empirical research projects involving code is: think library. Think package. Think _reusable_ code. Don&#39;t think you can&#39;t do it. Let me de-mystify packages for you: **Packages are nothing else than source code organized in folders following some convention**. Thanks to modern IDEs, it has never been easier to stay inline with conventions. Editors like R Studio ship with built-in support to create package skeletons with a few clicks. Thousands of open source extension packages allow you to learn from their structure. Tutorials like [Packing Python Projects](https://packaging.python.org/tutorials/packaging-projects/) or Hadley Wickham&#39;s free online book [R Packages](https://r-pkgs.org/) explain how to create packages good enough to make the official PyPi or CRAN package repository. 
+
+In other words, it is unlikely that someone with moderate experience comes up the best folder structure ever invented. Sure, every project is different and not every aspect (folder) is needed in every project. Nevertheless, there are well established blueprints, guides and conventions that suit almost any project. Unlike Office type of projects which center around one single file, understand a research project will live in a folder with many subfolders and files. Not in one single file. 
+
+Trust me on this one: The package approach will pay off early. Long before you ever thought about publishing your package. Write your own function definition, rather than just calling functions line by line. Write code as if you need to make sure it runs on another computer. Write code as if you need to maintain it. 
+
+Go from scripts like this
+
+
+```r
+# This is just data from the sake of 
+# reproducible example
+set.seed(123)
+d1 &lt;- rnorm(1000)
+d2 &lt;- rnorm(1000)
+
+# Here&#39;s where my starts
+# let&#39;s create some custom descriptive
+# stats summary for the data generated above
+d1_mean &lt;- mean(d1)
+d1_sd &lt;- sd(d1)
+d1_q &lt;- quantile(d1)
+desc_stats_d1 &lt;- list(d1_mean = d1_mean,
+                      d1_sd = d1_sd,
+                      d1_q = d1_q)
+
+d2_mean &lt;- mean(d2)
+d2_sd &lt;- sd(d2)
+d2_q &lt;- quantile(d2)
+desc_stats_d2 &lt;- list(d2_mean = d2_mean,
+                      d2_sd = d2_sd,
+                      d2_q = d2_q)</code></pre>
+<p>To function defintions and calls like that</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="developer-practices-workflows.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imagine you had thousand of datasets.</span></span>
+<span id="cb6-2"><a href="developer-practices-workflows.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Imagine you wanted to add some other stats</span></span>
+<span id="cb6-3"><a href="developer-practices-workflows.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Imagine all the error prone c&amp;p with </span></span>
+<span id="cb6-4"><a href="developer-practices-workflows.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># the above solution. </span></span>
+<span id="cb6-5"><a href="developer-practices-workflows.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Think of how much easier this is to document. </span></span>
+<span id="cb6-6"><a href="developer-practices-workflows.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This is automation. Not cooking. </span></span>
+<span id="cb6-7"><a href="developer-practices-workflows.html#cb6-7" aria-hidden="true" tabindex="-1"></a>create_basic_desc <span class="ot">&lt;-</span> <span class="cf">function</span>(distr){</span>
+<span id="cb6-8"><a href="developer-practices-workflows.html#cb6-8" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb6-9"><a href="developer-practices-workflows.html#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(distr),</span>
+<span id="cb6-10"><a href="developer-practices-workflows.html#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(distr),</span>
+<span id="cb6-11"><a href="developer-practices-workflows.html#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">quantiles =</span> <span class="fu">quantile</span>(distr)</span>
+<span id="cb6-12"><a href="developer-practices-workflows.html#cb6-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-13"><a href="developer-practices-workflows.html#cb6-13" aria-hidden="true" tabindex="-1"></a>  out</span>
+<span id="cb6-14"><a href="developer-practices-workflows.html#cb6-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-15"><a href="developer-practices-workflows.html#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="developer-practices-workflows.html#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">create_basic_desc</span>(d1)</span></code></pre></div>
+<pre><code>## $mean
+## [1] 0.01612787
+## 
+## $sd
+## [1] 0.991695
+## 
+## $quantiles
+##           0%          25%          50%          75%         100% 
+## -2.809774679 -0.628324243  0.009209639  0.664601867  3.241039935</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="developer-practices-workflows.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">create_basic_desc</span>(d2)</span></code></pre></div>
+<pre><code>## $mean
+## [1] 0.04246525
+## 
+## $sd
+## [1] 1.009674
+## 
+## $quantiles
+##          0%         25%         50%         75%        100% 
+## -3.04786089 -0.65322296  0.05485238  0.75345037  3.39037082</code></pre>
+<p>Start to document functions and their parameters using <a href="https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html">Roxygen</a> syntax and you’re already very close to creating your first package. <strong>Pro-tipp</strong>: Hit Cmd+Alt+Shift+R<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> while inside a function definition with you cursor. When working with R Studio, it will create a nifty roxygen skeleton with all your function’s parameters.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="developer-practices-workflows.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Create Basic Descriptive Statistics</span></span>
+<span id="cb10-2"><a href="developer-practices-workflows.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb10-3"><a href="developer-practices-workflows.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Creates means, standard deviations and default quantiles from an numeric input vector. </span></span>
+<span id="cb10-4"><a href="developer-practices-workflows.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; </span></span>
+<span id="cb10-5"><a href="developer-practices-workflows.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param distr numeric vector drawn from an arbitraty distribution. </span></span>
+<span id="cb10-6"><a href="developer-practices-workflows.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export </span></span>
+<span id="cb10-7"><a href="developer-practices-workflows.html#cb10-7" aria-hidden="true" tabindex="-1"></a>create_basic_desc <span class="ot">&lt;-</span> <span class="cf">function</span>(distr){</span>
+<span id="cb10-8"><a href="developer-practices-workflows.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb10-9"><a href="developer-practices-workflows.html#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(distr),</span>
+<span id="cb10-10"><a href="developer-practices-workflows.html#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(distr),</span>
+<span id="cb10-11"><a href="developer-practices-workflows.html#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">quantiles =</span> <span class="fu">quantile</span>(distr)</span>
+<span id="cb10-12"><a href="developer-practices-workflows.html#cb10-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-13"><a href="developer-practices-workflows.html#cb10-13" aria-hidden="true" tabindex="-1"></a>  out</span>
+<span id="cb10-14"><a href="developer-practices-workflows.html#cb10-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Writing <em>reusable code</em> will improve your ability to remember syntax and apply concepts to other problems. The more you do it, the easier and more natural becomes. Just like a toddler figuring out how to speak in a natural language. At first progress seems small, but once kids understand the bits and pieces of a language they start building at a remarkable speed, learn and never forget again.</p>
 </div>
-<div id="testing" class="section level2">
-<h2><span class="header-section-number">4.6</span> Testing</h2>
-<p>When talking about development practices, testing can’t be missing. So, just you know that I thought of this, tbc …</p>
+<div id="plan-your-program" class="section level2" number="4.6">
+<h2 number="4.6"><span class="header-section-number">4.6</span> Plan Your Program</h2>
+<p>How much planning ahead is optimal for your project ultimately depends on your experience, number of collaborators and size of your project. But still, a rough standard checklist helps any project.</p>
+<div id="documentation" class="section level3" number="4.6.1">
+<h3 number="4.6.1"><span class="header-section-number">4.6.1</span> Documentation</h3>
+<p>First things first. Write the first bit of documentation before your first line of code. Documentation <strong>written</strong> with hindsight will always be written with an all-knowing, smartest-person-in-the-room mindset and the motivation of someone who already gave her best programming. Understand, I am not talking about the finetuning here, but about a written outline. Describe <strong>how</strong> parts of the code are going to do stuff. Also, examples can’t hurt to illustrate what you meant. Research projects often take breaks and getting back to work after months should be as easy as possible.</p>
+<p><em>Pseudo Code</em> is a good way of writing up such an outline documentation. Take a simple API wrapper for example. Assume there is an API that returns numeric ids of hit entries when queried for keywords. These ids can be passed on to yet another <a href="">endpoint</a>, to obtain a profile. A rough game plan for an API Wrapper could like this:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="developer-practices-workflows.html#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="developer-practices-workflows.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># function: keyword_search(keyword, url = &quot;https://some.default.url.com&quot;)</span></span>
+<span id="cb11-3"><a href="developer-practices-workflows.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns numeric ids according to some api documentation</span></span>
+<span id="cb11-4"><a href="developer-practices-workflows.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="developer-practices-workflows.html#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="developer-practices-workflows.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># function: query_profile(vec_in_ids)</span></span>
+<span id="cb11-7"><a href="developer-practices-workflows.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># a json object that should be immediately turned into list by the function, </span></span>
+<span id="cb11-8"><a href="developer-practices-workflows.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># returns list of properties</span></span></code></pre></div>
+<p>Documentation should use your ecosystem’s favorite documentation framework. Yet, your comments within the code are the raw, initial form of documentation. Comments help to understand key parts of a program as well as caveats. Comments help tremendously during development time, when debugging or coming back to a project. Let alone when joining a project started by others.</p>
+<p>While pseudo code where comments mimmick code itself is the exception to that rule, good comments should always follow the <strong>not-what-but-why</strong> principle. Usually, most high level programming languages are fairly easy to read and remind of rudimentary English. Therefore a <em>what</em> comment like this is considered rather useless:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="developer-practices-workflows.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the cumulative sum of a vector</span></span>
+<span id="cb12-2"><a href="developer-practices-workflows.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(<span class="fu">c</span>(T,F,F,F,F,T,F,F,T,F,F,F,T))</span></code></pre></div>
+<p>Whereas this <em>why</em> comment may actually be helpful:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="developer-practices-workflows.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use the fact that TRUE is actually stored as 1 </span></span>
+<span id="cb13-2"><a href="developer-practices-workflows.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># to create a sequence until the next true</span></span>
+<span id="cb13-3"><a href="developer-practices-workflows.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># this is useful for splitting the data later on.</span></span>
+<span id="cb13-4"><a href="developer-practices-workflows.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cumsum</span>(<span class="fu">c</span>(T,F,F,F,F,T,F,F,T,F,F,F,T))</span></code></pre></div>
+<p>Comment on why you do things, especially with which plan for future use in mind. Doing so will certainly foster exchange with others who enter or re-visit the code at a later stage (including yourself).</p>
+</div>
+<div id="design-your-interface" class="section level3" number="4.6.2">
+<h3 number="4.6.2"><span class="header-section-number">4.6.2</span> Design Your Interface</h3>
+<p>In other languages it is fairly common to define the data type of both: the input and the output<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>. Though doing so is not necessary in R, it is good practice to define the types of all parameters and results in your comments / documentation.</p>
+<p>Once you know a bit more about your direction of travel, it’s time to think about how to modularize your program. How do different parts of the program play together. users interact with your program: Will your code just act as a storage pit of tools, a loose collection of commands for adhoc use? Are others using the program, too? Will there be machine-to-machine interaction? Do you need graphical user interface (GUI) like shiny?</p>
+<p>These questions will determine whether you use a <a href="http://adv-r.had.co.nz/Functional-programming.html">strictly functional approach</a>, a <a href="http://adv-r.had.co.nz/OO-essentials.html">rudimentary
+form of object orientation like S3</a>, a stricter implementation like <a href="https://github.com/r-lib/R6/">R6</a> or something completely exotic. There a plenty of great resources out there, so I will not elaborate on this for the time being.
+The main message of this section is: Think about the main use case. Is it interactive? Is it a program that runs in batch typically? Do your users code? Would they prefer a GUI?</p>
+</div>
+<div id="dependencies" class="section level3" number="4.6.3">
+<h3 number="4.6.3"><span class="header-section-number">4.6.3</span> Dependencies</h3>
+<p>One important word of advice for novice package developers is to think about your dependencies. Do not take depedencies lightly. Of course it is intriguiging to stand on the shoulders of giants. Isn’t R great because of its 15K+ extension packages? Isn’t exactly this was made R such as popular language?</p>
+<p>Yes, extension packages are cool. Yes, the ease with with CRAN packages are distributed is cool. But, just because packages are easy to install and free of license costs it does not mean leaning on a lot of packages comes at no costs: One needs to stay informed about updates, issues, breaking changes or undesired interdependencies between packages.</p>
+<p>The problem is mitigated a bit when a) a package is required in an interactive script and b) one is working with a very popular package. Well managed packages with a lot of <a href="">reverse dependencies</a> tend to deprecate old functionality more smoothly as authors are aware of the issues breaking changes cause to a package’s ecosystem.</p>
+<p>In R, the tidyverse bundle of packages seems ubiquitous and easy to use. But it leads to quite a few dependencies. The data.table ecosystem might be less popular but provides its functionality with a single R package dependency (the {methods} package).</p>
+<p>Often it does not take much to get rid of dependency:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="developer-practices-workflows.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb14-2"><a href="developer-practices-workflows.html#cb14-2" aria-hidden="true" tabindex="-1"></a>cow <span class="ot">&lt;-</span> <span class="st">&quot;A cow sounds off: mooooo&quot;</span></span>
+<span id="cb14-3"><a href="developer-practices-workflows.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(cow,<span class="st">&quot;moo+&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;mooooo&quot;</code></pre>
+<p>Sure, the above code is more intuitive, but shrewd use of good ol’ <em>gsub</em> and back referencing allows you to do the very same thing in base R.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="developer-practices-workflows.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gsub</span>(<span class="st">&quot;(.+)(mooo+)&quot;</span>,<span class="st">&quot;</span><span class="sc">\\</span><span class="st">2&quot;</span>,cow)</span></code></pre></div>
+<pre><code>## [1] &quot;mooooo&quot;</code></pre>
+<p>Again, {stringr} is certainly a well crafted package and it is definitely not the worst of all packages. But when you just loaded a package because it adds convenience to one single line or worse just because you found your solution online, think again before adding more dependencies to a production environment.</p>
+</div>
+</div>
+<div id="naming-conventions-snake-camel-or-kebap" class="section level2" number="4.7">
+<h2 number="4.7"><span class="header-section-number">4.7</span> Naming Conventions: Snake, Camel or Kebap</h2>
+<p>Before we start with files and folders, let me drop a quick, general note on naming. As in how to name files, folders and functions. It may look like a mere detail, but concise formatting and styling of your code will be appreciated by your peers and by those you ask for help. Plus, following an established convention will not make you look like a complete greenhorn.</p>
+<ul>
+<li><p>Do NOT use spaces in folder or file names! Never. If you need lengthy descriptions, use underscores ’_‘, dashes’-’ or camelCase.</p></li>
+<li><p>avoid umlauts and special characters. Encoding and internationalization is worth a book of its own. It’s not like modern programming environments can’t handle it, but encoding will introduce further complications. These are exactly the type of complications that may lead to an unplanned, frustrating waste of hours. You may be lucky enough to find a quick fix, but you may as well not. Avoid encoding issues if do not plan to build a deeper understanding of encoding on the fly. This is especially true for cross platform collaboroations (Windows vs. Unix / OSX).</p></li>
+<li><p>either go for camelCase, snake_case or kebap-case. Otherwise prefer lower case
+characters. Also make sure to not switch styles within a project. There a plenty of style guides around, go with whatever your lab or community goes.</p></li>
+</ul>
+</div>
+<div id="folder-structure" class="section level2" number="4.8">
+<h2 number="4.8"><span class="header-section-number">4.8</span> Folder Structure</h2>
+<p>In R, packages may have the following folders. Note that this does not mean a package has to
+contain all of these folders. FWIW, an R package needs to have NAMESPACE and DESCRIPTION files, but that is not the point here. Also there are more comprehensive, better books on the matter than this little section. The point of this section though is to discuss the role of folders
+and how they help you structure your work, even if you don’t want to create an R package in first place.</p>
+<p>This chapter describes the role of different folders in a package and what these folders are good for. More likely than not, this will cover a lot of the aspects of your project, too.</p>
+<ul>
+<li>R</li>
+<li>data</li>
+<li>docs</li>
+<li>vignettes</li>
+<li>src</li>
+<li>inst</li>
+<li>man</li>
+</ul>
+<p>The below description explains the role of all of these folders.</p>
+<p><strong>R</strong></p>
+<p>A folder to store function definitions as opposed to function calls. Typically
+every function goes into a separate file. Sometimes it makes sense to group multiple functions into a single file when functions are closely related. Another reason for putting more than one function into a single file is when you have a collection of relatively simple, short helper functions. The R folder MUST NOT contain calls<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="developer-practices-workflows.html#cb18-1" aria-hidden="true" tabindex="-1"></a>my_func_def <span class="ot">&lt;-</span> <span class="cf">function</span>(param1, param2){</span>
+<span id="cb18-2"><a href="developer-practices-workflows.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># here goes the function body, i.e., what the function does</span></span>
+<span id="cb18-3"><a href="developer-practices-workflows.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> (param1 <span class="sc">+</span> param2) <span class="sc">*</span> param3</span>
+<span id="cb18-4"><a href="developer-practices-workflows.html#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Note that in R, return statements are not necessary and even</span></span>
+<span id="cb18-5"><a href="developer-practices-workflows.html#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># relatively uncommon, R will return the last unassigned statement</span></span>
+<span id="cb18-6"><a href="developer-practices-workflows.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(a)</span>
+<span id="cb18-7"><a href="developer-practices-workflows.html#cb18-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>man</strong></p>
+<p>This folder contains the context manual of your package. What you’ll find here is the so called <em>function reference</em>, basically a function and dataset specific documentation. It’s what you see when you run <code>?function_name</code>. The content of the <code>man/</code> folder is usually created automatically from the roxygen style documentation (note the #’ styled comments) during a `<code>devtools::document()</code> run. Back in the days when people wore pijamas and
+lived life slow, the man folder was filled up manually with some LaTeX reminiscant .rd files, but ever since R Studio took over in 2012, most developers use Roxygen and render the function reference part of the documentation from their comments.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="developer-practices-workflows.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Sum of Parameters Multiplied by First Input</span></span>
+<span id="cb19-2"><a href="developer-practices-workflows.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb19-3"><a href="developer-practices-workflows.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; This functions only exists as a show case. </span></span>
+<span id="cb19-4"><a href="developer-practices-workflows.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; It&#39;s useless but nevertheless exported to the NAMESPACE of this</span></span>
+<span id="cb19-5"><a href="developer-practices-workflows.html#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; package so users can see it and call the function by it&#39;s name.</span></span>
+<span id="cb19-6"><a href="developer-practices-workflows.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb19-7"><a href="developer-practices-workflows.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param param1 numeric input </span></span>
+<span id="cb19-8"><a href="developer-practices-workflows.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param param2 numeric input </span></span>
+<span id="cb19-9"><a href="developer-practices-workflows.html#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb19-10"><a href="developer-practices-workflows.html#cb19-10" aria-hidden="true" tabindex="-1"></a>my_func_def <span class="ot">&lt;-</span> <span class="cf">function</span>(param1, param2){</span>
+<span id="cb19-11"><a href="developer-practices-workflows.html#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># here goes the function body, i.e., what the function does</span></span>
+<span id="cb19-12"><a href="developer-practices-workflows.html#cb19-12" aria-hidden="true" tabindex="-1"></a>  a <span class="ot">&lt;-</span> (param1 <span class="sc">+</span> param2) <span class="sc">*</span> param1</span>
+<span id="cb19-13"><a href="developer-practices-workflows.html#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Note that in R, return statements are not necessary and even</span></span>
+<span id="cb19-14"><a href="developer-practices-workflows.html#cb19-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># relatively uncommon, R will return the last unassigned statement</span></span>
+<span id="cb19-15"><a href="developer-practices-workflows.html#cb19-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(a)</span>
+<span id="cb19-16"><a href="developer-practices-workflows.html#cb19-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>docs</strong></p>
+<p>This folder is typically not filled with content manually. When pushed to github
+a docs folder can easily be published as website using <a href="https://pages.github.com/">Github Pages</a>. With Github pages you can host a decently styled modern website for free. Software projects often use GitHub Pages to market a product or project or simply for documentation purposes. All you need to do is check a couple of options inside the Github Web GUI and make sure the docs/ folder contains .md or .html files as well as stylesheets (.css). The latter may sound a bit like Latin to people without a basic web development background, but there is plenty of help. The R ecosystem offers different flavors of the same idea: use a bit of markdown + R to generate website code. There is blogdown for your personal website or blog. There is pkgdown for your packages documentation. And there is even bookdown to write an online book like this. Write the markdown file, render it as HTML into the docs folder, push the docs folder to GitHub. Done. Your website will be online at username.github.io/reponame.</p>
+<p>Here’s a an example of a package down website: <a href="https://mbannert.github.io/timeseriesdb/" class="uri">https://mbannert.github.io/timeseriesdb/</a></p>
+<p><strong>data</strong></p>
+<p>If you have file based data like .csv, .RData, .json or even .xlsx put them in here. Keeping data in a separate folder inside the project directory helps to keep reference to the data relative. There is nothing more greenhorn than
+<code>r read.csv("C:\mbannert\My Documents\some_data.csv")</code>. Even if you like this book, I doubt you have a folder named ‘mbannert’ on your computer. Ah, an in case you wondered, extensive use of <code>setwd()</code> is even worse. Keep your reference to data (and functions alike) relative. If you are sourcing data from a remote NAS drive as it is common at many universities, you can simply mount this drive to you folder (LTMGTFY: How to mount a network drive Windows / OSX).</p>
+<p><strong>vignettes</strong></p>
+<p>Admittedly not the most intuitive names for a folder that is supposed to contain articles. Vignettes are part of the documentation of a good package. It’s kind of a description as if you were to write a paper about your package, including some examples of how to use it. For modern packages, vignettes are often part of their package down based online documentation. Feel free, to name this folder differently, though sticking to the convention will make it easier to turn your project into a project at a later stage. This folder typically contains Markdown or RMarkdown files.</p>
+<p><strong>src</strong></p>
+<p>The source folder is just here for the sake of completeness and is not needed in projects that only involve R source code. It’s reserved for those parts of a package that need compilation, e.g., C++ or FORTRAN source code.</p>
+<p><strong>inst</strong></p>
+<p>When you install an R package using <code>install.packages()</code> it will be installed in some deep dungeon on your computer where R lives within your OS. The inst/ folder allows you to ship non R files with your installation. The files of the inst folder will just be copied into the package root folder inside your installation of that package.</p>
+<p><em>inst</em> is also a great place to store experimental function calls or playground files once the package ambitions become more concrete and those type of files do not live conveniently in the project root anymore. Also. I sometimes put shiny apps for local use into the inst/ folder if I want to make them part of a package.</p>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="2">
-<li id="fn2"><p><a href="https://desktop.github.com/">GitHub Desktop</a>, Atlassian’s <a href="https://www.sourcetreeapp.com/">Source Tree</a> and <a href="https://tortoisegit.org/">Tortoise</a> are some of the most popular choices if you are not a console person.<a href="developer-practices-workflows.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p><a href="https://desktop.github.com/">GitHub Desktop</a>, Atlassian’s <a href="https://www.sourcetreeapp.com/">Source Tree</a> and <a href="https://tortoisegit.org/">Tortoise</a> are some of the most popular choices if you are not a console person.<a href="developer-practices-workflows.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>On Windows / Linux use Ctrl instead of Cmd.<a href="developer-practices-workflows.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>See statically typed language vs. dynamically typed language.<a href="developer-practices-workflows.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Essentially, examples are calls, too. Note, I do recommend to add examples. Hadley Wickham’s <a href="https://r-pkgs.org/man.html#man-functions">guide to document functions within packages</a> shows how to add examples correctly.<a href="developer-practices-workflows.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -572,7 +826,7 @@ could potentially lead to negligent behavior, e.g., careless reviews.</p>
         </div>
       </div>
 <a href="stack-a-developers-toolkit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="programming-101.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="infrastructure.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

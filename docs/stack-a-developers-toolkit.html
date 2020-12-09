@@ -24,7 +24,7 @@
 <meta name="author" content="Matthias Bannert" />
 
 
-<meta name="date" content="2020-11-06" />
+<meta name="date" content="2020-12-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="introduction-the-choice-that-doesnt-matter.html"/>
 <link rel="next" href="developer-practices-workflows.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,28 +51,31 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +84,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -131,24 +135,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Hacking for Social Sciences</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
-<li class="chapter" data-level="2" data-path="introduction-the-choice-that-doesnt-matter.html"><a href="introduction-the-choice-that-doesnt-matter.html"><i class="fa fa-check"></i><b>2</b> Introduction - The Choice that Doesn’t Matter</a><ul>
+<li class="chapter" data-level="1" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="introduction-the-choice-that-doesnt-matter.html"><a href="introduction-the-choice-that-doesnt-matter.html"><i class="fa fa-check"></i><b>2</b> Introduction - The Choice that Doesn’t Matter</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="introduction-the-choice-that-doesnt-matter.html"><a href="introduction-the-choice-that-doesnt-matter.html#why-would-social-scientists-want-to-code"><i class="fa fa-check"></i><b>2.1</b> Why Would Social Scientists Want to Code?</a></li>
 <li class="chapter" data-level="2.2" data-path="introduction-the-choice-that-doesnt-matter.html"><a href="introduction-the-choice-that-doesnt-matter.html#how-to-read-this-book"><i class="fa fa-check"></i><b>2.2</b> How to Read this Book?</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html"><i class="fa fa-check"></i><b>3</b> Stack - A Developer’s Toolkit</a><ul>
-<li class="chapter" data-level="3.1" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#languages-compiled-vs.interpreted"><i class="fa fa-check"></i><b>3.1</b> Languages: Compiled vs. Interpreted</a></li>
+<li class="chapter" data-level="3" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html"><i class="fa fa-check"></i><b>3</b> Stack - A Developer’s Toolkit</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#languages-compiled-vs.-interpreted"><i class="fa fa-check"></i><b>3.1</b> Languages: Compiled vs. Interpreted</a></li>
 <li class="chapter" data-level="3.2" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#ide"><i class="fa fa-check"></i><b>3.2</b> IDE</a></li>
 <li class="chapter" data-level="3.3" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#version-control"><i class="fa fa-check"></i><b>3.3</b> Version Control</a></li>
-<li class="chapter" data-level="3.4" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#database-relational-vs.non-relational"><i class="fa fa-check"></i><b>3.4</b> Database: Relational vs. Non-Relational</a></li>
+<li class="chapter" data-level="3.4" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#database-relational-vs.-non-relational"><i class="fa fa-check"></i><b>3.4</b> Database: Relational vs. Non-Relational</a></li>
 <li class="chapter" data-level="3.5" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#single-purpose-environments"><i class="fa fa-check"></i><b>3.5</b> Single Purpose Environments</a></li>
 <li class="chapter" data-level="3.6" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#communication"><i class="fa fa-check"></i><b>3.6</b> Communication</a></li>
 <li class="chapter" data-level="3.7" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#automation"><i class="fa fa-check"></i><b>3.7</b> Automation</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html"><i class="fa fa-check"></i><b>4</b> Developer Practices &amp; Workflows</a><ul>
+<li class="chapter" data-level="4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html"><i class="fa fa-check"></i><b>4</b> Developer Practices &amp; Workflows</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#peer-programming"><i class="fa fa-check"></i><b>4.1</b> Peer Programming</a></li>
 <li class="chapter" data-level="4.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#rsa-key-pair-authentication"><i class="fa fa-check"></i><b>4.2</b> RSA Key Pair Authentication</a></li>
-<li class="chapter" data-level="4.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#git-version-control-101"><i class="fa fa-check"></i><b>4.3</b> Git Version Control 101</a><ul>
+<li class="chapter" data-level="4.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#git-version-control-101"><i class="fa fa-check"></i><b>4.3</b> Git Version Control 101</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#what-is-git-version-control"><i class="fa fa-check"></i><b>4.3.1</b> What is Git Version Control?</a></li>
 <li class="chapter" data-level="4.3.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#why-use-version-control-in-research"><i class="fa fa-check"></i><b>4.3.2</b> Why Use Version Control in Research?</a></li>
 <li class="chapter" data-level="4.3.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#how-does-git-work"><i class="fa fa-check"></i><b>4.3.3</b> How Does Git Work ?</a></li>
@@ -156,33 +164,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#feature-branches-prs-and-forks"><i class="fa fa-check"></i><b>4.4</b> Feature Branches, PRs and Forks</a></li>
 <li class="chapter" data-level="4.5" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#project-management-basics"><i class="fa fa-check"></i><b>4.5</b> Project Management Basics</a></li>
-<li class="chapter" data-level="4.6" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#testing"><i class="fa fa-check"></i><b>4.6</b> Testing</a></li>
+<li class="chapter" data-level="4.6" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#plan-your-program"><i class="fa fa-check"></i><b>4.6</b> Plan Your Program</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#documentation"><i class="fa fa-check"></i><b>4.6.1</b> Documentation</a></li>
+<li class="chapter" data-level="4.6.2" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#design-your-interface"><i class="fa fa-check"></i><b>4.6.2</b> Design Your Interface</a></li>
+<li class="chapter" data-level="4.6.3" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#dependencies"><i class="fa fa-check"></i><b>4.6.3</b> Dependencies</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="programming-101.html"><a href="programming-101.html"><i class="fa fa-check"></i><b>5</b> Programming 101</a><ul>
-<li class="chapter" data-level="5.1" data-path="programming-101.html"><a href="programming-101.html#think-library"><i class="fa fa-check"></i><b>5.1</b> Think library!</a></li>
-<li class="chapter" data-level="5.2" data-path="programming-101.html"><a href="programming-101.html#plan-your-program"><i class="fa fa-check"></i><b>5.2</b> Plan Your Program</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="programming-101.html"><a href="programming-101.html#documentation"><i class="fa fa-check"></i><b>5.2.1</b> Documentation</a></li>
-<li class="chapter" data-level="5.2.2" data-path="programming-101.html"><a href="programming-101.html#design-your-interface"><i class="fa fa-check"></i><b>5.2.2</b> Design Your Interface</a></li>
-<li class="chapter" data-level="5.2.3" data-path="programming-101.html"><a href="programming-101.html#dependencies"><i class="fa fa-check"></i><b>5.2.3</b> Dependencies</a></li>
+<li class="chapter" data-level="4.7" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#naming-conventions-snake-camel-or-kebap"><i class="fa fa-check"></i><b>4.7</b> Naming Conventions: Snake, Camel or Kebap</a></li>
+<li class="chapter" data-level="4.8" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html#folder-structure"><i class="fa fa-check"></i><b>4.8</b> Folder Structure</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="programming-101.html"><a href="programming-101.html#naming-conventions-snake-camel-or-kebap"><i class="fa fa-check"></i><b>5.3</b> Naming Conventions: Snake, Camel or Kebap</a></li>
-<li class="chapter" data-level="5.4" data-path="programming-101.html"><a href="programming-101.html#folder-structure"><i class="fa fa-check"></i><b>5.4</b> Folder Structure</a></li>
+<li class="chapter" data-level="5" data-path="infrastructure.html"><a href="infrastructure.html"><i class="fa fa-check"></i><b>5</b> Infrastructure</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="infrastructure.html"><a href="infrastructure.html#benchmarking"><i class="fa fa-check"></i><b>5.1</b> Benchmarking</a></li>
+<li class="chapter" data-level="5.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost"><i class="fa fa-check"></i><b>5.2</b> Your Local Machine / localhost</a></li>
+<li class="chapter" data-level="5.3" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>5.3</b> Virtual Machines</a></li>
+<li class="chapter" data-level="5.4" data-path="infrastructure.html"><a href="infrastructure.html#docker"><i class="fa fa-check"></i><b>5.4</b> Docker</a></li>
+<li class="chapter" data-level="5.5" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>5.5</b> Cloud Computing</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="infrastructure.html"><a href="infrastructure.html"><i class="fa fa-check"></i><b>6</b> Infrastructure</a><ul>
-<li class="chapter" data-level="6.1" data-path="infrastructure.html"><a href="infrastructure.html#benchmarking"><i class="fa fa-check"></i><b>6.1</b> Benchmarking</a></li>
-<li class="chapter" data-level="6.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost"><i class="fa fa-check"></i><b>6.2</b> Your Local Machine / localhost</a></li>
-<li class="chapter" data-level="6.3" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>6.3</b> Virtual Machines</a></li>
-<li class="chapter" data-level="6.4" data-path="infrastructure.html"><a href="infrastructure.html#docker"><i class="fa fa-check"></i><b>6.4</b> Docker</a></li>
-<li class="chapter" data-level="6.5" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>6.5</b> Cloud Computing</a></li>
+<li class="chapter" data-level="6" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>6</b> Case Studies</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="case-studies.html"><a href="case-studies.html#application-programming-interfaces-api"><i class="fa fa-check"></i><b>6.1</b> Application Programming Interfaces (API)</a></li>
+<li class="chapter" data-level="6.2" data-path="case-studies.html"><a href="case-studies.html#create-your-own-api"><i class="fa fa-check"></i><b>6.2</b> Create Your Own API</a></li>
+<li class="chapter" data-level="6.3" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>6.3</b> Basic Parallel Programming</a></li>
+<li class="chapter" data-level="6.4" data-path="case-studies.html"><a href="case-studies.html#the-shiny-web-application-framework"><i class="fa fa-check"></i><b>6.4</b> The Shiny Web Application Framework</a></li>
+<li class="chapter" data-level="6.5" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>6.5</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>7</b> Case Studies</a><ul>
-<li class="chapter" data-level="7.1" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>7.1</b> Basic Parallel Programming</a></li>
-<li class="chapter" data-level="7.2" data-path="case-studies.html"><a href="case-studies.html#the-shiny-web-application-framework"><i class="fa fa-check"></i><b>7.2</b> The Shiny Web Application Framework</a></li>
-<li class="chapter" data-level="7.3" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>7.3</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
-<li class="chapter" data-level="7.4" data-path="case-studies.html"><a href="case-studies.html#creating-an-api-wrapper"><i class="fa fa-check"></i><b>7.4</b> Creating an API Wrapper</a></li>
-<li class="chapter" data-level="7.5" data-path="case-studies.html"><a href="case-studies.html#plumber-rest-api-with-r"><i class="fa fa-check"></i><b>7.5</b> Plumber REST API with R</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a><ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#glossary"><i class="fa fa-check"></i>Glossary</a></li>
 </ul></li>
 <li class="divider"></li>
@@ -205,8 +213,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stack---a-developers-toolkit" class="section level1">
-<h1><span class="header-section-number">3</span> Stack - A Developer’s Toolkit</h1>
+<div id="stack---a-developers-toolkit" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Stack - A Developer’s Toolkit</h1>
 <p>Just like natural craftsmen, digital carpenters depend on their toolbox and their mastery of it.
 <em>Stack</em> is what developers call the choice of tools used in a particular project. Even though different flavors come down to personal preferences, there is a lot of common ground in <em>programming with data</em> stacks. Throughout this book, often a choice for one piece of software needs to be made in order to illustrate things. But please notice that these choices are examples and focus on the role of an item in the big picture. To help you with the big picture of which tool does what, the following section will group common programming-with-data stack components. Also, notice that not every role has to be filled in every project.</p>
 <img src="images/dr_egghead_panics.jpg" width="700px">
@@ -308,8 +316,8 @@ Continous Integration
 </tr>
 </tbody>
 </table>
-<div id="languages-compiled-vs.interpreted" class="section level2">
-<h2><span class="header-section-number">3.1</span> Languages: Compiled vs. Interpreted</h2>
+<div id="languages-compiled-vs.-interpreted" class="section level2" number="3.1">
+<h2 number="3.1"><span class="header-section-number">3.1</span> Languages: Compiled vs. Interpreted</h2>
 <p>In Statistical Computing – at least in Social Sciences – the interface between the researcher and the computation node is almost always an interpreted progamming language as opposed to a compiled one. Compiled languages like C++ require the developer to write source code and compile, i.e., translate source code into what a machine can work <em>before</em> runtime. The result of the compilation process is a binary which is specific to the operating system. Hence you will need one version for Windows, one for OSX and one for Linux if you intend to reach a truly broad audience with your program.
 The main advantage of a compiled language is speed in terms of computing performance because the translation into machine language does not happen during runtime. A reduction of development speed and increase in required developer skills are the downside of using compiled languages.</p>
 <blockquote>
@@ -321,8 +329,8 @@ The main advantage of a compiled language is speed in terms of computing perform
 R and Python are the most popular <a href="appendix.html#glossary">OSS</a> choices in hacking with data, <a href="https://julialang.org/">Julia</a> is an up and coming, perfomance focused language with a much slimmer ecosystem. A bit of Javascript can’t hurt for advanced customization of graphics and online communication of your results.</p>
 <!-- Julia screenshot with caption -->
 </div>
-<div id="ide" class="section level2">
-<h2><span class="header-section-number">3.2</span> IDE</h2>
+<div id="ide" class="section level2" number="3.2">
+<h2 number="3.2"><span class="header-section-number">3.2</span> IDE</h2>
 <p>It’s certainly possible to move a five person family into a new home by public transport, but it is not convenient. The same holds for (plain) text editors in programming. You can use them, but most people would prefer an Integrated Development Environment (IDE) just like they prefer to use a truck when they move. IDEs are tailored to the needs and idiosyncrasies of a language, some working with plugins and covering multiple languages. Others have a specific focus on a single language or a group of languages. Here are some of the features you are looking for in an IDE for programming with data:</p>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Syntax_highlighting">code highlighting</a>, linting</li>
@@ -346,8 +354,8 @@ The idea is to send source code from the editor to interchangeable <a href="appe
 which can be adapted according to the language that needs to be interpreted. That way a good linter / code highlighter for your favorite language is all you need to have a lightweight environment to run things. An example of such a customization approach is Christoph Sax’ small project <a href="https://github.com/christophsax/SublimeStudio">Sublime Studio</a>.</p>
 <p>Other examples for popular IDEs are <a href="https://www.eclipse.org/">Eclipse</a> (mostly Java but tons of plugins for other languages), or JetBrains’ <a href="https://www.jetbrains.com/idea/">IntelliJ</a> (Java) and <a href="https://www.jetbrains.com/pycharm/">PyCharm</a> (Python).</p>
 </div>
-<div id="version-control" class="section level2">
-<h2><span class="header-section-number">3.3</span> Version Control</h2>
+<div id="version-control" class="section level2" number="3.3">
+<h2 number="3.3"><span class="header-section-number">3.3</span> Version Control</h2>
 <p>To buy into the importance of managing one’s code professionally may be the single most important take away from <em>Hacking for Social Sciences</em>. Being able to work with version control will help you fit into a lot of different teams that have contact points with data science and programming, let alone if you become part of a programming or data science team.</p>
 <p>While version control has a long history dating back to CVS and SVN, the good news for the learner is, that there is a single dominant approach when it comes to version control in academia. Despite the fact that its predecessors and alternatives such as mercurial are stil around, <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">git</a> is the one you have to learn. To learn more about the history of version controls and approaches other than git, <a href="https://ericsink.com/vcbe/index.html">Eric Sink’s Version Control by Example</a>
 is for you.</p>
@@ -363,34 +371,34 @@ git does not work like dropbox. git does not work like dropbox.
 A commit message summarizes the gist of a contribution. <em>Diffs</em> allow to compare different versions.</p>
 <img src="images/diff.png" width="300px">
 <div class="caption-half">
-The <em>diff</em> output shows an edit during the writing of this book. The line preceeded by ‘-’ was replaced with the line preceeded by ‘+’.
+The <em>diff</em> output shows an edit during the writing of this book. The line preceeded by ‘-’ was replaced with the line preceeded by ‘+.’
 </div>
 <p>Git is well suited for any kind of text file. May it be source code from Python or C++, or some text written in markdown or LaTeX. Binaries like .pdfs or Word documents are possible, too, but certainly not the type of file for which git is really useful. This book contains a detailed, applied introduction tailed to researchers as part of the <a href="developer-practices-workflows.html">Programmers’ Practices and Workflows</a> chapter, so let’s dwell with the above contextualization for a bit.</p>
 </div>
-<div id="database-relational-vs.non-relational" class="section level2">
-<h2><span class="header-section-number">3.4</span> Database: Relational vs. Non-Relational</h2>
+<div id="database-relational-vs.-non-relational" class="section level2" number="3.4">
+<h2 number="3.4"><span class="header-section-number">3.4</span> Database: Relational vs. Non-Relational</h2>
 <p>To evaluate which database to pick up just seems like the next daunting task of stack choice. Luckily, in research first encounters with a database are usually passive, in the sense that you want to query data from a source. In other words the choice has been made for you. So unless you want to start your own data collection from scratch, simply sit back, relax and let the internet battle out another conceptual war.</p>
 <p>Database Management Systems (DBMS) are basically grouped into <em>relational</em> and <em>non-relational</em> ones. Relational databases come with the Structured Query Language (SQL) and have been around forever. SQL became and ISO and ANSI standard and continues to be the essence of many many backends around the world. <a href="https://www.oracle.com/database/technologies/appdev/sql.html">Oracle</a> continues to be the benchmark for SQL databases but the opensource <a href="https://www.postgresql.org/">PostgreSQL</a> and Microsoft’s <a href="https://www.microsoft.com/en-us/sql-server">SQL Server</a> operate at eye level for many applications.
 <a href="https://www.mysql.com/">MySQL</a>, Oracle’s slim, little (but free) brother, can’t quite cope with PostgreSQL, continues to be the most used SQL database on the planet. This is mainly due to its popularity for web applications like the blogging <a href="appendix.html#glossary">CMS</a> <a href="https://wordpress.com/">wordpress</a>. Last but not least, <a href="https://www.sqlite.org/index.html">sqlite</a> needs to be mentioned when talking about relational database. Sqlite is built into all mobile phones and most computers. Its name nutshells its concept quite well: sqlite is an easy to use, much simpler version of the aforementioned database management systems. It is extremely popular for light but powerful applications that organize data with a SQL approach in a single file.</p>
 <p>No-SQL databases are the anti establishment, anti standard approach. <a href="https://www.mongodb.com">MongoDB</a> may be the best marketed among the rebels. Before you start to sympathize with latter approach because the wording of my last to sentences, let’s stop here. Large infrastructure players make the case for non-relational stores like CouchDB or Amazon Redshift Database, but trust me, those are unlikely the first things you get to run when your research grows out of Excel. If your are not happy with the ‘beyond-the-scope-of-this-book’ argument, blogging experts like <a href="https://blog.jooq.org/tag/nosql/">Lukas Eder</a> maybe biased but much better educated to educate you here. The idea of this chapter is just to help you group all the database management systems you might face soon as a researchers.</p>
 <p>The good news is, languages like R and Python are so well equipped to interface with a plethora of databases. So well, that I often recommend these languages to researchers who work with other less equipped tools, solely as an intermediate layer. And if there is really no database extension around for your language, a general <a href="https://en.wikipedia.org/wiki/Open_Database_Connectivity">ODBC</a> interface helps – at least for SQL databases.</p>
 </div>
-<div id="single-purpose-environments" class="section level2">
-<h2><span class="header-section-number">3.5</span> Single Purpose Environments</h2>
+<div id="single-purpose-environments" class="section level2" number="3.5">
+<h2 number="3.5"><span class="header-section-number">3.5</span> Single Purpose Environments</h2>
 <p>Though a bit out of fashion and somewhat different, virtual machines are good starting point to explain single purpose container environments such as <a href="https://www.docker.com/why-docker">docker</a>. A virtual machine (VM) is basically a computer in a computer, like a Linux environment running on your Windows notebook. Oracle’s free <a href="https://www.virtualbox.org/">Virtual Box</a> is the most popular piece of free software to easily install another operating system inside your local computer’s host OS.</p>
 <p>While VMs are still common and one can potentially have lots of images for different purposes, images are too heavyweight and take to long to boot to be the go-to solution for many application developers. Hence so-called containers that run within a container host and fire up within seconds have become popular as single purpose environments.</p>
 <p>The most popular of them all is <em>docker</em> which allows users to configure an environment in a <em>Dockerfile</em> (essentially a text file) including the operating system and software packages installed in the container. The text file can either be used to create a <em>docker image</em> which is kind of a blueprint for a container. Containers run inside a docker host and can either be used interactively or in a batch which executes a single task in an environment specifically built for this task.</p>
 <p>One of the reasons why docker is attractive to researchers is its open character: Dockerfiles are a good way to share a configuration in a simple, reproducible script, making it easy to reproduce. Less experienced researchers can benefit from <a href="https://hub.docker.com/">Dockerhub</a> which shares images for a plethora of purposes from mixed data science setups to database configuration. Side Effect free working environments for all sorts of task can especially be appealing to developers with limited experience in system administration.</p>
 <p>Beside simplification of system administration, <em>docker</em> is known for its ability to work in the cloud. All major cloud hosters offer docker hosts and the ability to deploy docker containers that were previously developed and tested locally. You can also use docker to tackle <a href="appendix.html#glossary">throughput problems</a> using container orchestration tools like <a href="https://docs.docker.com/engine/swarm/swarm-tutorial/">Docker Swarm</a> or <a href="https://kubernetes.io/">K8 (say: Kubernetes)</a> to run hundreds of containers (depending on your virtual resources).</p>
 </div>
-<div id="communication" class="section level2">
-<h2><span class="header-section-number">3.6</span> Communication</h2>
+<div id="communication" class="section level2" number="3.6">
+<h2 number="3.6"><span class="header-section-number">3.6</span> Communication</h2>
 <p>Communication is an essentially part of building an (academic) career. Part of it is a neat online profile. Do not relax on the excuse that your department’s website does not offer the flexibility. The legal and technical situation in many places should allow you to spin up your own website or even run a blog if you find the time. For free. Including the web hosting.</p>
 <p>A popular approach to do so is to work with a <em>static website generator</em>. Generators like blogdown, pkgdown or bookdown are flavors of the same approach to create a website: Write markdown first, render it and then upload rendered HTML + CSS + Javascript to a host like GitHub Pages or Netlify that allow you host your site for free. The <em>static website generator</em> approach has become so popular that the aforementioned hosters even offer to run the render process for you.</p>
 <p>The idea of engines like the <a href="https://golang.org/">Go</a> based <a href="https://gohugo.io/">Hugo</a> or the <a href="https://www.ruby-lang.org/en/">Ruby</a> based <a href="https://jekyllrb.com/">Jekyll</a> which are behind the above packages is a counter approach to what content management systems do: There is no database or template that is brought together dynamically when a user visits the website. The rendering is done locally on the creator’s local computer (or netlify’s environment). Whenever a change is made, the website is rendered entirely (ok, minus caching) and uploaded (pushed) again to the host. Therefore no database is needed which cuts down the costs of hosting to zero. (FWIW: this book is made with such a generator.)</p>
 </div>
-<div id="automation" class="section level2">
-<h2><span class="header-section-number">3.7</span> Automation</h2>
+<div id="automation" class="section level2" number="3.7">
+<h2 number="3.7"><span class="header-section-number">3.7</span> Automation</h2>
 <p>The first type of automation described here refers to automation of your development workflow. That it is, you standardize your path from draft to program to deployment to production. Modern version control software accompanies this process with a toolchain that is often fuzzily called <a href="https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment">CI/CD</a>. While CI stands for <em>continuous integration</em> and simply refers to a workflow in which the team tries to release new features to production as continuously as possible, CD stands for either <em>continuous delivery</em> or <em>continuous deployment</em>.</p>
 <p>However, in practice the entire toolchain referred to as <em>CI/CD</em> has become broadly available in well documented fashion when git hosting powerhouses GitHub and GitLab introduced their flavors of it: [GitHub Actions])(<a href="https://docs.github.com/en/actions" class="uri">https://docs.github.com/en/actions</a>) and <a href="https://docs.gitlab.com/ee/ci/">GitLab CI</a>. In addition services like <a href="https://travis-ci.org/">Travis CI</a> or <a href="https://circleci.com/">Circle CI</a> offer this toolchain independently of hosting git repositories.</p>
 <p>Users of these platforms can upload a simple textfile that follows a name convention and structure to trigger a step based toolchain based on an event. An example of an event may be the push to a repository’s main branch. A common example would be to run tests and/or build a package and upon success deploy the newly created package to some server – all triggered by simple push to master. One particularly cool thing is, that there multiple services who allow to run the testing on their servers using container technologies. This leads to great variety of setups for testing. That way software can easily be tested on different operating systems / environments. Also the mentioned website rendering approach mentioning in the previous section as a potential CI/CD application.</p>
