@@ -1,19 +1,39 @@
 # Case Studies
 
-## Application Programming Interfaces (API)
+While the rest of the book provided more of a big picture type of insight, this section is all about application minded examples that feature code to reproduce. 
 
-An API is nothing else but an interface to facilitate machine to machine 
-communication. An interface can be anything, any protocol or pre-defined process.
-But of course there are good and bad ways to communicate. Plus some matter-of-taste 
-type of decisions. But security and standard compliance are none of the latter. 
+
+## Consuming APIs 
+
+An Application Programming Interface (API) is nothing else but an interface to facilitate machine to machine communication. An interface can be anything, any protocol or pre-defined process. But of course there are standard and not-so-standard ways to communicate. Plus some matter-of-taste type of decisions. But security and standard compliance are none of the latter. 
 There are standards such as the popular, URL based REST that make developers'
 lives a lot easier -- regardless of the language they prefer. 
 
-So what do we with an REST API in R or Python? Build a wrapper.
-A wrapper is program that wraps an API call in a function using a function's
-input parameters to compose the URL that the REST call is. Because, thanks to 
-the API's documentation, we know what the output of the API looks like. Hence 
-we can process the result and return an R or Python object. 
+Many services such as Google Cloud, AWS, your university library, your favorite social media platform or your local metro operator provide an API. Often either the platform itself or the community provide what's called an API wrapper: 
+A simple program wraps the process of using the interface though dynamic URLs into a parameterized function. Because the hard work is done serverside by the API backend, building API wrappers is fairly easy and if you're lucky wrappers for your favorite languages exit already. If that is the case end users can simply use functions like `get_dataset(dataset_id)` to download data programatically. 
+
+
+### Example 1: The {kofdata} R package
+
+The KOF Swiss Economic Institute at ETH Zurich provides such a wrapper in an R package. The underlying API allows to access the KOF time series archive database and obtain data and meta information alike. The below code snippet gets data from the API and uses another KOF built library ({tstools}) to visualize the returned time series. 
+
+
+```{r, warning=FALSE, message=FALSE}
+library(kofdata)
+# just for viz
+library(tstools)
+tsl <- get_time_series("ch.kof.barometer")
+tsplot(tsl)
+
+```
+
+
+
+### Example 2: The {OECD} R package 
+
+Also large organizations like the Organization for Economic Co-operation and development (OECD) provide API wrappers to facilitate data consumption. 
+
+### Build Your Own API Wrapper
 
 Here's an example of a very simple API wrapper that makes use of the 
 Metropolitan Museum of Modern Art's API to obtain identifiers of pictures based on 
@@ -86,25 +106,55 @@ download_met_images_by_id(umbrella_ids$objectIDs[2:4])
 ```
 
 
-Many services such as Google Cloud, AWS, your university library,
-your favorite social media account or your local metro operator provide an API. 
-Often, in the case of data providers there are even API wrapper packages around for
-the most popular programming with data languages. For example the KOF Swiss Economic Institute
-provides an API Wrapper package called {kofdata}. The even has an API wrapper to access large parts of their
-entire economic database. The R package is called {OECD}. A good way to learn more about creating API wrappers
-is to look in to the source code of these packages. 
-
-```{r, warning=FALSE, message=FALSE}
-library(kofdata)
-# just for viz
-library(tstools)
-tsl <- get_time_series("ch.kof.barometer")
-tsplot(tsl)
-
-```
 
 
 ## Create Your Own API
+
+Being able to expose data is a go-to skill in order to make research reproducible and credible. Especially when data get complex and require thorough description in order to remain reproducible for others, a programmtic, machine readable approach is the way to go. 
+
+
+### GitHub to Serve Static Files
+
+Exposing your data through an API is not something you would need a software engineer or an own server infrastructure for. Simply hosting a bunch of .csv spreadsheet alongside a good description (in separate files!!) on, e.g., GitHub for free can be an easy highly available solution to serve static files. 
+
+The KOF High Frequency Economic Monitoring dashboard simply shares standardized .csv (data) and .json (description) files based on a Github. 
+
+
+INSERT SCREENSHOT OF GITHUB HERE
+
+To make it look at little niftier, the dashboard uses a quasar frontend to guide the human user, but it would not be necessary to have such a framework.
+
+INSERT SCREENSHOT OF KOFDATA HERE
+
+
+### Simple Dynamic APIs
+
+Even going past serving static files, does not require much software development expertise. 
+Thanks to frameworks such as express.js or the {plumbr} it easy to create an API that turns a URL into a server side action and returns a result. 
+
+Assume you've installed node.js already, you can set up a simple API on your local computer just like this. 
+
+```
+# run initialization in a dedicated folder
+mkdir api
+cd api
+npm init
+```
+
+just sleep walk through the interactive dialog accepting all defaults. Once done, add install express using the npm package manager.
+
+```
+npm install express --save
+```
+
+
+
+
+
+
+
+
+
 
 
 
