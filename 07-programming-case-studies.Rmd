@@ -162,7 +162,42 @@ npm install express --save
 
 ## Basic Parallel Programming
 
-## The Shiny Web Application Framework
+
+## Presentations, Reports and Websites /w RMarkdown
+
+
+## Web Application /w the Shiny Framework
+
+Fancy dashboards and the promise of an easy to use way to create dynamic web applications have made the {shiny} R package one of the most frequent items on data people's bucket list of things to learn. 
+In the meantime {shiny} has gathered an entire ecosystem of helper packages, e.g., to boilerplate applications or to make use of other frontend frameworks through {shiny}. This case studies intends to de-mystify the package and to explain basic concepts, but no rewrite its great documentation or blogs and books around {shiny}.
+
+### Frontend: ui.R
+
+INSERT JOHNNY BRAVO HERE. MAYBE I AM LATE BUT I LOOK GOOD.
+
+In a separation-of-concerns approach, the part of the application which makes sure fonts, figures and tables are neatly presented in our web browsers is called the *frontend*. The markup-language **HTML** has been taking care of this for decades and therefore has been associated with web programming even though it is not a programming language, but rather a language that helps to format and position things -- very much like LaTeX. To make it easier to implement entire styles, e.g., corporate design, **CSS** has been around as HTML's partner for several decades. The trio is completed by the **Javascript** programming language which went from messy scripting language to being used everywhere. In web frontends it's mainly used to make things dynamic by modifying the so-called DOM, i.e., the tree like structure of HTML while the page is already rendered and being displayed in our browsers. 
+
+So what has the {shiny} R package have to do with all of this? It makes sure you do not have to care about the above if you do not want to. This is the main reason why we hear bi-polar assessments about {shiny} which maybe very confusing for the novice. Seasoned web developers wil likely not know {shiny} or if they do will wonder why one would use some language made for statistical computing to build a website. On the other hand people who ather come out of the programming with data corner, {shiny} is great opportunity to create beautiful state-of-the-art web applications w/o learning a set of new languages. 
+
+{shiny} takes care 
+
+
+
+
+
+### Backend: server.R
+
+
+### Hosting: Make Apps Available Online
+
+
+
+
+
+
+
+
+
 
 ## Spatial Visualization with Leaflet and Open Streetmap
 
