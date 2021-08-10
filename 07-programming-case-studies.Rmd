@@ -151,6 +151,23 @@ npm install express --save
 
 
 
+## Articles, Presentations, Reports and Websites /w Markdown and RMarkdown
+
+Working with data asks for reproducible reports, presentations and articles that can be rendered to accessible, screenreader friendly online output as well as more traditional, print minded PDF output. 
+This case study explains how to create documents like this book, a presentation for a conference or simple, static reporting minded websites.
+
+*Markdown* is simple language based approach that can handle all of these tasks and allows for automation at the same time. Automation of document rendering does not only save time, it also ensures reproducibility across different machines. The name *Markdown* is a wordplay as *Markdown* is a simple mark-up language, similar to HTML or LaTeX but with a much much simpler syntax. 
+*Markdown* helps users to format plain text using reserved characters. For example, a set of ** at the beginning and at the end of a word, sentence or paragraph lets everything wrapped in between these double asterisk appear **bold**, wrapping text in a single * asterisk makes the wrapped text *italic*. *Markdown* has become so ubiquitous that websites such as GitHub, discussion boards or Q&A sites allow users who post online to use *Markdown* to format their text. 
+
+Various rendering engines can render *Markdown* into HTML, PDF or even MS Word output. Often [pandoc](https://pandoc.org/) is a popular driver as a universal document converter under the hood. Programming languages such as Python and R have embraced *Markdown* based reporting to mingle descriptive plain text with code in order to execute the code at render time and fit tables, figures and even animations into reports. [Jupyter notebooks](https://jupyter.org/) is an interactive Python based example. In the R ecosystem the approach is slightly different and is called *knitting* which is why the corresponding package is called [knitr](https://yihui.org/knitr/). In the meantinem there is a plethora of packages (with great documentation that I won't c&p here but refer to) for different flavors of output: {[bookdown]()} for online books such as this one, {[pkgdown]()} for documenting your own R package or {[blogdown]()} to run your own markdown based blog (hosted for free on, e.g., GitHub). In addition to these "main diagonal" packages, there smaller gems such as the {[postcard]()} package to get a mini personal website up in a few minutes. 
+
+- [*Markdown* source of this particular site that you are reading here]().
+- [*Markdown* source of a presentation slides]()
+
+
+
+
+INSERT SKETCH HERE
 
 
 
@@ -160,10 +177,6 @@ npm install express --save
 
 
 
-## Basic Parallel Programming
-
-
-## Presentations, Reports and Websites /w RMarkdown
 
 
 ## Web Application /w the Shiny Framework
@@ -171,15 +184,29 @@ npm install express --save
 Fancy dashboards and the promise of an easy to use way to create dynamic web applications have made the {shiny} R package one of the most frequent items on data people's bucket list of things to learn. 
 In the meantime {shiny} has gathered an entire ecosystem of helper packages, e.g., to boilerplate applications or to make use of other frontend frameworks through {shiny}. This case studies intends to de-mystify the package and to explain basic concepts, but no rewrite its great documentation or blogs and books around {shiny}.
 
+The code for a {shiny} app can live in a single file, but for the sake of illustrating the concept I will use two files here: a frontend file called ui.R and a backend file called server.R. If we follow this convention and put both files into one folder a the shiny runtime 
+
 ### Frontend: ui.R
 
 INSERT JOHNNY BRAVO HERE. MAYBE I AM LATE BUT I LOOK GOOD.
 
 In a separation-of-concerns approach, the part of the application which makes sure fonts, figures and tables are neatly presented in our web browsers is called the *frontend*. The markup-language **HTML** has been taking care of this for decades and therefore has been associated with web programming even though it is not a programming language, but rather a language that helps to format and position things -- very much like LaTeX. To make it easier to implement entire styles, e.g., corporate design, **CSS** has been around as HTML's partner for several decades. The trio is completed by the **Javascript** programming language which went from messy scripting language to being used everywhere. In web frontends it's mainly used to make things dynamic by modifying the so-called DOM, i.e., the tree like structure of HTML while the page is already rendered and being displayed in our browsers. 
 
-So what has the {shiny} R package have to do with all of this? It makes sure you do not have to care about the above if you do not want to. This is the main reason why we hear bi-polar assessments about {shiny} which maybe very confusing for the novice. Seasoned web developers wil likely not know {shiny} or if they do will wonder why one would use some language made for statistical computing to build a website. On the other hand people who ather come out of the programming with data corner, {shiny} is great opportunity to create beautiful state-of-the-art web applications w/o learning a set of new languages. 
+So what has the {shiny} R package to do with all of this? {shiny} makes sure you do not have to care about the above if you do not want to. Abstracting HTML/CSS/JS way from the developer leads varying opinions about {shiny} which maybe very confusing for the novice. The R world mostly loves while application developers don't get the hype (if they know the {shiny} framework at all).
 
-{shiny} takes care 
+However, {shiny} is a great opportunity to create beautiful state-of-the-art web applications w/o learning a set of new languages if you come out of of the data corner. As part of this process {shiny} helps developers organize their code into backend and frontend code, something not necessarily common for people for rather program with data as opposed to application developers. A graphical user interfaces (GUI) let alone user experience (UX) is a beast of its own.   
+
+A frontend ui.R file could look like this
+
+```{r, eval=FALSE}
+library(shiny)
+
+
+
+
+
+```
+
 
 
 
@@ -187,10 +214,40 @@ So what has the {shiny} R package have to do with all of this? It makes sure you
 
 ### Backend: server.R
 
+The server.R files does all the heavy lifting. Computation, file processing, data access it all happens inside the server function. Sometimes you want to change the user interfaces depending on the result of some computation. In this special case the user interface  
+
+### Quickstart: A Minimal Demo App
+
+If want to you catch a glimpse of {shiny} running on your own computer asap,  simply install the {shiny} R package and run the following single file application.
+
+```{r, eval=FALSE}
+library(shiny)
+
+ui <- fluidPage(
+  mainPanel(
+    plotOutput("rndtest"),
+    sliderInput("rnd_n","Number of Observations",1,1000,100)
+  )  
+)
+
+server <- function(input, output, session) {
+  output$rndtest <- renderPlot({
+    hist(rnorm(input$rnd_n))
+  })
+}
+
+shinyApp(ui, server)
+
+```
+
+Running the code will fire up a shiny server and a separate session on tha server to run your app on your local computer. Your development server is up an running and will react to many changes on the fly w/o having to restart the server for the changes to come into effect. 
+
+
+
 
 ### Hosting: Make Apps Available Online
 
-
+Though some shiny apps just live happily inside R packages many of them are designed to be shown to a larger public as standalone apps. Examples include for an interactive data visualization or forms to gather input data. There are many reasons to make {shiny} apps available online. In order to do so, you can either host them yourself within your university or company infrastructure or using your favorite cloud provider. The inventors of shiny, the R Studio company also offers hassle free software-as-a-service (SaaS) shiny hosting on shinyapps.io. For a more detailed discussion of on-premise (in house hosting) or service based hosting please take a look at the infrastructure section of this book. 
 
 
 
@@ -203,4 +260,4 @@ So what has the {shiny} R package have to do with all of this? It makes sure you
 
 
 
-
+## Basic Parallel Programming
