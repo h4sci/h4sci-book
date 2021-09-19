@@ -25,29 +25,7 @@ The following section intends to share insights that help you set up a playgroun
 Benchmarking refers to observation of computation performance in order to evaluate the efficiency of a program or simply to assess the computation hours needed. Also some programs benefit from parallel computing a lot more than others and the effect of speed gains is not always linear. Being able to set up a basic toy example and get a rough idea how long a computation might take is a very valuable skill for an empirical researcher. And it's up for grabs. Really. 
 
 
-Here's an R example using the {microbenchmark} package to check the effect parallel computing on running seasonal adjustment of multiple time series. First let's set up some demo data: We simply create a list with 1000 elements each of which is the same
-monthly time series about airline passengers from 1949-1960. 
 
-```{r}
-data("AirPassengers")
-tsl <- list()
-for(i in 1:1000){
-  tsl[[i]] <- AirPassengers
-}
-```
-
-Now, let's load the {seasonal} package and perform a basic seasonal adjustment
-of each of these time series. The first statement performs 1000 adjustments 
-sequentially, the second statement uses parallel computing to spread computations across my machines multiple processors. The key take away from this exercise is not the parallel computation itself, but the ability to set up a benchmark. 
-
-```{r}
-library(seasonal)
-library(microbenchmark)
-
-
-```
-
-Obviously the absolute computation time depends on the hardware used, but also the operating system can be an important factor depending on the task at hand. Even though the combination of algorithm, hardware, operating system and software used for the computation can make assessment a daunting, complex task, easily venturing into expert realm, a basic understanding and a ballpark relation between multiple approaches can carry you a long way. 
 
 
 ## Your Local Machine / localhost (It's NOT always about Computing Power!)
