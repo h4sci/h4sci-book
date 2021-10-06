@@ -213,20 +213,22 @@ No-SQL databases are the anti establishment, anti standard approach. [MongoDB](h
 The good news is, languages like R and Python are so well equipped to interface with a plethora of databases. So well, that I often recommend these languages to researchers who work with other less equipped tools, solely as an intermediate layer. And if there is really no database extension around for your language, a general [ODBC](https://en.wikipedia.org/wiki/Open_Database_Connectivity) interface helps -- at least for SQL databases.  
 
 
+## Environments: Where Should I Run Stuff ?
 
 
-## Single Purpose Environments
 
-Though a bit out of fashion and somewhat different, virtual machines are good starting point to explain single purpose container environments such as [docker](https://www.docker.com/why-docker). A virtual machine (VM) is basically a computer in a computer, like a Linux environment running on your Windows notebook. Oracle's free [Virtual Box](https://www.virtualbox.org/) is the most popular piece of free software to easily install another operating system inside your local computer's host OS. 
+But what if you do not want to run your stuff locally? Maybe because you want to expose a web application or site which has to be online 24/7. Maybe because you do not more additional computing power. 
 
-While VMs are still common and one can potentially have lots of images for different purposes, images are too heavyweight and take to long to boot to be the go-to solution for many application developers. Hence so-called containers that run within a container host and fire up within seconds have become popular as single purpose environments.
+In principle there are four options.
 
-The most popular of them all is *docker* which allows users to configure an environment in a *Dockerfile* (essentially a text file) including the operating system and software packages installed in the container. The text file can either be used to create a *docker image* which is kind of a blueprint for a container. Containers run inside a docker host and can either be used interactively or in a batch which executes a single task in an environment specifically built for this task.  
+1. Bare Metal. Buy hardware, hook it up with the internet, install your software, have fun. If you have a consistantly high usage rate and can maintain the server efficiently, this is likely the cheapest computing hour. You saw that *if*, didn't you?
 
-One of the reasons why docker is attractive to researchers is its open character: Dockerfiles are a good way to share a configuration in a simple, reproducible script, making it easy to reproduce. Less experienced researchers can benefit from [Dockerhub](https://hub.docker.com/) which shares images for a plethora of purposes from mixed data science setups to database configuration. Side Effect free working environments for all sorts of task can especially be appealing to developers with limited experience in system administration. 
+2. Either use physical or virtual hardware and make your local IT department host your service **on-premise** (inhouse). You will give up a little bit of your flexible in exchange for help with maintenance and server administration.
 
-Beside simplification of system administration, *docker* is known for its ability to work in the cloud. All major cloud hosters offer docker hosts and the ability to deploy docker containers that were previously developed and tested locally. You can also use docker to tackle [throughput problems](#glossary) using container orchestration tools like [Docker Swarm](https://docs.docker.com/engine/swarm/swarm-tutorial/) or [K8 (say: Kubernetes)](https://kubernetes.io/) to run hundreds of containers (depending on your virtual resources).
+3. Cloud Computing.
 
+
+4. Software-as-a-Service
 
 
 
