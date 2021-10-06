@@ -24,7 +24,7 @@
 <meta name="author" content="Matthias Bannert" />
 
 
-<meta name="date" content="2020-12-09" />
+<meta name="date" content="2021-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="infrastructure.html"/>
-<link rel="next" href="appendix.html"/>
+<link rel="next" href="connect-with-the-developer-community.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -59,6 +59,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -147,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#ide"><i class="fa fa-check"></i><b>3.2</b> IDE</a></li>
 <li class="chapter" data-level="3.3" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#version-control"><i class="fa fa-check"></i><b>3.3</b> Version Control</a></li>
 <li class="chapter" data-level="3.4" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#database-relational-vs.-non-relational"><i class="fa fa-check"></i><b>3.4</b> Database: Relational vs. Non-Relational</a></li>
-<li class="chapter" data-level="3.5" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#single-purpose-environments"><i class="fa fa-check"></i><b>3.5</b> Single Purpose Environments</a></li>
+<li class="chapter" data-level="3.5" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#environments-where-should-i-run-stuff"><i class="fa fa-check"></i><b>3.5</b> Environments: Where Should I Run Stuff ?</a></li>
 <li class="chapter" data-level="3.6" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#communication"><i class="fa fa-check"></i><b>3.6</b> Communication</a></li>
 <li class="chapter" data-level="3.7" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#automation"><i class="fa fa-check"></i><b>3.7</b> Automation</a></li>
 </ul></li>
@@ -176,18 +177,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="infrastructure.html"><a href="infrastructure.html"><i class="fa fa-check"></i><b>5</b> Infrastructure</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="infrastructure.html"><a href="infrastructure.html#benchmarking"><i class="fa fa-check"></i><b>5.1</b> Benchmarking</a></li>
-<li class="chapter" data-level="5.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost"><i class="fa fa-check"></i><b>5.2</b> Your Local Machine / localhost</a></li>
-<li class="chapter" data-level="5.3" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>5.3</b> Virtual Machines</a></li>
-<li class="chapter" data-level="5.4" data-path="infrastructure.html"><a href="infrastructure.html#docker"><i class="fa fa-check"></i><b>5.4</b> Docker</a></li>
-<li class="chapter" data-level="5.5" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>5.5</b> Cloud Computing</a></li>
+<li class="chapter" data-level="5.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost-its-not-always-about-computing-power"><i class="fa fa-check"></i><b>5.2</b> Your Local Machine / localhost (It’s NOT always about Computing Power!)</a></li>
+<li class="chapter" data-level="5.3" data-path="infrastructure.html"><a href="infrastructure.html#where-should-i-host"><i class="fa fa-check"></i><b>5.3</b> Where Should I Host?</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>5.3.1</b> Cloud Computing</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="infrastructure.html"><a href="infrastructure.html#software-as-a-service-saas"><i class="fa fa-check"></i><b>5.4</b> Software as a Service (SaaS)</a></li>
+<li class="chapter" data-level="5.5" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>5.5</b> Virtual Machines</a></li>
+<li class="chapter" data-level="5.6" data-path="infrastructure.html"><a href="infrastructure.html#docker-containers"><i class="fa fa-check"></i><b>5.6</b> Docker (Containers)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>6</b> Case Studies</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="case-studies.html"><a href="case-studies.html#application-programming-interfaces-api"><i class="fa fa-check"></i><b>6.1</b> Application Programming Interfaces (API)</a></li>
-<li class="chapter" data-level="6.2" data-path="case-studies.html"><a href="case-studies.html#create-your-own-api"><i class="fa fa-check"></i><b>6.2</b> Create Your Own API</a></li>
-<li class="chapter" data-level="6.3" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>6.3</b> Basic Parallel Programming</a></li>
-<li class="chapter" data-level="6.4" data-path="case-studies.html"><a href="case-studies.html#the-shiny-web-application-framework"><i class="fa fa-check"></i><b>6.4</b> The Shiny Web Application Framework</a></li>
-<li class="chapter" data-level="6.5" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>6.5</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
+<li class="chapter" data-level="6.1" data-path="case-studies.html"><a href="case-studies.html#consuming-apis"><i class="fa fa-check"></i><b>6.1</b> Consuming APIs</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="case-studies.html"><a href="case-studies.html#example-1-the-kofdata-r-package"><i class="fa fa-check"></i><b>6.1.1</b> Example 1: The {kofdata} R package</a></li>
+<li class="chapter" data-level="6.1.2" data-path="case-studies.html"><a href="case-studies.html#example-2-the-oecd-r-package"><i class="fa fa-check"></i><b>6.1.2</b> Example 2: The {OECD} R package</a></li>
+<li class="chapter" data-level="6.1.3" data-path="case-studies.html"><a href="case-studies.html#build-your-own-api-wrapper"><i class="fa fa-check"></i><b>6.1.3</b> Build Your Own API Wrapper</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="case-studies.html"><a href="case-studies.html#create-your-own-api"><i class="fa fa-check"></i><b>6.2</b> Create Your Own API</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="case-studies.html"><a href="case-studies.html#github-to-serve-static-files"><i class="fa fa-check"></i><b>6.2.1</b> GitHub to Serve Static Files</a></li>
+<li class="chapter" data-level="6.2.2" data-path="case-studies.html"><a href="case-studies.html#simple-dynamic-apis"><i class="fa fa-check"></i><b>6.2.2</b> Simple Dynamic APIs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="case-studies.html"><a href="case-studies.html#a-minimal-webscraper-extracting-publication-dates"><i class="fa fa-check"></i><b>6.3</b> A Minimal Webscraper: Extracting Publication Dates</a></li>
+<li class="chapter" data-level="6.4" data-path="case-studies.html"><a href="case-studies.html#automate-script-execution-a-github-actions-example"><i class="fa fa-check"></i><b>6.4</b> Automate Script Execution: A GitHub Actions Example</a></li>
+<li class="chapter" data-level="6.5" data-path="case-studies.html"><a href="case-studies.html#articles-presentations-reports-and-websites-w-markdown-and-rmarkdown"><i class="fa fa-check"></i><b>6.5</b> Articles, Presentations, Reports and Websites /w Markdown and RMarkdown</a></li>
+<li class="chapter" data-level="6.6" data-path="case-studies.html"><a href="case-studies.html#web-application-w-the-shiny-framework"><i class="fa fa-check"></i><b>6.6</b> Web Application /w the Shiny Framework</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="case-studies.html"><a href="case-studies.html#frontend-ui.r"><i class="fa fa-check"></i><b>6.6.1</b> Frontend: ui.R</a></li>
+<li class="chapter" data-level="6.6.2" data-path="case-studies.html"><a href="case-studies.html#backend-server.r"><i class="fa fa-check"></i><b>6.6.2</b> Backend: server.R</a></li>
+<li class="chapter" data-level="6.6.3" data-path="case-studies.html"><a href="case-studies.html#quickstart-a-minimal-demo-app"><i class="fa fa-check"></i><b>6.6.3</b> Quickstart: A Minimal Demo App</a></li>
+<li class="chapter" data-level="6.6.4" data-path="case-studies.html"><a href="case-studies.html#hosting-make-apps-available-online"><i class="fa fa-check"></i><b>6.6.4</b> Hosting: Make Apps Available Online</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>6.7</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
+<li class="chapter" data-level="6.8" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>6.8</b> Basic Parallel Programming</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html"><i class="fa fa-check"></i><b>7</b> Connect with the Developer Community</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#stay-up-to-date-and-a-vastly-evolving-field-social-media"><i class="fa fa-check"></i><b>7.1</b> Stay up to Date and a Vastly Evolving Field – Social Media</a></li>
+<li class="chapter" data-level="7.2" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#get-an-account-at-stackoverflow.com"><i class="fa fa-check"></i><b>7.2</b> Get an Account at Stackoverflow.com</a></li>
+<li class="chapter" data-level="7.3" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#attend-conferences---online-can-be-a-good-option"><i class="fa fa-check"></i><b>7.3</b> Attend Conferences - Online Can Be a Good Option !</a></li>
+<li class="chapter" data-level="7.4" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#join-slack-spaces-or-other-chats"><i class="fa fa-check"></i><b>7.4</b> Join Slack Spaces (or other Chats)</a></li>
+<li class="chapter" data-level="7.5" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#look-for-local-community-group"><i class="fa fa-check"></i><b>7.5</b> Look for Local Community Group</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
@@ -215,105 +246,241 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="case-studies" class="section level1" number="6">
 <h1 number="6"><span class="header-section-number">6</span> Case Studies</h1>
-<div id="application-programming-interfaces-api" class="section level2" number="6.1">
-<h2 number="6.1"><span class="header-section-number">6.1</span> Application Programming Interfaces (API)</h2>
-<p>An API is nothing else but an interface to facilitate machine to machine
-communication. An interface can be anything, any protocol or pre-defined process.
-But of course there are good and bad ways to communicate. Plus some matter-of-taste
-type of decisions. But security and standard compliance are none of the latter.
+<p>While the rest of the book provided more of a big picture type of insight, this section is all about application minded examples that feature code to reproduce.</p>
+<div id="consuming-apis" class="section level2" number="6.1">
+<h2 number="6.1"><span class="header-section-number">6.1</span> Consuming APIs</h2>
+<p>An Application Programming Interface (API) is nothing else but an interface to facilitate machine to machine communication. An interface can be anything, any protocol or pre-defined process. But of course there are standard and not-so-standard ways to communicate. Plus some matter-of-taste type of decisions. But security and standard compliance are none of the latter.
 There are standards such as the popular, URL based REST that make developers’
 lives a lot easier – regardless of the language they prefer.</p>
-<p>So what do we with an REST API in R or Python? Build a wrapper.
-A wrapper is program that wraps an API call in a function using a function’s
-input parameters to compose the URL that the REST call is. Because, thanks to
-the API’s documentation, we know what the output of the API looks like. Hence
-we can process the result and return an R or Python object.</p>
+<p>Many services such as Google Cloud, AWS, your university library, your favorite social media platform or your local metro operator provide an API. Often either the platform itself or the community provide what’s called an API wrapper:
+A simple program wraps the process of using the interface though dynamic URLs into a parameterized function. Because the hard work is done serverside by the API backend, building API wrappers is fairly easy and if you’re lucky wrappers for your favorite languages exit already. If that is the case end users can simply use functions like <code>get_dataset(dataset_id)</code> to download data programatically.</p>
+<div id="example-1-the-kofdata-r-package" class="section level3" number="6.1.1">
+<h3 number="6.1.1"><span class="header-section-number">6.1.1</span> Example 1: The {kofdata} R package</h3>
+<p>The KOF Swiss Economic Institute at ETH Zurich provides such a wrapper in an R package. The underlying API allows to access the KOF time series archive database and obtain data and meta information alike. The below code snippet gets data from the API and uses another KOF built library ({tstools}) to visualize the returned time series.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="case-studies.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kofdata)</span>
+<span id="cb21-2"><a href="case-studies.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># just for viz</span></span>
+<span id="cb21-3"><a href="case-studies.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tstools)</span>
+<span id="cb21-4"><a href="case-studies.html#cb21-4" aria-hidden="true" tabindex="-1"></a>tsl <span class="ot">&lt;-</span> <span class="fu">get_time_series</span>(<span class="st">&quot;ch.kof.barometer&quot;</span>)</span>
+<span id="cb21-5"><a href="case-studies.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tsplot</span>(tsl)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+</div>
+<div id="example-2-the-oecd-r-package" class="section level3" number="6.1.2">
+<h3 number="6.1.2"><span class="header-section-number">6.1.2</span> Example 2: The {OECD} R package</h3>
+<p>Also large organizations like the Organization for Economic Co-operation and development (OECD) provide API wrappers to facilitate data consumption.</p>
+</div>
+<div id="build-your-own-api-wrapper" class="section level3" number="6.1.3">
+<h3 number="6.1.3"><span class="header-section-number">6.1.3</span> Build Your Own API Wrapper</h3>
 <p>Here’s an example of a very simple API wrapper that makes use of the
 Metropolitan Museum of Modern Art’s API to obtain identifiers of pictures based on
 a simple search.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="case-studies.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visit this example query</span></span>
-<span id="cb20-2"><a href="case-studies.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># https://collectionapi.metmuseum.org/public/collection/v1/search?q=umbrella</span></span>
-<span id="cb20-3"><a href="case-studies.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns a json containing quite a few ids of pictures that were tagged &#39;umbrella&#39;</span></span>
-<span id="cb20-4"><a href="case-studies.html#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="case-studies.html#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Search MET</span></span>
-<span id="cb20-6"><a href="case-studies.html#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb20-7"><a href="case-studies.html#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; This function searches the MET&#39;s archive for keywords and</span></span>
-<span id="cb20-8"><a href="case-studies.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; returns object ids of search hits. It is a simple wrapper</span></span>
-<span id="cb20-9"><a href="case-studies.html#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; around the MET&#39;s Application Programming interface (API).</span></span>
-<span id="cb20-10"><a href="case-studies.html#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; The function is designed to work with other API wrappers</span></span>
-<span id="cb20-11"><a href="case-studies.html#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; and use object ids as an input.</span></span>
-<span id="cb20-12"><a href="case-studies.html#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param character search term</span></span>
-<span id="cb20-13"><a href="case-studies.html#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @return list containing the totoal number of objects found</span></span>
-<span id="cb20-14"><a href="case-studies.html#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; and a vector of object ids.</span></span>
-<span id="cb20-15"><a href="case-studies.html#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
-<span id="cb20-16"><a href="case-studies.html#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Note these declaration are not relevant when code is not</span></span>
-<span id="cb20-17"><a href="case-studies.html#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co"># part of a package, hence you need to call library(jsonlite)</span></span>
-<span id="cb20-18"><a href="case-studies.html#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co"># in order to make this function work if you are not building</span></span>
-<span id="cb20-19"><a href="case-studies.html#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="co"># a package.</span></span>
-<span id="cb20-20"><a href="case-studies.html#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
-<span id="cb20-21"><a href="case-studies.html#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; search_met(&quot;umbrella&quot;)</span></span>
-<span id="cb20-22"><a href="case-studies.html#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @importFrom jsonlite formJSON</span></span>
-<span id="cb20-23"><a href="case-studies.html#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
-<span id="cb20-24"><a href="case-studies.html#cb20-24" aria-hidden="true" tabindex="-1"></a>search_met <span class="ot">&lt;-</span> <span class="cf">function</span>(keyword){</span>
-<span id="cb20-25"><a href="case-studies.html#cb20-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># note how URLencode improves this function</span></span>
-<span id="cb20-26"><a href="case-studies.html#cb20-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># because spaces are common in searches</span></span>
-<span id="cb20-27"><a href="case-studies.html#cb20-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># but are not allowed in URLs</span></span>
-<span id="cb20-28"><a href="case-studies.html#cb20-28" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">&quot;https://collectionapi.metmuseum.org/public/collection/v1/search?q=%s&quot;</span>, <span class="fu">URLencode</span>(keyword))</span>
-<span id="cb20-29"><a href="case-studies.html#cb20-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fromJSON</span>(url)</span>
-<span id="cb20-30"><a href="case-studies.html#cb20-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="case-studies.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visit this example query</span></span>
+<span id="cb22-2"><a href="case-studies.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># https://collectionapi.metmuseum.org/public/collection/v1/search?q=umbrella</span></span>
+<span id="cb22-3"><a href="case-studies.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># returns a json containing quite a few ids of pictures that were tagged &#39;umbrella&#39;</span></span>
+<span id="cb22-4"><a href="case-studies.html#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="case-studies.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; Search MET</span></span>
+<span id="cb22-6"><a href="case-studies.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb22-7"><a href="case-studies.html#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; This function searches the MET&#39;s archive for keywords and</span></span>
+<span id="cb22-8"><a href="case-studies.html#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; returns object ids of search hits. It is a simple wrapper</span></span>
+<span id="cb22-9"><a href="case-studies.html#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; around the MET&#39;s Application Programming interface (API).</span></span>
+<span id="cb22-10"><a href="case-studies.html#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; The function is designed to work with other API wrappers</span></span>
+<span id="cb22-11"><a href="case-studies.html#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; and use object ids as an input.</span></span>
+<span id="cb22-12"><a href="case-studies.html#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @param character search term</span></span>
+<span id="cb22-13"><a href="case-studies.html#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @return list containing the totoal number of objects found</span></span>
+<span id="cb22-14"><a href="case-studies.html#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; and a vector of object ids.</span></span>
+<span id="cb22-15"><a href="case-studies.html#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb22-16"><a href="case-studies.html#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Note these declaration are not relevant when code is not</span></span>
+<span id="cb22-17"><a href="case-studies.html#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co"># part of a package, hence you need to call library(jsonlite)</span></span>
+<span id="cb22-18"><a href="case-studies.html#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="co"># in order to make this function work if you are not building</span></span>
+<span id="cb22-19"><a href="case-studies.html#cb22-19" aria-hidden="true" tabindex="-1"></a><span class="co"># a package.</span></span>
+<span id="cb22-20"><a href="case-studies.html#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb22-21"><a href="case-studies.html#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; search_met(&quot;umbrella&quot;)</span></span>
+<span id="cb22-22"><a href="case-studies.html#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @importFrom jsonlite formJSON</span></span>
+<span id="cb22-23"><a href="case-studies.html#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&#39; @export</span></span>
+<span id="cb22-24"><a href="case-studies.html#cb22-24" aria-hidden="true" tabindex="-1"></a>search_met <span class="ot">&lt;-</span> <span class="cf">function</span>(keyword){</span>
+<span id="cb22-25"><a href="case-studies.html#cb22-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># note how URLencode improves this function</span></span>
+<span id="cb22-26"><a href="case-studies.html#cb22-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># because spaces are common in searches</span></span>
+<span id="cb22-27"><a href="case-studies.html#cb22-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># but are not allowed in URLs</span></span>
+<span id="cb22-28"><a href="case-studies.html#cb22-28" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">&quot;https://collectionapi.metmuseum.org/public/collection/v1/search?q=%s&quot;</span>, <span class="fu">URLencode</span>(keyword))</span>
+<span id="cb22-29"><a href="case-studies.html#cb22-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fromJSON</span>(url)</span>
+<span id="cb22-30"><a href="case-studies.html#cb22-30" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>You can use these ids with another <a href="">endpoint</a> in order to receive the pictures
 themselves.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="case-studies.html#cb21-1" aria-hidden="true" tabindex="-1"></a>download_met_images_by_id <span class="ot">&lt;-</span> <span class="cf">function</span>(ids,</span>
-<span id="cb21-2"><a href="case-studies.html#cb21-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">download =</span> <span class="st">&quot;primaryImage&quot;</span>) {</span>
-<span id="cb21-3"><a href="case-studies.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Obtain meta description objects from MET API</span></span>
-<span id="cb21-4"><a href="case-studies.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  obj_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(ids, <span class="cf">function</span>(x) {</span>
-<span id="cb21-5"><a href="case-studies.html#cb21-5" aria-hidden="true" tabindex="-1"></a>    req <span class="ot">&lt;-</span> <span class="fu">download.file</span>(<span class="fu">sprintf</span>(<span class="st">&quot;https://collectionapi.metmuseum.org/public/collection/v1/objects/%d&quot;</span>,</span>
-<span id="cb21-6"><a href="case-studies.html#cb21-6" aria-hidden="true" tabindex="-1"></a>                   x),<span class="at">destfile =</span> <span class="st">&quot;temp.json&quot;</span>)</span>
-<span id="cb21-7"><a href="case-studies.html#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fromJSON</span>(<span class="st">&quot;temp.json&quot;</span>)</span>
-<span id="cb21-8"><a href="case-studies.html#cb21-8" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb21-9"><a href="case-studies.html#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="case-studies.html#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract the list elements that contains</span></span>
-<span id="cb21-11"><a href="case-studies.html#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># img URLs in order to pass it to the download function</span></span>
-<span id="cb21-12"><a href="case-studies.html#cb21-12" aria-hidden="true" tabindex="-1"></a>  img_urls <span class="ot">&lt;-</span> <span class="fu">lapply</span>(obj_list, <span class="st">&quot;[[&quot;</span>, download)</span>
-<span id="cb21-13"><a href="case-studies.html#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Note the implicit return, no return statement needed</span></span>
-<span id="cb21-14"><a href="case-studies.html#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># last un-assigned statement is returned from the function</span></span>
-<span id="cb21-15"><a href="case-studies.html#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(<span class="fu">seq_along</span>(img_urls), <span class="cf">function</span>(x) {</span>
-<span id="cb21-16"><a href="case-studies.html#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">download.file</span>(img_urls[[x]],</span>
-<span id="cb21-17"><a href="case-studies.html#cb21-17" aria-hidden="true" tabindex="-1"></a>                  <span class="at">destfile =</span> <span class="fu">sprintf</span>(<span class="st">&quot;data/image_%d.jpg&quot;</span>, x)</span>
-<span id="cb21-18"><a href="case-studies.html#cb21-18" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb21-19"><a href="case-studies.html#cb21-19" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb21-20"><a href="case-studies.html#cb21-20" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-21"><a href="case-studies.html#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-22"><a href="case-studies.html#cb21-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-23"><a href="case-studies.html#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Use the Wrapper</span></span>
-<span id="cb21-24"><a href="case-studies.html#cb21-24" aria-hidden="true" tabindex="-1"></a>umbrella_ids <span class="ot">&lt;-</span> <span class="fu">search_met</span>(<span class="st">&quot;umbrella&quot;</span>)</span>
-<span id="cb21-25"><a href="case-studies.html#cb21-25" aria-hidden="true" tabindex="-1"></a>umbrella_ids</span>
-<span id="cb21-26"><a href="case-studies.html#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="fu">download_met_images_by_id</span>(umbrella_ids<span class="sc">$</span>objectIDs[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
-<p>Many services such as Google Cloud, AWS, your university library,
-your favorite social media account or your local metro operator provide an API.
-Often, in the case of data providers there are even API wrapper packages around for
-the most popular programming with data languages. For example the KOF Swiss Economic Institute
-provides an API Wrapper package called {kofdata}. The even has an API wrapper to access large parts of their
-entire economic database. The R package is called {OECD}. A good way to learn more about creating API wrappers
-is to look in to the source code of these packages.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="case-studies.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kofdata)</span>
-<span id="cb22-2"><a href="case-studies.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># just for viz</span></span>
-<span id="cb22-3"><a href="case-studies.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tstools)</span>
-<span id="cb22-4"><a href="case-studies.html#cb22-4" aria-hidden="true" tabindex="-1"></a>tsl <span class="ot">&lt;-</span> <span class="fu">get_time_series</span>(<span class="st">&quot;ch.kof.barometer&quot;</span>)</span>
-<span id="cb22-5"><a href="case-studies.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tsplot</span>(tsl)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="case-studies.html#cb23-1" aria-hidden="true" tabindex="-1"></a>download_met_images_by_id <span class="ot">&lt;-</span> <span class="cf">function</span>(ids,</span>
+<span id="cb23-2"><a href="case-studies.html#cb23-2" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">download =</span> <span class="st">&quot;primaryImage&quot;</span>) {</span>
+<span id="cb23-3"><a href="case-studies.html#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Obtain meta description objects from MET API</span></span>
+<span id="cb23-4"><a href="case-studies.html#cb23-4" aria-hidden="true" tabindex="-1"></a>  obj_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(ids, <span class="cf">function</span>(x) {</span>
+<span id="cb23-5"><a href="case-studies.html#cb23-5" aria-hidden="true" tabindex="-1"></a>    req <span class="ot">&lt;-</span> <span class="fu">download.file</span>(<span class="fu">sprintf</span>(<span class="st">&quot;https://collectionapi.metmuseum.org/public/collection/v1/objects/%d&quot;</span>,</span>
+<span id="cb23-6"><a href="case-studies.html#cb23-6" aria-hidden="true" tabindex="-1"></a>                   x),<span class="at">destfile =</span> <span class="st">&quot;temp.json&quot;</span>)</span>
+<span id="cb23-7"><a href="case-studies.html#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fromJSON</span>(<span class="st">&quot;temp.json&quot;</span>)</span>
+<span id="cb23-8"><a href="case-studies.html#cb23-8" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb23-9"><a href="case-studies.html#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="case-studies.html#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract the list elements that contains</span></span>
+<span id="cb23-11"><a href="case-studies.html#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># img URLs in order to pass it to the download function</span></span>
+<span id="cb23-12"><a href="case-studies.html#cb23-12" aria-hidden="true" tabindex="-1"></a>  img_urls <span class="ot">&lt;-</span> <span class="fu">lapply</span>(obj_list, <span class="st">&quot;[[&quot;</span>, download)</span>
+<span id="cb23-13"><a href="case-studies.html#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Note the implicit return, no return statement needed</span></span>
+<span id="cb23-14"><a href="case-studies.html#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># last un-assigned statement is returned from the function</span></span>
+<span id="cb23-15"><a href="case-studies.html#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(<span class="fu">seq_along</span>(img_urls), <span class="cf">function</span>(x) {</span>
+<span id="cb23-16"><a href="case-studies.html#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">download.file</span>(img_urls[[x]],</span>
+<span id="cb23-17"><a href="case-studies.html#cb23-17" aria-hidden="true" tabindex="-1"></a>                  <span class="at">destfile =</span> <span class="fu">sprintf</span>(<span class="st">&quot;data/image_%d.jpg&quot;</span>, x)</span>
+<span id="cb23-18"><a href="case-studies.html#cb23-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb23-19"><a href="case-studies.html#cb23-19" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb23-20"><a href="case-studies.html#cb23-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-21"><a href="case-studies.html#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-22"><a href="case-studies.html#cb23-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-23"><a href="case-studies.html#cb23-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Use the Wrapper</span></span>
+<span id="cb23-24"><a href="case-studies.html#cb23-24" aria-hidden="true" tabindex="-1"></a>umbrella_ids <span class="ot">&lt;-</span> <span class="fu">search_met</span>(<span class="st">&quot;umbrella&quot;</span>)</span>
+<span id="cb23-25"><a href="case-studies.html#cb23-25" aria-hidden="true" tabindex="-1"></a>umbrella_ids</span>
+<span id="cb23-26"><a href="case-studies.html#cb23-26" aria-hidden="true" tabindex="-1"></a><span class="fu">download_met_images_by_id</span>(umbrella_ids<span class="sc">$</span>objectIDs[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
+</div>
 </div>
 <div id="create-your-own-api" class="section level2" number="6.2">
 <h2 number="6.2"><span class="header-section-number">6.2</span> Create Your Own API</h2>
+<p>Being able to expose data is a go-to skill in order to make research reproducible and credible. Especially when data get complex and require thorough description in order to remain reproducible for others, a programmtic, machine readable approach is the way to go.</p>
+<div id="github-to-serve-static-files" class="section level3" number="6.2.1">
+<h3 number="6.2.1"><span class="header-section-number">6.2.1</span> GitHub to Serve Static Files</h3>
+<p>Exposing your data through an API is not something you would need a software engineer or an own server infrastructure for. Simply hosting a bunch of .csv spreadsheet alongside a good description (in separate files!!) on, e.g., GitHub for free can be an easy highly available solution to serve static files.</p>
+<p>The KOF High Frequency Economic Monitoring dashboard simply shares standardized .csv (data) and .json (description) files based on a Github.</p>
+<p>INSERT SCREENSHOT OF GITHUB HERE</p>
+<p>To make it look at little niftier, the dashboard uses a quasar frontend to guide the human user, but it would not be necessary to have such a framework.</p>
+<p>INSERT SCREENSHOT OF KOFDATA HERE</p>
 </div>
-<div id="basic-parallel-programming" class="section level2" number="6.3">
-<h2 number="6.3"><span class="header-section-number">6.3</span> Basic Parallel Programming</h2>
+<div id="simple-dynamic-apis" class="section level3" number="6.2.2">
+<h3 number="6.2.2"><span class="header-section-number">6.2.2</span> Simple Dynamic APIs</h3>
+<p>Even going past serving static files, does not require much software development expertise.
+Thanks to frameworks such as express.js or the {plumbr} it easy to create an API that turns a URL into a server side action and returns a result.</p>
+<p>Assume you’ve installed node.js already, you can set up a simple API on your local computer just like this.</p>
+<pre><code># run initialization in a dedicated folder
+mkdir api
+cd api
+npm init</code></pre>
+<p>just sleep walk through the interactive dialog accepting all defaults. Once done, add install express using the npm package manager.</p>
+<pre><code>npm install express --save</code></pre>
 </div>
-<div id="the-shiny-web-application-framework" class="section level2" number="6.4">
-<h2 number="6.4"><span class="header-section-number">6.4</span> The Shiny Web Application Framework</h2>
 </div>
-<div id="spatial-visualization-with-leaflet-and-open-streetmap" class="section level2" number="6.5">
-<h2 number="6.5"><span class="header-section-number">6.5</span> Spatial Visualization with Leaflet and Open Streetmap</h2>
+<div id="a-minimal-webscraper-extracting-publication-dates" class="section level2" number="6.3">
+<h2 number="6.3"><span class="header-section-number">6.3</span> A Minimal Webscraper: Extracting Publication Dates</h2>
+<p>Even though KOF Swiss Economic Institute offers a REST API to consume publicly available data, publication dates are unfortunately not available through in API just yet. Hence, in order to automate data consumption based on varying publication dates, we need to extract upcoming publication dates of the Barometer from KOF’s media release calendar. Fortunately all future releases are presented online an easy-to-scrape table. So here’s the plan:</p>
+<ol style="list-style-type: decimal">
+<li><p>Use Google Chrome’s <em>inspect element</em> developer feature to find the X-Path (location in the Document Object Model) of the table.</p></li>
+<li><p>Read the web page into R using <code>rvest</code>.</p></li>
+<li><p>Copy the X-Path string to R to turn the table into a data.frame</p></li>
+<li><p>use a regular expression to filter the description for what we need.</p></li>
+</ol>
+<p>Let’s take a look at our starting point, the media releases sub page, first.</p>
+<p><img src="docs/agenda.png"></p>
+<p>The website looks fairly simple and the jackpot is not hard, presented in a table
+right in front of us. Can’t you smell the data.frame already?</p>
+<p>Right click the table to see a Chrome context window pop up. Select <em>inspect</em>.</p>
+<p><img src="docs/inspect.png"></p>
+<p>Hover over the blue line in the source code at the bottom. Make sure the selected line marks the table. Right click again,
+select copy -&gt; copy X-Path.</p>
+<p><img src="docs/xpath.png"></p>
+<p>On to R!</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="case-studies.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb26-2"><a href="case-studies.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># URL of the media release subsite</span></span>
+<span id="cb26-3"><a href="case-studies.html#cb26-3" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://kof.ethz.ch/news-und-veranstaltungen/medien/medienagenda.html&quot;</span></span>
+<span id="cb26-4"><a href="case-studies.html#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="case-studies.html#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the DOM object from the path we&#39;ve previously detected using </span></span>
+<span id="cb26-6"><a href="case-studies.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Chrome&#39;s inspect feature</span></span>
+<span id="cb26-7"><a href="case-studies.html#cb26-7" aria-hidden="true" tabindex="-1"></a>table_list <span class="ot">&lt;-</span> url <span class="sc">%&gt;%</span></span>
+<span id="cb26-8"><a href="case-studies.html#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_html</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb26-9"><a href="case-studies.html#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_nodes</span>(<span class="at">xpath =</span> <span class="st">&#39;//*[@id=&quot;contentMain&quot;]/div[2]/div/div[3]/div/div/div/div/div/div/table&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb26-10"><a href="case-studies.html#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># turn the HTML table into an R data.frame</span></span>
+<span id="cb26-11"><a href="case-studies.html#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">html_table</span>()</span>
+<span id="cb26-12"><a href="case-studies.html#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-13"><a href="case-studies.html#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co"># because the above result may potentially contain multiple tables, we just use </span></span>
+<span id="cb26-14"><a href="case-studies.html#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co"># the first table. We know from visual inspection of the site that this is the</span></span>
+<span id="cb26-15"><a href="case-studies.html#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co"># right table. </span></span>
+<span id="cb26-16"><a href="case-studies.html#cb26-16" aria-hidden="true" tabindex="-1"></a>agenda_table <span class="ot">&lt;-</span> table_list[[<span class="dv">1</span>]]</span>
+<span id="cb26-17"><a href="case-studies.html#cb26-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-18"><a href="case-studies.html#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="co"># extract KOF barometer lines</span></span>
+<span id="cb26-19"><a href="case-studies.html#cb26-19" aria-hidden="true" tabindex="-1"></a>pub_date <span class="ot">&lt;-</span> agenda_table[<span class="fu">grep</span>(<span class="st">&quot;barometer&quot;</span>,agenda_table<span class="sc">$</span>X3),]</span>
+<span id="cb26-20"><a href="case-studies.html#cb26-20" aria-hidden="true" tabindex="-1"></a>pub_date</span></code></pre></div>
+<pre><code>##          X1   X2                      X3 X4              X5
+## 5  30. Sep. 9:00 KOF Konjunkturbarometer    Kalendereintrag
+## 12 29. Okt. 9:00 KOF Konjunkturbarometer    Kalendereintrag
+## 18 30. Nov. 9:00 KOF Konjunkturbarometer    Kalendereintrag
+## 24 30. Dez. 9:00 KOF Konjunkturbarometer    Kalendereintrag</code></pre>
+<p>Yay! We got everything we wanted. Ready to process.</p>
+</div>
+<div id="automate-script-execution-a-github-actions-example" class="section level2" number="6.4">
+<h2 number="6.4"><span class="header-section-number">6.4</span> Automate Script Execution: A GitHub Actions Example</h2>
+</div>
+<div id="articles-presentations-reports-and-websites-w-markdown-and-rmarkdown" class="section level2" number="6.5">
+<h2 number="6.5"><span class="header-section-number">6.5</span> Articles, Presentations, Reports and Websites /w Markdown and RMarkdown</h2>
+<p>Working with data asks for reproducible reports, presentations and articles that can be rendered to accessible, screenreader friendly online output as well as more traditional, print minded PDF output.
+This case study explains how to create documents like this book, a presentation for a conference or simple, static reporting minded websites.</p>
+<p><em>Markdown</em> is simple language based approach that can handle all of these tasks and allows for automation at the same time. Automation of document rendering does not only save time, it also ensures reproducibility across different machines. The name <em>Markdown</em> is a wordplay as <em>Markdown</em> is a simple mark-up language, similar to HTML or LaTeX but with a much much simpler syntax.
+<em>Markdown</em> helps users to format plain text using reserved characters. For example, a set of ** at the beginning and at the end of a word, sentence or paragraph lets everything wrapped in between these double asterisk appear <strong>bold</strong>, wrapping text in a single * asterisk makes the wrapped text <em>italic</em>. <em>Markdown</em> has become so ubiquitous that websites such as GitHub, discussion boards or Q&amp;A sites allow users who post online to use <em>Markdown</em> to format their text.</p>
+<p>Various rendering engines can render <em>Markdown</em> into HTML, PDF or even MS Word output. Often <a href="https://pandoc.org/">pandoc</a> is a popular driver as a universal document converter under the hood. Programming languages such as Python and R have embraced <em>Markdown</em> based reporting to mingle descriptive plain text with code in order to execute the code at render time and fit tables, figures and even animations into reports. <a href="https://jupyter.org/">Jupyter notebooks</a> is an interactive Python based example. In the R ecosystem the approach is slightly different and is called <em>knitting</em> which is why the corresponding package is called <a href="https://yihui.org/knitr/">knitr</a>. In the meantinem there is a plethora of packages (with great documentation that I won’t c&amp;p here but refer to) for different flavors of output: {<a href="">bookdown</a>} for online books such as this one, {<a href="">pkgdown</a>} for documenting your own R package or {<a href="">blogdown</a>} to run your own markdown based blog (hosted for free on, e.g., GitHub). In addition to these “main diagonal” packages, there smaller gems such as the {<a href="">postcard</a>} package to get a mini personal website up in a few minutes.</p>
+<ul>
+<li><a href=""><em>Markdown</em> source of this particular site that you are reading here</a>.</li>
+<li><a href=""><em>Markdown</em> source of a presentation slides</a></li>
+</ul>
+<p>INSERT SKETCH HERE</p>
+</div>
+<div id="web-application-w-the-shiny-framework" class="section level2" number="6.6">
+<h2 number="6.6"><span class="header-section-number">6.6</span> Web Application /w the Shiny Framework</h2>
+<p>Fancy dashboards and the promise of an easy to use way to create dynamic web applications have made the {shiny} R package one of the most frequent items on data people’s bucket list of things to learn.
+In the meantime {shiny} has gathered an entire ecosystem of helper packages, e.g., to boilerplate applications or to make use of other frontend frameworks through {shiny}. This case studies intends to de-mystify the package and to explain basic concepts, but no rewrite its great documentation or blogs and books around {shiny}.</p>
+<p>The code for a {shiny} app can live in a single file, but for the sake of illustrating the concept I will use two files here: a frontend file called ui.R and a backend file called server.R. If we follow this convention and put both files into one folder a the shiny runtime</p>
+<div id="frontend-ui.r" class="section level3" number="6.6.1">
+<h3 number="6.6.1"><span class="header-section-number">6.6.1</span> Frontend: ui.R</h3>
+<p>INSERT JOHNNY BRAVO HERE. MAYBE I AM LATE BUT I LOOK GOOD.</p>
+<p>In a separation-of-concerns approach, the part of the application which makes sure fonts, figures and tables are neatly presented in our web browsers is called the <em>frontend</em>. The markup-language <strong>HTML</strong> has been taking care of this for decades and therefore has been associated with web programming even though it is not a programming language, but rather a language that helps to format and position things – very much like LaTeX. To make it easier to implement entire styles, e.g., corporate design, <strong>CSS</strong> has been around as HTML’s partner for several decades. The trio is completed by the <strong>Javascript</strong> programming language which went from messy scripting language to being used everywhere. In web frontends it’s mainly used to make things dynamic by modifying the so-called DOM, i.e., the tree like structure of HTML while the page is already rendered and being displayed in our browsers.</p>
+<p>So what has the {shiny} R package to do with all of this? {shiny} makes sure you do not have to care about the above if you do not want to. Abstracting HTML/CSS/JS way from the developer leads varying opinions about {shiny} which maybe very confusing for the novice. The R world mostly loves while application developers don’t get the hype (if they know the {shiny} framework at all).</p>
+<p>However, {shiny} is a great opportunity to create beautiful state-of-the-art web applications w/o learning a set of new languages if you come out of of the data corner. As part of this process {shiny} helps developers organize their code into backend and frontend code, something not necessarily common for people for rather program with data as opposed to application developers. A graphical user interfaces (GUI) let alone user experience (UX) is a beast of its own.</p>
+<p>A frontend ui.R file could look like this</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="case-studies.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span></code></pre></div>
+</div>
+<div id="backend-server.r" class="section level3" number="6.6.2">
+<h3 number="6.6.2"><span class="header-section-number">6.6.2</span> Backend: server.R</h3>
+<p>The server.R files does all the heavy lifting. Computation, file processing, data access it all happens inside the server function. Sometimes you want to change the user interfaces depending on the result of some computation. In this special case the user interface</p>
+</div>
+<div id="quickstart-a-minimal-demo-app" class="section level3" number="6.6.3">
+<h3 number="6.6.3"><span class="header-section-number">6.6.3</span> Quickstart: A Minimal Demo App</h3>
+<p>If want to you catch a glimpse of {shiny} running on your own computer asap, simply install the {shiny} R package and run the following single file application.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="case-studies.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="cb29-2"><a href="case-studies.html#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="case-studies.html#cb29-3" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb29-4"><a href="case-studies.html#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mainPanel</span>(</span>
+<span id="cb29-5"><a href="case-studies.html#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plotOutput</span>(<span class="st">&quot;rndtest&quot;</span>),</span>
+<span id="cb29-6"><a href="case-studies.html#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sliderInput</span>(<span class="st">&quot;rnd_n&quot;</span>,<span class="st">&quot;Number of Observations&quot;</span>,<span class="dv">1</span>,<span class="dv">1000</span>,<span class="dv">100</span>)</span>
+<span id="cb29-7"><a href="case-studies.html#cb29-7" aria-hidden="true" tabindex="-1"></a>  )  </span>
+<span id="cb29-8"><a href="case-studies.html#cb29-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-9"><a href="case-studies.html#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="case-studies.html#cb29-10" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output, session) {</span>
+<span id="cb29-11"><a href="case-studies.html#cb29-11" aria-hidden="true" tabindex="-1"></a>  output<span class="sc">$</span>rndtest <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb29-12"><a href="case-studies.html#cb29-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(<span class="fu">rnorm</span>(input<span class="sc">$</span>rnd_n))</span>
+<span id="cb29-13"><a href="case-studies.html#cb29-13" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb29-14"><a href="case-studies.html#cb29-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-15"><a href="case-studies.html#cb29-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-16"><a href="case-studies.html#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(ui, server)</span></code></pre></div>
+<p>Running the code will fire up a shiny server and a separate session on tha server to run your app on your local computer. Your development server is up an running and will react to many changes on the fly w/o having to restart the server for the changes to come into effect.</p>
+</div>
+<div id="hosting-make-apps-available-online" class="section level3" number="6.6.4">
+<h3 number="6.6.4"><span class="header-section-number">6.6.4</span> Hosting: Make Apps Available Online</h3>
+<p>Though some shiny apps just live happily inside R packages many of them are designed to be shown to a larger public as standalone apps. Examples include for an interactive data visualization or forms to gather input data. There are many reasons to make {shiny} apps available online. In order to do so, you can either host them yourself within your university or company infrastructure or using your favorite cloud provider. The inventors of shiny, the R Studio company also offers hassle free software-as-a-service (SaaS) shiny hosting on shinyapps.io. For a more detailed discussion of on-premise (in house hosting) or service based hosting please take a look at the infrastructure section of this book.</p>
+</div>
+</div>
+<div id="spatial-visualization-with-leaflet-and-open-streetmap" class="section level2" number="6.7">
+<h2 number="6.7"><span class="header-section-number">6.7</span> Spatial Visualization with Leaflet and Open Streetmap</h2>
+</div>
+<div id="basic-parallel-programming" class="section level2" number="6.8">
+<h2 number="6.8"><span class="header-section-number">6.8</span> Basic Parallel Programming</h2>
+<p>Here’s an R example using the {microbenchmark} package to check the effect parallel computing on running seasonal adjustment of multiple time series. First let’s set up some demo data: We simply create a list with 1000 elements each of which is the same
+monthly time series about airline passengers from 1949-1960.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="case-studies.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;AirPassengers&quot;</span>)</span>
+<span id="cb30-2"><a href="case-studies.html#cb30-2" aria-hidden="true" tabindex="-1"></a>tsl <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb30-3"><a href="case-studies.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
+<span id="cb30-4"><a href="case-studies.html#cb30-4" aria-hidden="true" tabindex="-1"></a>  tsl[[i]] <span class="ot">&lt;-</span> AirPassengers</span>
+<span id="cb30-5"><a href="case-studies.html#cb30-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Now, let’s load the {seasonal} package and perform a basic seasonal adjustment
+of each of these time series. The first statement performs 1000 adjustments
+sequentially, the second statement uses parallel computing to spread computations across my machines multiple processors. The key take away from this exercise is not the parallel computation itself, but the ability to set up a benchmark.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="case-studies.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(seasonal)</span>
+<span id="cb31-2"><a href="case-studies.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span></code></pre></div>
+<p>Obviously the absolute computation time depends on the hardware used, but also the operating system can be an important factor depending on the task at hand. Even though the combination of algorithm, hardware, operating system and software used for the computation can make assessment a daunting, complex task, easily venturing into expert realm, a basic understanding and a ballpark relation between multiple approaches can carry you a long way.</p>
 
 </div>
 </div>
@@ -323,7 +490,7 @@ is to look in to the source code of these packages.</p>
         </div>
       </div>
 <a href="infrastructure.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="appendix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="connect-with-the-developer-community.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -24,7 +24,7 @@
 <meta name="author" content="Matthias Bannert" />
 
 
-<meta name="date" content="2020-12-09" />
+<meta name="date" content="2021-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -59,6 +59,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -147,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#ide"><i class="fa fa-check"></i><b>3.2</b> IDE</a></li>
 <li class="chapter" data-level="3.3" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#version-control"><i class="fa fa-check"></i><b>3.3</b> Version Control</a></li>
 <li class="chapter" data-level="3.4" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#database-relational-vs.-non-relational"><i class="fa fa-check"></i><b>3.4</b> Database: Relational vs. Non-Relational</a></li>
-<li class="chapter" data-level="3.5" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#single-purpose-environments"><i class="fa fa-check"></i><b>3.5</b> Single Purpose Environments</a></li>
+<li class="chapter" data-level="3.5" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#environments-where-should-i-run-stuff"><i class="fa fa-check"></i><b>3.5</b> Environments: Where Should I Run Stuff ?</a></li>
 <li class="chapter" data-level="3.6" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#communication"><i class="fa fa-check"></i><b>3.6</b> Communication</a></li>
 <li class="chapter" data-level="3.7" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#automation"><i class="fa fa-check"></i><b>3.7</b> Automation</a></li>
 </ul></li>
@@ -176,18 +177,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="infrastructure.html"><a href="infrastructure.html"><i class="fa fa-check"></i><b>5</b> Infrastructure</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="infrastructure.html"><a href="infrastructure.html#benchmarking"><i class="fa fa-check"></i><b>5.1</b> Benchmarking</a></li>
-<li class="chapter" data-level="5.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost"><i class="fa fa-check"></i><b>5.2</b> Your Local Machine / localhost</a></li>
-<li class="chapter" data-level="5.3" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>5.3</b> Virtual Machines</a></li>
-<li class="chapter" data-level="5.4" data-path="infrastructure.html"><a href="infrastructure.html#docker"><i class="fa fa-check"></i><b>5.4</b> Docker</a></li>
-<li class="chapter" data-level="5.5" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>5.5</b> Cloud Computing</a></li>
+<li class="chapter" data-level="5.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost-its-not-always-about-computing-power"><i class="fa fa-check"></i><b>5.2</b> Your Local Machine / localhost (It’s NOT always about Computing Power!)</a></li>
+<li class="chapter" data-level="5.3" data-path="infrastructure.html"><a href="infrastructure.html#where-should-i-host"><i class="fa fa-check"></i><b>5.3</b> Where Should I Host?</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>5.3.1</b> Cloud Computing</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="infrastructure.html"><a href="infrastructure.html#software-as-a-service-saas"><i class="fa fa-check"></i><b>5.4</b> Software as a Service (SaaS)</a></li>
+<li class="chapter" data-level="5.5" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>5.5</b> Virtual Machines</a></li>
+<li class="chapter" data-level="5.6" data-path="infrastructure.html"><a href="infrastructure.html#docker-containers"><i class="fa fa-check"></i><b>5.6</b> Docker (Containers)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>6</b> Case Studies</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="case-studies.html"><a href="case-studies.html#application-programming-interfaces-api"><i class="fa fa-check"></i><b>6.1</b> Application Programming Interfaces (API)</a></li>
-<li class="chapter" data-level="6.2" data-path="case-studies.html"><a href="case-studies.html#create-your-own-api"><i class="fa fa-check"></i><b>6.2</b> Create Your Own API</a></li>
-<li class="chapter" data-level="6.3" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>6.3</b> Basic Parallel Programming</a></li>
-<li class="chapter" data-level="6.4" data-path="case-studies.html"><a href="case-studies.html#the-shiny-web-application-framework"><i class="fa fa-check"></i><b>6.4</b> The Shiny Web Application Framework</a></li>
-<li class="chapter" data-level="6.5" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>6.5</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
+<li class="chapter" data-level="6.1" data-path="case-studies.html"><a href="case-studies.html#consuming-apis"><i class="fa fa-check"></i><b>6.1</b> Consuming APIs</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="case-studies.html"><a href="case-studies.html#example-1-the-kofdata-r-package"><i class="fa fa-check"></i><b>6.1.1</b> Example 1: The {kofdata} R package</a></li>
+<li class="chapter" data-level="6.1.2" data-path="case-studies.html"><a href="case-studies.html#example-2-the-oecd-r-package"><i class="fa fa-check"></i><b>6.1.2</b> Example 2: The {OECD} R package</a></li>
+<li class="chapter" data-level="6.1.3" data-path="case-studies.html"><a href="case-studies.html#build-your-own-api-wrapper"><i class="fa fa-check"></i><b>6.1.3</b> Build Your Own API Wrapper</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="case-studies.html"><a href="case-studies.html#create-your-own-api"><i class="fa fa-check"></i><b>6.2</b> Create Your Own API</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="case-studies.html"><a href="case-studies.html#github-to-serve-static-files"><i class="fa fa-check"></i><b>6.2.1</b> GitHub to Serve Static Files</a></li>
+<li class="chapter" data-level="6.2.2" data-path="case-studies.html"><a href="case-studies.html#simple-dynamic-apis"><i class="fa fa-check"></i><b>6.2.2</b> Simple Dynamic APIs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="case-studies.html"><a href="case-studies.html#a-minimal-webscraper-extracting-publication-dates"><i class="fa fa-check"></i><b>6.3</b> A Minimal Webscraper: Extracting Publication Dates</a></li>
+<li class="chapter" data-level="6.4" data-path="case-studies.html"><a href="case-studies.html#automate-script-execution-a-github-actions-example"><i class="fa fa-check"></i><b>6.4</b> Automate Script Execution: A GitHub Actions Example</a></li>
+<li class="chapter" data-level="6.5" data-path="case-studies.html"><a href="case-studies.html#articles-presentations-reports-and-websites-w-markdown-and-rmarkdown"><i class="fa fa-check"></i><b>6.5</b> Articles, Presentations, Reports and Websites /w Markdown and RMarkdown</a></li>
+<li class="chapter" data-level="6.6" data-path="case-studies.html"><a href="case-studies.html#web-application-w-the-shiny-framework"><i class="fa fa-check"></i><b>6.6</b> Web Application /w the Shiny Framework</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="case-studies.html"><a href="case-studies.html#frontend-ui.r"><i class="fa fa-check"></i><b>6.6.1</b> Frontend: ui.R</a></li>
+<li class="chapter" data-level="6.6.2" data-path="case-studies.html"><a href="case-studies.html#backend-server.r"><i class="fa fa-check"></i><b>6.6.2</b> Backend: server.R</a></li>
+<li class="chapter" data-level="6.6.3" data-path="case-studies.html"><a href="case-studies.html#quickstart-a-minimal-demo-app"><i class="fa fa-check"></i><b>6.6.3</b> Quickstart: A Minimal Demo App</a></li>
+<li class="chapter" data-level="6.6.4" data-path="case-studies.html"><a href="case-studies.html#hosting-make-apps-available-online"><i class="fa fa-check"></i><b>6.6.4</b> Hosting: Make Apps Available Online</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>6.7</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
+<li class="chapter" data-level="6.8" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>6.8</b> Basic Parallel Programming</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html"><i class="fa fa-check"></i><b>7</b> Connect with the Developer Community</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#stay-up-to-date-and-a-vastly-evolving-field-social-media"><i class="fa fa-check"></i><b>7.1</b> Stay up to Date and a Vastly Evolving Field – Social Media</a></li>
+<li class="chapter" data-level="7.2" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#get-an-account-at-stackoverflow.com"><i class="fa fa-check"></i><b>7.2</b> Get an Account at Stackoverflow.com</a></li>
+<li class="chapter" data-level="7.3" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#attend-conferences---online-can-be-a-good-option"><i class="fa fa-check"></i><b>7.3</b> Attend Conferences - Online Can Be a Good Option !</a></li>
+<li class="chapter" data-level="7.4" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#join-slack-spaces-or-other-chats"><i class="fa fa-check"></i><b>7.4</b> Join Slack Spaces (or other Chats)</a></li>
+<li class="chapter" data-level="7.5" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#look-for-local-community-group"><i class="fa fa-check"></i><b>7.5</b> Look for Local Community Group</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
@@ -383,13 +414,16 @@ The <em>diff</em> output shows an edit during the writing of this book. The line
 <p>No-SQL databases are the anti establishment, anti standard approach. <a href="https://www.mongodb.com">MongoDB</a> may be the best marketed among the rebels. Before you start to sympathize with latter approach because the wording of my last to sentences, let’s stop here. Large infrastructure players make the case for non-relational stores like CouchDB or Amazon Redshift Database, but trust me, those are unlikely the first things you get to run when your research grows out of Excel. If your are not happy with the ‘beyond-the-scope-of-this-book’ argument, blogging experts like <a href="https://blog.jooq.org/tag/nosql/">Lukas Eder</a> maybe biased but much better educated to educate you here. The idea of this chapter is just to help you group all the database management systems you might face soon as a researchers.</p>
 <p>The good news is, languages like R and Python are so well equipped to interface with a plethora of databases. So well, that I often recommend these languages to researchers who work with other less equipped tools, solely as an intermediate layer. And if there is really no database extension around for your language, a general <a href="https://en.wikipedia.org/wiki/Open_Database_Connectivity">ODBC</a> interface helps – at least for SQL databases.</p>
 </div>
-<div id="single-purpose-environments" class="section level2" number="3.5">
-<h2 number="3.5"><span class="header-section-number">3.5</span> Single Purpose Environments</h2>
-<p>Though a bit out of fashion and somewhat different, virtual machines are good starting point to explain single purpose container environments such as <a href="https://www.docker.com/why-docker">docker</a>. A virtual machine (VM) is basically a computer in a computer, like a Linux environment running on your Windows notebook. Oracle’s free <a href="https://www.virtualbox.org/">Virtual Box</a> is the most popular piece of free software to easily install another operating system inside your local computer’s host OS.</p>
-<p>While VMs are still common and one can potentially have lots of images for different purposes, images are too heavyweight and take to long to boot to be the go-to solution for many application developers. Hence so-called containers that run within a container host and fire up within seconds have become popular as single purpose environments.</p>
-<p>The most popular of them all is <em>docker</em> which allows users to configure an environment in a <em>Dockerfile</em> (essentially a text file) including the operating system and software packages installed in the container. The text file can either be used to create a <em>docker image</em> which is kind of a blueprint for a container. Containers run inside a docker host and can either be used interactively or in a batch which executes a single task in an environment specifically built for this task.</p>
-<p>One of the reasons why docker is attractive to researchers is its open character: Dockerfiles are a good way to share a configuration in a simple, reproducible script, making it easy to reproduce. Less experienced researchers can benefit from <a href="https://hub.docker.com/">Dockerhub</a> which shares images for a plethora of purposes from mixed data science setups to database configuration. Side Effect free working environments for all sorts of task can especially be appealing to developers with limited experience in system administration.</p>
-<p>Beside simplification of system administration, <em>docker</em> is known for its ability to work in the cloud. All major cloud hosters offer docker hosts and the ability to deploy docker containers that were previously developed and tested locally. You can also use docker to tackle <a href="appendix.html#glossary">throughput problems</a> using container orchestration tools like <a href="https://docs.docker.com/engine/swarm/swarm-tutorial/">Docker Swarm</a> or <a href="https://kubernetes.io/">K8 (say: Kubernetes)</a> to run hundreds of containers (depending on your virtual resources).</p>
+<div id="environments-where-should-i-run-stuff" class="section level2" number="3.5">
+<h2 number="3.5"><span class="header-section-number">3.5</span> Environments: Where Should I Run Stuff ?</h2>
+<p>But what if you do not want to run your stuff locally? Maybe because you want to expose a web application or site which has to be online 24/7. Maybe because you do not more additional computing power.</p>
+<p>In principle there are four options.</p>
+<ol style="list-style-type: decimal">
+<li><p>Bare Metal. Buy hardware, hook it up with the internet, install your software, have fun. If you have a consistantly high usage rate and can maintain the server efficiently, this is likely the cheapest computing hour. You saw that <em>if</em>, didn’t you?</p></li>
+<li><p>Either use physical or virtual hardware and make your local IT department host your service <strong>on-premise</strong> (inhouse). You will give up a little bit of your flexible in exchange for help with maintenance and server administration.</p></li>
+<li><p>Cloud Computing.</p></li>
+<li><p>Software-as-a-Service</p></li>
+</ol>
 </div>
 <div id="communication" class="section level2" number="3.6">
 <h2 number="3.6"><span class="header-section-number">3.6</span> Communication</h2>

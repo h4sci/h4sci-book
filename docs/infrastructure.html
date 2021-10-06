@@ -24,7 +24,7 @@
 <meta name="author" content="Matthias Bannert" />
 
 
-<meta name="date" content="2020-12-09" />
+<meta name="date" content="2021-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -59,6 +59,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -147,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#ide"><i class="fa fa-check"></i><b>3.2</b> IDE</a></li>
 <li class="chapter" data-level="3.3" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#version-control"><i class="fa fa-check"></i><b>3.3</b> Version Control</a></li>
 <li class="chapter" data-level="3.4" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#database-relational-vs.-non-relational"><i class="fa fa-check"></i><b>3.4</b> Database: Relational vs. Non-Relational</a></li>
-<li class="chapter" data-level="3.5" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#single-purpose-environments"><i class="fa fa-check"></i><b>3.5</b> Single Purpose Environments</a></li>
+<li class="chapter" data-level="3.5" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#environments-where-should-i-run-stuff"><i class="fa fa-check"></i><b>3.5</b> Environments: Where Should I Run Stuff ?</a></li>
 <li class="chapter" data-level="3.6" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#communication"><i class="fa fa-check"></i><b>3.6</b> Communication</a></li>
 <li class="chapter" data-level="3.7" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#automation"><i class="fa fa-check"></i><b>3.7</b> Automation</a></li>
 </ul></li>
@@ -176,18 +177,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="infrastructure.html"><a href="infrastructure.html"><i class="fa fa-check"></i><b>5</b> Infrastructure</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="infrastructure.html"><a href="infrastructure.html#benchmarking"><i class="fa fa-check"></i><b>5.1</b> Benchmarking</a></li>
-<li class="chapter" data-level="5.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost"><i class="fa fa-check"></i><b>5.2</b> Your Local Machine / localhost</a></li>
-<li class="chapter" data-level="5.3" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>5.3</b> Virtual Machines</a></li>
-<li class="chapter" data-level="5.4" data-path="infrastructure.html"><a href="infrastructure.html#docker"><i class="fa fa-check"></i><b>5.4</b> Docker</a></li>
-<li class="chapter" data-level="5.5" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>5.5</b> Cloud Computing</a></li>
+<li class="chapter" data-level="5.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost-its-not-always-about-computing-power"><i class="fa fa-check"></i><b>5.2</b> Your Local Machine / localhost (It’s NOT always about Computing Power!)</a></li>
+<li class="chapter" data-level="5.3" data-path="infrastructure.html"><a href="infrastructure.html#where-should-i-host"><i class="fa fa-check"></i><b>5.3</b> Where Should I Host?</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>5.3.1</b> Cloud Computing</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="infrastructure.html"><a href="infrastructure.html#software-as-a-service-saas"><i class="fa fa-check"></i><b>5.4</b> Software as a Service (SaaS)</a></li>
+<li class="chapter" data-level="5.5" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>5.5</b> Virtual Machines</a></li>
+<li class="chapter" data-level="5.6" data-path="infrastructure.html"><a href="infrastructure.html#docker-containers"><i class="fa fa-check"></i><b>5.6</b> Docker (Containers)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>6</b> Case Studies</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="case-studies.html"><a href="case-studies.html#application-programming-interfaces-api"><i class="fa fa-check"></i><b>6.1</b> Application Programming Interfaces (API)</a></li>
-<li class="chapter" data-level="6.2" data-path="case-studies.html"><a href="case-studies.html#create-your-own-api"><i class="fa fa-check"></i><b>6.2</b> Create Your Own API</a></li>
-<li class="chapter" data-level="6.3" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>6.3</b> Basic Parallel Programming</a></li>
-<li class="chapter" data-level="6.4" data-path="case-studies.html"><a href="case-studies.html#the-shiny-web-application-framework"><i class="fa fa-check"></i><b>6.4</b> The Shiny Web Application Framework</a></li>
-<li class="chapter" data-level="6.5" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>6.5</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
+<li class="chapter" data-level="6.1" data-path="case-studies.html"><a href="case-studies.html#consuming-apis"><i class="fa fa-check"></i><b>6.1</b> Consuming APIs</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="case-studies.html"><a href="case-studies.html#example-1-the-kofdata-r-package"><i class="fa fa-check"></i><b>6.1.1</b> Example 1: The {kofdata} R package</a></li>
+<li class="chapter" data-level="6.1.2" data-path="case-studies.html"><a href="case-studies.html#example-2-the-oecd-r-package"><i class="fa fa-check"></i><b>6.1.2</b> Example 2: The {OECD} R package</a></li>
+<li class="chapter" data-level="6.1.3" data-path="case-studies.html"><a href="case-studies.html#build-your-own-api-wrapper"><i class="fa fa-check"></i><b>6.1.3</b> Build Your Own API Wrapper</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="case-studies.html"><a href="case-studies.html#create-your-own-api"><i class="fa fa-check"></i><b>6.2</b> Create Your Own API</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="case-studies.html"><a href="case-studies.html#github-to-serve-static-files"><i class="fa fa-check"></i><b>6.2.1</b> GitHub to Serve Static Files</a></li>
+<li class="chapter" data-level="6.2.2" data-path="case-studies.html"><a href="case-studies.html#simple-dynamic-apis"><i class="fa fa-check"></i><b>6.2.2</b> Simple Dynamic APIs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="case-studies.html"><a href="case-studies.html#a-minimal-webscraper-extracting-publication-dates"><i class="fa fa-check"></i><b>6.3</b> A Minimal Webscraper: Extracting Publication Dates</a></li>
+<li class="chapter" data-level="6.4" data-path="case-studies.html"><a href="case-studies.html#automate-script-execution-a-github-actions-example"><i class="fa fa-check"></i><b>6.4</b> Automate Script Execution: A GitHub Actions Example</a></li>
+<li class="chapter" data-level="6.5" data-path="case-studies.html"><a href="case-studies.html#articles-presentations-reports-and-websites-w-markdown-and-rmarkdown"><i class="fa fa-check"></i><b>6.5</b> Articles, Presentations, Reports and Websites /w Markdown and RMarkdown</a></li>
+<li class="chapter" data-level="6.6" data-path="case-studies.html"><a href="case-studies.html#web-application-w-the-shiny-framework"><i class="fa fa-check"></i><b>6.6</b> Web Application /w the Shiny Framework</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="case-studies.html"><a href="case-studies.html#frontend-ui.r"><i class="fa fa-check"></i><b>6.6.1</b> Frontend: ui.R</a></li>
+<li class="chapter" data-level="6.6.2" data-path="case-studies.html"><a href="case-studies.html#backend-server.r"><i class="fa fa-check"></i><b>6.6.2</b> Backend: server.R</a></li>
+<li class="chapter" data-level="6.6.3" data-path="case-studies.html"><a href="case-studies.html#quickstart-a-minimal-demo-app"><i class="fa fa-check"></i><b>6.6.3</b> Quickstart: A Minimal Demo App</a></li>
+<li class="chapter" data-level="6.6.4" data-path="case-studies.html"><a href="case-studies.html#hosting-make-apps-available-online"><i class="fa fa-check"></i><b>6.6.4</b> Hosting: Make Apps Available Online</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>6.7</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
+<li class="chapter" data-level="6.8" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>6.8</b> Basic Parallel Programming</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html"><i class="fa fa-check"></i><b>7</b> Connect with the Developer Community</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#stay-up-to-date-and-a-vastly-evolving-field-social-media"><i class="fa fa-check"></i><b>7.1</b> Stay up to Date and a Vastly Evolving Field – Social Media</a></li>
+<li class="chapter" data-level="7.2" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#get-an-account-at-stackoverflow.com"><i class="fa fa-check"></i><b>7.2</b> Get an Account at Stackoverflow.com</a></li>
+<li class="chapter" data-level="7.3" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#attend-conferences---online-can-be-a-good-option"><i class="fa fa-check"></i><b>7.3</b> Attend Conferences - Online Can Be a Good Option !</a></li>
+<li class="chapter" data-level="7.4" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#join-slack-spaces-or-other-chats"><i class="fa fa-check"></i><b>7.4</b> Join Slack Spaces (or other Chats)</a></li>
+<li class="chapter" data-level="7.5" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#look-for-local-community-group"><i class="fa fa-check"></i><b>7.5</b> Look for Local Community Group</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
@@ -218,32 +249,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Yes, there is a third area besides your research and carpentry level programming
 that I suppose you should get an idea of. Again, you don’t have to master hosting
 servers or even clusters, but a decent overview and an idea of when to use what will
-help you plan ahead tremendously.</p>
+help you tremendously to plan ahead.</p>
 <p>Admittedly, unless your favorite superhero is Inspector Gadget or you
 just always had a knack for Arduinos, Raspberry Pis or the latest beta version
-of the software you use, infrastructure may the one area perceived as overhead by researchers.</p>
+of the software you use, infrastructure may be the one area researcher perceive as overhead.</p>
 <p>Once I was trouble shooting a case in which a colleague was unhappy with the speed gain of using the university’s heralded cluster. It turned out he had passed his behemoth of a computation
 problem on to the login node of the ETH cluster. Unsuprisingly, the bouncer was not
 particularly good at math.</p>
 <p>Before you laugh: Do you know how many cores, how much disk space or RAM your local notebook has?
 I’ve seen many bright researchers who were not able to tell. Note, I am not writing this to make you feel bad or to put you in front of another fat rock. There is a reason why we have sysadmins, database admins and other specialists. I am not asking researchers to become one of those. A lot of developers are lacking a decent understanding of infrastructure, too.</p>
-<p>While specialization has been the story of the last decades in high skilled education, careers and on the labor market, there is a strong case for hybrid profiles. In software development <em>DevOps</em> is such a profile that has become sought after: A software <em>developer</em> with knowledge of <em>operations</em> or a server <em>operator</em> who is able to <em>develop</em> a program.</p>
-<p>Stay tuned for the infrastructure 101 that should help you set something up on your own
-or talk your needs with your organizations HPC group.</p>
+<p>While specialization has been the story of the last decades, there is a strong case for hybrid profiles. In software development, <em>DevOps</em> is such a sought after hybrid profile: A software <em>developer</em> with knowledge of <em>operations</em> or a server <em>operator</em> who is able to <em>develop</em> a program.</p>
+<p>The following section intends to share insights that help you set up a playground for trying out new things, to get a rough idea of computation hours needed or simply to put you in better position to discuss your needs with your organization’s High Performancing Computing (HPC) group.</p>
 <div id="benchmarking" class="section level2" number="5.1">
 <h2 number="5.1"><span class="header-section-number">5.1</span> Benchmarking</h2>
+<p>Benchmarking refers to observation of computation performance in order to evaluate the efficiency of a program or simply to assess the computation hours needed. Also some programs benefit from parallel computing a lot more than others and the effect of speed gains is not always linear. Being able to set up a basic toy example and get a rough idea how long a computation might take is a very valuable skill for an empirical researcher. And it’s up for grabs. Really.</p>
 </div>
-<div id="your-local-machine-localhost" class="section level2" number="5.2">
-<h2 number="5.2"><span class="header-section-number">5.2</span> Your Local Machine / localhost</h2>
+<div id="your-local-machine-localhost-its-not-always-about-computing-power" class="section level2" number="5.2">
+<h2 number="5.2"><span class="header-section-number">5.2</span> Your Local Machine / localhost (It’s NOT always about Computing Power!)</h2>
+<p>A simple benchmark can help to assess whether your local machine, i.e., your desktop or notebook computer may be sufficient for your ‘big’ data project. Maybe some overnight computation with home court advantage is the better solution than an away game in a cloud environment you never worked with before.</p>
+<p>Also, it’s important to understand that it is not always about computing power. Your local computer can be a great testing and development environment for many things, e.g., a report rendering service, a website and many other things that might run elsewhere in production. Many of today’s applications run on some kind of webserver or in a web based architecture. Remember: a server does not necessarily look like a fridge with emergency power supply. It’s just a program that listens. Such a program can run on a fat rack and your little notebook alike which allows you to test an application locally. The popular blog software <em>hugo</em> for example, ships with a little webserver to test things at home before going public.</p>
+<pre><code>hugo serve</code></pre>
+<p>When run inside a folder with a <em>hugo</em> based website, the command spins up a local webserver and exposes the current state
+of the <em>hugo</em> based website through a specific port (1313). This allows the developer to visit the site using their favorite
+web browser while its running on their local machine.</p>
 </div>
-<div id="virtual-machines" class="section level2" number="5.3">
-<h2 number="5.3"><span class="header-section-number">5.3</span> Virtual Machines</h2>
+<div id="where-should-i-host" class="section level2" number="5.3">
+<h2 number="5.3"><span class="header-section-number">5.3</span> Where Should I Host?</h2>
+<p>But what if you do not want to run your stuff locally. Maybe because you want to expose a web application or site which has to be online 24/7. Maybe because you do not more additional computing power.</p>
+<p>In principle there are four options.</p>
+<ol style="list-style-type: decimal">
+<li><p>Bare Metal. Buy hardware, hook it up with the internet, install your software, have fun. If you have a consistantly high usage rate and can maintain the server efficiently, this is likely the cheapest computing hour. You saw that <em>if</em>, didn’t you?</p></li>
+<li><p>Either use physical or virtual hardware and make your local IT department host your service <strong>on-premise</strong> (inhouse). You will give up a little bit of your flexible in exchange for help with maintenance and server administration.</p></li>
+<li><p>Cloud Computing.</p></li>
+<li><p>Software-as-a-Service</p></li>
+</ol>
+<div id="cloud-computing" class="section level3" number="5.3.1">
+<h3 number="5.3.1"><span class="header-section-number">5.3.1</span> Cloud Computing</h3>
+<p>Cloud computing is the on-demand of hosting. It continues to be popular with users looking for storage and computing power, particularly when users have high peaks of usage and low and long valleys of idle time.</p>
+<p>From a business perspective, cloud computing is one of the most compelling business cases of the past few decades. Economies of scale are just tremendous for companies with right (=massive) infrastructure. Amazon who happened to have the infrastructure due to its global retail business developed into one of the leading cloud computing companies turning hosting into one of its fastest growing an most profitable branches.</p>
+<p>For the users, cloud computing is just convenient. Yet, pound-for-pound, if used 24/7 cloud computing ressources are more expensive than traditional hosting. Also, limiting your budget is not trivial especially if you a sharing the costs with multiple stakeholders inside your organization.</p>
 </div>
-<div id="docker" class="section level2" number="5.4">
-<h2 number="5.4"><span class="header-section-number">5.4</span> Docker</h2>
 </div>
-<div id="cloud-computing" class="section level2" number="5.5">
-<h2 number="5.5"><span class="header-section-number">5.5</span> Cloud Computing</h2>
+<div id="software-as-a-service-saas" class="section level2" number="5.4">
+<h2 number="5.4"><span class="header-section-number">5.4</span> Software as a Service (SaaS)</h2>
+</div>
+<div id="virtual-machines" class="section level2" number="5.5">
+<h2 number="5.5"><span class="header-section-number">5.5</span> Virtual Machines</h2>
+<p>Just like any software, tools like <em>hugo</em> have their dependencies. Depending on your operating system and the software you want to run, dependencies may become an issue. Dependencies may cause conflicts with other software or dependencies, e.g., some software might depend on Python 2 while another piece depends on Python 3 and so forth. The more stuff you install, the higher the chances you run into a conflict or some hard to install piece of software.</p>
+<p>One good solution to these issues are Virtual Machines. Virtual Machines can either run locally using software like Oracle’s Virtual Box which allows to run a Virtual Windows or Linux inside Mac OS and vice versa. Running a virtual box locally may not be the most performant solution but it allows to have several test environments without altering one’s main environment.
+In the meantime though, Virtual Machines are mostly known as flexible computation nodes offered by (cloud) hosting providers. Automated, scripted procedures to set and spin up these virtual servers make Virtual Machines a very powerful, reproducible and scaleable approach.</p>
+</div>
+<div id="docker-containers" class="section level2" number="5.6">
+<h2 number="5.6"><span class="header-section-number">5.6</span> Docker (Containers)</h2>
+<p>At the first glimpse containers look very much like Virtual Machines to the practitioner. The difference is that every Virtual Machine has its own operating system while containers use the the host OS to run a container engine on to top of the OS. By doing so containers can be very light weight and may take only a few seconds to spin up while spinning up Virtual Machines can take up to a few minutes - just like booting physical computers. Hence docker containers are often used as single purpose environments: Fire up a container, run a task in that environment, store the results outside of the container and shut down the container again. Docker the most popular containerized solution quickly became the synonym to environments configured in a file. So called docker images are build layer by layer based on other less specific docker images and a DOCKERFILE that holds the ingredients and set up for the next image. The platform dockerhub hosts a plethora of pre-built docker images vom ready-to-go database to Python ML environments or minimal Linux containers to a simple shell script.</p>
+<p>Though a bit out of fashion and somewhat different, virtual machines are good starting point to explain single purpose container environments such as <a href="https://www.docker.com/why-docker">docker</a>. A virtual machine (VM) is basically a computer in a computer, like a Linux environment running on your Windows notebook. Oracle’s free <a href="https://www.virtualbox.org/">Virtual Box</a> is the most popular piece of free software to easily install another operating system inside your local computer’s host OS.</p>
+<p>While VMs are still common and one can potentially have lots of images for different purposes, images are too heavyweight and take to long to boot to be the go-to solution for many application developers. Hence so-called containers that run within a container host and fire up within seconds have become popular as single purpose environments.</p>
+<p>The most popular of them all is <em>docker</em> which allows users to configure an environment in a <em>Dockerfile</em> (essentially a text file) including the operating system and software packages installed in the container. The text file can either be used to create a <em>docker image</em> which is kind of a blueprint for a container. Containers run inside a docker host and can either be used interactively or in a batch which executes a single task in an environment specifically built for this task.</p>
+<p>One of the reasons why docker is attractive to researchers is its open character: Dockerfiles are a good way to share a configuration in a simple, reproducible script, making it easy to reproduce. Less experienced researchers can benefit from <a href="https://hub.docker.com/">Dockerhub</a> which shares images for a plethora of purposes from mixed data science setups to database configuration. Side Effect free working environments for all sorts of task can especially be appealing to developers with limited experience in system administration.</p>
+<p>Beside simplification of system administration, <em>docker</em> is known for its ability to work in the cloud. All major cloud hosters offer docker hosts and the ability to deploy docker containers that were previously developed and tested locally. You can also use docker to tackle <a href="appendix.html#glossary">throughput problems</a> using container orchestration tools like <a href="https://docs.docker.com/engine/swarm/swarm-tutorial/">Docker Swarm</a> or <a href="https://kubernetes.io/">K8 (say: Kubernetes)</a> to run hundreds of containers (depending on your virtual resources).</p>
 
 </div>
 </div>

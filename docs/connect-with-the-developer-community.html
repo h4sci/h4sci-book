@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Hacking for Social Sciences</title>
+  <title>7 Connect with the Developer Community | Hacking for Social Sciences</title>
   <meta name="description" content="The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point researchers to programming approaches who had not considered programming to process data so far. Hacking for Social Sciences and Humanities" />
   <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Hacking for Social Sciences" />
+  <meta property="og:title" content="7 Connect with the Developer Community | Hacking for Social Sciences" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Hacking for Social Sciences" />
+  <meta name="twitter:title" content="7 Connect with the Developer Community | Hacking for Social Sciences" />
   
   <meta name="twitter:description" content="The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point researchers to programming approaches who had not considered programming to process data so far. Hacking for Social Sciences and Humanities" />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Matthias Bannert" />
 
 
-<meta name="date" content="2020-12-09" />
+<meta name="date" content="2021-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introduction-the-choice-that-doesnt-matter.html"/>
+<link rel="prev" href="case-studies.html"/>
+<link rel="next" href="appendix.html"/>
 <script src="libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -59,6 +59,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -147,7 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#ide"><i class="fa fa-check"></i><b>3.2</b> IDE</a></li>
 <li class="chapter" data-level="3.3" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#version-control"><i class="fa fa-check"></i><b>3.3</b> Version Control</a></li>
 <li class="chapter" data-level="3.4" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#database-relational-vs.-non-relational"><i class="fa fa-check"></i><b>3.4</b> Database: Relational vs. Non-Relational</a></li>
-<li class="chapter" data-level="3.5" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#single-purpose-environments"><i class="fa fa-check"></i><b>3.5</b> Single Purpose Environments</a></li>
+<li class="chapter" data-level="3.5" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#environments-where-should-i-run-stuff"><i class="fa fa-check"></i><b>3.5</b> Environments: Where Should I Run Stuff ?</a></li>
 <li class="chapter" data-level="3.6" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#communication"><i class="fa fa-check"></i><b>3.6</b> Communication</a></li>
 <li class="chapter" data-level="3.7" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#automation"><i class="fa fa-check"></i><b>3.7</b> Automation</a></li>
 </ul></li>
@@ -176,18 +177,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="infrastructure.html"><a href="infrastructure.html"><i class="fa fa-check"></i><b>5</b> Infrastructure</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="infrastructure.html"><a href="infrastructure.html#benchmarking"><i class="fa fa-check"></i><b>5.1</b> Benchmarking</a></li>
-<li class="chapter" data-level="5.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost"><i class="fa fa-check"></i><b>5.2</b> Your Local Machine / localhost</a></li>
-<li class="chapter" data-level="5.3" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>5.3</b> Virtual Machines</a></li>
-<li class="chapter" data-level="5.4" data-path="infrastructure.html"><a href="infrastructure.html#docker"><i class="fa fa-check"></i><b>5.4</b> Docker</a></li>
-<li class="chapter" data-level="5.5" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>5.5</b> Cloud Computing</a></li>
+<li class="chapter" data-level="5.2" data-path="infrastructure.html"><a href="infrastructure.html#your-local-machine-localhost-its-not-always-about-computing-power"><i class="fa fa-check"></i><b>5.2</b> Your Local Machine / localhost (It’s NOT always about Computing Power!)</a></li>
+<li class="chapter" data-level="5.3" data-path="infrastructure.html"><a href="infrastructure.html#where-should-i-host"><i class="fa fa-check"></i><b>5.3</b> Where Should I Host?</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="infrastructure.html"><a href="infrastructure.html#cloud-computing"><i class="fa fa-check"></i><b>5.3.1</b> Cloud Computing</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="infrastructure.html"><a href="infrastructure.html#software-as-a-service-saas"><i class="fa fa-check"></i><b>5.4</b> Software as a Service (SaaS)</a></li>
+<li class="chapter" data-level="5.5" data-path="infrastructure.html"><a href="infrastructure.html#virtual-machines"><i class="fa fa-check"></i><b>5.5</b> Virtual Machines</a></li>
+<li class="chapter" data-level="5.6" data-path="infrastructure.html"><a href="infrastructure.html#docker-containers"><i class="fa fa-check"></i><b>5.6</b> Docker (Containers)</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="case-studies.html"><a href="case-studies.html"><i class="fa fa-check"></i><b>6</b> Case Studies</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="case-studies.html"><a href="case-studies.html#application-programming-interfaces-api"><i class="fa fa-check"></i><b>6.1</b> Application Programming Interfaces (API)</a></li>
-<li class="chapter" data-level="6.2" data-path="case-studies.html"><a href="case-studies.html#create-your-own-api"><i class="fa fa-check"></i><b>6.2</b> Create Your Own API</a></li>
-<li class="chapter" data-level="6.3" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>6.3</b> Basic Parallel Programming</a></li>
-<li class="chapter" data-level="6.4" data-path="case-studies.html"><a href="case-studies.html#the-shiny-web-application-framework"><i class="fa fa-check"></i><b>6.4</b> The Shiny Web Application Framework</a></li>
-<li class="chapter" data-level="6.5" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>6.5</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
+<li class="chapter" data-level="6.1" data-path="case-studies.html"><a href="case-studies.html#consuming-apis"><i class="fa fa-check"></i><b>6.1</b> Consuming APIs</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="case-studies.html"><a href="case-studies.html#example-1-the-kofdata-r-package"><i class="fa fa-check"></i><b>6.1.1</b> Example 1: The {kofdata} R package</a></li>
+<li class="chapter" data-level="6.1.2" data-path="case-studies.html"><a href="case-studies.html#example-2-the-oecd-r-package"><i class="fa fa-check"></i><b>6.1.2</b> Example 2: The {OECD} R package</a></li>
+<li class="chapter" data-level="6.1.3" data-path="case-studies.html"><a href="case-studies.html#build-your-own-api-wrapper"><i class="fa fa-check"></i><b>6.1.3</b> Build Your Own API Wrapper</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="case-studies.html"><a href="case-studies.html#create-your-own-api"><i class="fa fa-check"></i><b>6.2</b> Create Your Own API</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="case-studies.html"><a href="case-studies.html#github-to-serve-static-files"><i class="fa fa-check"></i><b>6.2.1</b> GitHub to Serve Static Files</a></li>
+<li class="chapter" data-level="6.2.2" data-path="case-studies.html"><a href="case-studies.html#simple-dynamic-apis"><i class="fa fa-check"></i><b>6.2.2</b> Simple Dynamic APIs</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="case-studies.html"><a href="case-studies.html#a-minimal-webscraper-extracting-publication-dates"><i class="fa fa-check"></i><b>6.3</b> A Minimal Webscraper: Extracting Publication Dates</a></li>
+<li class="chapter" data-level="6.4" data-path="case-studies.html"><a href="case-studies.html#automate-script-execution-a-github-actions-example"><i class="fa fa-check"></i><b>6.4</b> Automate Script Execution: A GitHub Actions Example</a></li>
+<li class="chapter" data-level="6.5" data-path="case-studies.html"><a href="case-studies.html#articles-presentations-reports-and-websites-w-markdown-and-rmarkdown"><i class="fa fa-check"></i><b>6.5</b> Articles, Presentations, Reports and Websites /w Markdown and RMarkdown</a></li>
+<li class="chapter" data-level="6.6" data-path="case-studies.html"><a href="case-studies.html#web-application-w-the-shiny-framework"><i class="fa fa-check"></i><b>6.6</b> Web Application /w the Shiny Framework</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="case-studies.html"><a href="case-studies.html#frontend-ui.r"><i class="fa fa-check"></i><b>6.6.1</b> Frontend: ui.R</a></li>
+<li class="chapter" data-level="6.6.2" data-path="case-studies.html"><a href="case-studies.html#backend-server.r"><i class="fa fa-check"></i><b>6.6.2</b> Backend: server.R</a></li>
+<li class="chapter" data-level="6.6.3" data-path="case-studies.html"><a href="case-studies.html#quickstart-a-minimal-demo-app"><i class="fa fa-check"></i><b>6.6.3</b> Quickstart: A Minimal Demo App</a></li>
+<li class="chapter" data-level="6.6.4" data-path="case-studies.html"><a href="case-studies.html#hosting-make-apps-available-online"><i class="fa fa-check"></i><b>6.6.4</b> Hosting: Make Apps Available Online</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>6.7</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
+<li class="chapter" data-level="6.8" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>6.8</b> Basic Parallel Programming</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html"><i class="fa fa-check"></i><b>7</b> Connect with the Developer Community</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#stay-up-to-date-and-a-vastly-evolving-field-social-media"><i class="fa fa-check"></i><b>7.1</b> Stay up to Date and a Vastly Evolving Field – Social Media</a></li>
+<li class="chapter" data-level="7.2" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#get-an-account-at-stackoverflow.com"><i class="fa fa-check"></i><b>7.2</b> Get an Account at Stackoverflow.com</a></li>
+<li class="chapter" data-level="7.3" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#attend-conferences---online-can-be-a-good-option"><i class="fa fa-check"></i><b>7.3</b> Attend Conferences - Online Can Be a Good Option !</a></li>
+<li class="chapter" data-level="7.4" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#join-slack-spaces-or-other-chats"><i class="fa fa-check"></i><b>7.4</b> Join Slack Spaces (or other Chats)</a></li>
+<li class="chapter" data-level="7.5" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html#look-for-local-community-group"><i class="fa fa-check"></i><b>7.5</b> Look for Local Community Group</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
@@ -213,35 +244,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Hacking for Social Sciences</h1>
-<h2 class="subtitle"><em>A Guide to Programming With Data</em></h2>
-<p class="author"><em>Matthias Bannert</em></p>
-<p class="date"><em>2020-12-09</em></p>
+<div id="connect-with-the-developer-community" class="section level1" number="7">
+<h1 number="7"><span class="header-section-number">7</span> Connect with the Developer Community</h1>
+<p>Besides the fact that it is free of license costs most of the time, open source communities may be the most popular argument in favor of open source software. In academia, free quality online resources and support can be extremely helpful, particularly when one’s curriculum did not contain an applied form of programming with data.</p>
+<p>Still, developer communities do have their idiosyncrasies. This section intends to help overcome entry barriers and encourage the reader to connect to the developer communities – even if one is not a regular visitor of community offers.</p>
+<div id="stay-up-to-date-and-a-vastly-evolving-field-social-media" class="section level2" number="7.1">
+<h2 number="7.1"><span class="header-section-number">7.1</span> Stay up to Date and a Vastly Evolving Field – Social Media</h2>
+<p>I hate to admit it, because I am not a big fan of social media and don’t use social media apart from professional use, I am convinced it is a great way to get my regular dose of what’s new in tech. My platform of choice is <a href="https://twitter.com/whatsgoodio">twitter</a>. I use it as a bookmark tool and get some feedback from publicly sharing resources. Plus I follow some folks to get updates from different the fields. I try to not get caught in any politics, memes or cat pictures, even if that’s a hard thing to do.</p>
+<p>CHEWBACCA cat.</p>
+<p>Start with a few accounts to follow, adapt them regularly and use lists in case you need to organize your input a bit more. tweetdeck is a good standard option of a more advanced use of twitter.</p>
+<p>If you plan to build some following of your own, learn how to schedule tweets and put some thought into the timing of your tweets. However,</p>
+<p>Globally different preferences.</p>
+<p>CITE useR! nature correspondence</p>
 </div>
-<div id="preface" class="section level1" number="1">
-<h1 number="1"><span class="header-section-number">1</span> Preface</h1>
-<p>The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point a kind researcher to programming approaches who had not considered programming to process data so far. <em>Hacking for Social Sciences</em> aims to give a big picture overview and starting point to reach what the open source software community calls a ‘software carpentry’ level. Also, this book argues a solid software carpentry skill level is totally in reach for most researchers. And most importantly, investing is worth the effort: being able to code leverages field specific expertise and fosters interdisciplinary collaboration as source code continues to become an important communication channel.</p>
-<div align="center">
-<img src="images/meet_egghead.jpg">
-<div class="caption-half">
-Meet Dr. Egghead who started his quest to figure out how his assistant got a week’s work done in two hours. “<a href="https://www.google.com/search?q=hacker&tbm=isch">Hacker’s wear hoodies, you know”</a>, " he mumbles as he starts to think<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.
+<div id="get-an-account-at-stackoverflow.com" class="section level2" number="7.2">
+<h2 number="7.2"><span class="header-section-number">7.2</span> Get an Account at Stackoverflow.com</h2>
 </div>
+<div id="attend-conferences---online-can-be-a-good-option" class="section level2" number="7.3">
+<h2 number="7.3"><span class="header-section-number">7.3</span> Attend Conferences - Online Can Be a Good Option !</h2>
 </div>
+<div id="join-slack-spaces-or-other-chats" class="section level2" number="7.4">
+<h2 number="7.4"><span class="header-section-number">7.4</span> Join Slack Spaces (or other Chats)</h2>
+<p>Slack or Discord</p>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>FWIW, Dr. Egghead was born after Colin Gillespie’s hilarious talk on <a href="https://www.youtube.com/watch?v=5odJxZj9LE4">Security in Academia</a> at useR! 2019<a href="preface.html#fnref1" class="footnote-back">↩︎</a></p></li>
-</ol>
+<div id="look-for-local-community-group" class="section level2" number="7.5">
+<h2 number="7.5"><span class="header-section-number">7.5</span> Look for Local Community Group</h2>
+<p>job market!</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introduction-the-choice-that-doesnt-matter.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="case-studies.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
