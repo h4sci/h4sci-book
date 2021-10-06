@@ -148,6 +148,76 @@ npm install express --save
 ```
 
 
+## A Minimal Webscraper: Extracting Publication Dates
+
+Even though KOF Swiss Economic Institute offers a REST API to consume publicly available data, publication dates are unfortunately not available through in API just yet. Hence, in order to automate data consumption based on varying publication dates, we need to extract upcoming publication dates of the Barometer from KOF's media release calendar. Fortunately all future releases are presented online an easy-to-scrape table. So here's the plan: 
+
+1. Use Google Chrome's *inspect element* developer feature to find the X-Path (location in the Document Object Model) of the table. 
+
+2. Read the web page into R using `rvest`.
+
+3. Copy the X-Path string to R to turn the table into a data.frame
+
+4. use a regular expression to filter the description for what we need. 
+
+
+Let's take a look at our starting point, the media releases sub page, first. 
+
+<img src="docs/agenda.png">
+
+The website looks fairly simple and the jackpot is not hard, presented in a table 
+right in front of us. Can't you smell the data.frame already? 
+
+Right click the table to see a Chrome context window pop up. Select *inspect*. 
+
+<img src="docs/inspect.png">
+
+
+Hover over the blue line in the source code at the bottom. Make sure the selected line marks the table. Right click again,
+select copy -> copy X-Path. 
+
+<img src="docs/xpath.png">
+
+On to R! 
+
+```{r, warning=FALSE,message=FALSE}
+library(rvest)
+# URL of the media release subsite
+url <- "https://kof.ethz.ch/news-und-veranstaltungen/medien/medienagenda.html"
+
+# Extract the DOM object from the path we've previously detected using 
+# Chrome's inspect feature
+table_list <- url %>%
+  read_html() %>%
+  html_nodes(xpath = '//*[@id="contentMain"]/div[2]/div/div[3]/div/div/div/div/div/div/table') %>%
+  # turn the HTML table into an R data.frame
+  html_table()
+
+# because the above result may potentially contain multiple tables, we just use 
+# the first table. We know from visual inspection of the site that this is the
+# right table. 
+agenda_table <- table_list[[1]]
+
+# extract KOF barometer lines
+pub_date <- agenda_table[grep("barometer",agenda_table$X3),]
+pub_date
+
+```
+
+Yay! We got everything we wanted. Ready to process. 
+
+
+## Automate Script Execution: A GitHub Actions Example 
+
+
+
+
+
+
+
+
+
+
 
 
 
