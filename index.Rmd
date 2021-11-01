@@ -20,7 +20,11 @@ description: "The vast majority of data has been created within the last decade.
 <!--
 to deploy this gh-pages ready, run this and push to master:
 bookdown::render_book('index.Rmd', 'bookdown::gitbook',output_dir = "docs")
+
+
+
 -->
+
 
 # Preface
 
@@ -50,9 +54,9 @@ The point is,  rest assured, if you just start doing analytics using a programmi
 works with Python, start with Python. If you are in for the longer run either language will help you understand the concepts and ideas of programming with data. Trust me, there will be a natural opportunity to get to know the other. 
 
 
-## Why Would Social Scientists Want to Code?
+## Why Should a Researcher Work Like a Software Engineer? 
 
-First of all, because everybody and their grandmothers seem to do it. Statistical computing continues to be on the rise in many branches of social sciences. 
+First of all, because everybody and their grandmothers seem to do it. Statistical computing continues to be on the rise in many branches of research. 
 
 
 <!-- The below graph shows monthly accumulated extension package downloads for the R Language of Statistical Computing grouped by fields of research^[proxied this and that].
@@ -74,7 +78,7 @@ rnorm(10)
 
 Second because it's reproducible. Code has become a tremendous communication channel. Your web scraper does not work? 
 Instead of reaching out in a clumsy but wordy cry for help, posting what you tried so far described by source code will often get you good answers within hours on platforms like [Stackoverflow](https://stackoverflow.com) or [Crossvalidated](https://crossvalidated.com). Or think of feature requests: After a little code ping pong with the package author your wish eventually becomes clearer. Let alone chats with colleagues and co-authors. Sharing code just works. 
-Academic journals have found that out, too in the meantime. Many outlets require you to make the data and source code behind your work available. [Social Science Data Editors](https://social-science-data-editors.github.io/guidance/template-README.html) is a bleeding edge project at the time of writing this, but is already referred to by top notch journals of the profession like American Economic Review (AER). 
+Academic journals have found that out, too in the meantime. Many outlets require you to make the data and source code behind your work available. [Social Science Data Editors](https://social-science-data-editors.github.io/guidance/template-README.html) is a bleeding edge project at the time of writing this, but is already referred to by top notch journals like American Economic Review (AER). 
 
 Third, because it scales and automates. Automation is not only convenient. Like when you want to download data, process and create the same visualization and put it on your website any given Sunday. Automation is inevitable. Like when you have to gather daily updates from different outlets or work through thousands of .pdfs. 
 
@@ -94,7 +98,14 @@ Last but not least because of things you couldn't do w/o being an absolute guru 
 https://www.bildung-forschung.digital/files/191004_OA-Infoflyer_barrierefrei.pdf
 -->
 
->If you came to ```r emo::ji("cherry")``` pick, you're welcome, too (but a bit early to the party though). This book will grow along the 2020 course 'Hacking for Social Science' and hopefully be finished in its first version by the end of the semester / year. Next up are chapters on the *Big Picture of Open Source Software for hacking data* and *Git version control*. 
+If you came to cherry pick, you're welcome, too.
+
+## Requirements - What You Need to Know to Make Most of This Book
+
+Though the book offers many entry points to the reader and strives to make advanced considerations accessible knowledge of a scripting language and familiarity with a console / terminal will provide the reader with a kickstart and help avoid frustration. 
+
+Programming with data contains its fair share of introductory examples but does not intend to be an introduction to R or Python, nor 
+
 
 
 # Stack - A Developer's Toolkit
