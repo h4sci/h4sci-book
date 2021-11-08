@@ -210,6 +210,120 @@ Yay! We got everything we wanted. Ready to process.
 ## Automate Script Execution: A GitHub Actions Example 
 
 
+## Choropleth Map: Link Data to a geojson Map File
+
+Data visualization is a big reason for researchers and data analysts to look into programming languages. Programming languages do not only provide unparalleled flexibility, they also make data visualization reproducible and allow to place charts in different contexts, e.g., websites, printed outlets or social media. 
+
+One of the more popular type of plots that can be created smoothly using a programing language is the so called *choropleth*. A *choropleth* maps values of a variable that is available by region to a given continuous color palette on a map. Let's break down the ingredients of the below map of Switzerland. 
+
+```{r, echo=FALSE}
+library(echarts4r)
+library(viridisLite)
+library(jsonlite)
+
+json_ch <- jsonlite::read_json(
+  "https://raw.githubusercontent.com/mbannert/maps/master/ch_bfs_regions.geojson"
+)
+
+
+
+d <- data.frame(
+  name = c("Zürich",
+           "Ticino",
+           "Zentralschweiz",
+           "Nordwestschweiz",
+           "Espace Mittelland",
+           "Région lémanique",
+           "Ostschweiz"),
+  values = c(50,10,100,50,23,100,120)
+)
+
+d |>
+  e_charts(name) |>
+  e_map_register("CH", json_ch) |>
+  e_map(serie = values, map = "CH") |>
+  e_visual_map(values,
+               inRange = list(color = viridis(3)))
+
+```
+
+First, we need a *definition of a country's shape*. Those definitions come in various format from traditional *shape files* to web friendly *geoJSON*. Edzer Pebesma's [useR! 2021 keynote](https://www.youtube.com/watch?v=cK08bxUJn5A&list=PL4IzsxWztPdmHoJwIVa4um44w2GMjctmP&index=6) has a more thorough insight. 
+
+Second, we need some data.frame that simply connects values to regions. In this case we use regions defined by the Swiss Federal Statistical Office (FSO). Because our charting library makes use of the geoJSON convention to call the region label 'name' we need to call the column that holds the region names 
+'name' as well. That way we can safely use defaults when plotting. Ah, and note that the values are absolutely bogus that came to my mind while writing this (so please do not mull over how these values were picked).
+
+```{r, eval=FALSE}
+
+d <- data.frame(
+  name = c("Zürich",
+           "Ticino",
+           "Zentralschweiz",
+           "Nordwestschweiz",
+           "Espace Mittelland",
+           "Région lémanique",
+           "Ostschweiz"),
+  values = c(50,10,100,50,23,100,120)
+)
+
+
+```
+
+Last but not least where calling our charting function from the *echarts4r* package. *echarts4r* is an R wrapper for the feature rich Apache Echarts Javascript plotting library. 
+The example uses the base R pipes (available from 4+ on, former versions needed to use pipes via extension packages.). Pipes take the result of one previous line and feed it as  input into the next line. So the data.frame *d* is linked to a charts instance and the *name* column is used as the link. Then a map is registered as *CH* and previously read json content is used to describe the shape. 
+
+```{r, eval=FALSE}
+d |>
+  e_charts(name) |>
+  e_map_register("CH", json_ch) |>
+  e_map(serie = values, map = "CH") |>
+  e_visual_map(values,
+               inRange = list(color = viridis(3)))
+```
+
+Also note the use of the viridis functions which returns 3 values from the famous, colorblind friendly viridis color palette. 
+
+```{r}
+viridis(3)
+```
+
+Here's the full example: 
+
+```{r,eval=FALSE}
+library(echarts4r)
+library(viridisLite)
+library(jsonlite)
+
+json_ch <- jsonlite::read_json(
+  "https://raw.githubusercontent.com/mbannert/maps/master/ch_bfs_regions.geojson"
+)
+
+
+
+d <- data.frame(
+  name = c("Zürich",
+           "Ticino",
+           "Zentralschweiz",
+           "Nordwestschweiz",
+           "Espace Mittelland",
+           "Région lémanique",
+           "Ostschweiz"),
+  values = c(50,10,100,50,23,100,120)
+)
+
+d |>
+  e_charts(name) |>
+  e_map_register("CH", json_ch) |>
+  e_map(serie = values, map = "CH") |>
+  e_visual_map(values,
+               inRange = list(color = viridis(3)))
+
+```
+
+
+
+
+
+
 
 
 

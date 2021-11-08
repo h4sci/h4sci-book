@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 Infrastructure | Hacking for Social Sciences</title>
+  <title>2 Introduction - The Choice that Doesn’t Matter | Hacking for Social Sciences</title>
   <meta name="description" content="The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point researchers to programming approaches who had not considered programming to process data so far. Hacking for Social Sciences and Humanities" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 Infrastructure | Hacking for Social Sciences" />
+  <meta property="og:title" content="2 Introduction - The Choice that Doesn’t Matter | Hacking for Social Sciences" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 Infrastructure | Hacking for Social Sciences" />
+  <meta name="twitter:title" content="2 Introduction - The Choice that Doesn’t Matter | Hacking for Social Sciences" />
   
   <meta name="twitter:description" content="The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point researchers to programming approaches who had not considered programming to process data so far. Hacking for Social Sciences and Humanities" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="developer-practices-workflows.html"/>
-<link rel="next" href="case-studies.html"/>
+<link rel="prev" href="preface.html"/>
+<link rel="next" href="stack---a-developers-toolkit.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -246,70 +246,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="infrastructure" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Infrastructure</h1>
-<p>Yes, there is a third area besides your research and carpentry level programming
-that I suppose you should get an idea of. Again, you don’t have to master hosting
-servers or even clusters, but a decent overview and an idea of when to use what will
-help you tremendously to plan ahead.</p>
-<p>Admittedly, unless your favorite superhero is Inspector Gadget or you
-just always had a knack for Arduinos, Raspberry Pis or the latest beta version
-of the software you use, infrastructure may be the one area researcher perceive as overhead.</p>
-<p>Once I was trouble shooting a case in which a colleague was unhappy with the speed gain of using the university’s heralded cluster. It turned out he had passed his behemoth of a computation
-problem on to the login node of the ETH cluster. Unsuprisingly, the bouncer was not
-particularly good at math.</p>
-<p>Before you laugh: Do you know how many cores, how much disk space or RAM your local notebook has?
-I’ve seen many bright researchers who were not able to tell. Note, I am not writing this to make you feel bad or to put you in front of another fat rock. There is a reason why we have sysadmins, database admins and other specialists. I am not asking researchers to become one of those. A lot of developers are lacking a decent understanding of infrastructure, too.</p>
-<p>While specialization has been the story of the last decades, there is a strong case for hybrid profiles. In software development, <em>DevOps</em> is such a sought after hybrid profile: A software <em>developer</em> with knowledge of <em>operations</em> or a server <em>operator</em> who is able to <em>develop</em> a program.</p>
-<p>The following section intends to share insights that help you set up a playground for trying out new things, to get a rough idea of computation hours needed or simply to put you in better position to discuss your needs with your organization’s High Performancing Computing (HPC) group.</p>
-<div id="benchmarking" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Benchmarking</h2>
-<p>Benchmarking refers to observation of computation performance in order to evaluate the efficiency of a program or simply to assess the computation hours needed. Also some programs benefit from parallel computing a lot more than others and the effect of speed gains is not always linear. Being able to set up a basic toy example and get a rough idea how long a computation might take is a very valuable skill for an empirical researcher. And it’s up for grabs. Really.</p>
+<div id="introduction---the-choice-that-doesnt-matter" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Introduction - The Choice that Doesn’t Matter</h1>
+<p>The very first (and intimidating) choice a novice hacker faces is which is programming language to learn. Unfortunately the medium popularily summed up as the internet offers a lot of really really good advice on the matter. The problem is, however, that this advice does not necessarily agree which language is the best for research. In the realm of data science – get accustomed to that label if you are a scientist who works with data – the debate basically comes down to two languages: The R Language for Statistical Computing and Python.</p>
+<p>At least to me, there is only one valid advice: <strong>It simply does NOT matter</strong>. If you stick around in data science long enough you will eventually get in touch with both languages and in turn learn both. There is a huge overlap of what you can do either of those languages. R came out of the rather specific domain of statiscs 25+ years ago and made its way to a more general programming language thanks to 15K+ extension packages (and counting). Built by a mathmatician, Python continues to be as general purpose as it’s ever been. But it got more scientific, thanks to extension packages of its own such as <a href="https://pandas.pydata.org/">pandas</a>, <a href="https://www.scipy.org/">SciPy</a> or <a href="https://numpy.org/">numPy</a>. As a result there is a huge overlap of what both languages can do and both will extend your horizon in unprecendented fashion if you did not use a full fledged programming language for your analysis before.</p>
+<img src="images/languagewar.jpg" width="650px">
+<div class="caption-left">
+R: “Dplyr smokes pandas.” Python: “But Keras is better for ML!” Language wars can be entertaining, sometimes spectacular, but most times they are just useless…
 </div>
-<div id="your-local-machine-localhost-its-not-always-about-computing-power" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Your Local Machine / localhost (It’s NOT always about Computing Power!)</h2>
-<p>A simple benchmark can help to assess whether your local machine, i.e., your desktop or notebook computer may be sufficient for your ‘big’ data project. Maybe some overnight computation with home court advantage is the better solution than an away game in a cloud environment you never worked with before.</p>
-<p>Also, it’s important to understand that it is not always about computing power. Your local computer can be a great testing and development environment for many things, e.g., a report rendering service, a website and many other things that might run elsewhere in production. Many of today’s applications run on some kind of webserver or in a web based architecture. Remember: a server does not necessarily look like a fridge with emergency power supply. It’s just a program that listens. Such a program can run on a fat rack and your little notebook alike which allows you to test an application locally. The popular blog software <em>hugo</em> for example, ships with a little webserver to test things at home before going public.</p>
-<pre><code>hugo serve</code></pre>
-<p>When run inside a folder with a <em>hugo</em> based website, the command spins up a local webserver and exposes the current state
-of the <em>hugo</em> based website through a specific port (1313). This allows the developer to visit the site using their favorite
-web browser while its running on their local machine.</p>
-</div>
-<div id="where-should-i-host" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Where Should I Host?</h2>
-<p>But what if you do not want to run your stuff locally. Maybe because you want to expose a web application or site which has to be online 24/7. Maybe because you do not more additional computing power.</p>
-<p>In principle there are four options.</p>
-<ol style="list-style-type: decimal">
-<li><p>Bare Metal. Buy hardware, hook it up with the internet, install your software, have fun. If you have a consistantly high usage rate and can maintain the server efficiently, this is likely the cheapest computing hour. You saw that <em>if</em>, didn’t you?</p></li>
-<li><p>Either use physical or virtual hardware and make your local IT department host your service <strong>on-premise</strong> (inhouse). You will give up a little bit of your flexible in exchange for help with maintenance and server administration.</p></li>
-<li><p>Cloud Computing.</p></li>
-<li><p>Software-as-a-Service</p></li>
-</ol>
-<div id="cloud-computing" class="section level3" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Cloud Computing</h3>
-<p>Cloud computing is the on-demand of hosting. It continues to be popular with users looking for storage and computing power, particularly when users have high peaks of usage and low and long valleys of idle time.</p>
-<p>From a business perspective, cloud computing is one of the most compelling business cases of the past few decades. Economies of scale are just tremendous for companies with right (=massive) infrastructure. Amazon who happened to have the infrastructure due to its global retail business developed into one of the leading cloud computing companies turning hosting into one of its fastest growing an most profitable branches.</p>
-<p>For the users, cloud computing is just convenient. Yet, pound-for-pound, if used 24/7 cloud computing ressources are more expensive than traditional hosting. Also, limiting your budget is not trivial especially if you a sharing the costs with multiple stakeholders inside your organization.</p>
-</div>
-</div>
-<div id="software-as-a-service-saas" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Software as a Service (SaaS)</h2>
-</div>
-<div id="virtual-machines" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Virtual Machines</h2>
-<p>Just like any software, tools like <em>hugo</em> have their dependencies. Depending on your operating system and the software you want to run, dependencies may become an issue. Dependencies may cause conflicts with other software or dependencies, e.g., some software might depend on Python 2 while another piece depends on Python 3 and so forth. The more stuff you install, the higher the chances you run into a conflict or some hard to install piece of software.</p>
-<p>One good solution to these issues are Virtual Machines. Virtual Machines can either run locally using software like Oracle’s Virtual Box which allows to run a Virtual Windows or Linux inside Mac OS and vice versa. Running a virtual box locally may not be the most performant solution but it allows to have several test environments without altering one’s main environment.
-In the meantime though, Virtual Machines are mostly known as flexible computation nodes offered by (cloud) hosting providers. Automated, scripted procedures to set and spin up these virtual servers make Virtual Machines a very powerful, reproducible and scaleable approach.</p>
-</div>
-<div id="docker-containers" class="section level2" number="5.6">
-<h2><span class="header-section-number">5.6</span> Docker (Containers)</h2>
-<p>At the first glimpse containers look very much like Virtual Machines to the practitioner. The difference is that every Virtual Machine has its own operating system while containers use the the host OS to run a container engine on to top of the OS. By doing so containers can be very light weight and may take only a few seconds to spin up while spinning up Virtual Machines can take up to a few minutes - just like booting physical computers. Hence docker containers are often used as single purpose environments: Fire up a container, run a task in that environment, store the results outside of the container and shut down the container again. Docker the most popular containerized solution quickly became the synonym to environments configured in a file. So called docker images are build layer by layer based on other less specific docker images and a DOCKERFILE that holds the ingredients and set up for the next image. The platform dockerhub hosts a plethora of pre-built docker images vom ready-to-go database to Python ML environments or minimal Linux containers to a simple shell script.</p>
-<p>Though a bit out of fashion and somewhat different, virtual machines are good starting point to explain single purpose container environments such as <a href="https://www.docker.com/why-docker">docker</a>. A virtual machine (VM) is basically a computer in a computer, like a Linux environment running on your Windows notebook. Oracle’s free <a href="https://www.virtualbox.org/">Virtual Box</a> is the most popular piece of free software to easily install another operating system inside your local computer’s host OS.</p>
-<p>While VMs are still common and one can potentially have lots of images for different purposes, images are too heavyweight and take to long to boot to be the go-to solution for many application developers. Hence so-called containers that run within a container host and fire up within seconds have become popular as single purpose environments.</p>
-<p>The most popular of them all is <em>docker</em> which allows users to configure an environment in a <em>Dockerfile</em> (essentially a text file) including the operating system and software packages installed in the container. The text file can either be used to create a <em>docker image</em> which is kind of a blueprint for a container. Containers run inside a docker host and can either be used interactively or in a batch which executes a single task in an environment specifically built for this task.</p>
-<p>One of the reasons why docker is attractive to researchers is its open character: Dockerfiles are a good way to share a configuration in a simple, reproducible script, making it easy to reproduce. Less experienced researchers can benefit from <a href="https://hub.docker.com/">Dockerhub</a> which shares images for a plethora of purposes from mixed data science setups to database configuration. Side Effect free working environments for all sorts of task can especially be appealing to developers with limited experience in system administration.</p>
-<p>Beside simplification of system administration, <em>docker</em> is known for its ability to work in the cloud. All major cloud hosters offer docker hosts and the ability to deploy docker containers that were previously developed and tested locally. You can also use docker to tackle <a href="appendix.html#glossary">throughput problems</a> using container orchestration tools like <a href="https://docs.docker.com/engine/swarm/swarm-tutorial/">Docker Swarm</a> or <a href="https://kubernetes.io/">K8 (say: Kubernetes)</a> to run hundreds of containers (depending on your virtual resources).</p>
+<p>But why is there such a heartfelt debate online, if it doesn’t matter? Let’s pick up a random argument from this debate: R is easier to set up and Python is better for machine learning. If you worked with Java or another environment that’s rather tricky to get going, you are hardened and might not cherish easy onboarding. If you got frustrated before you really started, you might feel otherwise. You may just have been unlucky making guesses about a not so well documented paragraph, trying to reproduce a nifty machine learning blog post. Just because you installed the wrong version of Python or didn’t manage to make sense of virtualenv right from the beginning.</p>
+<p>The point is, rest assured, if you just start doing analytics using a programming languages both languages are guaranteed to carry you a long way. There is no way to tell for sure which one will be the more dominant language in 10 years from now or whether both still be around holding their ground the way they do now. But once you reached a decent software carpentry level in either language, it will help you a lot learning the other. If your peers work with R, start with R, if your close community
+works with Python, start with Python. If you are in for the longer run either language will help you understand the concepts and ideas of programming with data. Trust me, there will be a natural opportunity to get to know the other.</p>
+<div id="why-should-a-researcher-work-like-a-software-engineer" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Why Should a Researcher Work Like a Software Engineer?</h2>
+<p>First of all, because everybody and their grandmothers seem to do it. Statistical computing continues to be on the rise in many branches of research.</p>
+<!-- The below graph shows monthly accumulated extension package downloads for the R Language of Statistical Computing grouped by fields of research^[proxied this and that].
+Econometrics, Psychometrics, National Language Processing, Official Statistics, Social Sciences
 
+
+```r
+# add CRAN TASK VIEW Download 
+# Statistics graph here
+rnorm(10)
+```
+
+```
+##  [1]  0.2183897 -0.5745926 -0.2920215 -1.3405452  0.3371344
+##  [6]  1.6782206 -1.3541886 -0.3565889 -0.3760453  0.4634667
+```
+
+-->
+<img src="images/communication.png">
+<div class="caption-left">
+Source code can be a tremendously sharp, unambigous and international communication channel.
+</div>
+<p>Second because it’s reproducible. Code has become a tremendous communication channel. Your web scraper does not work?
+Instead of reaching out in a clumsy but wordy cry for help, posting what you tried so far described by source code will often get you good answers within hours on platforms like <a href="https://stackoverflow.com">Stackoverflow</a> or <a href="https://crossvalidated.com">Crossvalidated</a>. Or think of feature requests: After a little code ping pong with the package author your wish eventually becomes clearer. Let alone chats with colleagues and co-authors. Sharing code just works.
+Academic journals have found that out, too in the meantime. Many outlets require you to make the data and source code behind your work available. <a href="https://social-science-data-editors.github.io/guidance/template-README.html">Social Science Data Editors</a> is a bleeding edge project at the time of writing this, but is already referred to by top notch journals like American Economic Review (AER).</p>
+<p>Third, because it scales and automates. Automation is not only convenient. Like when you want to download data, process and create the same visualization and put it on your website any given Sunday. Automation is inevitable. Like when you have to gather daily updates from different outlets or work through thousands of .pdfs.</p>
+<p>Last but not least because of things you couldn’t do w/o being an absolute guru (if at all) if wasn’t for programming. Take visualization. Go, check <a href="https://d3js.org/">these D3 Examples</a>. Now, try to do that in Excel. If you do these things in Excel it’d make you an absolute spreadsheet visualization Jedi, probably missing out on other time consuming skills to master. Moral of the story is, with decent, carpentry level programming skills – that’d be the upfront investment – you can already do so many spectular things while not really specializing and staying very flexible.</p>
+</div>
+<div id="how-to-read-this-book" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> How to Read this Book?</h2>
+<p><em>Hacking for Social Sciences</em> is written based on the experience of helping students and seasoned researchers of different fields with their data management, processing and communication of results. A part of the book contains the information I wish I had when I started a PhD in economics. Part of the book is written years after said PhD was completed and with the hindsight of 10+ years in academia. Every page of the book is written with the belief that the future is OPEN and it is up to our generation of researchers to shape it.</p>
+<div align="center">
+<img src="images/open.png">
+<div class="caption-half">
+“The ministry warns: The future is open,” taken from a 2020 <a href="https://www.bildung-forschung.digital/files/191004_OA-Infoflyer_barrierefrei.pdf">ad campaign on Open Access by the German ministry for education and research (pdf)</a>.
+</div>
+</div>
+<!-- add ad from Germany "the future is OPEN" for open data and open source 
+https://www.bildung-forschung.digital/files/191004_OA-Infoflyer_barrierefrei.pdf
+-->
+<p>If you came to cherry pick, you’re welcome, too.</p>
+</div>
+<div id="requirements---what-you-need-to-know-to-make-the-most-of-this-book" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Requirements - What You Need to Know to Make the Most of This Book</h2>
+<p>Though the book offers many entry points to the reader and strives to make advanced considerations accessible,
+certain prior knowledge will provide readers with a kickstart and help avoid frustration. Prior experience with a scripting language such as the R Language for Statistical Computing, Python or Javascript as well as familiarity with console / terminal basics will help you leverage the book.</p>
+<p>Though <em>Programming with data</em> does contain its share of easy to follow introductory examples, there are definitely better resources for a systematic introduction to any of the scripting languages mentioned above. That is</p>
+<p>does not intend to be a systematic introduction to R or Python.</p>
+<p>There is so much good material out there already</p>
+<p>(because 1) there is so much good material out there already 2) )</p>
 </div>
 </div>
             </section>
@@ -317,8 +315,8 @@ In the meantime though, Virtual Machines are mostly known as flexible computatio
           </div>
         </div>
       </div>
-<a href="developer-practices-workflows.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="case-studies.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="preface.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="stack---a-developers-toolkit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

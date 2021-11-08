@@ -21,7 +21,8 @@ description: "The vast majority of data has been created within the last decade.
 to deploy this gh-pages ready, run this and push to master:
 bookdown::render_book('index.Rmd', 'bookdown::gitbook',output_dir = "docs")
 
-
+# https://code.highcharts.com/mapdata/
+# jds talk: https://www.rstudio.com/resources/rstudioconf-2019/putting-empathy-in-action-building-a-community-of-practice-for-analytics-in-a-global-corporation/
 
 -->
 
@@ -100,11 +101,20 @@ https://www.bildung-forschung.digital/files/191004_OA-Infoflyer_barrierefrei.pdf
 
 If you came to cherry pick, you're welcome, too.
 
-## Requirements - What You Need to Know to Make Most of This Book
+## Requirements - What You Need to Know to Make the Most of This Book
 
-Though the book offers many entry points to the reader and strives to make advanced considerations accessible knowledge of a scripting language and familiarity with a console / terminal will provide the reader with a kickstart and help avoid frustration. 
+Though the book offers many entry points to the reader and strives to make advanced considerations accessible,
+certain prior knowledge will provide readers with a kickstart and help avoid frustration. Prior experience with a scripting language such as the R Language for Statistical Computing, Python or Javascript as well as familiarity with console / terminal basics will help you leverage the book.
 
-Programming with data contains its fair share of introductory examples but does not intend to be an introduction to R or Python, nor 
+Though *Programming with data* does contain its share of easy to follow introductory examples, there are definitely better resources for a systematic introduction to any of the scripting languages mentioned above. That is  
+
+
+does not intend to be a systematic introduction to R or Python. 
+
+
+There is so much good material out there already 
+
+(because 1) there is so much good material out there already 2)   )
 
 
 

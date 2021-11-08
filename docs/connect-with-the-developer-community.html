@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>7 Connect with the Developer Community | Hacking for Social Sciences</title>
   <meta name="description" content="The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point researchers to programming approaches who had not considered programming to process data so far. Hacking for Social Sciences and Humanities" />
-  <meta name="generator" content="bookdown 0.15 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="7 Connect with the Developer Community | Hacking for Social Sciences" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Matthias Bannert" />
 
 
-<meta name="date" content="2021-10-07" />
+<meta name="date" content="2021-11-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,9 @@
   
 <link rel="prev" href="case-studies.html"/>
 <link rel="next" href="appendix.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +51,13 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/echarts4r-4.8.0/echarts-en.min.js"></script>
+<script src="libs/echarts4r-4.8.0/ecStat.min.js"></script>
+<script src="libs/echarts4r-4.8.0/dataTool.min.js"></script>
+<script src="libs/echarts4r-binding-0.4.2/echarts4r.js"></script>
 
 
 <style type="text/css">
@@ -120,6 +125,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+
 <link rel="stylesheet" href="h4sci.css" type="text/css" />
 </head>
 
@@ -133,24 +139,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Hacking for Social Sciences</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="preface.html"><a href="preface.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
-<li class="chapter" data-level="2" data-path="introduction-the-choice-that-doesnt-matter.html"><a href="introduction-the-choice-that-doesnt-matter.html"><i class="fa fa-check"></i><b>2</b> Introduction - The Choice that Doesn’t Matter</a>
+<li class="chapter" data-level="2" data-path="introduction---the-choice-that-doesnt-matter.html"><a href="introduction---the-choice-that-doesnt-matter.html"><i class="fa fa-check"></i><b>2</b> Introduction - The Choice that Doesn’t Matter</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="introduction-the-choice-that-doesnt-matter.html"><a href="introduction-the-choice-that-doesnt-matter.html#why-would-social-scientists-want-to-code"><i class="fa fa-check"></i><b>2.1</b> Why Would Social Scientists Want to Code?</a></li>
-<li class="chapter" data-level="2.2" data-path="introduction-the-choice-that-doesnt-matter.html"><a href="introduction-the-choice-that-doesnt-matter.html#how-to-read-this-book"><i class="fa fa-check"></i><b>2.2</b> How to Read this Book?</a></li>
+<li class="chapter" data-level="2.1" data-path="introduction---the-choice-that-doesnt-matter.html"><a href="introduction---the-choice-that-doesnt-matter.html#why-should-a-researcher-work-like-a-software-engineer"><i class="fa fa-check"></i><b>2.1</b> Why Should a Researcher Work Like a Software Engineer?</a></li>
+<li class="chapter" data-level="2.2" data-path="introduction---the-choice-that-doesnt-matter.html"><a href="introduction---the-choice-that-doesnt-matter.html#how-to-read-this-book"><i class="fa fa-check"></i><b>2.2</b> How to Read this Book?</a></li>
+<li class="chapter" data-level="2.3" data-path="introduction---the-choice-that-doesnt-matter.html"><a href="introduction---the-choice-that-doesnt-matter.html#requirements---what-you-need-to-know-to-make-the-most-of-this-book"><i class="fa fa-check"></i><b>2.3</b> Requirements - What You Need to Know to Make the Most of This Book</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html"><i class="fa fa-check"></i><b>3</b> Stack - A Developer’s Toolkit</a>
+<li class="chapter" data-level="3" data-path="stack---a-developers-toolkit.html"><a href="stack---a-developers-toolkit.html"><i class="fa fa-check"></i><b>3</b> Stack - A Developer’s Toolkit</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#languages-compiled-vs.-interpreted"><i class="fa fa-check"></i><b>3.1</b> Languages: Compiled vs. Interpreted</a></li>
-<li class="chapter" data-level="3.2" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#ide"><i class="fa fa-check"></i><b>3.2</b> IDE</a></li>
-<li class="chapter" data-level="3.3" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#version-control"><i class="fa fa-check"></i><b>3.3</b> Version Control</a></li>
-<li class="chapter" data-level="3.4" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#database-relational-vs.-non-relational"><i class="fa fa-check"></i><b>3.4</b> Database: Relational vs. Non-Relational</a></li>
-<li class="chapter" data-level="3.5" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#environments-where-should-i-run-stuff"><i class="fa fa-check"></i><b>3.5</b> Environments: Where Should I Run Stuff ?</a></li>
-<li class="chapter" data-level="3.6" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#communication"><i class="fa fa-check"></i><b>3.6</b> Communication</a></li>
-<li class="chapter" data-level="3.7" data-path="stack-a-developers-toolkit.html"><a href="stack-a-developers-toolkit.html#automation"><i class="fa fa-check"></i><b>3.7</b> Automation</a></li>
+<li class="chapter" data-level="3.1" data-path="stack---a-developers-toolkit.html"><a href="stack---a-developers-toolkit.html#languages-compiled-vs.-interpreted"><i class="fa fa-check"></i><b>3.1</b> Languages: Compiled vs. Interpreted</a></li>
+<li class="chapter" data-level="3.2" data-path="stack---a-developers-toolkit.html"><a href="stack---a-developers-toolkit.html#ide"><i class="fa fa-check"></i><b>3.2</b> IDE</a></li>
+<li class="chapter" data-level="3.3" data-path="stack---a-developers-toolkit.html"><a href="stack---a-developers-toolkit.html#version-control"><i class="fa fa-check"></i><b>3.3</b> Version Control</a></li>
+<li class="chapter" data-level="3.4" data-path="stack---a-developers-toolkit.html"><a href="stack---a-developers-toolkit.html#database-relational-vs.-non-relational"><i class="fa fa-check"></i><b>3.4</b> Database: Relational vs. Non-Relational</a></li>
+<li class="chapter" data-level="3.5" data-path="stack---a-developers-toolkit.html"><a href="stack---a-developers-toolkit.html#environments-where-should-i-run-stuff"><i class="fa fa-check"></i><b>3.5</b> Environments: Where Should I Run Stuff ?</a></li>
+<li class="chapter" data-level="3.6" data-path="stack---a-developers-toolkit.html"><a href="stack---a-developers-toolkit.html#communication"><i class="fa fa-check"></i><b>3.6</b> Communication</a></li>
+<li class="chapter" data-level="3.7" data-path="stack---a-developers-toolkit.html"><a href="stack---a-developers-toolkit.html#automation"><i class="fa fa-check"></i><b>3.7</b> Automation</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="developer-practices-workflows.html"><a href="developer-practices-workflows.html"><i class="fa fa-check"></i><b>4</b> Developer Practices &amp; Workflows</a>
 <ul>
@@ -201,16 +205,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="case-studies.html"><a href="case-studies.html#a-minimal-webscraper-extracting-publication-dates"><i class="fa fa-check"></i><b>6.3</b> A Minimal Webscraper: Extracting Publication Dates</a></li>
 <li class="chapter" data-level="6.4" data-path="case-studies.html"><a href="case-studies.html#automate-script-execution-a-github-actions-example"><i class="fa fa-check"></i><b>6.4</b> Automate Script Execution: A GitHub Actions Example</a></li>
-<li class="chapter" data-level="6.5" data-path="case-studies.html"><a href="case-studies.html#articles-presentations-reports-and-websites-w-markdown-and-rmarkdown"><i class="fa fa-check"></i><b>6.5</b> Articles, Presentations, Reports and Websites /w Markdown and RMarkdown</a></li>
-<li class="chapter" data-level="6.6" data-path="case-studies.html"><a href="case-studies.html#web-application-w-the-shiny-framework"><i class="fa fa-check"></i><b>6.6</b> Web Application /w the Shiny Framework</a>
+<li class="chapter" data-level="6.5" data-path="case-studies.html"><a href="case-studies.html#choropleth-map-link-data-to-a-geojson-map-file"><i class="fa fa-check"></i><b>6.5</b> Choropleth Map: Link Data to a geojson Map File</a></li>
+<li class="chapter" data-level="6.6" data-path="case-studies.html"><a href="case-studies.html#articles-presentations-reports-and-websites-w-markdown-and-rmarkdown"><i class="fa fa-check"></i><b>6.6</b> Articles, Presentations, Reports and Websites /w Markdown and RMarkdown</a></li>
+<li class="chapter" data-level="6.7" data-path="case-studies.html"><a href="case-studies.html#web-application-w-the-shiny-framework"><i class="fa fa-check"></i><b>6.7</b> Web Application /w the Shiny Framework</a>
 <ul>
-<li class="chapter" data-level="6.6.1" data-path="case-studies.html"><a href="case-studies.html#frontend-ui.r"><i class="fa fa-check"></i><b>6.6.1</b> Frontend: ui.R</a></li>
-<li class="chapter" data-level="6.6.2" data-path="case-studies.html"><a href="case-studies.html#backend-server.r"><i class="fa fa-check"></i><b>6.6.2</b> Backend: server.R</a></li>
-<li class="chapter" data-level="6.6.3" data-path="case-studies.html"><a href="case-studies.html#quickstart-a-minimal-demo-app"><i class="fa fa-check"></i><b>6.6.3</b> Quickstart: A Minimal Demo App</a></li>
-<li class="chapter" data-level="6.6.4" data-path="case-studies.html"><a href="case-studies.html#hosting-make-apps-available-online"><i class="fa fa-check"></i><b>6.6.4</b> Hosting: Make Apps Available Online</a></li>
+<li class="chapter" data-level="6.7.1" data-path="case-studies.html"><a href="case-studies.html#frontend-ui.r"><i class="fa fa-check"></i><b>6.7.1</b> Frontend: ui.R</a></li>
+<li class="chapter" data-level="6.7.2" data-path="case-studies.html"><a href="case-studies.html#backend-server.r"><i class="fa fa-check"></i><b>6.7.2</b> Backend: server.R</a></li>
+<li class="chapter" data-level="6.7.3" data-path="case-studies.html"><a href="case-studies.html#quickstart-a-minimal-demo-app"><i class="fa fa-check"></i><b>6.7.3</b> Quickstart: A Minimal Demo App</a></li>
+<li class="chapter" data-level="6.7.4" data-path="case-studies.html"><a href="case-studies.html#hosting-make-apps-available-online"><i class="fa fa-check"></i><b>6.7.4</b> Hosting: Make Apps Available Online</a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>6.7</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
-<li class="chapter" data-level="6.8" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>6.8</b> Basic Parallel Programming</a></li>
+<li class="chapter" data-level="6.8" data-path="case-studies.html"><a href="case-studies.html#spatial-visualization-with-leaflet-and-open-streetmap"><i class="fa fa-check"></i><b>6.8</b> Spatial Visualization with Leaflet and Open Streetmap</a></li>
+<li class="chapter" data-level="6.9" data-path="case-studies.html"><a href="case-studies.html#basic-parallel-programming"><i class="fa fa-check"></i><b>6.9</b> Basic Parallel Programming</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="connect-with-the-developer-community.html"><a href="connect-with-the-developer-community.html"><i class="fa fa-check"></i><b>7</b> Connect with the Developer Community</a>
 <ul>
@@ -224,9 +229,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#glossary"><i class="fa fa-check"></i>Glossary</a></li>
 </ul></li>
-<li class="divider"></li>
-<div class="license">'Hacking for Social Sciences' by Dr. Matthias Bannert is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/?ref=chooser-v1" target="blank">CC BY-NC-SA 4.0</a></div>
-
 </ul>
 
       </nav>
@@ -245,11 +247,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="connect-with-the-developer-community" class="section level1" number="7">
-<h1 number="7"><span class="header-section-number">7</span> Connect with the Developer Community</h1>
+<h1><span class="header-section-number">7</span> Connect with the Developer Community</h1>
 <p>Besides the fact that it is free of license costs most of the time, open source communities may be the most popular argument in favor of open source software. In academia, free quality online resources and support can be extremely helpful, particularly when one’s curriculum did not contain an applied form of programming with data.</p>
 <p>Still, developer communities do have their idiosyncrasies. This section intends to help overcome entry barriers and encourage the reader to connect to the developer communities – even if one is not a regular visitor of community offers.</p>
 <div id="stay-up-to-date-and-a-vastly-evolving-field-social-media" class="section level2" number="7.1">
-<h2 number="7.1"><span class="header-section-number">7.1</span> Stay up to Date and a Vastly Evolving Field – Social Media</h2>
+<h2><span class="header-section-number">7.1</span> Stay up to Date and a Vastly Evolving Field – Social Media</h2>
 <p>I hate to admit it, because I am not a big fan of social media and don’t use social media apart from professional use, I am convinced it is a great way to get my regular dose of what’s new in tech. My platform of choice is <a href="https://twitter.com/whatsgoodio">twitter</a>. I use it as a bookmark tool and get some feedback from publicly sharing resources. Plus I follow some folks to get updates from different the fields. I try to not get caught in any politics, memes or cat pictures, even if that’s a hard thing to do.</p>
 <p>CHEWBACCA cat.</p>
 <p>Start with a few accounts to follow, adapt them regularly and use lists in case you need to organize your input a bit more. tweetdeck is a good standard option of a more advanced use of twitter.</p>
@@ -258,17 +260,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>CITE useR! nature correspondence</p>
 </div>
 <div id="get-an-account-at-stackoverflow.com" class="section level2" number="7.2">
-<h2 number="7.2"><span class="header-section-number">7.2</span> Get an Account at Stackoverflow.com</h2>
+<h2><span class="header-section-number">7.2</span> Get an Account at Stackoverflow.com</h2>
 </div>
 <div id="attend-conferences---online-can-be-a-good-option" class="section level2" number="7.3">
-<h2 number="7.3"><span class="header-section-number">7.3</span> Attend Conferences - Online Can Be a Good Option !</h2>
+<h2><span class="header-section-number">7.3</span> Attend Conferences - Online Can Be a Good Option !</h2>
 </div>
 <div id="join-slack-spaces-or-other-chats" class="section level2" number="7.4">
-<h2 number="7.4"><span class="header-section-number">7.4</span> Join Slack Spaces (or other Chats)</h2>
+<h2><span class="header-section-number">7.4</span> Join Slack Spaces (or other Chats)</h2>
 <p>Slack or Discord</p>
 </div>
 <div id="look-for-local-community-group" class="section level2" number="7.5">
-<h2 number="7.5"><span class="header-section-number">7.5</span> Look for Local Community Group</h2>
+<h2><span class="header-section-number">7.5</span> Look for Local Community Group</h2>
 <p>job market!</p>
 
 </div>
@@ -283,7 +285,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -295,14 +296,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"facebook": false,
+"github": false,
+"facebook": true,
 "twitter": true,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"],
-"github": true
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -317,7 +319,15 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"view": {
+"link": null,
+"text": null
+},
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }
