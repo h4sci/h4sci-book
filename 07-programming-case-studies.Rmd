@@ -321,20 +321,190 @@ d |>
 
 
 
+## Web Applications /w R Shiny 
+
+For starters, let me de-mistify {shiny}. There are basically two reasons why so many inside data science and analytics have shiny on their bucket list of things to learn. First, it gives researchers and analysts home court advantage on a webserver. Second, it gives our online appearances a kickstart in the dressing room.  
+
+Don't be surprised though if your web development professional friend outside data science and analytics never heard of it. Compared to web frontend framework juggernauts such as *react*, *angular* or *vue.js* the shiny web application framework for R is rather a niche ecosystem. 
+
+Inside the data science and analytics communities, fancy dashboards and the promise of an easy, low hurdle way to create nifty interactive visualizations have made {shiny} app development a sought after skill. Thanks to pioneers, developers and teachers like Dean Attali, John Coene, David Granjon, Colin Fay and Hadley Wickham, the sky seems the limit for R shiny applications nowadays.
+
+This case study does not intend to rewrite {shiny}'s great documentation or blogs and books around it. I'd rather intend to help you get your first app running asap and explain a few basics along the way. 
+
+### The Web Frontend 
+
+<img src="docs/johnny.jpg" alt="Maybe I am late, but I look goood. Johny Bravo representing the frontend" width=300>
+
+Stats & figures put together by academic researchers or business analysts are not used to spend a lot of time in front of the mirror. (Often for the same reason as their creators: perceived opportunity costs.)
+
+Shiny bundles years worth of lime light experience and online catwalk professionalism into an R package. Doing so allows us to use all this design expertise through an R interface abstracting away the need to dig deep into web programming and frontend design (you know the HTML/CSS/Javascript).
+
+Let's consider the following web frontend put together with 
+a few lines of R code. Consider the following, simple web fronted that lives in a dedicated user interface R file, called *ui.R*:
+
+
+```{r, eval=FALSE}
+library(shiny)
+library(shinydashboard)
+
+dashboardPage(
+  dashboardHeader(title = "Empty App"),
+  dashboardSidebar(),
+  dashboardBody(
+    fluidPage(
+      fluidRow(
+        box(title = "Configuration",
+            sliderInput("nobs",
+                        "Number of Observations",
+                        min = 100,
+                        max = 10000,
+                        value = 500),
+            sliderInput("mean_in","Mean",
+                        min = 0,
+                        max = 10,
+                        value = 0),
+            sliderInput("sd_in","SD",
+                        min = 1,
+                        max = 5,
+                        value = 1),
+            width = 4),
+        box(title = "Distribution",
+            plotOutput("dist"),
+            width = 8)
+      ),
+      fluidRow(
+        box("Tabelle",
+            dataTableOutput("tab"),
+            width=12
+            )
+      )
+    )
+    
+  )
+)
+
+
+```
+
+Besides the shiny package itself, the ecosystem around shiny brings popular frontend frameworks from the world outside data science to R. In the above case, a boilerplate library for dashboards is made available through the add-on package {shinydashboard}.
+
+Take a moment to consider what we get readily available at our finger tips: Pleasant user experience (UX) comes from many things. Fonts, readability, the ability to adapt to different screens and devices (responsiveness), a clean, intuitive design and many other aspects. {shinydashboard} adds components like *fluidPages* or *fluidRow* to implement a responsive (google me), grid based design using R.
+Note also how similar the hierarchical, nested structure of the above code is to HTML tagging. (Here's some unrelated minimal HTML)
+
+
+```html
+<!-- < > denotes an opening, </ > denotes an end tag. -->
+<html>
+  <body>
+  <!-- anything in between tags is affected by the tags formatting.
+       In this case bold -->
+    <b> some bold title </b>
+    <p>some text</p>
+  </body>
+</html>
+
+
+```
+
+{shiny} ships with many widgets^[online widget galleries like R Studio's [shiny widget gallery](https://shiny.rstudio.com/gallery/widget-gallery.html) that help to 'shop' for the right widgets.] such as input sliders or table outputs that can simply be placed somewhere on your site. Again, add-on packages provide more widgets and components beyond those that ship with shiny. 
+
+
+### Backend
+
+While the frontend is mostly busy looking good, the backend has to do all the hard work, the computing, the querying -- whatever is processed in the background based on user input. 
+
+```{r, echo=FALSE, out.width=400}
+knitr::include_graphics("docs/overload.jpg")
+```
+
+Under-the-hood-work that is traditionally implemented in languages like Java, Python or PHP^[Yup, there is node and javascript on web servers, too, but let's keep things simple and label javascript clientside here. And yes, shiny server used to require node itself, too.] can now be done in R. This is not only convenient for the R developer who does not need to learn Java, it's also incredibly comfy if you got data work to do. Or put differently: who would like to implement logistic regression, random forests or principal component analysis in PHP?
+
+
+Consider the following minimal backend *server.R* file which corresponds to the above *ui.R* frontend file. The anonymous (nameless) function which is passed on to the *ShinyServer* function takes two named lists, *input* and *output*, as arguments. The named elements of the input list correspond to the *widgetId* parameter of the UI element. 
+In the below example, our well known base R function *rnorm* takes *nobs* from the input as its *n* sample size argument. Mean and standard deviation are set in the same fashion using the user interface (UI) inputs. 
+
+```{r, eval=FALSE}
+
+library(shiny)
+
+shinyServer(function(input,output){
+  
+  output$dist <- renderPlot({
+    hist(
+      rnorm(input$nobs,
+            mean = input$mean_in,
+            sd = input$sd_in),
+      main = "",
+      xlab = ""
+      )
+  })
+  
+  output$tab <- renderDataTable({
+    mtcars
+  })
+  
+  
+  
+})
+
+
+
+```
+
+The vector that is returned from *rnorm* is passed on to the base R *hist* which returns a histogram plot. This plot is then rendered and stored into an element of the *output* list. The *dist* name is arbitrary but again matched to the UI. The *plotOutput* function of *ui.R* puts the rendered plot onto the canvas so it's on display in people's browsers. *renderDataTable* does so in analog fashion to render and display the data table.    
+
+
+### Put Things Together and Run Your App 
+
+```{r, echo=FALSE, out.width=500}
+knitr::include_graphics("docs/shinyapp.png")
+```
+
+
+
+The basic app shown above consists of a *ui.R* and a *server.R* file living in the same folder. The most straight forward way to run such an app is to call the *runApp()* function and provide the location of the folder that contains both of the aforementioned files. 
+
+```{r, eval=FALSE}
+library(shiny)
+runApp("folder/that/holds/ui_n_server")
+```
+
+This will use your machine's built-in web server and run shiny locally on your notebook or desktop computer. Even if you never put your app on a web server and run a website with it this is already a legitimate way 
+to distribute your app. If it was part of an R package, everyone who download your package could use it locally, maybe as a visual inspection tool or way to derive inputs interactively and feed them into your R calculation. 
+
+
+### Serve your App
+
+Truth be told, the full hype and excitement of a shiny app only comes into play when you publish your app and make it available to anyone with a browser, not just the R people. Though hosting is a challenge in itself let me provide you a quick shiny specific discussion here. The most popular options to host a shiny app are 
+
+- **software-as-a-service (SaaS)**. No maintenance, hassle free, but least bang-for-buck. The fastest way to hit the ground running is R Studio's service *shinyapps.io*.  
+
+- **on premise aka in house**. Either download the open source version of shiny server, the alternative shiny proxy or the R Studio Connect premium solution and install them on your own Virtual machine. 
+
+- use a **shiny server docker image** and run a container in your preferred environment. 
+
+
+### Shiny Resources
+
+One of the cool things of learning shiny is how shiny and its ecosystem allow you to learn quickly. Here are some of my favorite resources to hone your shiny skills. 
+
+
+- [R Studio Shiny's Widget Gallery](https://shiny.rstudio.com/gallery/widget-gallery.html) 
+
+- [shinydashboard](https://rstudio.github.io/shinydashboard/)
+
+- [Mastering Shiny by Hadley Wickham](https://mastering-shiny.org/)
+
+- [Engineering Production Grade Shiny Apps](https://engineering-shiny.org/)
+
+- [RInterface by David Granjon, John Coene, Victor Perrier and Isabelle Rudolf](https://rinterface.com/)
 
 
 
 
 
 
-
-
-
-
-
-
-
-
+<!--
 ## Articles, Presentations, Reports and Websites /w Markdown and RMarkdown
 
 Working with data asks for reproducible reports, presentations and articles that can be rendered to accessible, screenreader friendly online output as well as more traditional, print minded PDF output. 
@@ -347,94 +517,6 @@ Various rendering engines can render *Markdown* into HTML, PDF or even MS Word o
 
 - [*Markdown* source of this particular site that you are reading here]().
 - [*Markdown* source of a presentation slides]()
-
-
-
-
-INSERT SKETCH HERE
-
-
-
-
-
-
-
-
-
-
-
-## Web Application /w the Shiny Framework
-
-Fancy dashboards and the promise of an easy to use way to create dynamic web applications have made the {shiny} R package one of the most frequent items on data people's bucket list of things to learn. 
-In the meantime {shiny} has gathered an entire ecosystem of helper packages, e.g., to boilerplate applications or to make use of other frontend frameworks through {shiny}. This case studies intends to de-mystify the package and to explain basic concepts, but no rewrite its great documentation or blogs and books around {shiny}.
-
-The code for a {shiny} app can live in a single file, but for the sake of illustrating the concept I will use two files here: a frontend file called ui.R and a backend file called server.R. If we follow this convention and put both files into one folder a the shiny runtime 
-
-### Frontend: ui.R
-
-INSERT JOHNNY BRAVO HERE. MAYBE I AM LATE BUT I LOOK GOOD.
-
-In a separation-of-concerns approach, the part of the application which makes sure fonts, figures and tables are neatly presented in our web browsers is called the *frontend*. The markup-language **HTML** has been taking care of this for decades and therefore has been associated with web programming even though it is not a programming language, but rather a language that helps to format and position things -- very much like LaTeX. To make it easier to implement entire styles, e.g., corporate design, **CSS** has been around as HTML's partner for several decades. The trio is completed by the **Javascript** programming language which went from messy scripting language to being used everywhere. In web frontends it's mainly used to make things dynamic by modifying the so-called DOM, i.e., the tree like structure of HTML while the page is already rendered and being displayed in our browsers. 
-
-So what has the {shiny} R package to do with all of this? {shiny} makes sure you do not have to care about the above if you do not want to. Abstracting HTML/CSS/JS way from the developer leads varying opinions about {shiny} which maybe very confusing for the novice. The R world mostly loves while application developers don't get the hype (if they know the {shiny} framework at all).
-
-However, {shiny} is a great opportunity to create beautiful state-of-the-art web applications w/o learning a set of new languages if you come out of of the data corner. As part of this process {shiny} helps developers organize their code into backend and frontend code, something not necessarily common for people for rather program with data as opposed to application developers. A graphical user interfaces (GUI) let alone user experience (UX) is a beast of its own.   
-
-A frontend ui.R file could look like this
-
-```{r, eval=FALSE}
-library(shiny)
-
-
-
-
-
-```
-
-
-
-
-
-
-### Backend: server.R
-
-The server.R files does all the heavy lifting. Computation, file processing, data access it all happens inside the server function. Sometimes you want to change the user interfaces depending on the result of some computation. In this special case the user interface  
-
-### Quickstart: A Minimal Demo App
-
-If want to you catch a glimpse of {shiny} running on your own computer asap,  simply install the {shiny} R package and run the following single file application.
-
-```{r, eval=FALSE}
-library(shiny)
-
-ui <- fluidPage(
-  mainPanel(
-    plotOutput("rndtest"),
-    sliderInput("rnd_n","Number of Observations",1,1000,100)
-  )  
-)
-
-server <- function(input, output, session) {
-  output$rndtest <- renderPlot({
-    hist(rnorm(input$rnd_n))
-  })
-}
-
-shinyApp(ui, server)
-
-```
-
-Running the code will fire up a shiny server and a separate session on tha server to run your app on your local computer. Your development server is up an running and will react to many changes on the fly w/o having to restart the server for the changes to come into effect. 
-
-
-
-
-### Hosting: Make Apps Available Online
-
-Though some shiny apps just live happily inside R packages many of them are designed to be shown to a larger public as standalone apps. Examples include for an interactive data visualization or forms to gather input data. There are many reasons to make {shiny} apps available online. In order to do so, you can either host them yourself within your university or company infrastructure or using your favorite cloud provider. The inventors of shiny, the R Studio company also offers hassle free software-as-a-service (SaaS) shiny hosting on shinyapps.io. For a more detailed discussion of on-premise (in house hosting) or service based hosting please take a look at the infrastructure section of this book. 
-
-
-
 
 
 
@@ -469,3 +551,6 @@ library(microbenchmark)
 ```
 
 Obviously the absolute computation time depends on the hardware used, but also the operating system can be an important factor depending on the task at hand. Even though the combination of algorithm, hardware, operating system and software used for the computation can make assessment a daunting, complex task, easily venturing into expert realm, a basic understanding and a ballpark relation between multiple approaches can carry you a long way. 
+
+
+-->
