@@ -103,7 +103,28 @@ If you came to cherry pick, you're welcome, too.
 
 ## Requirements - What You Need to Know to Make the Most of This Book
 
-Though the book offers many entry points to the reader and strives to make advanced considerations accessible,
+Though the book offers many entry points to the reader and strives to make advanced considerations accessible, 
+*Programming with Data* provides the most value beyond certain prior knowledge. The book is **not** an introduction to R or Python. It's **not** an introduction to data science or machine learning either. Neither knowledge is strictly required to follow the book, but a basic understanding of statistical methods and the challenges applied statisticians face certainly help to motivate getting invested into programming. Likewise, prior knowledge of a *scripting language* like *R, Python* or *Javascript*, *git version control*, as well as familiarity with  *console / terminal basics* will help the reader sail smoothly. That being said, to self-reflect on one's starting point and selectively upgrade skills if needed remains the most important requirement to leverage the book. 
+
+
+
+
+
+*Programming with Data* willingly accepts to be overwhelming at times. The books aims to 
+
+- overview
+- stack
+- what is used when... 
+
+
+
+Prior experience with a scripting language such as R, Python or Javascript as well as familiarity with console / terminal basics will help the reader sail smoothly. 
+
+- reflect on own starting point
+- like any non-introductory book
+- requi
+
+
 certain prior knowledge will provide readers with a kickstart and help avoid frustration. Prior experience with a scripting language such as the R Language for Statistical Computing, Python or Javascript as well as familiarity with console / terminal basics will help you leverage the book.
 
 Though *Programming with data* does contain its share of easy to follow introductory examples, there are definitely better resources for a systematic introduction to any of the scripting languages mentioned above. That is  
