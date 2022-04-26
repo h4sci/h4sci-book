@@ -73,7 +73,7 @@ rnorm(10)
 
 
 <img src="images/communication.png">
-<div class="caption-left">Source code can be a tremendously sharp, unambigous and international communication channel.</div>
+<div class="caption-left">Source code can be a tremendously sharp, unambiguous and international communication channel.</div>
 
 
 
