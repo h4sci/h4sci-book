@@ -1,0 +1,11 @@
+# Data Management
+
+in memory, out of memory persistent.
+
+
+## Databases
+
+## Parquet, Kafka etc. 
+
+
+## Security

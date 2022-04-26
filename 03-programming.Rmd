@@ -1,0 +1,322 @@
+# Programming 101
+
+
+## The Choice that Doesn't Matter
+
+The very first (and intimidating) choice a novice hacker faces is which is programming language to learn. Unfortunately the medium popularily summed up as the internet offers a lot of really really good advice on the matter. The problem is, however, that this advice does not necessarily agree which language is the best for research. In the realm of data science -- get accustomed to that label if you are a scientist who works with data -- the debate basically comes down to two languages: The R Language for Statistical Computing and Python. 
+
+At least to me, there is only one valid advice: **It simply does NOT matter**. If you stick around in data science long enough you will eventually get in touch with both languages and in turn learn both. There is a huge overlap of what you can do either of those languages. R came out of the rather specific domain of statiscs 25+ years ago and made its way to a more general programming language thanks to 15K+ extension packages (and counting). Built by a mathmatician, Python continues to be as general purpose as it's ever been. But it got more scientific, thanks to extension packages of its own such as [pandas](https://pandas.pydata.org/), [SciPy](https://www.scipy.org/) or [numPy](https://numpy.org/). As a result there is a huge overlap of what both languages can do and both will extend your horizon in unprecendented fashion if you did not use a full fledged programming language for your analysis before. 
+
+<img src="images/languagewar.jpg" width="650px">
+<div class="caption-left">R: "Dplyr smokes pandas." Python: "But Keras is better for ML!" Language wars can be entertaining, sometimes spectacular, but most times they are just useless... </div>
+
+But why is there such a heartfelt debate online, if it doesn't matter? Let's pick up a random argument from this debate: R is easier to set up and Python is better for machine learning. If you worked with Java or another environment that's rather tricky to get going, you are hardened and might not cherish easy onboarding. If you got frustrated before you really started, you might feel otherwise. You may just have been unlucky making guesses about a not so well documented paragraph, trying to reproduce a nifty machine learning blog post. Just because you installed the wrong version of Python or didn't manage to make sense of virtualenv right from the beginning. 
+
+The point is,  rest assured, if you just start doing analytics using a programming languages both languages are guaranteed to carry you a long way. There is no way to tell for sure which one will be the more dominant language in 10 years from now or whether both still be around holding their ground the way they do now. But once you reached a decent software carpentry level in either language, it will help you a lot learning the other. If your peers work with R, start with R, if your close community
+works with Python, start with Python. If you are in for the longer run either language will help you understand the concepts and ideas of programming with data. Trust me, there will be a natural opportunity to get to know the other. 
+
+
+
+
+
+
+
+<!-- DO NOT FORGET TO SAY SOMETHIN ABOUT LICENSES !! -->
+
+If you associate programming more often than not with hours of fiddling, tweaking and fighting to galvanize approaches found online, this chapter is for you. Don't expect lots of syntax. If you came for examples of useful little programs from data visualization to parallel computing, check out the [case studies]().
+
+The following sections share a blueprint to go from explorative script to production ready package.  Organise your code and accompany the evolution of your project: start out with experiments, define your interface, narrow down to a proof of concept and scale up. Hopefully the tips, tricks and the guidance in this chapter will help you to experience the rewarding feeling of a software project coming together like a plan originated by Hannibal Smith. 
+
+
+<!-- - maybe overview sketch here... decision tree.  -->
+
+
+## Think library!
+
+<div align="center">
+<img src="images/packages.jpg" height="300px">
+<div class="caption-half">"Over the days are when creating packages for gurus was only."</div>
+</div>
+
+The approach that I find practical for applied, empirical research projects involving code is: think library. Think package. Think _reusable_ code. Don't think you can't do it. Let me de-mystify packages for you: **Packages are nothing else than source code organized in folders following some convention**. Thanks to modern IDEs, it has never been easier to stay inline with conventions. Editors like R Studio ship with built-in support to create package skeletons with a few clicks. Thousands of open source extension packages allow you to learn from their structure. Tutorials like [Packing Python Projects](https://packaging.python.org/tutorials/packaging-projects/) or Hadley Wickham's free online book [R Packages](https://r-pkgs.org/) explain how to create packages good enough to make the official PyPi or CRAN package repository. 
+
+In other words, it is unlikely that someone with moderate experience comes up the best folder structure ever invented. Sure, every project is different and not every aspect (folder) is needed in every project. Nevertheless, there are well established blueprints, guides and conventions that suit almost any project. Unlike Office type of projects which center around one single file, understand a research project will live in a folder with many subfolders and files. Not in one single file. 
+
+Trust me on this one: The package approach will pay off early. Long before you ever thought about publishing your package. Write your own function definition, rather than just calling functions line by line. Write code as if you need to make sure it runs on another computer. Write code as if you need to maintain it. 
+
+Go from scripts like this
+
+```{r}
+# This is just data from the sake of 
+# reproducible example
+set.seed(123)
+d1 <- rnorm(1000)
+d2 <- rnorm(1000)
+
+# Here's where my starts
+# let's create some custom descriptive
+# stats summary for the data generated above
+d1_mean <- mean(d1)
+d1_sd <- sd(d1)
+d1_q <- quantile(d1)
+desc_stats_d1 <- list(d1_mean = d1_mean,
+                      d1_sd = d1_sd,
+                      d1_q = d1_q)
+
+d2_mean <- mean(d2)
+d2_sd <- sd(d2)
+d2_q <- quantile(d2)
+desc_stats_d2 <- list(d2_mean = d2_mean,
+                      d2_sd = d2_sd,
+                      d2_q = d2_q)
+
+```
+
+To function defintions and calls like that
+
+```{r}
+
+# Imagine you had thousand of datasets.
+# Imagine you wanted to add some other stats
+# Imagine all the error prone c&p with 
+# the above solution. 
+# Think of how much easier this is to document. 
+# This is automation. Not cooking. 
+create_basic_desc <- function(distr){
+  out <- list(
+    mean = mean(distr),
+    sd = sd(distr),
+    quantiles = quantile(distr)
+  )
+  out
+}
+
+create_basic_desc(d1)
+create_basic_desc(d2)
+
+
+```
+
+Start to document functions and their parameters using [Roxygen](https://cran.r-project.org/web/packages/roxygen2/vignettes/roxygen2.html) syntax and you're already very close to creating your first package. **Pro-tipp**: Hit Cmd+Alt+Shift+R^[On Windows / Linux use Ctrl instead of Cmd.] while inside a function definition with you cursor. When working with R Studio, it will create a nifty roxygen skeleton with all your function's parameters. 
+
+```{r}
+
+#' Create Basic Descriptive Statistics
+#'
+#' Creates means, standard deviations and default quantiles from an numeric input vector. 
+#' 
+#' @param distr numeric vector drawn from an arbitraty distribution. 
+#' @export 
+create_basic_desc <- function(distr){
+  out <- list(
+    mean = mean(distr),
+    sd = sd(distr),
+    quantiles = quantile(distr)
+  )
+  out
+}
+
+```
+
+Writing *reusable code* will improve your ability to remember syntax and apply concepts to other problems. The more you do it, the easier and more natural becomes. Just like a toddler figuring out how to speak in a natural language. At first progress seems small, but once kids understand the bits and pieces of a language they start building at a remarkable speed, learn and never forget again. 
+
+
+## Plan Your Program
+
+How much planning ahead is optimal for your project ultimately depends on your experience, number of collaborators and size of your project. But still, a rough standard checklist helps any project. 
+
+### Documentation
+
+First things first. Write the first bit of documentation before your first line of code. Documentation **written** with hindsight will always be written with an all-knowing, smartest-person-in-the-room mindset and the motivation of someone who already gave her best programming. Understand, I am not talking about the finetuning here, but about a written outline. Describe **how** parts of the code are going to do stuff. Also, examples can't hurt to illustrate what you meant. Research projects often take breaks and getting back to work after months should be as easy as possible. 
+
+_Pseudo Code_ is a good way of writing up such an outline documentation. Take a simple API wrapper for example. Assume there is an API that returns numeric ids of hit entries when queried for keywords. These ids can be passed on to yet another [endpoint](), to obtain a profile. A rough game plan for an API Wrapper could like this: 
+
+```r
+
+# function: keyword_search(keyword, url = "https://some.default.url.com")
+# returns numeric ids according to some api documentation
+
+
+# function: query_profile(vec_in_ids)
+# a json object that should be immediately turned into list by the function, 
+# returns list of properties
+
+```
+
+Documentation should use your ecosystem's favorite documentation framework. Yet, your comments within the code are the raw, initial form of documentation. Comments help to understand key parts of a program as well as caveats. Comments help tremendously during development time, when debugging or coming back to a project. Let alone when joining a project started by others. 
+
+While pseudo code where comments mimmick code itself is the exception to that rule, good comments should always follow the **not-what-but-why** principle. Usually, most high level programming languages are fairly easy to read and remind of rudimentary English. Therefore a _what_ comment like this is considered rather useless: 
+
+
+```{r, eval=FALSE}
+# compute the cumulative sum of a vector
+cumsum(c(T,F,F,F,F,T,F,F,T,F,F,F,T))
+```
+Whereas this _why_ comment may actually be helpful:
+
+```{r, eval=FALSE}
+# use the fact that TRUE is actually stored as 1 
+# to create a sequence until the next true
+# this is useful for splitting the data later on.
+cumsum(c(T,F,F,F,F,T,F,F,T,F,F,F,T))
+```
+
+Comment on why you do things, especially with which plan for future use in mind. Doing so will certainly foster exchange with others who enter or re-visit the code at a later stage (including yourself). 
+
+
+### Design Your Interface
+
+In other languages it is fairly common to define the data type of both: the input and the output^[See statically typed language vs. dynamically typed language.]. Though doing so is not necessary in R, it is good practice to define the types of all parameters and results in your comments / documentation.  
+
+Once you know a bit more about your direction of travel, it's time to think about how to modularize your program. How do different parts of the program play together. users interact with your program: Will your code just act as a storage pit of tools, a loose collection of commands for adhoc use? Are others using the program, too? Will there be machine-to-machine interaction? Do you need graphical user interface (GUI) like shiny? 
+
+These questions will determine whether you use a [strictly functional approach](http://adv-r.had.co.nz/Functional-programming.html), a [rudimentary 
+form of object orientation like S3](http://adv-r.had.co.nz/OO-essentials.html), a stricter implementation like [R6](https://github.com/r-lib/R6/) or something completely exotic. There a plenty of great resources out there, so I will not elaborate on this for the time being. 
+The main message of this section is: Think about the main use case. Is it interactive? Is it a program that runs in batch typically? Do your users code? Would they prefer a GUI? 
+
+
+### Dependencies
+
+One important word of advice for novice package developers is to think about your dependencies. Do not take depedencies lightly. Of course it is intriguiging to stand on the shoulders of giants. Isn't R great because of its 15K+ extension packages? Isn't exactly this was made R such as popular language? 
+
+Yes, extension packages are cool. Yes, the ease with with CRAN packages are distributed is cool. But, just because packages are easy to install and free of license costs it does not mean leaning on a lot of packages comes at no costs: One needs to stay informed about updates, issues, breaking changes or undesired interdependencies between packages. 
+
+The problem is mitigated a bit when a) a package is required in an interactive script and b) one is working with a very popular package. Well managed packages with a lot of [reverse dependencies]() tend to deprecate old functionality more smoothly as authors are aware of the issues breaking changes cause to a package's ecosystem. 
+
+In R, the tidyverse bundle of packages seems ubiquitous and easy to use. But it leads to quite a few dependencies. The data.table ecosystem might be less popular but provides its functionality with a single R package dependency (the {methods} package).
+
+Often it does not take much to get rid of dependency: 
+
+
+```{r}
+library(stringr)
+cow <- "A cow sounds off: mooooo"
+str_extract(cow,"moo+")
+
+```
+
+
+Sure, the above code is more intuitive, but shrewd use of good ol' _gsub_ and back referencing allows you to do the very same thing in base R. 
+
+```{r}
+gsub("(.+)(mooo+)","\\2",cow)
+```
+
+Again, {stringr} is certainly a well crafted package and it is definitely not the worst of all packages. But when you just loaded a package because it adds convenience to one single line or worse just because you found your solution online, think again before adding more dependencies to a production environment.  
+
+
+
+
+
+
+## Naming Conventions: Snake, Camel or Kebap
+
+Before we start with files and folders, let me drop a quick, general note on naming. As in how to name files, folders and functions. It may look like a mere detail, but concise formatting and styling of your code will be appreciated by your peers and by those you ask for help. Plus, following an established convention will not make you look like a complete greenhorn. 
+
+- Do NOT use spaces in folder or file names! Never. If you need lengthy descriptions, use underscores '_', dashes '-' or camelCase. 
+
+- avoid umlauts and special characters. Encoding and internationalization is worth a book of its own. It's not like modern programming environments can't handle it, but encoding will introduce further complications. These are exactly the type of complications that may lead to an unplanned, frustrating waste of hours. You may be lucky enough to find a quick fix, but you may as well not. Avoid encoding issues if do not plan to build a deeper understanding of encoding on the fly. This is especially true for cross platform collaboroations (Windows vs. Unix / OSX).
+
+- either go for camelCase, snake_case or kebap-case. Otherwise prefer lower case
+characters. Also make sure to not switch styles within a project. There a plenty of style guides around, go with whatever your lab or community goes. 
+
+
+
+
+## Folder Structure
+
+In R, packages may have the following folders. Note that this does not mean a package has to
+contain all of these folders. FWIW, an R package needs to have NAMESPACE and DESCRIPTION files, but that is not the point here. Also there are more comprehensive, better books on the matter than this little section. The point of this section though is to discuss the role of folders 
+and how they help you structure your work, even if you don't want to create an R package in first place. 
+
+This chapter describes the role of different folders in a package and what these folders are good for. More likely than not, this will cover a lot of the aspects of your project, too.
+
+- R
+- data
+- docs
+- vignettes
+- src 
+- inst
+- man
+
+The below description explains the role of all of these folders. 
+
+**R**
+
+A folder to store function definitions as opposed to function calls. Typically 
+every function goes into a separate file. Sometimes it makes sense to group multiple functions into a single file when functions are closely related. Another reason for putting more than one function into a single file is when you have a collection of relatively simple, short helper functions. The R folder MUST NOT contain calls^[Essentially, examples are calls, too. Note, I do recommend to add examples. Hadley Wickham's [guide to document functions within packages](https://r-pkgs.org/man.html#man-functions) shows how to add examples correctly.].
+
+```{r}
+my_func_def <- function(param1, param2){
+  # here goes the function body, i.e., what the function does
+  a <- (param1 + param2) * param3
+  # Note that in R, return statements are not necessary and even
+  # relatively uncommon, R will return the last unassigned statement
+  return(a)
+}
+```
+
+**man** 
+
+This folder contains the context manual of your package. What you'll find here is the so called _function reference_, basically a function and dataset specific documentation. It's what you see when you run `?function_name`. The content of the `man/` folder is usually created automatically from the roxygen style documentation (note the #' styled comments) during a ```devtools::document()`` run. Back in the days when people wore pijamas and
+lived life slow, the man folder was filled up manually with some LaTeX reminiscant .rd files, but ever since R Studio took over in 2012, most developers use Roxygen and render the function reference part of the documentation from their comments. 
+
+
+```{r, eval=FALSE}
+#' Sum of Parameters Multiplied by First Input
+#'
+#' This functions only exists as a show case. 
+#' It's useless but nevertheless exported to the NAMESPACE of this
+#' package so users can see it and call the function by it's name.
+#'
+#' @param param1 numeric input 
+#' @param param2 numeric input 
+#' @export
+my_func_def <- function(param1, param2){
+  # here goes the function body, i.e., what the function does
+  a <- (param1 + param2) * param1
+  # Note that in R, return statements are not necessary and even
+  # relatively uncommon, R will return the last unassigned statement
+  return(a)
+}
+```
+
+
+
+
+
+**docs**
+
+This folder is typically not filled with content manually. When pushed to github
+a docs folder can easily be published as website using [Github Pages](https://pages.github.com/). With Github pages you can host a decently styled modern website for free. Software projects often use GitHub Pages to market a product or project or simply for documentation purposes. All you need to do is check a couple of options inside the Github Web GUI and make sure the docs/ folder contains .md or .html files as well as stylesheets (.css). The latter may sound a bit like Latin to people without a basic web development background, but there is plenty of help. The R ecosystem offers different flavors of the same idea: use a bit of markdown + R to generate website code. There is blogdown for your personal website or blog. There is pkgdown for your packages documentation. And there is even bookdown to write an online book like this. Write the markdown file, render it as HTML into the docs folder, push the docs folder to GitHub. Done. Your website will be online at username.github.io/reponame.
+
+Here's a an example of a package down website: https://mbannert.github.io/timeseriesdb/
+
+**data**
+
+If you have file based data like .csv, .RData, .json or even .xlsx put them in here. Keeping data in a separate folder inside the project directory helps to keep reference to the data relative. There is nothing more greenhorn than 
+```r read.csv("C:\mbannert\My Documents\some_data.csv") ```. Even if you like this book, I doubt you have a folder named 'mbannert' on your computer. Ah, an in case you wondered, extensive use of ```setwd()``` is even worse. Keep your reference to data (and functions alike) relative. If you are sourcing data from a remote NAS drive as it is common at many universities, you can simply mount this drive to you folder (LTMGTFY: How to mount a network drive Windows / OSX).
+
+**vignettes**
+
+Admittedly not the most intuitive names for a folder that is supposed to contain articles. Vignettes are part of the documentation of a good package. It's kind of a description as if you were to write a paper about your package, including some examples of how to use it. For modern packages, vignettes are often part of their package down based online documentation. Feel free, to name this folder differently, though sticking to the convention will make it easier to turn your project into a project at a later stage. This folder typically contains Markdown or RMarkdown files. 
+
+
+**src**
+
+The source folder is just here for the sake of completeness and is not needed in projects that only involve R source code. It's reserved for those parts of a package that need compilation, e.g., C++ or FORTRAN source code. 
+
+
+**inst**
+
+When you install an R package using `install.packages()` it will be installed in some deep dungeon on your computer where R lives within your OS. The inst/ folder allows you to ship non R files with your installation. The files of the inst folder will just be copied into the package root folder inside your installation of that package. 
+
+*inst* is also a great place to store experimental function calls or playground files once the package ambitions become more concrete and those type of files do not live conveniently in the project root anymore. Also. I sometimes put shiny apps for local use into the inst/ folder if I want to make them part of a package. 
+
+
+
+
+
+
+
+

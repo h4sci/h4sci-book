@@ -1,17 +1,73 @@
 --- 
-title: "Hacking for Social Sciences"
-subtitle: "A Guide to Programming With Data"
+title: "Programming /w Data"
 author: "Matthias Bannert"
 date: "`r Sys.Date()`"
-site: bookdown::bookdown_site
-output: bookdown::gitbook
-css: ["h4sci.css"]
-documentclass: book
-bibliography: [book.bib, packages.bib]
+subtitle: An Applied Guide for Scientists & Business Analysts
+bibliography: packages.bib
 biblio-style: apalike
+description: bookety-book new tricks on the block.
+documentclass: krantz
 link-citations: yes
-description: "The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point researchers to programming approaches who had not considered programming to process data so far. Hacking for Social Sciences and Humanities"
+colorlinks: yes
+graphics: yes
+lot: yes
+lof: yes
+fontsize: 11pt
+site: bookdown::bookdown_site
+github-repo: h4sci/h4sci-book
+url: https\://h4sci.github.io/h4sci-book/
+cover-image: images/cover.png
 ---
+
+```{r setup, include=FALSE}
+set.seed(0728)
+knitr::opts_chunk$set(tidy = TRUE, webshot = "webshot")
+if (knitr::is_html_output()) {
+  # ignore percentage widths for HTML output, unless they are used for multiple
+  # figures side by side
+  knitr::opts_hooks$set(out.width = function(options) {
+    if (options$fig.show != 'hold' && grepl('%$', options$out.width))
+      options$out.width = NULL
+    options
+  })
+}
+# screenshot HTML widgets
+if (is.null(webshot:::find_phantom())) webshot::install_phantomjs()
+options(bookdown.post.latex = function(x) {
+  # substitute nonbreaking spaces in \texttt{} with normal spaces
+  m = gregexpr('\\\\texttt\\{[^}]+}', x)
+  regmatches(x, m) = lapply(regmatches(x, m), function(z) {
+    gsub('\\\\ ', ' ', z)
+  })
+  # only build a skeleton for the online version
+  if (Sys.getenv('BOOKDOWN_FULL_PDF', '') == 'false') return(bookdown:::strip_latex_body(
+    x, '\nThis PDF is only a skeleton. Please either read the free online HTML version, or purchase a hard-copy of this book.\n'
+    ))
+  # fix syntax highlighting:
+  # \FunctionTok{tufte:}\AttributeTok{:tufte_html: default} ->
+  # \FunctionTok{tufte::tufte_html:}\AttributeTok{ default}
+  x = gsub('(\\\\AttributeTok\\{[^:]+:)(})(\\\\FunctionTok\\{)(:[^:]+:)', '\\1\\4\\2\\3', x)
+  if (length(i <- grep('^\\\\begin\\{longtable\\}', x)) == 0) return(x)
+  i1 = bookdown:::next_nearest(i, which(x == '\\toprule'))
+  i2 = bookdown:::next_nearest(i, which(x == '\\endfirsthead'))
+  x[i1 - 1] = paste0(x[i1 - 1], '\n\\begin{tabular}{', gsub('[^lcr]', '', gsub('.*\\[]', '', x[i])), '}')
+  x[i] = '\\begin{table}'
+  x[x == '\\end{longtable}'] = '\\end{tabular}\n\\end{table}'
+  x[x == '\\endhead'] = ''
+  x = x[-unlist(mapply(seq, i1, i2, SIMPLIFY = FALSE))]
+  x
+})
+```
+
+# Preface {-}
+
+```{asis, echo=!knitr::is_latex_output()}
+::: {.infobox .caution}
+**Note**: This book is published by [Chapman & Hall/CRC](https://www.routledge.com/). The online version of this book is free to read here (thanks to Chapman & Hall/CRC), and licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-nc-sa/4.0/). If you have any feedback, please feel free to [file an issue on GitHub](https://github.com/yihui/rmarkdown-cookbook/issues/new). Thank you!
+:::
+<p style="text-align: center;"><a href="https://www.routledge.com/p/book/9780367563837"><img src="images/cover.png" alt="The R Markdown cookbook cover" /></a></p>
+```
+
 
 > "There two things users hate,
 > *change*, and the way things are."
@@ -26,9 +82,6 @@ bookdown::render_book('index.Rmd', 'bookdown::gitbook',output_dir = "docs")
 
 -->
 
-
-# Preface
-
 The vast majority of data has been created within the last decade. In turn many fields of research are confronted with an unprecented wealth of data. The sheer amount of information but also the complexity of modern datasets continues to point a kind researcher to programming approaches who had not considered programming to process data so far. *Hacking for Social Sciences* aims to give a big picture overview and starting point to reach what the open source software community calls a 'software carpentry' level. Also, this book argues a solid software carpentry skill level is totally in reach for most researchers. And most importantly, investing is worth the effort: being able to code leverages field specific expertise and fosters interdisciplinary collaboration as source code continues to become an important communication channel. 
 
 <div align="center">
@@ -36,586 +89,5 @@ The vast majority of data has been created within the last decade. In turn many 
 <div class="caption-half">Meet Dr. Egghead who started his quest to figure out how his assistant got a week's work done in two hours. "<a href="https://www.google.com/search?q=hacker&tbm=isch">Hacker's wear hoodies, you know"</a>, " he mumbles as he starts to think^[FWIW, Dr. Egghead was born after Colin Gillespie's hilarious talk on [Security in Academia](https://www.youtube.com/watch?v=5odJxZj9LE4) at useR! 2019]. </div>
 
 </div>
-
-
-
-# Introduction - The Choice that Doesn't Matter
-
-The very first (and intimidating) choice a novice hacker faces is which is programming language to learn. Unfortunately the medium popularily summed up as the internet offers a lot of really really good advice on the matter. The problem is, however, that this advice does not necessarily agree which language is the best for research. In the realm of data science -- get accustomed to that label if you are a scientist who works with data -- the debate basically comes down to two languages: The R Language for Statistical Computing and Python. 
-
-
-At least to me, there is only one valid advice: **It simply does NOT matter**. If you stick around in data science long enough you will eventually get in touch with both languages and in turn learn both. There is a huge overlap of what you can do either of those languages. R came out of the rather specific domain of statiscs 25+ years ago and made its way to a more general programming language thanks to 15K+ extension packages (and counting). Built by a mathmatician, Python continues to be as general purpose as it's ever been. But it got more scientific, thanks to extension packages of its own such as [pandas](https://pandas.pydata.org/), [SciPy](https://www.scipy.org/) or [numPy](https://numpy.org/). As a result there is a huge overlap of what both languages can do and both will extend your horizon in unprecendented fashion if you did not use a full fledged programming language for your analysis before. 
-
-<img src="images/languagewar.jpg" width="650px">
-<div class="caption-left">R: "Dplyr smokes pandas." Python: "But Keras is better for ML!" Language wars can be entertaining, sometimes spectacular, but most times they are just useless... </div>
-
-But why is there such a heartfelt debate online, if it doesn't matter? Let's pick up a random argument from this debate: R is easier to set up and Python is better for machine learning. If you worked with Java or another environment that's rather tricky to get going, you are hardened and might not cherish easy onboarding. If you got frustrated before you really started, you might feel otherwise. You may just have been unlucky making guesses about a not so well documented paragraph, trying to reproduce a nifty machine learning blog post. Just because you installed the wrong version of Python or didn't manage to make sense of virtualenv right from the beginning. 
-
-The point is,  rest assured, if you just start doing analytics using a programming languages both languages are guaranteed to carry you a long way. There is no way to tell for sure which one will be the more dominant language in 10 years from now or whether both still be around holding their ground the way they do now. But once you reached a decent software carpentry level in either language, it will help you a lot learning the other. If your peers work with R, start with R, if your close community
-works with Python, start with Python. If you are in for the longer run either language will help you understand the concepts and ideas of programming with data. Trust me, there will be a natural opportunity to get to know the other. 
-
-
-## Why Should a Researcher Work Like a Software Engineer? 
-
-First of all, because everybody and their grandmothers seem to do it. Statistical computing continues to be on the rise in many branches of research. 
-
-
-<!-- The below graph shows monthly accumulated extension package downloads for the R Language of Statistical Computing grouped by fields of research^[proxied this and that].
-Econometrics, Psychometrics, National Language Processing, Official Statistics, Social Sciences
-
-```{r, eval=TRUE}
-# add CRAN TASK VIEW Download 
-# Statistics graph here
-rnorm(10)
-```
-
--->
-
-
-<img src="images/communication.png">
-<div class="caption-left">Source code can be a tremendously sharp, unambiguous and international communication channel.</div>
-
-
-
-Second because it's reproducible. Code has become a tremendous communication channel. Your web scraper does not work? 
-Instead of reaching out in a clumsy but wordy cry for help, posting what you tried so far described by source code will often get you good answers within hours on platforms like [Stackoverflow](https://stackoverflow.com) or [Crossvalidated](https://crossvalidated.com). Or think of feature requests: After a little code ping pong with the package author your wish eventually becomes clearer. Let alone chats with colleagues and co-authors. Sharing code just works. 
-Academic journals have found that out, too in the meantime. Many outlets require you to make the data and source code behind your work available. [Social Science Data Editors](https://social-science-data-editors.github.io/guidance/template-README.html) is a bleeding edge project at the time of writing this, but is already referred to by top notch journals like American Economic Review (AER). 
-
-Third, because it scales and automates. Automation is not only convenient. Like when you want to download data, process and create the same visualization and put it on your website any given Sunday. Automation is inevitable. Like when you have to gather daily updates from different outlets or work through thousands of .pdfs. 
-
-Last but not least because of things you couldn't do w/o being an absolute guru (if at all) if wasn't for programming. Take  visualization. Go, check [these D3 Examples](https://d3js.org/). Now, try to do that in Excel. If you do these things in Excel it'd make you an absolute spreadsheet visualization Jedi, probably missing out on other time consuming skills to master. Moral of the story is, with decent, carpentry level programming skills -- that'd be the upfront investment -- you can already do so many spectular things while not really specializing and staying very flexible. 
-
-
-
-## How to Read this Book? 
-
-*Hacking for Social Sciences* is written based on the experience of helping students and seasoned researchers of different fields with their data management, processing and communication of results. A part of the book contains the information I wish I had when I started a PhD in economics. Part of the book is written years after said PhD was completed and with the hindsight of 10+ years in academia. Every page of the book is written with the belief that the future is OPEN and it is up to our generation of researchers to shape it. 
-
-<div align="center">
-<img src="images/open.png">
-<div class="caption-half">"The ministry warns: The future is open," taken from a 2020 [ad campaign on Open Access by the German ministry for education and research (pdf)](https://www.bildung-forschung.digital/files/191004_OA-Infoflyer_barrierefrei.pdf). </div>
-</div>
-<!-- add ad from Germany "the future is OPEN" for open data and open source 
-https://www.bildung-forschung.digital/files/191004_OA-Infoflyer_barrierefrei.pdf
--->
-
-If you came to cherry pick, you're welcome, too.
-
-## Requirements - What You Need to Know to Make the Most of This Book
-
-Though the book offers many entry points and strives to make advanced considerations accessible, 
-*Programming with Data* provides the most value for readers whose prior knowledge is beyond certain threshold. The book is **not** an introduction to R nor Python. It's **not** an introduction to data science or machine learning either. Neither knowledge is strictly required to follow the book, but a basic understanding of statistical methods and the challenges applied statisticians face certainly helps to motivate getting invested into programming. Likewise, prior knowledge of a *scripting language* like *R, Python* or *Javascript*, *git version control*, as well as familiarity with  *console / terminal basics* will help the reader sail smoothly. Still though, to self-reflect on one's starting point remains the most important requirement to leverage the book. 
-
-*Programming with Data* willingly accepts to be overwhelming at times. Given the variety of topics touched in an effort to show the big picture, I encourage the reader to remain relaxed about a few blanks even when it comes to fundamentals. The open source community offers plenty of great resources to selectively upgrade skills and this books intends to show how to evaluate the need for help and how to find the right sources. 
-
-*Programming with Data* was written with the idea in mind that well maintained open source projects are the best to document themselves. Therefore I rather reference to existing documentation as opposed to rewriting it. Because even if my wording was better than the original, it is only a matter of time before my documentation is outdated. The bigger the stack the harder to keep track. So whenever, you stumble upon something you do not understand, make sure to look it up. (I tried hard to provide good a glossary and reference wherever possible, but if not - still push yourself to look things up). 
-
-That being said, to have an idea about following technologies and ideas will certainly help to get the most out of spending time with *Programming with Data*: 
-
-- Basic R or Python 
-- basic understanding of git version control 
-- basic understanding of GitHub based workflows, e.g., issue tracker, kanban boards... 
-- Terminal / Console and Shell and a shell, e.g., bash, fish
-
-In other words: if none of the above means something to you, I recommend to make yourself comfortable with the basics of 2-3 of the above fields before you start to read this book or just cherry pick single topics.
-
-
-
-
-# Stack - A Developer's Toolkit
-
-Just like natural craftsmen, digital carpenters depend on their toolbox and their mastery of it. 
-*Stack* is what developers call the choice of tools used in a particular project. Even though different flavors come down to personal preferences, there is a lot of common ground in *programming with data* stacks. Throughout this book, often a choice for one piece of software needs to be made in order to illustrate things. But please notice that these choices are examples and focus on the role of an item in the big picture. To help you with the big picture of which tool does what, the following section will group common programming-with-data stack components. Also, notice that not every role has to be filled in every project. 
-
-<img src="images/dr_egghead_panics.jpg" width="700px">
-<div class="caption">Aaaaaaah! Don't panic, Dr. Egghead! All these components are here to help you and you won't need all of them every from the start.</div>
-
-
-Here are some components I use most often. This is a personal choice which works for me. Obviously not ALL of these are components are used in every small project. *Git, R* and *R Studio* would be my very minimal version.
-
-```{r, eval=TRUE,message=FALSE, echo=FALSE}
-library(kableExtra)
-d <- data.frame(Component = c("Interpreter / Language", "IDE / Editor",
-                              "Version Control","Project Management",
-                              "Database", "'Virtual' Environments",
-                              "Communication (Visualization, Web)",
-                              "Website Hosting",
-                              "Workflow Automation", "Continous Integration"),
-                Choice = c("<a href='https://r-project.org'>R</a>, <a href='https://www.python.org/'>Python</a>, <a href=''>Javascript</a>","<a href='https://rstudio.com'>R Studio</a>,<a href='https://code.visualstudio.com/'>VS Code</a>, <a href='https://www.sublimetext.com/'>Sublime</a>",
-                           "<a href='https://git-scm.com/'>Git</a>", "<a href='https://github.com/features/project-management/'>GitHub</a>, <a href='https://about.gitlab.com/solutions/project-management/'>GitLab</a>","<a href='https://www.postgresql.org/'>PostgreSQL</a>","<a href='https://www.docker.com/'>Docker</a>",
-                           "<a href='https://nodejs.org/en/'>Node</a>, <a href='https://quasar.dev/'>Quasar (vue.js)</a>",
-                           "<a href='https://netlify.com/'>Netlify</a>, <a href='https://pages.github.com/'>GitHub Pages</a>","<a href='https://airflow.apache.org/'>Apache Airflow</a>", "<a href='https://docs.gitlab.com/ee/ci/'>GitLab CI</a>"),
-                stringsAsFactors = FALSE)
-kable(d,"html",escape= FALSE)
-
-```
-
-
-## Languages: Compiled vs. Interpreted
-
-In Statistical Computing -- at least in Social Sciences -- the interface between the researcher and the computation node is almost always an interpreted progamming language as opposed to a compiled one. Compiled languages like C++ require the developer to write source code and compile, i.e., translate source code into what a machine can work *before* runtime. The result of the compilation process is a binary which is specific to the operating system. Hence you will need one version for Windows, one for OSX and one for Linux if you intend to reach a truly broad audience with your program. 
-The main advantage of a compiled language is speed in terms of computing performance because the translation into machine language does not happen during runtime. A reduction of development speed and increase in required developer skills are the downside of using compiled languages. 
-
-> Big data is like teenage sex: everyone talks about it, nobody really knows how to do it, everyone thinks everyone else is doing it, so everyone claims they are doing it. </br></br>
--- Dan Ariely, Professor of Psychology and Behavioral Economics, <a href="https://twitter.com/danariely/status/287952257926971392">on twitter</a>
-
-The above quote became famous in the hacking data community, not only because of the provocative, fun part of it, but also because of the implicit advice behind it. Given the enormous gain in computing power in recent decades, but also methodological advances, interpreted languages are often fast enough for many social science problems. And even if it turns out, your data grow out of your setup, a well written proof of concept written in an interpreted language can be a formidable blueprint. **Source code is turning into an important scientific communication channel.** Put your money on it, your interdisciplinary collaborator from the High Performance Computing (HPC) group, will prefer some Python code as a briefing for their C++ or FORTRAN program over a wordy description out of your field's ivory tower. 
-
-Interpreted languages are a bit like pocket calculators, you can look at intermediate results, line by line. 
-R and Python are the most popular [OSS](#glossary) choices in hacking with data, <a href="https://julialang.org/">Julia</a> is an up and coming, perfomance focused language with a much slimmer ecosystem. A bit of Javascript can't hurt for advanced customization of graphics and online communication of your results.
-
-
-<!-- Julia screenshot with caption -->
-
-
-## IDE
-
-It's certainly possible to move a five person family into a new home by public transport, but it is not convenient. The same holds for (plain) text editors in programming. You can use them, but most people would prefer an Integrated Development Environment (IDE) just like they prefer to use a truck when they move. IDEs are tailored to the needs and idiosyncrasies of a language, some working with plugins and covering multiple languages. Others have a specific focus on a single language or a group of languages. Here are some of the features you are looking for in an IDE for programming with data:
-
-- [code highlighting](https://en.wikipedia.org/wiki/Syntax_highlighting), linting
-- decent file explorer
-- terminal integration
-- git integration
-- markdown support
-- debugging tools
-- build tools
-- customizable through add-ins / macros
-
-
-For R, the Open Source Edition of [R Studio Desktop](https://rstudio.com/products/rstudio/) is the right choice for most people.
-(If you are working in a team, R Studio's server version is great. It allows to have a centrally managed server which clients can use through their a web browser without even installing R and R Studio locally.) R Studio has solid support for a few other languages often used together with R, plus it's customizable. The French premier thinkR [Colin_Fay](https://twitter.com/_colinfay) gave a nice tutorial on [Hacking R Studio](https://speakerdeck.com/colinfay/hacking-rstudio-advanced-use-of-your-favorite-ide) at the useR! 2019 conference.
-
-<img src="images/rstudio_r_py.png" width="350px">
-<div class="caption-half">Screenshot of the coverpage of the R Studio <a href="https://rstudio.com">website</a> in fall 2020. The site advertises R Studio as an IDE for both languages R and Python. Remember <a href="introduction-the-choice-that-doesnt-matter.html">The Choice that Doesn't Matter?</a></div>
-
-While R Studio managed to hold its ground among R aficionados as of fall 2020, Microsoft's free *Visual Studio Code* has blown the competition out of the water otherwise. Microsoft's IDE is blazing fast, extendable and polyglot. [VS Code Live Share](https://visualstudio.microsoft.com/services/live-share/) is just one rather random example of its remarkably well implemented features. Live share allows developers to edit a document simultaneously using multiple cursors in similar fashion to Google Docs, but with all the IDE magic. And in a Desktop client. 
-
-Another approach is to go for a highly customizable editor such as [Sublime](https://www.sublimetext.com/) or [Atom](https://atom.io/). 
-The idea is to send source code from the editor to interchangeable [REPL](#glossary)s 
-which can be adapted according to the language that needs to be interpreted. That way a good linter / code highlighter for your favorite language is all you need to have a lightweight environment to run things. An example of such a customization approach is Christoph Sax' small project [Sublime Studio](https://github.com/christophsax/SublimeStudio). 
-
-Other examples for popular IDEs are [Eclipse](https://www.eclipse.org/) (mostly Java but tons of plugins for other languages), or JetBrains' [IntelliJ](https://www.jetbrains.com/idea/) (Java) and [PyCharm](https://www.jetbrains.com/pycharm/) (Python). 
-
-
-## Version Control
-
-To buy into the importance of managing one's code professionally may be the single most important take away from *Hacking for Social Sciences*. Being able to work with version control will help you fit into a lot of different teams that have contact points with data science and programming, let alone if you become part of a programming or data science team. 
-
-While version control has a long history dating back to CVS and SVN, the good news for the learner is, that there is a single dominant approach when it comes to version control in academia. Despite the fact that its predecessors and alternatives such as mercurial are stil around, [git](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control) is the one you have to learn. To learn more about the history of version controls and approaches other than git, [Eric Sink's Version Control by Example](https://ericsink.com/vcbe/index.html) 
-is for you. 
-
-So what does git do for us as researchers? How is it different from dropbox?
-
-
-```
-git does not work like dropbox. git does not work like dropbox.
-git does not work like dropbox. git does not work like dropbox. 
-git does not work like dropbox. git does not work like dropbox.
-git does not work like dropbox. git does not work like dropbox. 
-git does not work like dropbox. git does not work like dropbox.
-git does not work like dropbox. git does not work like dropbox. 
-
-```
-
-The idea of thinking of a sync, is what interferes with comprehension of the benefit of version control (which why I hate that git [GUI](#glossary)s call it 'sync' anyway to avoid irritation of user's initial believes.). Git is a decentralized version control system that keeps track of a history of semantic commits. Those commits may consist of changes to multiple files.
-A commit message summarizes the gist of a contribution. *Diffs* allow to compare different versions. 
-
-<img src="images/diff.png" width="300px">
-<div class="caption-half">The *diff* output shows an edit during the writing of this book. The line preceeded by '-' was replaced with the line preceeded by '+'.</div>
-
-Git is well suited for any kind of text file. May it be source code from Python or C++, or some text written in markdown or LaTeX. Binaries like .pdfs or Word documents are possible, too, but certainly not the type of file for which git is really useful. This book contains a detailed, applied introduction tailed to researchers as part of the [Programmers' Practices and Workflows](developer-practices-workflows.html) chapter, so let's dwell with the above contextualization for a bit.   
-
-
-## Database: Relational vs. Non-Relational 
-
-To evaluate which database to pick up just seems like the next daunting task of stack choice. Luckily, in research first encounters with a database are usually passive, in the sense that you want to query data from a source. In other words the choice has been made for you. So unless you want to start your own data collection from scratch, simply sit back, relax and let the internet battle out another conceptual war. 
-
-Database Management Systems (DBMS) are basically grouped into *relational* and *non-relational* ones. Relational databases come with the Structured Query Language (SQL) and have been around forever. SQL became and ISO and ANSI standard and continues to be the essence of many many backends around the world. [Oracle](https://www.oracle.com/database/technologies/appdev/sql.html) continues to be the benchmark for SQL databases but the opensource [PostgreSQL](https://www.postgresql.org/) and Microsoft's [SQL Server](https://www.microsoft.com/en-us/sql-server) operate at eye level for many applications.
-[MySQL](https://www.mysql.com/), Oracle's slim, little (but free) brother, can't quite cope with PostgreSQL, continues to be the most used SQL database on the planet. This is mainly due to its popularity for web applications like the blogging [CMS](#glossary) [wordpress](https://wordpress.com/). Last but not least, [sqlite](https://www.sqlite.org/index.html) needs to be mentioned when talking about relational database. Sqlite is built into all mobile phones and most computers. Its name nutshells its concept quite well: sqlite is an easy to use, much simpler version of the aforementioned database management systems. It is extremely popular for light but powerful applications that organize data with a SQL approach in a single file. 
-
-No-SQL databases are the anti establishment, anti standard approach. [MongoDB](https://www.mongodb.com) may be the best marketed among the rebels. Before you start to sympathize with latter approach because the wording of my last to sentences, let's stop here. Large infrastructure players make the case for non-relational stores like CouchDB or Amazon Redshift Database, but trust me, those are unlikely the first things you get to run when your research grows out of Excel. If your are not happy with the 'beyond-the-scope-of-this-book' argument, blogging experts like [Lukas Eder](https://blog.jooq.org/tag/nosql/) maybe biased but much better educated to educate you here. The idea of this chapter is just to help you group all the database management systems you might face soon as a researchers. 
-
-The good news is, languages like R and Python are so well equipped to interface with a plethora of databases. So well, that I often recommend these languages to researchers who work with other less equipped tools, solely as an intermediate layer. And if there is really no database extension around for your language, a general [ODBC](https://en.wikipedia.org/wiki/Open_Database_Connectivity) interface helps -- at least for SQL databases.  
-
-
-## Environments: Where Should I Run Stuff ?
-
-
-
-But what if you do not want to run your stuff locally? Maybe because you want to expose a web application or site which has to be online 24/7. Maybe because you do not more additional computing power. 
-
-In principle there are four options.
-
-1. Bare Metal. Buy hardware, hook it up with the internet, install your software, have fun. If you have a consistantly high usage rate and can maintain the server efficiently, this is likely the cheapest computing hour. You saw that *if*, didn't you?
-
-2. Either use physical or virtual hardware and make your local IT department host your service **on-premise** (inhouse). You will give up a little bit of your flexible in exchange for help with maintenance and server administration.
-
-3. Cloud Computing.
-
-
-4. Software-as-a-Service
-
-
-
-
-## Communication
-
-Communication is an essentially part of building an (academic) career. Part of it is a neat online profile. Do not relax on the excuse that your department's website does not offer the flexibility. The legal and technical situation in many places should allow you to spin up your own website or even run a blog if you find the time. For free. Including the web hosting. 
-
-A popular approach to do so is to work with a *static website generator*. Generators like blogdown, pkgdown or bookdown are flavors of the same approach to create a website: Write markdown first, render it and then upload rendered HTML + CSS + Javascript to a host like GitHub Pages or Netlify that allow you host your site for free. The *static website generator* approach has become so popular that the aforementioned hosters even offer to run the render process for you. 
-
-The idea of engines like the [Go](https://golang.org/) based [Hugo](https://gohugo.io/) or the [Ruby](https://www.ruby-lang.org/en/) based [Jekyll](https://jekyllrb.com/) which are behind the above packages is a counter approach to what content management systems do: There is no database or template that is brought together dynamically when a user visits the website. The rendering is done locally on the creator's local computer (or netlify's environment). Whenever a change is made, the website is rendered entirely (ok, minus caching) and uploaded (pushed) again to the host. Therefore no database is needed which cuts down the costs of hosting to zero. (FWIW: this book is made with such a generator.) 
-
-
-## Automation
-
-The first type of automation described here refers to automation of your development workflow. That it is, you standardize your path from draft to program to deployment to production. Modern version control software accompanies this process with a toolchain that is often fuzzily called [CI/CD](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment). While CI stands for *continuous integration* and simply refers to a workflow in which the team tries to release new features to production as continuously as possible, CD stands for either *continuous delivery* or *continuous deployment*.
-
-However, in practice the entire toolchain referred to as *CI/CD* has become broadly available in well documented fashion when git hosting powerhouses GitHub and GitLab introduced their flavors of it: [GitHub Actions])(https://docs.github.com/en/actions) and [GitLab CI](https://docs.gitlab.com/ee/ci/). In addition services like [Travis CI](https://travis-ci.org/) or [Circle CI](https://circleci.com/) offer this toolchain independently of hosting git repositories.
-
-Users of these platforms can upload a simple textfile that follows a name convention and structure to trigger a step based toolchain based on an event. An example of an event may be the push to a repository's main branch. A common example would be to run tests and/or build a package and upon success deploy the newly created package to some server -- all triggered by simple push to master. One particularly cool thing is, that there multiple services who allow to run the testing on their servers using container technologies. This leads to great variety of setups for testing. That way software can easily be tested on different operating systems / environments. Also the mentioned website rendering approach mentioning in the previous section as a potential CI/CD application. 
-
-
-Here is a simple example of a *.gitlab-ci.yml* configuration that builds and tests a package and deploys it. It's triggered on push to master:
-
-```
-stages:
-- buildncheck
-- deploy_pack
-
-test:
-image:
-name: some.docker.registry.com/some-image:0.2.0
-entrypoint:
-- ""
-stage: buildncheck
-artifacts:
-untracked: true
-script:
-- rm .gitlab-ci.yml # we don't need it and it causes a hidden file NOTE
-- install2.r --repos custom.mini.cran.ch .
-- R CMD build . --no-build-vignettes --no-manual
-- R CMD check --no-manual *.tar.gz
-
-deploy_pack:
-only: 
-- master
-stage: deploy_pack
-image:
-name: byrnedo/alpine-curl
-entrypoint: [""]
-dependencies:
-- 'test'
-script:
-- do some more steps to login and deploy to server ...
-
-```
-
-For more in depth examples of the above, [Jim Hester's talk on GitHub Actions for R](https://www.jimhester.com/talk/2020-rsc-github-actions/) is a very good starting point.
-
-
-The other automation tool I would like to mention is [Apache Airflow](https://airflow.apache.org/) because of its ability to help researchers keep an overview of regularly running processes. Examples of such processes could be daily or monthly data sourcing or timely publication of a regularly published indicator. I often referred to it as [cronjobs](https://en.wikipedia.org/wiki/Cron) on steroids. Airflow ships with a dashboard to keep track of many timed processes, plus a ton of other log and reporting features worth a lot when maintaining reocurring processes. 
-
-
-# Developer Practices & Workflows
-
-Just like most experienced engineers, seasoned software developers follow some kind of school or paradigm. Good programmers can even switch among approaches according to their current project's needs or depending on the team they are on. 
-
-This section does not want to give a comprehensive overview over programming concepts nor compare approaches. And damn sure it does not mean to go to war over approach superiority. *Hacking for Social Scientists* rather cherry-picks suitable application-minded, low-barrier concepts that help social scientists professionalize their own programming. 
-
-
-## Peer Programming
-
-Peer programming, also called pair programming just means two developers sit in front of the same screen to collaborate on a piece of code. So why is there such a buzz about it? Why is there even a term for it? And why is there a section in an applied book on it? 
-
-That is because novice programmers (and their scientific supervisors) often doubt the efficiency of two paid persons working at the same work station. But programming is not about digging a hole with two shovels. Particularly not when it comes to building the software basis or frame of a project. 
-
-Working together using one single keyboard and screen or the virtual equivalent thereof can be highly efficient. The virtual equivalent, i.e., in fact using two computers but sharing the screen while in call, helps tremendously with a) your concept, b) your documentation. Plus, it is a code review at the same time. But most importantly both developers learn from each other. Having to explain and being challenged, deepens the understanding of experienced developers and ruthlessly identifies holes in one's knowledge. One important advice when peer programming is to switch the driver's seat from time to time. Make sure the lesser programmer holds the keys from time to time and maneuvers through articles, repositories, code and data. Doing so prevents the co-pilot from taking a back seat and letting the veteran do the entertainment. [Visual Studio Code Live Share](https://visualstudio.microsoft.com/services/live-share/) is a great feature for next level virtual peer programming as it allows for two drivers using two cursors.
-
-
-Of course there are downsides of the pair programming approach, too. Also, timing within the lifecycle of a project is an important factor and not every project is the same fit for this agile method. But given there are so many approaches, I will leave the back and forth to others. The goal of this section is to point the reader to a practical approach that tends to work well in programming with data setups in social sciences. Googlers Jeff Dean and Sanjay Ghemawat had its fair of success, too, according to the New Yorker's [https://www.newyorker.com/magazine/2018/12/10/the-friendship-that-made-google-huge](The Friendship That Made Google Huge).  
-
-
-
-## RSA Key Pair Authentication
-
-This section could be headed 'log in like a developer'. RSA Key Pairs are a convenient, relatively secure way to log into an account. SSH based connections, including secure copy (SCP), often make use of RSA Key Pairs instead of using a combination of username and password. Also, most git platforms use this form of authentication. The basic idea of key pairs is to have a public key and a private key. While the private key is never shared with anyone, the public key is shared with any server you want to log in to.
-It's like getting a custom door for any house that you are allowed to enter: share your public key with the server admin / or web portal and you'll be allowed in when you show your private key. In case you loose your private key or suspect it has been stolen, simply inform the admin, so she can remove the door (the public key). This is were a little detail comes into play: 
-you can password protect the authentication process. Doing so buys you time to remove the key from the server before your password gets bruteforced. The downside of this additional password is its need for interaction. So when you are setting up a batch that talks to a remote server that is when you do *not* want a key /w password. 
-
-Step one en route to log in like a grown up, is the create an RSA key pair. Github has a [1-2-3 type of manual](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) to get it done. Nevertheless, I would like the R Studio (Server) specific way here. 
-
-1. Login to https://teaching.kof.ethz.ch/ (or use your local R Studio Desktop)
-2. Go to *Tools* -> *Global Options* -> *Git/SVN*
-3. Hit Create RSA KEY (When you some crazy ASCII art reminiscant of a rabbit, it's just ok.)
-4. Click 'View Public Key' 
-5. Copy this key to the your clipboard. 
-
-<img src="images/rsa.png">
-<div class="caption-left">The R Studio GUI is an easy way to create an RSA Key Pair.</div> 
-
-6. You can paste the key you obtained to your Github settings or put it into your server's authorized keys file. 
-
-Congrats you may log in now! 
-
-
-## Git Version Control 101
-
-As stated before, version control may be the single most important thing to take away from *Hacking for Social Sciences*. 
-In this chapter about the way developers work, I will stick to version control with *git*. The stack discussion of the previous chapter features a few more version control systems, but given git's dominant position, we will stick solely to git in this introduction to version control.  
-
-### What is Git Version Control? 
-
-Git is a decentralized version control system. It manages different versions of your source code (and other text files) in a simple but efficient manner that has become the industry standard: The git programm itself is a small console programm that creates and manages a hidden folder inside the folder you put under version control (you know those folders with a leading dot in their foldername, like .myfolder). This folder keeps track of all differences between the current version and other versions before the current one. 
-
-<img src="images/commits.png" width="300px">
-<div class="caption-half">Meaningful commit messages help to make sense of a project's history.</div>
-
-
-The key to appreciate the value of git is to appreciate the value of semantic versions. Git is *not* Dropbox nor Google Drive. It does *not* sync automagically (even if some Git GUI Tools suggest so). Because these GUIs tools^[[GitHub Desktop](https://desktop.github.com/), Atlassian's [Source Tree](https://www.sourcetreeapp.com/) and [Tortoise](https://tortoisegit.org/) are some of the most popular choices if you are not a console person.] may be convenient but do not really help to improve your understanding of the workflow, we will use the git console throughout this book. As opposed to the sync approaches mentioned above, a version control system allows to summarize a contribution across files and folders based on what this contribution is about. Assume you got a cool pointer from an econometrics professor at a conference and you incorporated her advice in your work. That advice is likely to affect different parts of your work: your text and your code. As opposed to syncing each of these files based on the time you saved them, version control creates a version when you decide to bundle things together and to commit the change. That version could be identified easily by its commit message 'incorporated advice from Anna (discussion at XYZ Conf 2020)'. 
-
-
-### Why Use Version Control in Research? 
-
->A version control based workflow is a path to your goals that rather consists of semantically relevant steps instead of semantically meaningless chunks based on the time you saved them. 
-
-In other more blatant, applied words: naming files like 
-`final_version_your_name.R` or `final_final_correction_collaboratorX_20200114.R` 
-is like naming your WiFi `dont_park_the_car_in_the_frontyard` or `be_quiet_at_night` to communicate with your neighbors.  Information is supposed to be sent in a message, not a file name. With version control it is immediately clear what the most current version is - no matter the file name. No room for interpretation. No need to start guessing about the delta between the current version and another version.
-
-Also, you can easily try out different scenarios on different branches and merge them back together if you need to. Version control is a well established industry standard in software development. And it is relatively easy to adopt. With datasets growing in size and complexity, it is only natural to improve management of the code that processes these data. 
-
-Academia has probably been the only place that would allow you to dive into hacking at somewhat complex problems for several years w/o ever taking notice of version control. As a social scientist who rather collaborates in small groups and writes moderate amount of code, have you ever thought about how to collaborate with 100+ persons in a big software project? Or to manage ten thousands of lines of code and beyond? Version control is an important reason why these things work. And it's been around for decades. But enough about the rant... 
-
-
-### How Does Git Work ? 
-
-
->This introduction tries narrow things down to the commands that you'll need if want to use git in similar fashion to what you learn from this book. If you are looking for more comprehensive, general guides, three major git platforms, namely Atlassian's Bitbucket, GitHub and Gitlab offer comprehensive introductions as well as advanced articles or videos to learn git online.
-
-
-The first important implication of decentralized version control is that all versions are stored on the local machines of every collaborator, not just on a remote server (this is also a nice, natural backup of your work). So let's consider a single local machine first.
-
-<img src="images/decentralized.png" width="700px">
-<div class="caption-half"></div>
-
-Locally, a git repository consists of a *checkout* which is also called current *working copy* soon. This is the status of the file that your file explorer or your editor will see when you use them to open a file. To checkout a different version, one needs to call a commit by its unique commit hash and checkout that particular version. 
-
-If you want to add new files to version control or bundle changes to some existing files into a new commit, add these files to the staging area, so they get committed next time a commit process is triggered. Finally committing all these staged changes under another commit id a new version is created. 
-
-
-### Moving Around
-
-So let's actually do it. Here's a three stage walk through of git commands that should have you covered in most use cases a researcher will face. Note that git has some pretty good error message that guess what could have gone wrong. Make sure to read them carefully. Even if you can't make sense of them, your online search will be a lot more efficient when you include these messages. 
-
-**Stage 1: Working Locally**
-
-```{r, eval=TRUE,message=FALSE, echo=FALSE}
-library(kableExtra)
-d <- data.frame("Command" = c("git init",
-                              "git status",
-                              "git add file_name.py",
-                              "git commit -m 'meaningful msg'",
-                              "git log",
-                              "git checkout some-commit-id",
-                              "git checkout main-branch-name"),
-                "Effect" = c("put current directory and all its subdirs under version control.",
-                             "shows status",
-                             "adds file to tracked files",
-                             "creates a new version/commit out of all staged files",
-                             "show log of all commit messages on a branch",
-                             "go to commit, but in detached HEAD state",
-                             "leave temporary state, go back to last commit"),
-                
-                stringsAsFactors = FALSE)
-kable(d,"html",escape= FALSE)
-
-```
-
-
-**Stage 2: Working with a Remote Repository**
-
-Though git can be tremendously useful even without collaborators, the real fun starts
-when working together. The first step en route to get others involved is to add a remote repository. 
-
-
-```{r, eval=TRUE,message=FALSE, echo=FALSE}
-library(kableExtra)
-d <- data.frame("Command" = c("git clone",
-                              "git pull",
-                              "git push",
-                              "git fetch",
-                              "git remote -v",
-                              "git remote set-url origin https://some-url.com"),
-                "Effect" = c("creates a new repo based on a remote one",
-                             "get all changes from a linked remote repo",
-                             "deploy all commit changes to the remote repo",
-                             "fetch branches that were created on remote",
-                             "show remote repo URL",
-                             "set URL to remote repo"),
-                stringsAsFactors = FALSE)
-kable(d,"html",escape= FALSE)
-
-```
-
-**Stage 3: Branches**
-
-Branches are derivatives from the main branch that allow to work on different feature at the same time
-without stepping on someone elses feet. Through branch repositories can actively maintain different states. 
-
-
-```{r, eval=TRUE,message=FALSE, echo=FALSE}
-library(kableExtra)
-d <- data.frame("Command" = c("git checkout -b branchname",
-                              "git branch",
-                              "git checkout branchname",
-                              "git merge branchname"),
-                "Effect" = c("create new branch named branchname",
-                             "show locally available branches",
-                             "switch to branch named branchname",
-                             "merge branch named branchname into current branch"
-                ),
-                stringsAsFactors = FALSE)
-kable(d,"html",escape= FALSE)
-
-```
-
-
-
-
-**Fixing Merge Conflicts** 
-
-In most cases *git* is quite clever and can figure out which is the desired state of 
-a file when putting two versions of it together. When git's *recursive strategy* is possible, git
-it wil merge versions automatically. When the same lines were affected in different versions, git cannot tell 
-which line should be kept. Sometimes you would even want to keep both changes. 
-
-But even in such scenario fixing the conflict is easy. Git will tell you that your last command
-caused a merge conflict and which files are conflicted. Open these files and see all parts of the file that
-are in question. 
-
-<img src="images/merge_conflict.png">
-<div class="caption-left">Ouch! We created a conflict by editing the same line in the same file on different branches and trying to but these branches back together.</div>
-
-Luckily git marks the exact spot where the conflict happens. Good text editors / IDEs 
-ship with cool colors to highlight all our options. 
-
-<img src="images/sublime_conflict.png">
-<div class="caption-left">go for the current status or take what's coming in from the a2 branch?</div>
-
-Some of the fancier editors even have git conflict resolve plugins that let you walk through all conflict points. 
-
-<img src="images/vscode_conflict.png">
-<div class="caption-left">In VS Code you can even click the option.</div>
-
-At the and of the day, all do the same, i.e., remove the unwanted part including all the marker gibberish. 
-After you have done so, save, commit and push (if you are working with a remote repo) . Don't forget to make sure you kinked out ALL conflicts.  
-
-
-
-## Feature Branches, PRs and Forks
-
-This section discusses real world collaboration workflows of modern open source software developers. 
-Hence the prerequisites are a bit different in order to benefit the most from this section. Make sure you are past
-being able to describe and explain git basics, be able to create and handle your own repositories. 
-
-If you had only a handful of close collaborators so far, you may be fine with staying on the main branch and trying
-not to step on each others feet. This is reasonable because it is not useful to work asynchronously 
-on exact the same lines of code anyway. Nevertheless, there is a reason why *feature-branch-based* workflows became 
-very popular among developers: Imagine you collaborate less synchronously, maybe with someone in another timezone. Or with a colleague who works on your project, but in a totally different month during the year. Or, most obviously, we someone you have never met. Forks and *feature-branch-based* workflows is the way a lot of modern open source projects are organized. 
-
-Forks are just a way to contribute via feature branches even in case you do not have write access to a repository. But let's just have look at the basic case in which you are part of the team first. Assume there is already some work done, some version of the project is already up on GitHub. You join as a collaborator and are allowed to push changes now. It's certainly not a good idea to simply add things without review to a project's production. Like if you got access to modify the institute's website and you made your first changes and all of a sudden the website looks like this:
-
-<div class="yellow">&nbsp;</div>
-<div id="pink">
-It used to be subtle and light gray. I swear!
-</div>
-
-Bet everybody on the team took notice of the new team member by then. In a feature branch workflow you would start from the latest production version. Remember, git is decentralized and you have all versions of your team's project. Right at your fingertips on your local machine. Create a new branch named indicative of the feature you are looking to work on. 
-
-```
-git checkout -b colorways
-```
-
-You are automatically being switched to the freshly created branch. Do your thing now. It could be just a single commit, or several commits by different persons. Once you are done, i.e., commited all changes, add your branch to the remote repository by pushing.  
-
-```
-git push -u origin colorways
-```
-
-This will add a your branch called *colorways* to the remote repository. If you are on any major git platform with your project, it will come with a decent web GUI. Such a GUI is the most straight forward way to do the next step: get your Pull Request (PR) going.
-
-<img src="images/pr.png" width="700px">
-<div class="caption-left">Github pull request dialog: Select the *pull request*, choose which branch you merge into which target branch.</div>
-
-As you can see, git will check whether it is possible to merge automatically w/o interaction. Even if that is not possible, you can still issue the pull request. When you create the request you can also assign reviewers, but you could also do so at a later stage. 
-
-```{block, type='note'}
-
-**Note**, even after a PR was issued you can continue to add commits to the branch about to be merged. 
-As long as you do not merge the branch through the Pull Request, commits are added to the branch. In other 
-words your existing PR gets updated. This is a very natural way to account for reviewer comments. 
-
-```
-
-
-```{block2, type='note'}
-**Pro-Tipp**: 
-Use commit messages like 'added join to SQL query, closes #3'. The key word 'closes' or 'fixes', will automatically close issues referred to when merged into the main branch.
-
-```
-
-Once the merge is done, all your changes are in the main branch and you and everyone else can pull the main branch that now contains your new feature. Yay!
-
-
-## Project Management Basics
-
-The art of stress free productivity as I once called it in '10 blog post, has put a number of gurus on the map and whole strand of literature to our bookshelves. So rather than adding to that, I would like to extract a healthy, best-of-breed type of dose here. The following few paragraphs do not intend to be comprehensive -- not even for the scope of software projects, but inspirational. 
-
-In tje software development startup community, the *waterfall* approach became synonym to conservative, traditional and ancient: Overspecification in advance of the project, premature optimization and a lawsuit over expectations that weren't met. Though waterfall project may be better than their reputation and specifications should not be too detailed and rigid.
-
-Many software projects are rather organized in *agile* fashion with SCRUM and KANBAN being the most popular derivatives. 
-Because empirical academic projects have a lot in common with software projects inasmuch that there is a certain expectation and quality control, but the outcome is not known in advance. Essentially in agile project management you roughly define an outcome along the lines of a minimum viable product (MVP). That way you do not end up with nothing after a year of back and forth. 
-During the implementation you'd meet regularly, let's say every 10 days, to discuss development since the last meet and what short term plans for the next steps ahead. The team picks splits work into task items on the issue tracker and assigns them.  Solution to problems will only be sketched out and discussed bilaterally or in small groups. By defining the work package for only a short timespan, the team stays flexible. In professional setups agile development is often strictly implemented and makes use of sophisticated systems of roles that developers and project managers can get certified for. 
-
-Major git platforms ship with a decent, carpentry level project management project management GUI. The issue tracker is at the core of this. If you use it the minimal way, it's simply a colorful to-do list. Yet, with a bit of inspiration and use of tags, comments and projects, an issue tracker can be a lot more
-
-<img src="images/issue.png">
-<div class="caption-left">The Github issue tracker (example from one of the course's repositories) can be a lot more than a todo list.</div>
-
-Swimlanes (reminiscant of a bird's eye view of an Olympic pool) can be thought of columns that you have to walk through
-from left to right: To Do, Doing, Under Review, Done. (you can also customize the number and label of lanes and event associate actions with them, but let's stick to those basic lanes in this section.) The idea is to use to keep track of the process and making the process transparent. 
-
-
-<img src="images/swim.png">
-<div class="caption-left">GitHub's web platform offers swimlanes to keep a better overview of issues being worked on.</div>
-
-```{, type='note'}
-**Tipp**: 
-No lane except 'Done' should contain more than 5-6 issues. 
-Doing so prevents clogging the lanes at particular stage which 
-could potentially lead to negligent behavior, e.g., careless reviews. 
-
-```
-
-
-
-
-
-## Testing
-
-When talking about development practices, testing can't be missing. So, just you know that I thought of this, tbc ...
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -1,0 +1,78 @@
+# Why Work Like a Software Engineer? 
+
+First of all, because everybody and their grandmothers seem to do it. Statistical computing continues to be on the rise in many branches of research. 
+
+
+<!-- The below graph shows monthly accumulated extension package downloads for the R Language of Statistical Computing grouped by fields of research^[proxied this and that].
+Econometrics, Psychometrics, National Language Processing, Official Statistics, Social Sciences
+
+```{r, eval=TRUE}
+# add CRAN TASK VIEW Download 
+# Statistics graph here
+rnorm(10)
+```
+
+-->
+
+
+
+<div class="caption-left">Source code can be a tremendously sharp, unambiguous and international communication channel.</div>
+
+
+
+Second because it's reproducible. Code has become a tremendous communication channel. Your web scraper does not work? 
+Instead of reaching out in a clumsy but wordy cry for help, posting what you tried so far described by source code will often get you good answers within hours on platforms like [Stackoverflow](https://stackoverflow.com) or [Crossvalidated](https://crossvalidated.com). Or think of feature requests: After a little code ping pong with the package author your wish eventually becomes clearer. Let alone chats with colleagues and co-authors. Sharing code just works. 
+Academic journals have found that out, too in the meantime. Many outlets require you to make the data and source code behind your work available. [Social Science Data Editors](https://social-science-data-editors.github.io/guidance/template-README.html) is a bleeding edge project at the time of writing this, but is already referred to by top notch journals like American Economic Review (AER). 
+
+Third, because it scales and automates. Automation is not only convenient. Like when you want to download data, process and create the same visualization and put it on your website any given Sunday. Automation is inevitable. Like when you have to gather daily updates from different outlets or work through thousands of .pdfs. 
+
+Last but not least because of things you couldn't do w/o being an absolute guru (if at all) if wasn't for programming. Take  visualization. Go, check [these D3 Examples](https://d3js.org/). Now, try to do that in Excel. If you do these things in Excel it'd make you an absolute spreadsheet visualization Jedi, probably missing out on other time consuming skills to master. Moral of the story is, with decent, carpentry level programming skills -- that'd be the upfront investment -- you can already do so many spectular things while not really specializing and staying very flexible. 
+
+
+
+## How to Read this Book? 
+
+If you are convinced and confident in your ambition to amp up your programming skills to reach at least [solid software carpentry level]() within the next few months, I suggest to get an idea of your starting point relative to this book. If not, revisit the previous chapter, discuss with your domain peers and talk to people who are into programming. Motivation is key when 
+
+
+
+
+
+*Hacking for Social Sciences* is written based on the experience of helping students and seasoned researchers of different fields with their data management, processing and communication of results. A part of the book contains the information I wish I had when I started a PhD in economics. Part of the book is written years after said PhD was completed and with the hindsight of 10+ years in academia. Every page of the book is written with the belief that the future is OPEN and it is up to our generation of researchers to shape it. 
+
+<div align="center">
+<img src="images/open.png">
+<div class="caption-half">"The ministry warns: The future is open," taken from a 2020 [ad campaign on Open Access by the German ministry for education and research (pdf)](https://www.bildung-forschung.digital/files/191004_OA-Infoflyer_barrierefrei.pdf). </div>
+</div>
+<!-- add ad from Germany "the future is OPEN" for open data and open source 
+https://www.bildung-forschung.digital/files/191004_OA-Infoflyer_barrierefrei.pdf
+-->
+
+If you came to cherry pick, you're welcome, too.
+
+## Backlog
+
+What you need to know to become comfortable programming with data... 
+
+## Requirements
+
+like backlog, but rather before you should go on this journey. 
+
+What You Need to Know to Make the Most of This Book
+
+Though the book offers many entry points and strives to make advanced considerations accessible, 
+*Programming with Data* provides the most value for readers whose prior knowledge is beyond certain threshold. The book is **not** an introduction to R nor Python. It's **not** an introduction to data science or machine learning either. Neither knowledge is strictly required to follow the book, but a basic understanding of statistical methods and the challenges applied statisticians face certainly helps to motivate getting invested into programming. Likewise, prior knowledge of a *scripting language* like *R, Python* or *Javascript*, *git version control*, as well as familiarity with  *console / terminal basics* will help the reader sail smoothly. Still though, to self-reflect on one's starting point remains the most important requirement to leverage the book. 
+
+*Programming with Data* willingly accepts to be overwhelming at times. Given the variety of topics touched in an effort to show the big picture, I encourage the reader to remain relaxed about a few blanks even when it comes to fundamentals. The open source community offers plenty of great resources to selectively upgrade skills and this books intends to show how to evaluate the need for help and how to find the right sources. 
+
+*Programming with Data* was written with the idea in mind that well maintained open source projects are the best to document themselves. Therefore I rather reference to existing documentation as opposed to rewriting it. Because even if my wording was better than the original, it is only a matter of time before my documentation is outdated. The bigger the stack the harder to keep track. So whenever, you stumble upon something you do not understand, make sure to look it up. (I tried hard to provide good a glossary and reference wherever possible, but if not - still push yourself to look things up). 
+
+That being said, to have an idea about following technologies and ideas will certainly help to get the most out of spending time with *Programming with Data*: 
+
+- Basic R or Python 
+- basic understanding of git version control 
+- basic understanding of GitHub based workflows, e.g., issue tracker, kanban boards... 
+- Terminal / Console and Shell and a shell, e.g., bash, fish
+
+In other words: if none of the above means something to you, I recommend to make yourself comfortable with the basics of 2-3 of the above fields before you start to read this book or just cherry pick single topics.
+

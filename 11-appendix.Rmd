@@ -1,0 +1,88 @@
+# Appendix {-}
+
+## Glossary {-}
+
+```{r, eval=TRUE,message=FALSE, echo=FALSE}
+library(kableExtra)
+d <- data.frame("Term" = c(
+  "API",
+  "CamelCase",
+  "CMS",
+  "Console",
+  "Deployment",
+  "Endpoint",
+  "Fork",
+  "GUI",
+  "IDE",
+  "Kebap Case",
+  "Lexical Scoping",
+  "Merge Request",
+  "OS",
+  "OSS",
+  "Pull Request (PR)",
+  "Regular Expression",
+  "REPL",
+  "Reproducible Example",
+  "Snake_case",
+  "Stack",
+  "SQL",
+  "Swimlanes",
+  "Throughput Problem",
+  "Transactional Database",
+  "Virtual Machine (VM)"
+  ),
+  "Description" = c(
+    "**A**pplication **P**rogramming **I**nterface",
+    "Convention to spell file, variable or function names reminiscant of a camel, e.g., doSomething()",
+    "**C**ontent **M**anagement **S**ystem",
+    "Also known as terminal, the console is an interface which takes written user commands. Bash is one of the most popular terminals on OS level, but scripting languages like Python and R have consoles to communicate with there interpreter,too.",
+    "The art of delivering a piece software to production",
+    "Part of an API, a generic URL that follows a systematic that can be exploited to automate machine-to-machine data exchange.",
+    "a clone of a repository that you (usually) do not own.",
+    "**G**raphical **U**ser **I**nterface",
+    "**I**ntegrated **D**evelopment **E**nvironment",
+    "Spelling convention less known than snake case and camel case, kebap case looks like this: my-super-folder.",
+    "Look up of variables in parent environments when they can't be found in the current environment. Be aware that this is the default behavior of R.",
+    "See Pull Request.",
+    "**O**perating **S**ysten",
+    "**O**pen **S**ource **S**oftware",
+    "Request to join a feature branch into another branch, e.g., main branch. Sometimes it's also called merge request.",
+    "Pattern to extract specific parts from a text, find stuff in a text.",
+    "[read-eval-print-loop](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)",
+    "A self-contained code example, including the data it needs to run.",
+    "Convention to spell file, variable or function names reminiscant of a snake, e.g., do_something()",
+    "selection of software used in a project",
+    "**S**tructured **Q**uery **L**anguage",
+    "(Online) Board of columns (lanes). Lanes progress from from left to right and carry issues.",
+    "A bottleneck which can be mitigated by parallelization, e.g., multiple containers running in parallel.",
+    "Database optimised for production systems. Such a database is good at reading and writing individual rows w/o affecting the other and while taking care of data integrity.",
+    "A virtual computer hosted on your computer. Often used to run another OS inside your main OS for testing purposes."
+    
+  ),
+  stringsAsFactors = FALSE)
+kable(d,"html",escape= FALSE)
+
+```
+
+
+<!-- ## Testing --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

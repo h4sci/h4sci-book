@@ -1,0 +1,37 @@
+# Connect with the Developer Community 
+
+Besides the fact that it is free of license costs most of the time, open source communities may be the most popular argument in favor of open source software. In academia, free quality online resources and support can be extremely helpful, particularly when one's curriculum did not contain an applied form of programming with data. 
+
+Still, developer communities do have their idiosyncrasies. This section intends to help overcome entry barriers and encourage the reader to connect to the developer communities -- even if one is not a regular visitor of community offers. 
+
+## Stay up to Date and a Vastly Evolving Field -- Social Media
+
+I hate to admit it, because I am not a big fan of social media and don't use social media apart from professional use, I am convinced it is a great way to get my regular dose of what's new in tech. My platform of choice is [twitter](https://twitter.com/whatsgoodio). I use it as a bookmark tool and get some feedback from publicly sharing resources. Plus I follow some folks to get updates from different the fields. I try to not get caught in any politics, memes or cat pictures, even if that's a hard thing to do. 
+
+CHEWBACCA cat. 
+
+Start with a few accounts to follow, adapt them regularly and use lists in case you need to organize your input a bit more. tweetdeck is a good standard option of a more advanced use of twitter. 
+
+If you plan to build some following of your own, learn how to schedule tweets and put some thought into the timing of your tweets. However, 
+
+Globally different preferences. 
+
+CITE useR! nature correspondence
+
+
+## Get an Account at Stackoverflow.com
+
+
+## Attend Conferences - Online Can Be a Good Option !
+
+
+## Join Slack Spaces (or other Chats) 
+
+Slack or Discord
+
+## Look for Local Community Group
+
+job market!
+
+
+
