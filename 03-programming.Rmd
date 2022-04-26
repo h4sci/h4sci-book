@@ -1,5 +1,8 @@
 # Programming 101
 
+announce that R is used the examples if not declared otherwise. 
+
+
 
 ## The Choice that Doesn't Matter
 
