@@ -1,3 +1,27 @@
-# IDEs
+# IDEs & the Console
 
-blubb.
+It's certainly possible to move a five person family into a new home by public transport, but it is not convenient. The same holds for (plain) text editors in programming. You can use them, but most people would prefer an Integrated Development Environment (IDE) just like they prefer to use a truck when they move. IDEs are tailored to the needs and idiosyncrasies of a language, some working with plugins and covering multiple languages. Others have a specific focus on a single language or a group of languages. Here are some of the features you are looking for in an IDE for programming with data:
+
+- [code highlighting](https://en.wikipedia.org/wiki/Syntax_highlighting), linting
+- decent file explorer
+- terminal integration
+- git integration
+- markdown support
+- debugging tools
+- build tools
+- customizable through add-ins / macros
+
+
+For R, the Open Source Edition of [R Studio Desktop](https://rstudio.com/products/rstudio/) is the right choice for most people.
+(If you are working in a team, R Studio's server version is great. It allows to have a centrally managed server which clients can use through their a web browser without even installing R and R Studio locally.) R Studio has solid support for a few other languages often used together with R, plus it's customizable. The French premier thinkR [Colin_Fay](https://twitter.com/_colinfay) gave a nice tutorial on [Hacking R Studio](https://speakerdeck.com/colinfay/hacking-rstudio-advanced-use-of-your-favorite-ide) at the useR! 2019 conference.
+
+<img src="images/rstudio_r_py.png" width="350px">
+<div class="caption-half">Screenshot of the coverpage of the R Studio <a href="https://rstudio.com">website</a> in fall 2020. The site advertises R Studio as an IDE for both languages R and Python. Remember <a href="introduction-the-choice-that-doesnt-matter.html">The Choice that Doesn't Matter?</a></div>
+
+While R Studio managed to hold its ground among R aficionados as of fall 2020, Microsoft's free *Visual Studio Code* has blown the competition out of the water otherwise. Microsoft's IDE is blazing fast, extendable and polyglot. [VS Code Live Share](https://visualstudio.microsoft.com/services/live-share/) is just one rather random example of its remarkably well implemented features. Live share allows developers to edit a document simultaneously using multiple cursors in similar fashion to Google Docs, but with all the IDE magic. And in a Desktop client. 
+
+Another approach is to go for a highly customizable editor such as [Sublime](https://www.sublimetext.com/) or [Atom](https://atom.io/). 
+The idea is to send source code from the editor to interchangeable [REPL](#glossary)s 
+which can be adapted according to the language that needs to be interpreted. That way a good linter / code highlighter for your favorite language is all you need to have a lightweight environment to run things. An example of such a customization approach is Christoph Sax' small project [Sublime Studio](https://github.com/christophsax/SublimeStudio). 
+
+Other examples for popular IDEs are [Eclipse](https://www.eclipse.org/) (mostly Java but tons of plugins for other languages), or JetBrains' [IntelliJ](https://www.jetbrains.com/idea/) (Java) and [PyCharm](https://www.jetbrains.com/pycharm/) (Python). 

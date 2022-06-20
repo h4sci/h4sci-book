@@ -2,7 +2,7 @@
 title: "Programming /w Data"
 author: "Matthias Bannert"
 date: "`r Sys.Date()`"
-subtitle: An Applied Guide for Scientists & Business Analysts
+subtitle: An Applied Guide to the Open Source Ecosystem for Scientists & Business Analysts
 bibliography: packages.bib
 biblio-style: apalike
 description: bookety-book new tricks on the block.

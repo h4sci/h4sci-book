@@ -1,7 +1,10 @@
 # Programming 101
 
-announce that R is used the examples if not declared otherwise. 
+Obviously, the craft of *programming* is essential to handling data with a programming language. Though programming languages can differ quite a bit from each other, there is common ground and an approach to programming that is crucial to understand and important to learn by -- particularly for programmers without a formal computer science background. 
 
+*Programming is a form of communication*. Communication with others but also with your future self. It actually may be the best way to define complex contexts in reproducible fashion. Therefore source code needs to be written inclusive fashion. Programming needs to be seen as a chance to make complexity accessible to those who are experts in a particular domain. The fact that programs actually run makes them more accessible to many than formal mathematical definitions.
+
+The programming examples in this book mostly stick to the [R] language which is easy to install and run on one's own local computer. All of the concepts shown can easily transfer to other languages. Though potentially a bit more tricky to install and run across operating systems, Python would have a been an equally good choice, but at there a had to be a decision for one language for this book... 
 
 
 ## The Choice that Doesn't Matter

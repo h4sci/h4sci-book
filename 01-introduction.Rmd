@@ -43,20 +43,23 @@ If you do not feel committed, revisit the previous section, discuss the need for
 
 ## Backlog
 
-Other than the classification and overview that *Programming with Data* provides, its introduction to **git version control** and the **collaboration workflow associated with git** are likely the most impactful items on your backlog. If you are not familiar with commits, pulls, pushes, branches, forks and pull requests, *Programming with Data* will open up a new world by introducing you to industry standard collaboration. A solid *git* foundation makes you fit into plethora of (software) teams around the globe -- in academia in beyond.
+Other than the classification and overview that *Programming with Data* provides, its introduction to **git version control** and the **collaboration workflow associated with git** are likely the most impactful items on your backlog. If you are not familiar with commits, pulls, pushes, branches, forks and pull requests, *Programming with Data* will open up a new world for you.
+by introducing you to industry standard collaboration. A solid *git* foundation makes you fit into plethora of (software) teams around the globe -- in academia in beyond.
 
-data management
-infrastructure
-communication
-automation
-case studies
+Your backlog en route to a researcher who is comfortable programming with data obviously contains a **strategy to improve your programming** itself and is complemented by a solid understanding of the **challenges of data management** from persistent storage to access restrictions. Plus, modern data driven science often has to handles datasets so large, **infrastructure** other than local desktops come into play. Yet, high performance computing (HPC) is by far not the only reason why its handy for a researcher to have a basic understanding of **infrastructure**. **Communication** of results including data dissemination or interactive online reports require the content to be served from a server with permanent online access. Basic workflow **automation** of regular procedures, e.g., for a repeated extract-transform-load (ETL) process to update data, is a low hanging (and very useful) fruit for a programming researcher. 
 
+The case studies at the end of the book are not exactly a backlog item like the above but still a recommended read. The case studies in this book are hands-on programming examples -- mostly written in R -- to showcase tasks from API usage to geospatial visualization in reproducible fashion. Reading and actually running other developer's code does not only improve one's own code, but helps to see what makes code inclusive and what hampers comprehensibility. 
 
 
 
 ## Requirements
 
+Essentially, the requirements in this section just extend the list of backlog items suggested above with a few things not covered in this book. This does not mean that every single item is strictly required as a prerequisite to make sense of this *Programming with Data*. The requirments are more to say that 
 
+- initial steps with a scripting language such as R or Python
+- console / terminal basics (moving around the filesystem, ssh)
+
+are explained more comprehensively elsewhere: ([Big Book of R](), [R for Data Science](), [The Carpentries]())  
 
 
 
