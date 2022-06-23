@@ -1,13 +1,12 @@
 # Stack - A Developer's Toolkit
 
-Just like natural craftsmen, digital carpenters depend on their toolbox and their mastery of it. 
-*Stack* is what developers call the choice of tools used in a particular project. Even though different flavors come down to personal preferences, there is a lot of common ground in *programming with data* stacks. Throughout this book, often a choice for one piece of software needs to be made in order to illustrate things. But please notice that these choices are examples and focus on the role of an item in the big picture. To help you with the big picture of which tool does what, the following section will group common programming-with-data stack components. Also, notice that not every role has to be filled in every project. 
+The goal of this chapter (and probably the most important goal of this entire book) is to help you with the big picture of which tool does what. In order to do so the following sections will group common programming-with-data components by purpose. All of the resulting groups represent aspects of programming with data and will be discussed in a dedicated chapter for each of the groups developed below. 
 
 <img src="images/dr_egghead_panics.jpg" width="700px">
-<div class="caption">Aaaaaaah! Don't panic, Dr. Egghead! All these components are here to help you and you won't need all of them every from the start.</div>
+<p class="caption">Aaaaaaah! Don't panic, Dr. Egghead! All these components are here to help you and you won't need all of them from the start.</p>
 
 
-Here are some components I use most often. This is a personal choice which works for me. Obviously not ALL of these are components are used in every small project. *Git, R* and *R Studio* would be my very minimal version.
+Just like natural craftsmen, digital carpenters depend on their toolbox and their mastery of it. A project's *Stack* is what developers call the choice of tools used in a particular project. Even though different flavors come down to personal preferences, there is a lot of common ground in *programming with data* stacks. Here are some of the components I use most often. This is a personal choice which works for me. Obviously, not ALL of these components are used in every small project. *Git, R* and *R Studio* would be a good minimal version.
 
 ```{r, eval=TRUE,message=FALSE, echo=FALSE}
 library(kableExtra)
@@ -26,10 +25,11 @@ kable(d,"html",escape= FALSE)
 
 ```
 
+Throughout this book, often a choice for one piece of software needs to be made in order to illustrate things. But notice that these choices are examples and focus on the role of an item in the big picture. 
 
-## Languages: Compiled vs. Interpreted
+## Programming Language
 
-In Statistical Computing -- at least in Social Sciences -- the interface between the researcher and the computation node is almost always an interpreted progamming language as opposed to a compiled one. Compiled languages like C++ require the developer to write source code and compile, i.e., translate source code into what a machine can work *before* runtime. The result of the compilation process is a binary which is specific to the operating system. Hence you will need one version for Windows, one for OSX and one for Linux if you intend to reach a truly broad audience with your program. 
+In Statistical Computing -- at least in Social Sciences -- the interface between the researcher and the computation node is almost always an interpreted progamming language as opposed to a compiled one. Compiled languages like C++ require the developer to write source code and compile, i.e., translate source code into what a machine can work with *before* runtime. The result of the compilation process is a binary which is specific to an operating system. Hence you will need one version for Windows, one for OSX and one for Linux if you intend to reach a truly broad audience with your program. 
 The main advantage of a compiled language is speed in terms of computing performance because the translation into machine language does not happen during runtime. A reduction of development speed and increase in required developer skills are the downside of using compiled languages. 
 
 > Big data is like teenage sex: everyone talks about it, nobody really knows how to do it, everyone thinks everyone else is doing it, so everyone claims they are doing it. </br></br>
@@ -44,33 +44,19 @@ R and Python are the most popular [OSS](#glossary) choices in hacking with data,
 <!-- Julia screenshot with caption -->
 
 
-## IDEs
+## Interaction Environment
 
-While the fact that a software developer needs to choose a programming language 
-to work with is rather obvious, having to pick an editor is much less obvious to
-many. This is because outside programming, software such as word processors, video or image editors
-typically presents itselves to the user as a single program. That single program  
-takes the user's input, processes the input in memory and stores a result on disk
-persistently -- often in a proprietary, program specific format. 
+While the fact that a software developer needs to choose a programming language to work with is rather obvious, the need to pick an editor is much less obvious to many. Understandably so, because outside of programming, software such as word processors, video or image editors  presents itself to the user as a single program. That single program  
+takes the user's input, processes the input (in memory) and stores a results on disk for persistence -- often in a proprietary, program specific format. 
 
-This often leads to the perception that results are stored in a particular program.
-I guess, we are all guilty of nonchalantly stating we keep our documents in Word, implicitly
-accepting that our documents are stored in closed, program specific format just because we use
-a certain software to edit our documents. 
+Yet, despite all the understanding for nonchalantly saying we keep documents **in** Word or data **in** R Studio, it's beyond nerdy nitpicking when I insist that data are kept in files (or databases) -- NOT in a program. And that R is NOT R Studio: The sloppy transfer of terminology we use when we use a program to writing code in a programming language is what implicitly accepts that our office documents live in one single program. (And that the only way to find and edit theses files is said program). 
 
+It is important to understand that source code of essentially any programming languages is a just a plain text file and therefore can be edited in any editor. Editors come in all shades of gray:
+from lean, minimal code highlighting support to full fledged integrated development environments (IDE) with everything from version control integration to sophisticated debugging. 
 
-- source code is in text files, despite weird extension and OSes tryna makes us believe we need special editor 
+Which way of interaction the developer likes better is partly a matter of personal taste, but depends also on the programming language, the team's form of collaboration and size of the project. In any case make sure to customize your development environment: choose the themes you like, make sure the cockpit you spent your day in is configured properly and feels comfy. 
 
-- editors and IDEs competing, adding value to the programmer
-
-- name a few popular ones
-
-- main chapters discusses how to make choice
-
-
-
-
-## Consoles & Shells
+In addition to some form of customized editor, most developers use some form of a console to communicate with their operating system. The ability to send commands instead of clicking is not only reproducible and shareable it also outpaces mouse movement by lot when commands come in batches. Admittedly configuration, practice and getting up to speed takes its time but once you have properly customized the way you interact with your computer when writing code you will never look back. 
 
 
 ## Version Control
@@ -102,7 +88,7 @@ A commit message summarizes the gist of a contribution. *Diffs* allow to compare
 Git is well suited for any kind of text file. May it be source code from Python or C++, or some text written in markdown or LaTeX. Binaries like .pdfs or Word documents are possible, too, but certainly not the type of file for which git is really useful. This book contains a detailed, applied introduction tailed to researchers as part of the [Programmers' Practices and Workflows](developer-practices-workflows.html) chapter, so let's dwell with the above contextualization for a bit.   
 
 
-## Database: Relational vs. Non-Relational 
+## Data Management 
 
 To evaluate which database to pick up just seems like the next daunting task of stack choice. Luckily, in research first encounters with a database are usually passive, in the sense that you want to query data from a source. In other words the choice has been made for you. So unless you want to start your own data collection from scratch, simply sit back, relax and let the internet battle out another conceptual war. 
 
@@ -114,27 +100,18 @@ No-SQL databases are the anti establishment, anti standard approach. [MongoDB](h
 The good news is, languages like R and Python are so well equipped to interface with a plethora of databases. So well, that I often recommend these languages to researchers who work with other less equipped tools, solely as an intermediate layer. And if there is really no database extension around for your language, a general [ODBC](https://en.wikipedia.org/wiki/Open_Database_Connectivity) interface helps -- at least for SQL databases.  
 
 
-## Environments: Where Should I Run Stuff ?
+## Infrastructure
+
+- own notebook 
+- cloud computing
+- saas
+- GPU (main chapter)
 
 
-
-But what if you do not want to run your stuff locally? Maybe because you want to expose a web application or site which has to be online 24/7. Maybe because you do not more additional computing power. 
-
-In principle there are four options.
-
-1. Bare Metal. Buy hardware, hook it up with the internet, install your software, have fun. If you have a consistantly high usage rate and can maintain the server efficiently, this is likely the cheapest computing hour. You saw that *if*, didn't you?
-
-2. Either use physical or virtual hardware and make your local IT department host your service **on-premise** (inhouse). You will give up a little bit of your flexible in exchange for help with maintenance and server administration.
-
-3. Cloud Computing.
+## Automation
 
 
-4. Software-as-a-Service
-
-
-
-
-## Communication
+## Publication 
 
 Communication is an essentially part of building an (academic) career. Part of it is a neat online profile. Do not relax on the excuse that your department's website does not offer the flexibility. The legal and technical situation in many places should allow you to spin up your own website or even run a blog if you find the time. For free. Including the web hosting. 
 
@@ -143,51 +120,3 @@ A popular approach to do so is to work with a *static website generator*. Genera
 The idea of engines like the [Go](https://golang.org/) based [Hugo](https://gohugo.io/) or the [Ruby](https://www.ruby-lang.org/en/) based [Jekyll](https://jekyllrb.com/) which are behind the above packages is a counter approach to what content management systems do: There is no database or template that is brought together dynamically when a user visits the website. The rendering is done locally on the creator's local computer (or netlify's environment). Whenever a change is made, the website is rendered entirely (ok, minus caching) and uploaded (pushed) again to the host. Therefore no database is needed which cuts down the costs of hosting to zero. (FWIW: this book is made with such a generator.) 
 
 
-## Automation
-
-The first type of automation described here refers to automation of your development workflow. That it is, you standardize your path from draft to program to deployment to production. Modern version control software accompanies this process with a toolchain that is often fuzzily called [CI/CD](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment). While CI stands for *continuous integration* and simply refers to a workflow in which the team tries to release new features to production as continuously as possible, CD stands for either *continuous delivery* or *continuous deployment*.
-
-However, in practice the entire toolchain referred to as *CI/CD* has become broadly available in well documented fashion when git hosting powerhouses GitHub and GitLab introduced their flavors of it: [GitHub Actions])(https://docs.github.com/en/actions) and [GitLab CI](https://docs.gitlab.com/ee/ci/). In addition services like [Travis CI](https://travis-ci.org/) or [Circle CI](https://circleci.com/) offer this toolchain independently of hosting git repositories.
-
-Users of these platforms can upload a simple textfile that follows a name convention and structure to trigger a step based toolchain based on an event. An example of an event may be the push to a repository's main branch. A common example would be to run tests and/or build a package and upon success deploy the newly created package to some server -- all triggered by simple push to master. One particularly cool thing is, that there multiple services who allow to run the testing on their servers using container technologies. This leads to great variety of setups for testing. That way software can easily be tested on different operating systems / environments. Also the mentioned website rendering approach mentioning in the previous section as a potential CI/CD application. 
-
-
-Here is a simple example of a *.gitlab-ci.yml* configuration that builds and tests a package and deploys it. It's triggered on push to master:
-
-```
-stages:
-- buildncheck
-- deploy_pack
-
-test:
-image:
-name: some.docker.registry.com/some-image:0.2.0
-entrypoint:
-- ""
-stage: buildncheck
-artifacts:
-untracked: true
-script:
-- rm .gitlab-ci.yml # we don't need it and it causes a hidden file NOTE
-- install2.r --repos custom.mini.cran.ch .
-- R CMD build . --no-build-vignettes --no-manual
-- R CMD check --no-manual *.tar.gz
-
-deploy_pack:
-only: 
-- master
-stage: deploy_pack
-image:
-name: byrnedo/alpine-curl
-entrypoint: [""]
-dependencies:
-- 'test'
-script:
-- do some more steps to login and deploy to server ...
-
-```
-
-For more in depth examples of the above, [Jim Hester's talk on GitHub Actions for R](https://www.jimhester.com/talk/2020-rsc-github-actions/) is a very good starting point.
-
-
-The other automation tool I would like to mention is [Apache Airflow](https://airflow.apache.org/) because of its ability to help researchers keep an overview of regularly running processes. Examples of such processes could be daily or monthly data sourcing or timely publication of a regularly published indicator. I often referred to it as [cronjobs](https://en.wikipedia.org/wiki/Cron) on steroids. Airflow ships with a dashboard to keep track of many timed processes, plus a ton of other log and reporting features worth a lot when maintaining reocurring processes. 

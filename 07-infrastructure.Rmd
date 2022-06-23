@@ -1,5 +1,21 @@
 # Infrastructure
 
+
+But what if you do not want to run your stuff locally? Maybe because you want to expose a web application or site which has to be online 24/7. Maybe because you do not more additional computing power. 
+
+In principle there are four options.
+
+1. Bare Metal. Buy hardware, hook it up with the internet, install your software, have fun. If you have a consistantly high usage rate and can maintain the server efficiently, this is likely the cheapest computing hour. You saw that *if*, didn't you?
+
+2. Either use physical or virtual hardware and make your local IT department host your service **on-premise** (inhouse). You will give up a little bit of your flexible in exchange for help with maintenance and server administration.
+
+3. Cloud Computing.
+
+
+4. Software-as-a-Service
+
+
+
 Yes, there is a third area besides your research and carpentry level programming
 that I suppose you should get an idea of. Again, you don't have to master hosting
 servers or even clusters, but a decent overview and an idea of when to use what will

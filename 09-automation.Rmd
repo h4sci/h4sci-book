@@ -1,5 +1,53 @@
 # Automation
 
+The first type of automation described here refers to automation of your development workflow. That it is, you standardize your path from draft to program to deployment to production. Modern version control software accompanies this process with a toolchain that is often fuzzily called [CI/CD](https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment). While CI stands for *continuous integration* and simply refers to a workflow in which the team tries to release new features to production as continuously as possible, CD stands for either *continuous delivery* or *continuous deployment*.
+
+However, in practice the entire toolchain referred to as *CI/CD* has become broadly available in well documented fashion when git hosting powerhouses GitHub and GitLab introduced their flavors of it: [GitHub Actions])(https://docs.github.com/en/actions) and [GitLab CI](https://docs.gitlab.com/ee/ci/). In addition services like [Travis CI](https://travis-ci.org/) or [Circle CI](https://circleci.com/) offer this toolchain independently of hosting git repositories.
+
+Users of these platforms can upload a simple textfile that follows a name convention and structure to trigger a step based toolchain based on an event. An example of an event may be the push to a repository's main branch. A common example would be to run tests and/or build a package and upon success deploy the newly created package to some server -- all triggered by simple push to master. One particularly cool thing is, that there multiple services who allow to run the testing on their servers using container technologies. This leads to great variety of setups for testing. That way software can easily be tested on different operating systems / environments. Also the mentioned website rendering approach mentioning in the previous section as a potential CI/CD application. 
+
+
+Here is a simple example of a *.gitlab-ci.yml* configuration that builds and tests a package and deploys it. It's triggered on push to master:
+
+```
+stages:
+- buildncheck
+- deploy_pack
+
+test:
+image:
+name: some.docker.registry.com/some-image:0.2.0
+entrypoint:
+- ""
+stage: buildncheck
+artifacts:
+untracked: true
+script:
+- rm .gitlab-ci.yml # we don't need it and it causes a hidden file NOTE
+- install2.r --repos custom.mini.cran.ch .
+- R CMD build . --no-build-vignettes --no-manual
+- R CMD check --no-manual *.tar.gz
+
+deploy_pack:
+only: 
+- master
+stage: deploy_pack
+image:
+name: byrnedo/alpine-curl
+entrypoint: [""]
+dependencies:
+- 'test'
+script:
+- do some more steps to login and deploy to server ...
+
+```
+
+For more in depth examples of the above, [Jim Hester's talk on GitHub Actions for R](https://www.jimhester.com/talk/2020-rsc-github-actions/) is a very good starting point.
+
+
+The other automation tool I would like to mention is [Apache Airflow](https://airflow.apache.org/) because of its ability to help researchers keep an overview of regularly running processes. Examples of such processes could be daily or monthly data sourcing or timely publication of a regularly published indicator. I often referred to it as [cronjobs](https://en.wikipedia.org/wiki/Cron) on steroids. Airflow ships with a dashboard to keep track of many timed processes, plus a ton of other log and reporting features worth a lot when maintaining reocurring processes. 
+
+
 
 ## CI CD, Github Actions
 
