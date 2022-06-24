@@ -121,6 +121,13 @@ Beside simplification of system administration, *docker* is known for its abilit
 
 
 
+## Publication 
+
+Communication is an essentially part of building an (academic) career. Part of it is a neat online profile. Do not relax on the excuse that your department's website does not offer the flexibility. The legal and technical situation in many places should allow you to spin up your own website or even run a blog if you find the time. For free. Including the web hosting. 
+
+A popular approach to do so is to work with a *static website generator*. Generators like blogdown, pkgdown or bookdown are flavors of the same approach to create a website: Write markdown first, render it and then upload rendered HTML + CSS + Javascript to a host like GitHub Pages or Netlify that allow you host your site for free. The *static website generator* approach has become so popular that the aforementioned hosters even offer to run the render process for you. 
+
+The idea of engines like the [Go](https://golang.org/) based [Hugo](https://gohugo.io/) or the [Ruby](https://www.ruby-lang.org/en/) based [Jekyll](https://jekyllrb.com/) which are behind the above packages is a counter approach to what content management systems do: There is no database or template that is brought together dynamically when a user visits the website. The rendering is done locally on the creator's local computer (or netlify's environment). Whenever a change is made, the website is rendered entirely (ok, minus caching) and uploaded (pushed) again to the host. Therefore no database is needed which cuts down the costs of hosting to zero. (FWIW: this book is made with such a generator.) 
 
 
 

@@ -63,6 +63,37 @@ are explained more comprehensively elsewhere: ([Big Book of R](), [R for Data Sc
 
 
 
+like backlog, but rather before you should go on this journey. 
+
+What You Need to Know to Make the Most of This Book
+
+Though the book offers many entry points and strives to make advanced considerations accessible, 
+*Programming with Data* provides the most value for readers whose prior knowledge is beyond certain threshold. The book is **not** an introduction to R nor Python. It's **not** an introduction to data science or machine learning either. Neither knowledge is strictly required to follow the book, but a basic understanding of statistical methods and the challenges applied statisticians face certainly helps to motivate getting invested into programming. Likewise, prior knowledge of a *scripting language* like *R, Python* or *Javascript*, *git version control*, as well as familiarity with  *console / terminal basics* will help the reader sail smoothly. Still though, to self-reflect on one's starting point remains the most important requirement to leverage the book. 
+
+*Programming with Data* willingly accepts to be overwhelming at times. Given the variety of topics touched in an effort to show the big picture, I encourage the reader to remain relaxed about a few blanks even when it comes to fundamentals. The open source community offers plenty of great resources to selectively upgrade skills and this books intends to show how to evaluate the need for help and how to find the right sources. 
+
+*Programming with Data* was written with the idea in mind that well maintained open source projects are the best to document themselves. Therefore I rather reference to existing documentation as opposed to rewriting it. Because even if my wording was better than the original, it is only a matter of time before my documentation is outdated. The bigger the stack the harder to keep track. So whenever, you stumble upon something you do not understand, make sure to look it up. (I tried hard to provide good a glossary and reference wherever possible, but if not - still push yourself to look things up). 
+
+That being said, to have an idea about following technologies and ideas will certainly help to get the most out of spending time with *Programming with Data*: 
+
+- Basic R or Python 
+- basic understanding of git version control 
+- basic understanding of GitHub based workflows, e.g., issue tracker, kanban boards... 
+- Terminal / Console and Shell and a shell, e.g., bash, fish
+
+In other words: if none of the above means something to you, I recommend to make yourself comfortable with the basics of 2-3 of the above fields before you start to read this book or just cherry pick single topics.
+
+
+
+
+## Backlog
+
+What you need to know to become comfortable programming with data... 
+
+
+
+
+
 
 
 

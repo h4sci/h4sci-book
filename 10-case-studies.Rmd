@@ -1,6 +1,27 @@
 # Case Studies
 
-While the rest of the book provided more of a big picture type of insight, this section is all about application minded examples that feature code to reproduce. 
+While the rest of the book provided more of a big picture type of insight, this section is all about application minded examples that most of the time feature code to reproduce. 
+
+## RSA Key Pair Authentication
+
+This section could be headed 'log in like a developer'. RSA Key Pairs are a convenient, relatively secure way to log into an account. SSH based connections, including secure copy (SCP), often make use of RSA Key Pairs instead of using a combination of username and password. Also, most git platforms use this form of authentication. The basic idea of key pairs is to have a public key and a private key. While the private key is never shared with anyone, the public key is shared with any server you want to log in to.
+It's like getting a custom door for any house that you are allowed to enter: share your public key with the server admin / or web portal and you'll be allowed in when you show your private key. In case you loose your private key or suspect it has been stolen, simply inform the admin, so she can remove the door (the public key). This is were a little detail comes into play: 
+you can password protect the authentication process. Doing so buys you time to remove the key from the server before your password gets bruteforced. The downside of this additional password is its need for interaction. So when you are setting up a batch that talks to a remote server that is when you do *not* want a key /w password. 
+
+Step one en route to log in like a grown up, is the create an RSA key pair. Github has a [1-2-3 type of manual](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) to get it done. Nevertheless, I would like the R Studio (Server) specific way here. 
+
+1. Login to https://teaching.kof.ethz.ch/ (or use your local R Studio Desktop)
+2. Go to *Tools* -> *Global Options* -> *Git/SVN*
+3. Hit Create RSA KEY (When you some crazy ASCII art reminiscant of a rabbit, it's just ok.)
+4. Click 'View Public Key' 
+5. Copy this key to the your clipboard. 
+
+<img src="images/rsa.png">
+<div class="caption-left">The R Studio GUI is an easy way to create an RSA Key Pair.</div> 
+
+6. You can paste the key you obtained to your Github settings or put it into your server's authorized keys file. 
+
+Congrats you may log in now! 
 
 
 ## Consuming APIs 
@@ -496,6 +517,35 @@ One of the cool things of learning shiny is how shiny and its ecosystem allow yo
 
 
 
+## Project Management Basics
+
+The art of stress free productivity as I once called it in '10 blog post, has put a number of gurus on the map and whole strand of literature to our bookshelves. So rather than adding to that, I would like to extract a healthy, best-of-breed type of dose here. The following few paragraphs do not intend to be comprehensive -- not even for the scope of software projects, but inspirational. 
+
+In tje software development startup community, the *waterfall* approach became synonym to conservative, traditional and ancient: Overspecification in advance of the project, premature optimization and a lawsuit over expectations that weren't met. Though waterfall project may be better than their reputation and specifications should not be too detailed and rigid.
+
+Many software projects are rather organized in *agile* fashion with SCRUM and KANBAN being the most popular derivatives. 
+Because empirical academic projects have a lot in common with software projects inasmuch that there is a certain expectation and quality control, but the outcome is not known in advance. Essentially in agile project management you roughly define an outcome along the lines of a minimum viable product (MVP). That way you do not end up with nothing after a year of back and forth. 
+During the implementation you'd meet regularly, let's say every 10 days, to discuss development since the last meet and what short term plans for the next steps ahead. The team picks splits work into task items on the issue tracker and assigns them.  Solution to problems will only be sketched out and discussed bilaterally or in small groups. By defining the work package for only a short timespan, the team stays flexible. In professional setups agile development is often strictly implemented and makes use of sophisticated systems of roles that developers and project managers can get certified for. 
+
+Major git platforms ship with a decent, carpentry level project management project management GUI. The issue tracker is at the core of this. If you use it the minimal way, it's simply a colorful to-do list. Yet, with a bit of inspiration and use of tags, comments and projects, an issue tracker can be a lot more
+
+<img src="images/issue.png">
+<div class="caption-left">The Github issue tracker (example from one of the course's repositories) can be a lot more than a todo list.</div>
+
+Swimlanes (reminiscant of a bird's eye view of an Olympic pool) can be thought of columns that you have to walk through
+from left to right: To Do, Doing, Under Review, Done. (you can also customize the number and label of lanes and event associate actions with them, but let's stick to those basic lanes in this section.) The idea is to use to keep track of the process and making the process transparent. 
+
+
+<img src="images/swim.png">
+<div class="caption-left">GitHub's web platform offers swimlanes to keep a better overview of issues being worked on.</div>
+
+```{, type='note'}
+**Tipp**: 
+No lane except 'Done' should contain more than 5-6 issues. 
+Doing so prevents clogging the lanes at particular stage which 
+could potentially lead to negligent behavior, e.g., careless reviews. 
+
+```
 
 
 <!--
