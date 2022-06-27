@@ -322,8 +322,52 @@ When you install an R package using `install.packages()` it will be installed in
 
 ### Debugging
 
+- read from the inside out
+- use debug
+- set breakpoints (IDE feature)
 
 ### Testing
+
+One of the things that helps scientists and business analysts reach the next level in programming is to develop an understanding of *testing* the way software engineers use the term. The colloquial understanding of testing basically comes down to do a couple of dry runs before using code in production. Looking at tests as a systematic and standardized procedure manifested in code substantially improves the quality and reliability of one's code.
+
+When writing software for statistical analysis, testing mostly refers to unit tests. Unit tests are expectations expressed in code often using a testing framework to help define expectations. In R the *testthat* or *tinytest* R packages are examples for such frameworks. 
+
+```{r}
+# the function
+cow <- function(){
+  
+  sound_of_a_cow <- "moo"
+  sound_of_a_cow
+  
+}
+
+# A test that uses the 
+# testthat package to formulate 
+# and check expectations
+
+test_that("The cow still mooos...", {
+  expect_gte(nchar(cow()),3)
+  expect_true(grepl("^m",cow()))
+})
+
+```
+
+The above dummy function simply returns a character. The 
+accompanying test checks whether the "moo" of the cow is loud enough (=has at least 3 characters) and whether it starts with "m" (so it's not a "woof"). Note how tests typically come in bunches to thoroughly test functionality. 
+
+So why don't we write code correctly in the first place instead of writing code to check everything that could eventually go wrong? 
+When developing new features we might be confident that newly introduced features do not break existing functionality. At least until we test it :) . Experience proves that seemingly unrelated edits do cause side effects. That is why well maintained packages have unit tests that are run when the package is re-build. If one of the checks fails, the developer can take a look before the a change that broke the code is actually deployed. 
+
+Hadley's book R packages has a more thorough introduction to [testing in R](https://r-pkgs.org/tests.html) with the testthat packages. Though the book is focused on R its introduction to formal testing is very illustrative for anyone interested to add testing to their development routine.  
+
+
+
+
+
+
+
+
+
 
 - unit testing frameworks
 - code coverage
