@@ -1,6 +1,6 @@
 # Programming 101
 
-Obviously, the craft of *programming* is essential to handling data with a programming language. Though programming languages can differ quite a bit from each other, there is common ground and an approach to programming that is crucial to understand and important to learn by -- particularly for programmers without a formal computer science background. 
+Obviously, the craft of *programming* is essential to handling data with a programming language. Though programming languages can differ quite a bit from each other, there is common ground and an approach to programming that is crucial to understand and important to learn by -- particularly for programmers without a formal computer science background. This chapter wants to point researchers, analysts and data scientists to the low hanging, high impact fruits of software engineering.
 
 *Programming is a form of communication*. Communication with others but also with your future self. It actually may be the best way to define complex contexts in reproducible fashion. Therefore source code needs to be written inclusive fashion. Programming needs to be seen as a chance to make complexity accessible to those who are experts in a particular domain. The fact that programs actually run makes them more accessible to many than formal mathematical definitions.
 
@@ -20,11 +20,6 @@ But why is there such a heartfelt debate online, if it doesn't matter? Let's pic
 
 The point is,  rest assured, if you just start doing analytics using a programming languages both languages are guaranteed to carry you a long way. There is no way to tell for sure which one will be the more dominant language in 10 years from now or whether both still be around holding their ground the way they do now. But once you reached a decent software carpentry level in either language, it will help you a lot learning the other. If your peers work with R, start with R, if your close community
 works with Python, start with Python. If you are in for the longer run either language will help you understand the concepts and ideas of programming with data. Trust me, there will be a natural opportunity to get to know the other. 
-
-
-
-
-
 
 
 <!-- DO NOT FORGET TO SAY SOMETHIN ABOUT LICENSES !! -->
@@ -211,10 +206,6 @@ gsub("(.+)(mooo+)","\\2",cow)
 Again, {stringr} is certainly a well crafted package and it is definitely not the worst of all packages. But when you just loaded a package because it adds convenience to one single line or worse just because you found your solution online, think again before adding more dependencies to a production environment.  
 
 
-
-
-
-
 ## Naming Conventions: Snake, Camel or Kebap
 
 Before we start with files and folders, let me drop a quick, general note on naming. As in how to name files, folders and functions. It may look like a mere detail, but concise formatting and styling of your code will be appreciated by your peers and by those you ask for help. Plus, following an established convention will not make you look like a complete greenhorn. 
@@ -225,8 +216,6 @@ Before we start with files and folders, let me drop a quick, general note on nam
 
 - either go for camelCase, snake_case or kebap-case. Otherwise prefer lower case
 characters. Also make sure to not switch styles within a project. There a plenty of style guides around, go with whatever your lab or community goes. 
-
-
 
 
 ## Folder Structure
@@ -322,7 +311,40 @@ When you install an R package using `install.packages()` it will be installed in
 
 ### Debugging
 
-- read from the inside out
+In programming there is no way around debugging. From copy&paste artists to the grandmasters of hacking: writing code implies the need to debug. The main difference betweend amateur and professional is the degree to which the hunt for errors a.k.a. bugs is done systematically. This section gives a few tips to help organize a debugging strategy and assess how much honing of one's debugging is reasonable. 
+
+
+### Read Code from the Inside Out
+
+Many scripting languages allow some form of nesting code. 
+In order to understand what's going on (and to look at subparts of the code separatedly) reading / running the inner element first helps. 
+
+```{r,eval=FALSE}
+identical(sum(cumsum(1:10)),sum(cumsum(rev(1:10))))
+```
+
+```{r}
+identical(
+  sum(cumsum(1:10)),
+  sum(cumsum(
+    rev(1:10)
+    )
+    )
+  )
+```
+
+To understand the above demo code let's take closer look at the innermost element(s):
+
+```{r}
+1:10
+rev(1:10)
+```
+
+The calls to cumsum() and sum() are the next layers. Finally, identical() is the outermost function. 
+
+
+## IDEs provide 
+
 - use debug
 - set breakpoints (IDE feature)
 
