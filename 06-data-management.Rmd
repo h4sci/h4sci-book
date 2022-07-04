@@ -22,6 +22,6 @@ Hopefully it provides the reader a starting point and helps the applied praction
 ## Parquet, Kafka etc. 
 
 
-## Security
+## Privacy and Security
 
 great power great responsibility, see remarks
