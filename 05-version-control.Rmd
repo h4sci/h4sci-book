@@ -49,7 +49,7 @@ So let's actually do it. Here's a three stage walk through of git commands that 
 
 **Stage 1: Working Locally**
 
-```{r, eval=TRUE,message=FALSE, echo=FALSE}
+```{r gittable, eval=TRUE,message=FALSE, echo=FALSE}
 library(kableExtra)
 d <- data.frame("Command" = c("git init",
                               "git status",
@@ -78,7 +78,7 @@ Though git can be tremendously useful even without collaborators, the real fun s
 when working together. The first step en route to get others involved is to add a remote repository. 
 
 
-```{r, eval=TRUE,message=FALSE, echo=FALSE}
+```{r gittable2, eval=TRUE,message=FALSE, echo=FALSE}
 library(kableExtra)
 d <- data.frame("Command" = c("git clone",
                               "git pull",

@@ -1,11 +1,27 @@
 # Data Management
 
-in memory, out of memory persistent.
+Other than putting your source code under version control, 
+thinking about data management has probably the biggest impact on your work if you have not done it before. In other words, if you came from an environment where data are stored solely in spreadsheets and shared via e-mail or on shared network drives, thinking about different forms of databases or in-memory vs. on-disk storage is a step into a bigger world. 
+
+After all these decades of information engineering and computer science, it is rather obvious that there is not one perfect, one-size-fits-all format. In fact a substantial part of programming deals with transforming data from one form and format into another: 
+Data in memory allow for fast processing, but cannot provide cheap, persistent storage. Some formats are highly efficient and flexible but put a lot of abstraction and cognitive workload on the user while others are more convenient but highly redundant. 
+
+This chapter intends give an idea of the most important data management concepts relevant for data analytics. 
+Hopefully it provides the reader a starting point and helps the applied practioner to assess how far they wanted to dig into data management. 
+
+## File Based Storage
 
 
-## Databases
+
+## Relational Databases
+
+
+## Non Relational Data 
+
 
 ## Parquet, Kafka etc. 
 
 
 ## Security
+
+great power great responsibility, see remarks

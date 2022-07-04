@@ -39,7 +39,7 @@ A simple program wraps the process of using the interface though dynamic URLs in
 The KOF Swiss Economic Institute at ETH Zurich provides such a wrapper in an R package. The underlying API allows to access the KOF time series archive database and obtain data and meta information alike. The below code snippet gets data from the API and uses another KOF built library ({tstools}) to visualize the returned time series. 
 
 
-```{r, warning=FALSE, message=FALSE}
+```{r kofdata, warning=FALSE, message=FALSE}
 library(kofdata)
 # just for viz
 library(tstools)
@@ -201,7 +201,7 @@ select copy -> copy X-Path.
 
 On to R! 
 
-```{r, warning=FALSE,message=FALSE}
+```{r rvest, warning=FALSE,message=FALSE}
 library(rvest)
 # URL of the media release subsite
 url <- "https://kof.ethz.ch/news-und-veranstaltungen/medien/medienagenda.html"
@@ -273,7 +273,7 @@ First, we need a *definition of a country's shape*. Those definitions come in va
 Second, we need some data.frame that simply connects values to regions. In this case we use regions defined by the Swiss Federal Statistical Office (FSO). Because our charting library makes use of the geoJSON convention to call the region label 'name' we need to call the column that holds the region names 
 'name' as well. That way we can safely use defaults when plotting. Ah, and note that the values are absolutely bogus that came to my mind while writing this (so please do not mull over how these values were picked).
 
-```{r, eval=FALSE}
+```{r geo, eval=FALSE}
 
 d <- data.frame(
   name = c("Zürich",
@@ -364,7 +364,7 @@ Let's consider the following web frontend put together with
 a few lines of R code. Consider the following, simple web fronted that lives in a dedicated user interface R file, called *ui.R*:
 
 
-```{r, eval=FALSE}
+```{r shiny1, eval=FALSE}
 library(shiny)
 library(shinydashboard)
 
@@ -400,11 +400,8 @@ dashboardPage(
             )
       )
     )
-    
   )
 )
-
-
 ```
 
 Besides the shiny package itself, the ecosystem around shiny brings popular frontend frameworks from the world outside data science to R. In the above case, a boilerplate library for dashboards is made available through the add-on package {shinydashboard}.
@@ -441,7 +438,7 @@ Under-the-hood-work that is traditionally implemented in languages like Java, Py
 Consider the following minimal backend *server.R* file which corresponds to the above *ui.R* frontend file. The anonymous (nameless) function which is passed on to the *ShinyServer* function takes two named lists, *input* and *output*, as arguments. The named elements of the input list correspond to the *widgetId* parameter of the UI element. 
 In the below example, our well known base R function *rnorm* takes *nobs* from the input as its *n* sample size argument. Mean and standard deviation are set in the same fashion using the user interface (UI) inputs. 
 
-```{r, eval=FALSE}
+```{r shiny2, eval=FALSE}
 
 library(shiny)
 
