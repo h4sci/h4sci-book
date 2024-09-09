@@ -1,15 +1,8 @@
 # Hacking for Social Sciences and the Humanities (online book)
 
-This repository contains the source code of an online book made with [bookdown](https://bookdown.org). 
-The book is written along with the course *Hacking for Social Sciences* taught at ETH Zurich and should hopefully grow 
-with this course. I hope, however, the book will also work as a standalone input (i.e. w/o any lecture material.) to (social) scientists looking for insights to _Programming with Data_, 
+>This is an early draft of the a published book. in 2024, the book has been published by Chapman&Hall as [Research Software Engineering - A Guide to the Open Source Ecosystem](https://www.amazon.com/Research-Software-Engineering-Ecosystem-Chapman/dp/1032261277). 
+The book project keeps a free online version at [rse-book.github.io](https://rse-book.github.io).
 
-Please leave your suggestions and feedback in the issue tracker of this repository!
-
-## Resources
-
-- [Read the book online (free)](https://h4sci.github.io/h4sci-book/)
-- [PhD Course at ETH Zurich, Switzerland](https://github.com/h4sci/h4sci-course)
 
 
 ## License
